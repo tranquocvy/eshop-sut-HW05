@@ -1,6 +1,6 @@
 # HW05 — T03 · Stress và Spike
 
-[Stress plan](plans/23120410_Stress_20261118.jmx) và [Spike plan](plans/23120410_Spike_20261118.jmx) chạy trên bản backend local T01 bằng JMeter 5.6.3 và Temurin 17.0.21+9. Tải và cài công cụ theo hướng dẫn T02. [Môi trường](Environment.md) · [Cài công cụ](Load_Plan.md#6-tải-và-đặt-công-cụ)
+[Stress plan](plans/23120410_Stress_20261119.jmx) và [Spike plan](plans/23120410_Spike_20261119.jmx) chạy trên bản backend local T01 bằng JMeter 5.6.3 và Temurin 17.0.21+9. Tải và cài công cụ theo hướng dẫn T02. [Môi trường](Environment.md) · [Cài công cụ](Load_Plan.md#6-tải-và-đặt-công-cụ)
 
 ## 1. Thiết kế tải
 
@@ -137,7 +137,7 @@ $tools = (Resolve-Path -LiteralPath 'HW05/.runtime/tools').Path
 $run = (New-Item -ItemType Directory -Path ('HW05/.runtime/T03/' + $scenario + '-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))).FullName
 $java = Join-Path $tools 'temurin17-jre/jdk-17.0.21+9-jre/bin/java.exe'
 $jar = Join-Path $tools 'apache-jmeter-5.6.3/bin/ApacheJMeter.jar'
-$plan = Join-Path $suite "plans/23120410_${scenario}_20261118.jmx"
+$plan = Join-Path $suite "plans/23120410_${scenario}_20261119.jmx"
 $cli = @(
   '-n', '-t', $plan, '-l', (Join-Path $run 'run.jtl'), '-j', (Join-Path $run 'jmeter.log'),
   '-Jjmeterengine.nongui.port=4445', '-Jjmeterengine.nongui.maxport=4445',

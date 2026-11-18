@@ -18,4 +18,8 @@ d14eaad06a510657c90de816ea1348e1176bc958
 2026-11-18T16:39:53+07:00
 test(hw05): add data-driven load plan
 
-Lịch sử đến T02. Xuất đầy đủ từ Git ở T08.
+23e4bc8412e3a113ba199b6575418e2eb66a454e
+2026-11-18T22:14:31+07:00
+test(hw05): calibrate stress and spike plans
+
+Lịch sử đến T03, trước commit T04. Xuất đầy đủ từ Git ở T08.

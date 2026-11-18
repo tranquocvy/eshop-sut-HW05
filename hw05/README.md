@@ -27,21 +27,22 @@ Load, Stress và Spike dùng chung workflow JMeter trên REST API. Login phủ a
 
 ## Tóm tắt kiểm thử
 
-| Mục | Trạng thái sau T03 |
+| Mục | Trạng thái sau T04 |
 | --- | --- |
-| Kịch bản thực thi | Smoke T01, pilot Load T02, hai lượt thăm dò và pilot Stress/Spike T03. Pilot Load dùng CSV mặc định có 47 sample đạt. Pilot Stress đạt 752/752 và Spike đạt 502/502. |
-| Nhóm endpoint được kiểm thử | Smoke và pilot phủ auth-heavy, read-heavy và transactional qua workflow đăng nhập, tìm kiếm, xem chi tiết, thêm giỏ và checkout. |
-| Điểm bão hòa | Chưa xác lập. Mốc 144 VU là trần thử nghiệm trên máy dùng chung. |
+| Kịch bản thực thi | Load 6 VU, 548 request, 3,70 RPS. Stress 24 → 48 → 96 → 144 VU, 20.203 request, 170,12 RPS. Spike 6 → 144 → 6 VU, 7.755 request, 52,06 RPS. Cả ba lượt có 0 lỗi. [Chi tiết và bằng chứng T04](T04_Execution.md) |
+| Nhóm endpoint được kiểm thử | Các lượt đo phủ auth-heavy, read-heavy và transactional qua đăng nhập, tìm kiếm, xem chi tiết, thêm giỏ và checkout. |
+| Điểm bão hòa | Chưa xác lập. Stress và Spike dùng 144 VU làm trần thử nghiệm trên máy dùng chung. |
 | Ngưỡng endurance | Chưa đo. |
-| Số bug hoặc performance issue | T01 ghi nhận sai lệch FR-02 khi đối chiếu code với đặc tả. Chưa có kết quả phân loại issue từ các lượt đo tải. |
+| Bug và performance issue | T01 ghi nhận sai lệch FR-02. T04 dùng credentials hợp lệ và không kiểm lại FR-02. Các lượt đo T04 không phát sinh lỗi để soạn nháp Issue mới. |
 | Video demo | Chưa có video HW05. |
 
 ## Tài liệu và dữ liệu
 
 - [Báo cáo chính](Report.md) và [lịch sử commit](GitCommitLog.txt).
 - [Môi trường và workflow](Environment.md) và [bằng chứng smoke T01](evidence/t01-smoke.json).
-- [Load plan](plans/23120410_Load_20261118.jmx), [cách chuẩn bị CSV và chạy lại](Load_Plan.md) và [bằng chứng pilot T02](evidence/t02-pilot.json).
-- [Stress plan](plans/23120410_Stress_20261118.jmx), [Spike plan](plans/23120410_Spike_20261118.jmx), [thiết kế và cách chạy lại](Stress_Spike_Plans.md) và [bằng chứng thăm dò, pilot T03](evidence/t03-pilots.json).
+- [Load plan](plans/23120410_Load_20261119.jmx), [cách chuẩn bị CSV và chạy lại](Load_Plan.md) và [bằng chứng pilot T02](evidence/t02-pilot.json).
+- [Stress plan](plans/23120410_Stress_20261119.jmx), [Spike plan](plans/23120410_Spike_20261119.jmx), [thiết kế và cách chạy lại](Stress_Spike_Plans.md) và [bằng chứng thăm dò, pilot T03](evidence/t03-pilots.json).
+- [Thực thi T04](T04_Execution.md) · [Dashboard Load](results/23120410_Load_20261119/index.html) · [Dashboard Stress](results/23120410_Stress_20261119/index.html) · [Dashboard Spike](results/23120410_Spike_20261119/index.html).
 - [AI Audit Report](ai/AI_Audit_Report.md), [Prompt Log](ai/PromptLog.md) và [AI Critique](ai/AI_Critique.md).
 - [Khai báo sử dụng AI](ai/AI_Disclosure.md) và [Bảng kiểm quyền riêng tư](ai/AI_Privacy_Checklist.md).
 - `plans/` lưu test plan và `data/` lưu CSV dùng để tham số hóa request.

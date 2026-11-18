@@ -1,0 +1,549 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect,"fixture_product_id","authenticated_user_id","order_id"
+1795025547678,31,01 Login,200,OK,Load Users 1-1,text,true,,680,286,1,1,http://127.0.0.1:3000/api/login,31,0,22,1,3,null
+1795025549505,3,02 Search products,200,OK,Load Users 1-1,text,true,,453,201,1,1,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,3,null
+1795025550808,2,03 Product detail,200,OK,Load Users 1-1,text,true,,451,189,1,1,http://127.0.0.1:3000/api/products/1,2,0,0,1,3,null
+1795025552177,3,01 Login,200,OK,Load Users 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,3,0,1,1,4,null
+1795025552477,6,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,6,0,0,1,3,null
+1795025553879,1,02 Search products,200,OK,Load Users 1-2,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,4,null
+1795025554464,8,05 Checkout,200,OK,Load Users 1-1,text,true,,312,471,2,2,http://127.0.0.1:3000/api/checkout,8,0,0,1,3,1
+1795025555327,2,03 Product detail,200,OK,Load Users 1-2,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,2,0,0,1,4,null
+1795025555611,2,01 Login,200,OK,Load Users 1-1,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,2,5,null
+1795025556404,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,426,3,3,http://127.0.0.1:3000/api/cart,1,0,0,1,4,null
+1795025556760,1,02 Search products,200,OK,Load Users 1-1,text,true,,480,201,3,3,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,5,null
+1795025557440,3,01 Login,200,OK,Load Users 1-3,text,true,,680,286,3,3,http://127.0.0.1:3000/api/login,3,0,1,1,6,null
+1795025558281,3,03 Product detail,200,OK,Load Users 1-1,text,true,,480,189,3,3,http://127.0.0.1:3000/api/products/2,3,0,0,2,5,null
+1795025558368,9,05 Checkout,200,OK,Load Users 1-2,text,true,,312,471,3,3,http://127.0.0.1:3000/api/checkout,9,0,0,1,4,2
+1795025558907,2,02 Search products,200,OK,Load Users 1-3,text,true,,453,201,3,3,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,6,null
+1795025560224,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,433,3,3,http://127.0.0.1:3000/api/cart,1,0,0,2,5,null
+1795025560260,3,01 Login,200,OK,Load Users 1-2,text,true,,680,286,3,3,http://127.0.0.1:3000/api/login,3,0,0,2,7,null
+1795025560273,2,03 Product detail,200,OK,Load Users 1-3,text,true,,451,189,3,3,http://127.0.0.1:3000/api/products/1,2,0,0,1,6,null
+1795025561660,8,05 Checkout,200,OK,Load Users 1-1,text,true,,312,468,4,4,http://127.0.0.1:3000/api/checkout,8,0,0,2,5,3
+1795025562099,3,01 Login,200,OK,Load Users 1-4,text,true,,680,286,4,4,http://127.0.0.1:3000/api/login,3,0,2,1,8,null
+1795025562134,1,02 Search products,200,OK,Load Users 1-2,text,true,,480,201,4,4,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,7,null
+1795025562180,2,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,426,4,4,http://127.0.0.1:3000/api/cart,2,0,0,1,6,null
+1795025563030,1,01 Login,200,OK,Load Users 1-1,text,true,,680,286,4,4,http://127.0.0.1:3000/api/login,1,0,0,3,9,null
+1795025563451,2,03 Product detail,200,OK,Load Users 1-2,text,true,,480,189,4,4,http://127.0.0.1:3000/api/products/2,2,0,0,2,7,null
+1795025563589,1,02 Search products,200,OK,Load Users 1-4,text,true,,453,201,4,4,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,8,null
+1795025564153,9,05 Checkout,200,OK,Load Users 1-3,text,true,,312,471,4,4,http://127.0.0.1:3000/api/checkout,9,0,0,1,6,4
+1795025564859,1,02 Search products,200,OK,Load Users 1-1,text,true,,450,202,4,4,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,9,null
+1795025564906,2,03 Product detail,200,OK,Load Users 1-4,text,true,,451,189,4,4,http://127.0.0.1:3000/api/products/1,2,0,0,1,8,null
+1795025565181,1,01 Login,200,OK,Load Users 1-3,text,true,,683,286,4,4,http://127.0.0.1:3000/api/login,1,0,0,2,10,null
+1795025565382,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,433,4,4,http://127.0.0.1:3000/api/cart,1,0,0,2,7,null
+1795025566048,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,426,5,5,http://127.0.0.1:3000/api/cart,1,0,0,1,8,null
+1795025566581,2,03 Product detail,200,OK,Load Users 1-1,text,true,,448,189,5,5,http://127.0.0.1:3000/api/products/3,2,0,0,3,9,null
+1795025566963,1,02 Search products,200,OK,Load Users 1-3,text,true,,480,201,5,5,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,10,null
+1795025567096,7,05 Checkout,200,OK,Load Users 1-2,text,true,,312,468,5,5,http://127.0.0.1:3000/api/checkout,7,0,0,2,7,5
+1795025567146,4,01 Login,200,OK,Load Users 1-5,text,true,,683,286,5,5,http://127.0.0.1:3000/api/login,4,0,1,1,11,null
+1795025568015,7,05 Checkout,200,OK,Load Users 1-4,text,true,,312,471,5,5,http://127.0.0.1:3000/api/checkout,7,0,0,1,8,6
+1795025568179,2,02 Search products,200,OK,Load Users 1-5,text,true,,453,201,5,5,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,11,null
+1795025568367,2,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,423,5,5,http://127.0.0.1:3000/api/cart,2,0,0,3,9,null
+1795025568773,3,03 Product detail,200,OK,Load Users 1-3,text,true,,480,189,5,5,http://127.0.0.1:3000/api/products/2,3,0,0,2,10,null
+1795025568774,4,01 Login,200,OK,Load Users 1-2,text,true,,683,286,5,5,http://127.0.0.1:3000/api/login,4,0,0,3,12,null
+1795025569829,2,02 Search products,200,OK,Load Users 1-2,text,true,,450,202,5,5,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,12,null
+1795025569830,1,03 Product detail,200,OK,Load Users 1-5,text,true,,451,189,5,5,http://127.0.0.1:3000/api/products/1,1,0,0,1,11,null
+1795025569882,8,05 Checkout,200,OK,Load Users 1-1,text,true,,312,470,5,5,http://127.0.0.1:3000/api/checkout,8,0,0,3,9,7
+1795025569916,3,01 Login,200,OK,Load Users 1-4,text,true,,683,286,5,5,http://127.0.0.1:3000/api/login,3,0,0,2,13,null
+1795025570725,2,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,435,5,5,http://127.0.0.1:3000/api/cart,1,0,0,2,10,null
+1795025570956,2,03 Product detail,200,OK,Load Users 1-2,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,12,null
+1795025571045,2,02 Search products,200,OK,Load Users 1-4,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,13,null
+1795025571155,3,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,4,14,null
+1795025571687,3,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,3,0,0,1,11,null
+1795025572147,2,03 Product detail,200,OK,Load Users 1-4,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,2,0,0,2,13,null
+1795025572248,4,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,1,1,15,null
+1795025572386,2,02 Search products,200,OK,Load Users 1-1,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,14,null
+1795025572707,2,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,2,0,0,3,12,null
+1795025572714,10,05 Checkout,200,OK,Load Users 1-3,text,true,,312,470,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,2,10,8
+1795025573119,9,05 Checkout,200,OK,Load Users 1-5,text,true,,312,473,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,1,11,9
+1795025573753,1,02 Search products,200,OK,Load Users 1-6,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,15,null
+1795025573827,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,13,null
+1795025574008,2,03 Product detail,200,OK,Load Users 1-1,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,14,null
+1795025574393,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,16,null
+1795025574527,10,05 Checkout,200,OK,Load Users 1-2,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,3,12,10
+1795025574862,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,2,17,null
+1795025575029,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,14,null
+1795025575366,1,03 Product detail,200,OK,Load Users 1-6,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,15,null
+1795025575376,8,05 Checkout,200,OK,Load Users 1-4,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,2,13,11
+1795025576179,10,05 Checkout,200,OK,Load Users 1-1,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,4,14,12
+1795025576356,1,02 Search products,200,OK,Load Users 1-3,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,16,null
+1795025576514,3,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,4,18,null
+1795025576857,2,02 Search products,200,OK,Load Users 1-5,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,17,null
+1795025577006,3,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,3,19,null
+1795025577031,2,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,2,0,0,1,15,null
+1795025577748,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,20,null
+1795025577781,2,03 Product detail,200,OK,Load Users 1-3,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,2,0,0,3,16,null
+1795025577877,2,03 Product detail,200,OK,Load Users 1-5,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,2,0,0,2,17,null
+1795025577944,1,02 Search products,200,OK,Load Users 1-2,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,18,null
+1795025578357,9,05 Checkout,200,OK,Load Users 1-6,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,1,15,13
+1795025578398,2,02 Search products,200,OK,Load Users 1-4,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,19,null
+1795025578909,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,16,null
+1795025579536,2,02 Search products,200,OK,Load Users 1-1,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,20,null
+1795025579591,1,03 Product detail,200,OK,Load Users 1-2,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,18,null
+1795025579729,2,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,2,0,0,2,17,null
+1795025579793,2,03 Product detail,200,OK,Load Users 1-4,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,2,0,0,3,19,null
+1795025580087,3,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,2,21,null
+1795025580393,9,05 Checkout,200,OK,Load Users 1-3,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,3,16,14
+1795025580906,9,05 Checkout,200,OK,Load Users 1-5,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,2,17,15
+1795025581152,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,18,null
+1795025581243,2,02 Search products,200,OK,Load Users 1-6,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,21,null
+1795025581460,2,03 Product detail,200,OK,Load Users 1-1,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,20,null
+1795025581473,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,22,null
+1795025581739,2,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,2,0,0,3,19,null
+1795025582329,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,23,null
+1795025582380,2,03 Product detail,200,OK,Load Users 1-6,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,2,0,0,2,21,null
+1795025582590,9,05 Checkout,200,OK,Load Users 1-2,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,4,18,16
+1795025583095,7,05 Checkout,200,OK,Load Users 1-4,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,3,19,17
+1795025583099,4,02 Search products,200,OK,Load Users 1-3,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,4,0,0,4,22,null
+1795025583193,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,20,null
+1795025583972,1,02 Search products,200,OK,Load Users 1-5,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,23,null
+1795025584018,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,24,null
+1795025584226,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,21,null
+1795025584598,3,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,25,null
+1795025584678,12,05 Checkout,200,OK,Load Users 1-1,text,true,,313,469,6,6,http://127.0.0.1:3000/api/checkout,12,0,0,5,20,18
+1795025584756,2,03 Product detail,200,OK,Load Users 1-3,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,22,null
+1795025585319,1,02 Search products,200,OK,Load Users 1-2,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,24,null
+1795025585614,2,03 Product detail,200,OK,Load Users 1-5,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,2,0,0,3,23,null
+1795025585803,3,02 Search products,200,OK,Load Users 1-4,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,25,null
+1795025585913,9,05 Checkout,200,OK,Load Users 1-6,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,2,21,19
+1795025585998,2,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,2,0,0,4,22,null
+1795025586143,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,26,null
+1795025587019,1,03 Product detail,200,OK,Load Users 1-2,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,24,null
+1795025587077,9,05 Checkout,200,OK,Load Users 1-3,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,4,22,20
+1795025587283,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,27,null
+1795025587341,1,02 Search products,200,OK,Load Users 1-1,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,26,null
+1795025587343,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,23,null
+1795025587443,1,03 Product detail,200,OK,Load Users 1-4,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,25,null
+1795025588304,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,24,null
+1795025588373,1,02 Search products,200,OK,Load Users 1-6,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,27,null
+1795025588470,6,05 Checkout,200,OK,Load Users 1-5,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,6,0,0,3,23,21
+1795025588833,2,03 Product detail,200,OK,Load Users 1-1,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,2,0,0,1,26,null
+1795025588845,3,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,5,28,null
+1795025589209,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,25,null
+1795025589748,2,03 Product detail,200,OK,Load Users 1-6,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,2,0,0,3,27,null
+1795025589912,8,05 Checkout,200,OK,Load Users 1-2,text,true,,313,469,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,5,24,22
+1795025590136,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,29,null
+1795025590393,1,02 Search products,200,OK,Load Users 1-3,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,28,null
+1795025590481,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,26,null
+1795025591049,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,30,null
+1795025591057,7,05 Checkout,200,OK,Load Users 1-4,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,4,25,23
+1795025591130,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,27,null
+1795025591391,3,02 Search products,200,OK,Load Users 1-5,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,29,null
+1795025591788,2,03 Product detail,200,OK,Load Users 1-3,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,28,null
+1795025592098,10,05 Checkout,200,OK,Load Users 1-1,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,1,26,24
+1795025592362,2,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,31,null
+1795025592484,9,05 Checkout,200,OK,Load Users 1-6,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,3,27,25
+1795025592486,7,02 Search products,200,OK,Load Users 1-2,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,7,0,0,1,30,null
+1795025592888,2,03 Product detail,200,OK,Load Users 1-5,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,29,null
+1795025593019,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,28,null
+1795025593433,1,02 Search products,200,OK,Load Users 1-4,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,31,null
+1795025593746,4,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,4,0,0,2,32,null
+1795025594017,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,33,null
+1795025594058,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,29,null
+1795025594397,1,03 Product detail,200,OK,Load Users 1-2,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,30,null
+1795025594442,7,05 Checkout,200,OK,Load Users 1-3,text,true,,313,469,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,5,28,26
+1795025594736,1,03 Product detail,200,OK,Load Users 1-4,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,31,null
+1795025594823,2,02 Search products,200,OK,Load Users 1-1,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,32,null
+1795025595106,3,02 Search products,200,OK,Load Users 1-6,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,33,null
+1795025595872,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,30,null
+1795025595977,7,05 Checkout,200,OK,Load Users 1-5,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,4,29,27
+1795025596071,1,03 Product detail,200,OK,Load Users 1-1,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,32,null
+1795025596259,1,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,1,34,null
+1795025596494,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,31,null
+1795025596735,3,03 Product detail,200,OK,Load Users 1-6,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,33,null
+1795025597111,9,05 Checkout,200,OK,Load Users 1-2,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,1,30,28
+1795025597284,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,35,null
+1795025597398,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,32,null
+1795025597630,7,05 Checkout,200,OK,Load Users 1-4,text,true,,313,469,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,5,31,29
+1795025598015,2,02 Search products,200,OK,Load Users 1-3,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,34,null
+1795025598653,3,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,2,36,null
+1795025598657,1,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,1,37,null
+1795025598691,2,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,2,0,0,4,33,null
+1795025599137,2,02 Search products,200,OK,Load Users 1-5,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,35,null
+1795025599339,1,03 Product detail,200,OK,Load Users 1-3,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,34,null
+1795025599341,7,05 Checkout,200,OK,Load Users 1-1,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,2,32,30
+1795025599697,3,02 Search products,200,OK,Load Users 1-4,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,37,null
+1795025599942,9,05 Checkout,200,OK,Load Users 1-6,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,4,33,31
+1795025599957,2,02 Search products,200,OK,Load Users 1-2,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,36,null
+1795025600675,1,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,3,38,null
+1795025600951,2,03 Product detail,200,OK,Load Users 1-5,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,35,null
+1795025600973,2,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,2,0,0,1,34,null
+1795025601300,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,39,null
+1795025601304,1,03 Product detail,200,OK,Load Users 1-2,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,36,null
+1795025601532,1,03 Product detail,200,OK,Load Users 1-4,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,37,null
+1795025602313,2,02 Search products,200,OK,Load Users 1-1,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,38,null
+1795025602582,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,37,null
+1795025602729,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,35,null
+1795025602840,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,36,null
+1795025602956,1,02 Search products,200,OK,Load Users 1-6,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,39,null
+1795025602967,10,05 Checkout,200,OK,Load Users 1-3,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,1,34,32
+1795025603931,8,05 Checkout,200,OK,Load Users 1-4,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,1,37,33
+1795025604065,1,03 Product detail,200,OK,Load Users 1-1,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,38,null
+1795025604301,1,03 Product detail,200,OK,Load Users 1-6,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,39,null
+1795025604596,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,40,null
+1795025604613,8,05 Checkout,200,OK,Load Users 1-2,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,2,36,34
+1795025604724,8,05 Checkout,200,OK,Load Users 1-5,text,true,,313,469,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,5,35,35
+1795025605345,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,39,null
+1795025605613,2,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,41,null
+1795025605914,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,38,null
+1795025605954,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,42,null
+1795025606036,1,02 Search products,200,OK,Load Users 1-3,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,40,null
+1795025606265,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,43,null
+1795025606858,9,05 Checkout,200,OK,Load Users 1-6,text,true,,313,469,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,5,39,36
+1795025607304,7,05 Checkout,200,OK,Load Users 1-1,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,3,38,37
+1795025607356,3,02 Search products,200,OK,Load Users 1-4,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,41,null
+1795025607692,3,03 Product detail,200,OK,Load Users 1-3,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,3,0,0,2,40,null
+1795025607741,2,02 Search products,200,OK,Load Users 1-2,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,42,null
+1795025608269,1,02 Search products,200,OK,Load Users 1-5,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,43,null
+1795025608720,1,03 Product detail,200,OK,Load Users 1-4,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,41,null
+1795025608740,5,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,5,0,2,4,45,null
+1795025608804,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,44,null
+1795025609120,2,03 Product detail,200,OK,Load Users 1-2,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,2,0,0,3,42,null
+1795025609188,2,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,2,0,0,2,40,null
+1795025609620,2,03 Product detail,200,OK,Load Users 1-5,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,2,0,0,1,43,null
+1795025609849,1,02 Search products,200,OK,Load Users 1-6,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,44,null
+1795025610165,1,02 Search products,200,OK,Load Users 1-1,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,45,null
+1795025610268,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,41,null
+1795025610497,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,42,null
+1795025610769,8,05 Checkout,200,OK,Load Users 1-3,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,2,40,38
+1795025610915,2,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,43,null
+1795025610930,2,03 Product detail,200,OK,Load Users 1-6,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,2,0,0,1,44,null
+1795025611463,1,03 Product detail,200,OK,Load Users 1-1,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,45,null
+1795025612183,6,05 Checkout,200,OK,Load Users 1-4,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,6,0,0,2,41,39
+1795025612208,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,46,null
+1795025612308,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,44,null
+1795025612324,9,05 Checkout,200,OK,Load Users 1-2,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,9,0,1,3,42,40
+1795025612740,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,45,null
+1795025612757,7,05 Checkout,200,OK,Load Users 1-5,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,1,43,41
+1795025613683,2,02 Search products,200,OK,Load Users 1-3,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,46,null
+1795025613942,2,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,47,null
+1795025613956,7,05 Checkout,200,OK,Load Users 1-6,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,1,44,42
+1795025614091,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,48,null
+1795025614571,9,05 Checkout,200,OK,Load Users 1-1,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,4,45,43
+1795025614750,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,49,null
+1795025615025,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,50,null
+1795025615259,1,03 Product detail,200,OK,Load Users 1-3,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,46,null
+1795025615481,2,02 Search products,200,OK,Load Users 1-2,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,48,null
+1795025615522,1,02 Search products,200,OK,Load Users 1-4,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,47,null
+1795025616027,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,51,null
+1795025616386,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,46,null
+1795025616557,1,02 Search products,200,OK,Load Users 1-5,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,49,null
+1795025616736,1,03 Product detail,200,OK,Load Users 1-2,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,48,null
+1795025616736,1,02 Search products,200,OK,Load Users 1-6,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,50,null
+1795025616969,1,03 Product detail,200,OK,Load Users 1-4,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,47,null
+1795025617726,2,02 Search products,200,OK,Load Users 1-1,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,51,null
+1795025617846,1,03 Product detail,200,OK,Load Users 1-5,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,49,null
+1795025617848,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,48,null
+1795025618172,10,05 Checkout,200,OK,Load Users 1-3,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,10,0,2,3,46,44
+1795025618629,1,03 Product detail,200,OK,Load Users 1-6,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,50,null
+1795025618790,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,47,null
+1795025619209,2,03 Product detail,200,OK,Load Users 1-1,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,51,null
+1795025619620,9,05 Checkout,200,OK,Load Users 1-2,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,4,48,45
+1795025619724,3,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,52,null
+1795025619749,2,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,50,null
+1795025619842,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,49,null
+1795025620134,7,05 Checkout,200,OK,Load Users 1-4,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,3,47,46
+1795025620737,3,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,5,53,null
+1795025621178,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,51,null
+1795025621475,3,02 Search products,200,OK,Load Users 1-3,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,52,null
+1795025621489,7,05 Checkout,200,OK,Load Users 1-5,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,2,49,47
+1795025621597,10,05 Checkout,200,OK,Load Users 1-6,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,2,50,48
+1795025621839,2,02 Search products,200,OK,Load Users 1-2,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,53,null
+1795025621990,2,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,54,null
+1795025622330,8,05 Checkout,200,OK,Load Users 1-1,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,5,51,49
+1795025622514,1,03 Product detail,200,OK,Load Users 1-3,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,52,null
+1795025622797,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,55,null
+1795025623252,2,03 Product detail,200,OK,Load Users 1-2,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,53,null
+1795025623259,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,56,null
+1795025623417,3,02 Search products,200,OK,Load Users 1-4,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,3,0,2,4,54,null
+1795025623606,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,57,null
+1795025623653,2,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,2,0,0,4,52,null
+1795025623893,1,02 Search products,200,OK,Load Users 1-5,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,55,null
+1795025624615,1,03 Product detail,200,OK,Load Users 1-4,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,54,null
+1795025624711,2,02 Search products,200,OK,Load Users 1-6,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,56,null
+1795025624800,7,05 Checkout,200,OK,Load Users 1-3,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,4,52,50
+1795025624871,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,53,null
+1795025625459,1,03 Product detail,200,OK,Load Users 1-5,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,55,null
+1795025625601,2,02 Search products,200,OK,Load Users 1-1,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,57,null
+1795025626221,7,05 Checkout,200,OK,Load Users 1-2,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,5,53,51
+1795025626244,2,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,2,0,0,4,54,null
+1795025626360,1,03 Product detail,200,OK,Load Users 1-6,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,56,null
+1795025626655,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,58,null
+1795025626781,2,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,2,0,0,3,55,null
+1795025627026,1,03 Product detail,200,OK,Load Users 1-1,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,57,null
+1795025627368,9,05 Checkout,200,OK,Load Users 1-4,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,4,54,52
+1795025627858,2,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,2,0,0,3,56,null
+1795025628053,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,57,null
+1795025628138,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,59,null
+1795025628207,2,02 Search products,200,OK,Load Users 1-3,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,58,null
+1795025628557,2,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,60,null
+1795025628606,9,05 Checkout,200,OK,Load Users 1-5,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,9,0,1,3,55,53
+1795025629278,9,05 Checkout,200,OK,Load Users 1-1,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,1,57,54
+1795025629354,2,02 Search products,200,OK,Load Users 1-2,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,59,null
+1795025629457,6,05 Checkout,200,OK,Load Users 1-6,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,6,0,0,3,56,55
+1795025629700,1,03 Product detail,200,OK,Load Users 1-3,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,58,null
+1795025630045,1,02 Search products,200,OK,Load Users 1-4,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,60,null
+1795025630055,1,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,4,61,null
+1795025630591,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,63,null
+1795025630950,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,58,null
+1795025631143,3,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,2,62,null
+1795025631320,2,03 Product detail,200,OK,Load Users 1-2,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,2,0,0,1,59,null
+1795025631482,3,02 Search products,200,OK,Load Users 1-5,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,61,null
+1795025631812,2,03 Product detail,200,OK,Load Users 1-4,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,60,null
+1795025632000,2,02 Search products,200,OK,Load Users 1-6,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,63,null
+1795025632117,7,05 Checkout,200,OK,Load Users 1-3,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,5,58,56
+1795025632488,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,59,null
+1795025632920,1,02 Search products,200,OK,Load Users 1-1,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,62,null
+1795025633032,2,03 Product detail,200,OK,Load Users 1-5,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,61,null
+1795025633155,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,64,null
+1795025633516,3,03 Product detail,200,OK,Load Users 1-6,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,3,0,1,4,63,null
+1795025633775,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,60,null
+1795025633816,9,05 Checkout,200,OK,Load Users 1-2,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,1,59,57
+1795025634353,2,02 Search products,200,OK,Load Users 1-3,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,64,null
+1795025634789,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,61,null
+1795025634798,1,03 Product detail,200,OK,Load Users 1-1,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,62,null
+1795025634867,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,63,null
+1795025635496,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,65,null
+1795025635694,9,05 Checkout,200,OK,Load Users 1-4,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,5,60,58
+1795025635996,2,03 Product detail,200,OK,Load Users 1-3,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,2,0,0,1,64,null
+1795025636158,8,05 Checkout,200,OK,Load Users 1-6,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,4,63,59
+1795025636188,5,05 Checkout,200,OK,Load Users 1-5,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,5,0,0,4,61,60
+1795025636563,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,62,null
+1795025636851,2,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,66,null
+1795025637027,2,02 Search products,200,OK,Load Users 1-2,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,65,null
+1795025637394,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,67,null
+1795025637613,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,64,null
+1795025637860,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,5,68,null
+1795025638272,9,05 Checkout,200,OK,Load Users 1-1,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,2,62,61
+1795025638488,2,03 Product detail,200,OK,Load Users 1-2,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,65,null
+1795025638802,1,02 Search products,200,OK,Load Users 1-4,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,66,null
+1795025638956,1,02 Search products,200,OK,Load Users 1-6,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,67,null
+1795025639025,7,05 Checkout,200,OK,Load Users 1-3,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,1,64,62
+1795025639351,1,02 Search products,200,OK,Load Users 1-5,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,68,null
+1795025639656,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,3,69,null
+1795025639713,2,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,2,0,0,2,65,null
+1795025640004,1,03 Product detail,200,OK,Load Users 1-6,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,67,null
+1795025640095,1,03 Product detail,200,OK,Load Users 1-4,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,66,null
+1795025640585,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,70,null
+1795025640893,2,03 Product detail,200,OK,Load Users 1-5,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,68,null
+1795025640937,10,05 Checkout,200,OK,Load Users 1-2,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,2,65,63
+1795025641054,1,02 Search products,200,OK,Load Users 1-1,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,69,null
+1795025641225,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,67,null
+1795025641851,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,66,null
+1795025642098,2,02 Search products,200,OK,Load Users 1-3,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,70,null
+1795025642194,2,03 Product detail,200,OK,Load Users 1-1,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,2,0,0,3,69,null
+1795025642263,9,05 Checkout,200,OK,Load Users 1-6,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,5,67,64
+1795025642800,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,68,null
+1795025642825,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,71,null
+1795025643795,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,69,null
+1795025643826,7,05 Checkout,200,OK,Load Users 1-4,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,1,66,65
+1795025643883,3,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,1,72,null
+1795025643928,9,05 Checkout,200,OK,Load Users 1-5,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,5,68,66
+1795025644076,1,03 Product detail,200,OK,Load Users 1-3,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,70,null
+1795025644373,2,02 Search products,200,OK,Load Users 1-2,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,71,null
+1795025645487,1,02 Search products,200,OK,Load Users 1-6,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,72,null
+1795025645529,10,05 Checkout,200,OK,Load Users 1-1,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,3,69,67
+1795025645574,1,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,2,73,null
+1795025645577,1,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,1,74,null
+1795025645902,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,70,null
+1795025646175,1,03 Product detail,200,OK,Load Users 1-2,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,71,null
+1795025646750,2,03 Product detail,200,OK,Load Users 1-6,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,2,0,0,1,72,null
+1795025646834,2,02 Search products,200,OK,Load Users 1-4,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,73,null
+1795025647150,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,75,null
+1795025647183,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,71,null
+1795025647234,9,05 Checkout,200,OK,Load Users 1-3,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,2,70,68
+1795025647511,2,02 Search products,200,OK,Load Users 1-5,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,74,null
+1795025648161,2,02 Search products,200,OK,Load Users 1-1,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,75,null
+1795025648333,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,72,null
+1795025648561,1,03 Product detail,200,OK,Load Users 1-4,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,73,null
+1795025648610,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,76,null
+1795025649034,8,05 Checkout,200,OK,Load Users 1-2,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,3,71,69
+1795025649083,2,03 Product detail,200,OK,Load Users 1-5,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,2,0,0,1,74,null
+1795025649723,2,03 Product detail,200,OK,Load Users 1-1,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,75,null
+1795025649920,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,73,null
+1795025649966,7,05 Checkout,200,OK,Load Users 1-6,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,1,72,70
+1795025650416,1,02 Search products,200,OK,Load Users 1-3,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,76,null
+1795025650443,2,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,2,0,0,1,74,null
+1795025650537,1,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,4,77,null
+1795025650958,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,75,null
+1795025651357,7,05 Checkout,200,OK,Load Users 1-4,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,2,73,71
+1795025651482,8,05 Checkout,200,OK,Load Users 1-5,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,1,74,72
+1795025651749,3,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,2,78,null
+1795025651932,2,03 Product detail,200,OK,Load Users 1-3,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,2,0,0,3,76,null
+1795025652049,7,05 Checkout,200,OK,Load Users 1-1,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,4,75,73
+1795025652351,3,02 Search products,200,OK,Load Users 1-2,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,77,null
+1795025652412,3,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,3,79,null
+1795025652519,4,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,4,0,0,2,80,null
+1795025653241,2,02 Search products,200,OK,Load Users 1-6,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,78,null
+1795025653651,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,76,null
+1795025653694,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,81,null
+1795025653907,2,02 Search products,200,OK,Load Users 1-4,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,79,null
+1795025653924,2,03 Product detail,200,OK,Load Users 1-2,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,77,null
+1795025653926,1,02 Search products,200,OK,Load Users 1-5,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,80,null
+1795025654534,2,03 Product detail,200,OK,Load Users 1-6,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,2,0,0,2,78,null
+1795025654941,2,03 Product detail,200,OK,Load Users 1-5,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,2,0,0,2,80,null
+1795025654963,9,05 Checkout,200,OK,Load Users 1-3,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,3,76,74
+1795025655025,1,02 Search products,200,OK,Load Users 1-1,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,81,null
+1795025655327,3,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,3,0,0,4,77,null
+1795025655600,5,03 Product detail,200,OK,Load Users 1-4,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,4,0,0,3,79,null
+1795025656335,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,80,null
+1795025656354,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,78,null
+1795025656412,9,05 Checkout,200,OK,Load Users 1-2,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,4,77,75
+1795025656525,1,03 Product detail,200,OK,Load Users 1-1,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,81,null
+1795025656574,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,82,null
+1795025657216,2,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,2,0,0,3,79,null
+1795025657434,9,05 Checkout,200,OK,Load Users 1-6,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,2,78,76
+1795025657440,4,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,4,0,0,5,83,null
+1795025657583,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,81,null
+1795025657766,6,05 Checkout,200,OK,Load Users 1-5,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,6,0,0,2,80,77
+1795025658188,2,02 Search products,200,OK,Load Users 1-3,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,82,null
+1795025658675,1,02 Search products,200,OK,Load Users 1-2,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,83,null
+1795025658937,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,85,null
+1795025659051,8,05 Checkout,200,OK,Load Users 1-4,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,3,79,78
+1795025659123,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,84,null
+1795025659554,7,05 Checkout,200,OK,Load Users 1-1,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,5,81,79
+1795025659591,2,03 Product detail,200,OK,Load Users 1-3,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,82,null
+1795025659758,2,03 Product detail,200,OK,Load Users 1-2,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,83,null
+1795025660529,2,02 Search products,200,OK,Load Users 1-5,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,85,null
+1795025660629,2,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,86,null
+1795025661026,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,83,null
+1795025661060,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,82,null
+1795025661112,1,02 Search products,200,OK,Load Users 1-6,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,84,null
+1795025661428,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,87,null
+1795025662067,6,05 Checkout,200,OK,Load Users 1-2,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,6,0,0,5,83,80
+1795025662250,2,02 Search products,200,OK,Load Users 1-4,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,86,null
+1795025662336,1,03 Product detail,200,OK,Load Users 1-5,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,85,null
+1795025662591,7,05 Checkout,200,OK,Load Users 1-3,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,4,82,81
+1795025662964,1,03 Product detail,200,OK,Load Users 1-6,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,84,null
+1795025663173,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,88,null
+1795025663223,1,02 Search products,200,OK,Load Users 1-1,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,87,null
+1795025663501,2,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,2,0,0,3,85,null
+1795025663600,2,03 Product detail,200,OK,Load Users 1-4,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,86,null
+1795025664430,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,84,null
+1795025664510,2,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,89,null
+1795025664752,2,02 Search products,200,OK,Load Users 1-2,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,88,null
+1795025665191,1,03 Product detail,200,OK,Load Users 1-1,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,87,null
+1795025665306,6,05 Checkout,200,OK,Load Users 1-5,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,6,0,0,3,85,82
+1795025665319,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,86,null
+1795025665920,7,05 Checkout,200,OK,Load Users 1-6,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,3,84,83
+1795025666311,1,02 Search products,200,OK,Load Users 1-3,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,89,null
+1795025666460,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,90,null
+1795025666581,4,03 Product detail,200,OK,Load Users 1-2,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,3,0,0,1,88,null
+1795025666636,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,87,null
+1795025666784,6,05 Checkout,200,OK,Load Users 1-4,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,6,0,0,4,86,84
+1795025667089,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,91,null
+1795025667922,1,02 Search products,200,OK,Load Users 1-5,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,90,null
+1795025668038,1,03 Product detail,200,OK,Load Users 1-3,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,89,null
+1795025668074,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,88,null
+1795025668194,2,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,92,null
+1795025668267,7,05 Checkout,200,OK,Load Users 1-1,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,1,87,85
+1795025668571,1,02 Search products,200,OK,Load Users 1-6,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,91,null
+1795025669012,2,03 Product detail,200,OK,Load Users 1-5,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,2,0,0,4,90,null
+1795025669471,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,89,null
+1795025669697,9,05 Checkout,200,OK,Load Users 1-2,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,1,88,86
+1795025669986,1,02 Search products,200,OK,Load Users 1-4,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,92,null
+1795025670071,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,1,2,93,null
+1795025670218,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,90,null
+1795025670517,1,03 Product detail,200,OK,Load Users 1-6,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,91,null
+1795025670551,6,05 Checkout,200,OK,Load Users 1-3,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,6,0,0,5,89,87
+1795025670821,2,01 Login,200,OK,Load Users 1-2,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,94,null
+1795025671460,1,03 Product detail,200,OK,Load Users 1-4,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,92,null
+1795025671642,2,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,432,6,6,http://127.0.0.1:3000/api/cart,2,0,0,4,91,null
+1795025671684,1,02 Search products,200,OK,Load Users 1-1,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,93,null
+1795025672078,7,05 Checkout,200,OK,Load Users 1-5,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,4,90,88
+1795025672175,1,01 Login,200,OK,Load Users 1-3,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,1,95,null
+1795025672386,2,02 Search products,200,OK,Load Users 1-2,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,1,2,94,null
+1795025672851,1,03 Product detail,200,OK,Load Users 1-1,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,93,null
+1795025673150,10,05 Checkout,200,OK,Load Users 1-6,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,4,91,89
+1795025673179,2,01 Login,200,OK,Load Users 1-5,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,96,null
+1795025673270,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,92,null
+1795025673285,1,02 Search products,200,OK,Load Users 1-3,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,95,null
+1795025673998,2,03 Product detail,200,OK,Load Users 1-2,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,2,0,0,2,94,null
+1795025674310,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,93,null
+1795025674320,1,03 Product detail,200,OK,Load Users 1-3,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,95,null
+1795025674491,2,01 Login,200,OK,Load Users 1-6,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,97,null
+1795025674494,1,02 Search products,200,OK,Load Users 1-5,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,96,null
+1795025674803,7,05 Checkout,200,OK,Load Users 1-4,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,5,92,90
+1795025675100,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,435,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,94,null
+1795025675655,2,03 Product detail,200,OK,Load Users 1-5,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,96,null
+1795025675761,8,05 Checkout,200,OK,Load Users 1-1,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,2,93,91
+1795025675792,1,02 Search products,200,OK,Load Users 1-6,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,97,null
+1795025675823,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,95,null
+1795025676482,1,01 Login,200,OK,Load Users 1-4,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,1,98,null
+1795025676667,12,05 Checkout,200,OK,Load Users 1-2,text,true,,313,470,6,6,http://127.0.0.1:3000/api/checkout,12,0,0,2,94,92
+1795025677025,1,03 Product detail,200,OK,Load Users 1-6,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,1,0,0,5,97,null
+1795025677370,10,05 Checkout,200,OK,Load Users 1-3,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,10,0,0,1,95,93
+1795025677454,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,96,null
+1795025677539,2,01 Login,200,OK,Load Users 1-1,text,true,,683,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,99,null
+1795025677696,2,02 Search products,200,OK,Load Users 1-4,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,98,null
+1795025678037,3,01 Login,200,OK,Load Users 1-2,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,3,0,0,3,100,null
+1795025678454,2,01 Login,200,OK,Load Users 1-3,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,1,2,101,null
+1795025678507,7,05 Checkout,200,OK,Load Users 1-5,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,5,96,94
+1795025678705,1,03 Product detail,200,OK,Load Users 1-4,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,98,null
+1795025678766,1,02 Search products,200,OK,Load Users 1-1,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,99,null
+1795025678968,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,448,6,6,http://127.0.0.1:3000/api/cart,1,0,0,5,97,null
+1795025679775,3,02 Search products,200,OK,Load Users 1-3,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,101,null
+1795025679804,1,02 Search products,200,OK,Load Users 1-2,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,100,null
+1795025680139,1,01 Login,200,OK,Load Users 1-5,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,1,0,0,1,102,null
+1795025680378,2,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,428,6,6,http://127.0.0.1:3000/api/cart,2,0,0,1,98,null
+1795025680473,7,05 Checkout,200,OK,Load Users 1-6,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,5,97,95
+1795025680482,1,03 Product detail,200,OK,Load Users 1-1,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,99,null
+1795025681096,2,03 Product detail,200,OK,Load Users 1-3,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,2,0,0,2,101,null
+1795025681227,2,03 Product detail,200,OK,Load Users 1-2,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,2,0,0,3,100,null
+1795025681685,2,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,425,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,99,null
+1795025681746,8,05 Checkout,200,OK,Load Users 1-4,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,1,98,96
+1795025681809,1,02 Search products,200,OK,Load Users 1-5,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,102,null
+1795025681938,2,01 Login,200,OK,Load Users 1-6,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,1,103,null
+1795025682572,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,426,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,100,null
+1795025682921,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,436,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,101,null
+1795025683021,2,01 Login,200,OK,Load Users 1-4,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,104,null
+1795025683170,1,03 Product detail,200,OK,Load Users 1-5,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,1,0,0,1,102,null
+1795025683554,9,05 Checkout,200,OK,Load Users 1-1,text,true,,313,472,6,6,http://127.0.0.1:3000/api/checkout,9,0,0,3,99,97
+1795025683636,2,02 Search products,200,OK,Load Users 1-6,text,true,,453,201,6,6,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,103,null
+1795025684064,2,02 Search products,200,OK,Load Users 1-4,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,1,2,104,null
+1795025684121,8,05 Checkout,200,OK,Load Users 1-2,text,true,,313,473,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,3,100,98
+1795025684200,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,429,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,102,null
+1795025684695,8,05 Checkout,200,OK,Load Users 1-3,text,true,,313,471,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,2,101,99
+1795025684800,2,03 Product detail,200,OK,Load Users 1-6,text,true,,451,189,6,6,http://127.0.0.1:3000/api/products/1,2,0,0,1,103,null
+1795025685347,2,01 Login,200,OK,Load Users 1-1,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,105,null
+1795025685652,2,01 Login,200,OK,Load Users 1-2,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,106,null
+1795025685803,2,01 Login,200,OK,Load Users 1-3,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,107,null
+1795025686059,2,03 Product detail,200,OK,Load Users 1-4,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,2,0,0,2,104,null
+1795025686153,8,05 Checkout,200,OK,Load Users 1-5,text,true,,314,474,6,6,http://127.0.0.1:3000/api/checkout,8,0,0,1,102,100
+1795025686451,1,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,429,6,6,http://127.0.0.1:3000/api/cart,1,0,0,1,103,null
+1795025686650,1,02 Search products,200,OK,Load Users 1-1,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,105,null
+1795025687274,4,02 Search products,200,OK,Load Users 1-2,text,true,,461,202,6,6,http://127.0.0.1:3000/api/products?search=AirPods,4,0,0,4,106,null
+1795025687518,2,02 Search products,200,OK,Load Users 1-3,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,107,null
+1795025687690,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,436,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,104,null
+1795025687747,2,01 Login,200,OK,Load Users 1-5,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,108,null
+1795025687848,1,03 Product detail,200,OK,Load Users 1-1,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,105,null
+1795025688124,7,05 Checkout,200,OK,Load Users 1-6,text,true,,314,474,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,1,103,101
+1795025688746,7,05 Checkout,200,OK,Load Users 1-4,text,true,,314,471,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,2,104,102
+1795025688895,1,03 Product detail,200,OK,Load Users 1-2,text,true,,461,189,6,6,http://127.0.0.1:3000/api/products/4,1,0,0,4,106,null
+1795025688983,1,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,433,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,105,null
+1795025689138,1,03 Product detail,200,OK,Load Users 1-3,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,107,null
+1795025689595,2,02 Search products,200,OK,Load Users 1-5,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,1,2,108,null
+1795025689799,2,01 Login,200,OK,Load Users 1-4,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,3,110,null
+1795025690039,7,05 Checkout,200,OK,Load Users 1-1,text,true,,314,473,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,4,105,103
+1795025690124,2,01 Login,200,OK,Load Users 1-6,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,2,109,null
+1795025690673,1,04 Add to cart,200,OK,Load Users 1-2,text,true,,294,433,6,6,http://127.0.0.1:3000/api/cart,1,0,0,4,106,null
+1795025690817,1,04 Add to cart,200,OK,Load Users 1-3,text,true,,294,426,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,107,null
+1795025691048,2,01 Login,200,OK,Load Users 1-1,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,111,null
+1795025691279,1,02 Search products,200,OK,Load Users 1-4,text,true,,450,202,6,6,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,110,null
+1795025691577,1,03 Product detail,200,OK,Load Users 1-5,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,108,null
+1795025692087,1,02 Search products,200,OK,Load Users 1-6,text,true,,480,201,6,6,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,109,null
+1795025692147,2,02 Search products,200,OK,Load Users 1-1,text,true,,469,203,6,6,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,111,null
+1795025692309,7,05 Checkout,200,OK,Load Users 1-3,text,true,,314,473,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,3,107,104
+1795025692481,1,03 Product detail,200,OK,Load Users 1-4,text,true,,448,189,6,6,http://127.0.0.1:3000/api/products/3,1,0,0,3,110,null
+1795025692596,7,05 Checkout,200,OK,Load Users 1-2,text,true,,314,473,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,4,106,105
+1795025692741,1,04 Add to cart,200,OK,Load Users 1-5,text,true,,294,436,6,6,http://127.0.0.1:3000/api/cart,1,0,0,2,108,null
+1795025693168,1,03 Product detail,200,OK,Load Users 1-6,text,true,,480,189,6,6,http://127.0.0.1:3000/api/products/2,1,0,0,2,109,null
+1795025693196,2,03 Product detail,200,OK,Load Users 1-1,text,true,,467,189,6,6,http://127.0.0.1:3000/api/products/5,2,0,0,5,111,null
+1795025694057,2,01 Login,200,OK,Load Users 1-2,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,5,113,null
+1795025694166,7,05 Checkout,200,OK,Load Users 1-5,text,true,,314,471,6,6,http://127.0.0.1:3000/api/checkout,7,0,0,2,108,106
+1795025694241,2,01 Login,200,OK,Load Users 1-3,text,true,,685,286,6,6,http://127.0.0.1:3000/api/login,2,0,0,4,112,null
+1795025694250,1,04 Add to cart,200,OK,Load Users 1-4,text,true,,294,426,6,6,http://127.0.0.1:3000/api/cart,1,0,0,3,110,null
+1795025694793,2,04 Add to cart,200,OK,Load Users 1-6,text,true,,294,436,6,6,http://127.0.0.1:3000/api/cart,2,0,1,2,109,null
+1795025694872,2,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,449,5,5,http://127.0.0.1:3000/api/cart,2,0,0,5,111,null
+1795025695290,2,02 Search products,200,OK,Load Users 1-2,text,true,,469,203,4,4,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,113,null
+1795025695634,2,01 Login,200,OK,Load Users 1-5,text,true,,685,286,3,3,http://127.0.0.1:3000/api/login,2,0,0,3,114,null
+1795025695647,1,02 Search products,200,OK,Load Users 1-3,text,true,,461,202,2,2,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,112,null
+1795025695891,12,05 Checkout,200,OK,Load Users 1-4,text,true,,314,473,1,1,http://127.0.0.1:3000/api/checkout,12,0,0,3,110,107

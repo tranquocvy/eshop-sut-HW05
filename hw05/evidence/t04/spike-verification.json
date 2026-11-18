@@ -1,0 +1,419 @@
+{
+  "run": {
+    "scenario": "Spike",
+    "prep_started_at": "2026-11-19T01:35:40.083+07:00",
+    "plan": "23120410_Spike_20261119.jmx",
+    "plan_sha256_lf": "73d2e14e666153cdf540bca50639f1d342b4d9a215764a5a316701a40e985c5a",
+    "backend_base": "85af3ba875c88283615e22cb108f13e2fccaf0e9",
+    "bind": "127.0.0.1:3000",
+    "hostname": "goyoonjung",
+    "required_rows": 2868,
+    "provisioned_rows": 3000,
+    "total_csv_rows": 7500,
+    "credential_override": true,
+    "heap_max_mib": 384,
+    "node_pid": 6536,
+    "after_fresh_start": {
+      "checked_at": "2026-11-19T01:35:40.630+07:00",
+      "roles": {
+        "admin": 1,
+        "user": 1
+      },
+      "unique_fixture_emails": 0,
+      "locked_or_nonzero_counter": 0,
+      "product_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "order_count": 0,
+      "sqlite_quick_check": "ok",
+      "sqlite_reading_library_version": "3.51.1",
+      "journal": "delete"
+    },
+    "after_provision": {
+      "checked_at": "2026-11-19T01:36:46.254+07:00",
+      "roles": {
+        "admin": 1,
+        "user": 3001
+      },
+      "unique_fixture_emails": 3000,
+      "locked_or_nonzero_counter": 0,
+      "product_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "order_count": 0,
+      "sqlite_quick_check": "ok",
+      "sqlite_reading_library_version": "3.51.1",
+      "journal": "delete"
+    },
+    "launch_flags": [
+      "-Jjmeterengine.nongui.port=4445",
+      "-Jjmeterengine.nongui.maxport=4445",
+      "-Jsummariser.interval=5",
+      "-Jjmeter.save.saveservice.autoflush=true",
+      "-Jjmeter.save.saveservice.output_format=csv",
+      "-Jjmeter.save.saveservice.timestamp_format=ms",
+      "-Jsampleresult.timestamp.start=true",
+      "-Jjmeter.save.saveservice.thread_counts=true",
+      "-Jsample_variables=fixture_product_id,authenticated_user_id,order_id",
+      "-Jjmeter.save.saveservice.response_data=false",
+      "-Jjmeter.save.saveservice.response_data.on_error=false",
+      "-Jjmeter.save.saveservice.requestHeaders=false",
+      "-Jjmeter.save.saveservice.responseHeaders=false",
+      "-Jjmeter.save.saveservice.samplerData=false"
+    ],
+    "stress_stop_windows": [],
+    "engine_started_at": "2026-11-19T01:38:35.200+07:00",
+    "jmeter_pid": 26188,
+    "t0_epoch_ms": 1795027116417,
+    "jmeter_exit_code": 0,
+    "load_finished_at": "2026-11-19T01:41:08.714+07:00",
+    "stop_reason": "Scheduled end",
+    "finished_at": "2026-11-19T01:41:08.728+07:00"
+  },
+  "jtl": {
+    "name": "23120410_Spike_20261119.jtl",
+    "sha256": "b442bbca656924de7ff6615f52b8b0352b07d8cda74448095bc3efca82ce2daf",
+    "csv_data_records": 7755,
+    "physical_lines_including_header": 7756
+  },
+  "dashboard": "23120410_Spike_20261119/statistics.json",
+  "independent_metrics": {
+    "01 Login": {
+      "count": 1609,
+      "errors": 0,
+      "error_pct": 0.0,
+      "p95_ms": 19.0,
+      "rps": 10.806490610643957,
+      "first_request_epoch_ms": 1795027117404,
+      "last_response_epoch_ms": 1795027266296
+    },
+    "02 Search products": {
+      "count": 1588,
+      "errors": 0,
+      "error_pct": 0.0,
+      "p95_ms": 11.0,
+      "rps": 10.76391242459161,
+      "first_request_epoch_ms": 1795027118008,
+      "last_response_epoch_ms": 1795027265538
+    },
+    "03 Product detail": {
+      "count": 1551,
+      "errors": 0,
+      "error_pct": 0.0,
+      "p95_ms": 11.0,
+      "rps": 10.50877086001179,
+      "first_request_epoch_ms": 1795027118534,
+      "last_response_epoch_ms": 1795027266125
+    },
+    "04 Add to cart": {
+      "count": 1517,
+      "errors": 0,
+      "error_pct": 0.0,
+      "p95_ms": 6.0,
+      "rps": 10.29004775341871,
+      "first_request_epoch_ms": 1795027118939,
+      "last_response_epoch_ms": 1795027266363
+    },
+    "05 Checkout": {
+      "count": 1490,
+      "errors": 0,
+      "error_pct": 0.0,
+      "p95_ms": 30.0,
+      "rps": 10.160106919782887,
+      "first_request_epoch_ms": 1795027119278,
+      "last_response_epoch_ms": 1795027265930
+    },
+    "Total": {
+      "count": 7755,
+      "errors": 0,
+      "error_pct": 0.0,
+      "p95_ms": 17.0,
+      "rps": 52.06130545989165,
+      "first_request_epoch_ms": 1795027117404,
+      "last_response_epoch_ms": 1795027266363
+    }
+  },
+  "dashboard_matches": {
+    "01 Login": {
+      "count": true,
+      "errors": true,
+      "error_pct": true,
+      "p95_ms": true,
+      "rps": true
+    },
+    "02 Search products": {
+      "count": true,
+      "errors": true,
+      "error_pct": true,
+      "p95_ms": true,
+      "rps": true
+    },
+    "03 Product detail": {
+      "count": true,
+      "errors": true,
+      "error_pct": true,
+      "p95_ms": true,
+      "rps": true
+    },
+    "04 Add to cart": {
+      "count": true,
+      "errors": true,
+      "error_pct": true,
+      "p95_ms": true,
+      "rps": true
+    },
+    "05 Checkout": {
+      "count": true,
+      "errors": true,
+      "error_pct": true,
+      "p95_ms": true,
+      "rps": true
+    },
+    "Total": {
+      "count": true,
+      "errors": true,
+      "error_pct": true,
+      "p95_ms": true,
+      "rps": true
+    }
+  },
+  "result_code_counts": {
+    "200": 7755
+  },
+  "first_thread_group_local": "2026-11-19T01:38:36.417+07:00",
+  "actual_max_vu_seen_in_jtl": 144,
+  "actual_threads_reporting_samples": 144,
+  "errors_by_category": {},
+  "first_errors": [],
+  "resource_metrics": {
+    "count": 154,
+    "host_cpu_max_pct": 32.96,
+    "host_available_ram_min_mib": 3540.0,
+    "node_cpu_max_pct_of_one_core": 55.12,
+    "node_peak_working_set_mib": 119.54,
+    "jmeter_cpu_max_pct_of_one_core": 292.07,
+    "jmeter_peak_working_set_mib": 279.66
+  },
+  "phase_metrics": [
+    {
+      "phase": "Baseline",
+      "window_s": [
+        0,
+        60
+      ],
+      "samples": 777,
+      "max_vu": 6,
+      "errors": 0,
+      "p95_ms": {
+        "01 Login": 3.0,
+        "02 Search products": 3.0,
+        "03 Product detail": 3.0,
+        "04 Add to cart": 2.0,
+        "05 Checkout": 12.0
+      }
+    },
+    {
+      "phase": "Peak",
+      "window_s": [
+        60,
+        80
+      ],
+      "samples": 6059,
+      "max_vu": 144,
+      "errors": 0,
+      "p95_ms": {
+        "01 Login": 23.0,
+        "03 Product detail": 13.0,
+        "05 Checkout": 33.0,
+        "02 Search products": 14.0,
+        "04 Add to cart": 7.0
+      }
+    },
+    {
+      "phase": "Early recovery",
+      "window_s": [
+        80,
+        90
+      ],
+      "samples": 134,
+      "max_vu": 6,
+      "errors": 0,
+      "p95_ms": {
+        "03 Product detail": 2.599999999999998,
+        "05 Checkout": 11.0,
+        "04 Add to cart": 1.5999999999999979,
+        "01 Login": 8.599999999999998,
+        "02 Search products": 3.6999999999999993
+      }
+    },
+    {
+      "phase": "Recovery",
+      "window_s": [
+        90,
+        150
+      ],
+      "samples": 785,
+      "max_vu": 6,
+      "errors": 0,
+      "p95_ms": {
+        "04 Add to cart": 1.0,
+        "01 Login": 2.0,
+        "02 Search products": 2.0,
+        "03 Product detail": 2.0,
+        "05 Checkout": 10.0
+      }
+    }
+  ],
+  "db_after": {
+    "roles": {
+      "admin": 1,
+      "user": 3001
+    },
+    "integrity": "ok",
+    "locked_or_nonzero_counter": 0,
+    "unique_registered_users": 3000,
+    "successful_logins": 1609,
+    "unique_successful_login_ids": 1609,
+    "successful_logins_not_in_fixture": 0,
+    "successful_checkouts": 1490,
+    "orders": 1490,
+    "orders_by_status": {
+      "pending": 1490
+    },
+    "checkout_rows_missing_order_id": 0,
+    "duplicate_order_ids_in_jtl": 0,
+    "order_ids_missing_from_db": [],
+    "db_order_ids_without_success_jtl": [],
+    "orphan_orders": 0,
+    "orders_with_owner_status_or_payload_mismatch": [],
+    "accounts_with_multiple_orders": 0
+  },
+  "spike_recovery": {
+    "available": true,
+    "burst_threads_started": 138,
+    "burst_threads_finished": 138,
+    "burst_first_thread_start_epoch_ms": 1795027176421,
+    "burst_last_thread_start_epoch_ms": 1795027177421,
+    "burst_first_thread_finish_epoch_ms": 1795027195834,
+    "burst_last_thread_finish_epoch_ms": 1795027196406,
+    "baseline_last_thread_finish_epoch_ms": 1795027266364,
+    "baseline_steady_window": {
+      "start_epoch_ms": 1795027121417,
+      "end_epoch_ms": 1795027176421,
+      "samples": 729,
+      "active_vu_values": [
+        6
+      ],
+      "rps": 13.253581557704894,
+      "error_pct": 0.0,
+      "p95_ms": {
+        "04 Add to cart": 2.0,
+        "05 Checkout": 12.0,
+        "01 Login": 3.0,
+        "02 Search products": 3.0,
+        "03 Product detail": 3.0
+      },
+      "samples_by_label": {
+        "04 Add to cart": 148,
+        "05 Checkout": 148,
+        "01 Login": 146,
+        "02 Search products": 144,
+        "03 Product detail": 143
+      }
+    },
+    "peak_steady_window": {
+      "start_epoch_ms": 1795027178421,
+      "end_epoch_ms": 1795027195834,
+      "samples": 5474,
+      "active_vu_values": [
+        144
+      ],
+      "rps": 314.3628323666226,
+      "error_pct": 0.0,
+      "p95_ms": {
+        "03 Product detail": 13.0,
+        "02 Search products": 15.0,
+        "04 Add to cart": 7.0,
+        "05 Checkout": 34.0,
+        "01 Login": 24.0
+      },
+      "samples_by_label": {
+        "03 Product detail": 1086,
+        "02 Search products": 1059,
+        "04 Add to cart": 1118,
+        "05 Checkout": 1115,
+        "01 Login": 1096
+      }
+    },
+    "p95_limits_ms": {
+      "04 Add to cart": 2.4,
+      "05 Checkout": 14.399999999999999,
+      "01 Login": 3.5999999999999996,
+      "02 Search products": 3.5999999999999996,
+      "03 Product detail": 3.5999999999999996
+    },
+    "windows": [
+      {
+        "start_epoch_ms": 1795027201406,
+        "end_epoch_ms": 1795027231406,
+        "samples": 394,
+        "active_vu_values": [
+          6
+        ],
+        "rps": 13.133333333333333,
+        "error_pct": 0.0,
+        "p95_ms": {
+          "01 Login": 3.0,
+          "03 Product detail": 2.0,
+          "05 Checkout": 9.049999999999997,
+          "02 Search products": 2.0,
+          "04 Add to cart": 2.0
+        },
+        "samples_by_label": {
+          "01 Login": 81,
+          "03 Product detail": 79,
+          "05 Checkout": 78,
+          "02 Search products": 79,
+          "04 Add to cart": 77
+        },
+        "enough_samples": true,
+        "passes_recovery_rule": true
+      },
+      {
+        "start_epoch_ms": 1795027231406,
+        "end_epoch_ms": 1795027261406,
+        "samples": 392,
+        "active_vu_values": [
+          6
+        ],
+        "rps": 13.066666666666666,
+        "error_pct": 0.0,
+        "p95_ms": {
+          "04 Add to cart": 1.0,
+          "03 Product detail": 2.0,
+          "02 Search products": 2.0,
+          "05 Checkout": 10.099999999999994,
+          "01 Login": 2.0999999999999943
+        },
+        "samples_by_label": {
+          "04 Add to cart": 79,
+          "03 Product detail": 80,
+          "02 Search products": 79,
+          "05 Checkout": 77,
+          "01 Login": 77
+        },
+        "enough_samples": true,
+        "passes_recovery_rule": true
+      }
+    ],
+    "confirmed_recovery_after_burst_seconds": 35.0
+  }
+}

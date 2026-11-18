@@ -878,3 +878,1396 @@ T03 mình duyệt rồi. Bạn làm tiếp phần chốt:\
 ```text
 Mình sẽ chốt cách diễn giải mốc 144 VU trong tài liệu, đối chiếu từng dòng audit với lượt review và duyệt của Vỹ, rồi commit và xác minh `origin/main` đã nhận T03.
 ```
+
+Phạm vi: T04 — Thực thi Load, Stress và Spike
+
+<a id="msg-59d42315b75fa8c09ee5"></a>
+
+## P-014
+
+- Timestamp: 22:21:16 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Sang T04: chạy thật Load, Stress, Spike. Làm theo thứ tự dưới đây, xong thì dừng để mình review, chưa cập nhật AI files, chưa commit.\
+\
+0\. Trước khi chạy, xác nhận với mình: bạn có dùng được computer use để chụp màn hình không? Nếu không thì dừng và báo mình chụp tay. Báo luôn hostname hiện tại của máy.\
+\
+1\. Chuẩn bị mỗi lượt (làm và ghi lại từng bước thực tế vào tài liệu T04):\
+\- Reset DB và trạng thái khóa tài khoản (restart backend từ bản copy sạch), đăng ký lại tài khoản từ CSV, đối chiếu số tài khoản trong SQLite.\
+\- Kiểm tra đủ tài khoản cho từng kịch bản theo công thức đã có. Nếu thiếu thì nói mình, đừng tái sử dụng tài khoản.\
+\- Chỉ dùng JMeter CLI non-GUI, heap 384 MiB, đúng 3 plan đã duyệt. Nếu cần chỉnh tham số Load (6 VU / 150 s có thể quá nhẹ so với Stress), hãy nêu lý do và đề xuất cho mình duyệt trước khi chạy.\
+\
+2\. Chạy lần lượt Load, rồi Stress, rồi Spike. Mỗi lượt:\
+\- Sinh file .jtl thô và thư mục HTML report từ đúng file .jtl đó, đặt tên theo quy ước {StudentID}\_{ScenarioType}\_{YYYYMMDD}.\
+\- Ghi song song CPU/RAM của Node, JMeter và máy theo thời gian (như đã làm ở T03), lưu CSV cạnh .jtl.\
+\- Trong lúc tải đang chạy, dùng computer use chụp Task Manager (thấy tiến trình Node của backend) và cửa sổ công cụ/terminal JMeter. Chụp ít nhất 2 ảnh mỗi lượt: một lúc tải tăng, một lúc đỉnh. Tên file ảnh ghi kịch bản + thời điểm, lưu timestamp để khớp với .jtl.\
+\- Chụp thêm 1 ảnh hardware (dxdiag hoặc System Information) có hostname hiện trên màn hình.\
+\
+3\. Kiểm tra sau mỗi lượt:\
+\- Số dòng .jtl khớp số request trong report; tự tính lại ít nhất RPS, p95 theo label, % lỗi từ .jtl và so với dashboard.\
+\- Phân biệt lỗi hiệu năng (timeout, 5xx) với lỗi do lockout/dữ liệu (401/423, thiếu tài khoản). Lượt hỏng hoặc bỏ dở thì giữ lại và khai báo, không xóa.\
+\- Kiểm tra DB sau lượt (số đơn, bất thường) như T03.\
+\
+4\. Lỗi thật phát hiện dưới tải (5xx, crash, sai chức năng, kể cả lỗi lockout FR-02 nếu thấy trong chạy thật): soạn nháp Issue (tiêu đề, bước tái hiện, kết quả mong đợi/thực tế, ảnh đính kèm). Chưa đăng lên GitHub. Phân biệt rõ với vấn đề latency/error rate.\
+\
+5\. Báo lại cho mình: bảng kết quả mỗi kịch bản (VU thực tế, RPS, p95 theo label, % lỗi, lỗi lạ nếu có), danh sách ảnh đã chụp và thời điểm, lượt nào lỗi/bỏ dở, nháp Issue, và những gì chưa xác minh được. Link tới file thật, đừng tóm tắt thay số liệu.
+```
+
+<a id="msg-02f23620808e61965d0c"></a>
+
+### Output
+
+#### Phản hồi 1 — 22:21:22 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ dùng skill `computer-use` để kiểm tra quyền chụp và lưu ảnh màn hình, đồng thời xác nhận hostname. Mình sẽ báo kết quả bước này trước khi phát tải.
+```
+
+<a id="msg-03eaca4b022d7f7378e4"></a>
+
+#### Phản hồi 2 — 22:23:49 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Computer Use đã chụp thử được Task Manager. Hostname hiện tại là `goyoonjung`. Mình sẽ giữ cấu hình Load đã duyệt 6 VU trong 150 giây để làm mốc tải cơ sở, rồi chạy Stress và Spike theo đúng ba plan đã duyệt.
+```
+
+<a id="msg-b13860d2a118c66d3f2f"></a>
+
+## P-015
+
+- Timestamp: 22:29:20 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+nói chúng là chụp được đúng không, tôi thấy bạn mở nhiều quá nên tạm stop bạn
+```
+
+<a id="msg-d5ef0c80d13693afeee2"></a>
+
+### Output
+
+#### Phản hồi 1 — 22:29:31 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Đúng, mình chụp được Task Manager và đã lưu ảnh dxdiag có hostname `GOYOONJUNG`. Mình chưa xác minh được bộ lọc PID để ảnh Task Manager hiện đúng tiến trình Node của backend.
+
+Mình đã tạm dừng theo yêu cầu. Chưa phát tải JMeter.
+```
+
+<a id="msg-96577d772af5ed81f871"></a>
+
+## P-016
+
+- Timestamp: 00:06:58 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Sang T04: chạy thật Load, Stress, Spike. Làm theo thứ tự dưới đây, xong thì dừng để mình review, chưa cập nhật AI files, chưa commit.\
+\
+0\. Trước khi chạy, xác nhận với mình: bạn có dùng được computer use để chụp màn hình không? Nếu không thì dừng và báo mình chụp tay. Báo luôn hostname hiện tại của máy.\
+\
+1\. Chuẩn bị mỗi lượt (làm và ghi lại từng bước thực tế vào tài liệu T04):\
+\- Reset DB và trạng thái khóa tài khoản (restart backend từ bản copy sạch), đăng ký lại tài khoản từ CSV, đối chiếu số tài khoản trong SQLite.\
+\- Kiểm tra đủ tài khoản cho từng kịch bản theo công thức đã có. Nếu thiếu thì nói mình, đừng tái sử dụng tài khoản.\
+\- Chỉ dùng JMeter CLI non-GUI, heap 384 MiB, đúng 3 plan đã duyệt. Nếu cần chỉnh tham số Load (6 VU / 150 s có thể quá nhẹ so với Stress), hãy nêu lý do và đề xuất cho mình duyệt trước khi chạy.\
+\
+2\. Chạy lần lượt Load, rồi Stress, rồi Spike. Mỗi lượt:\
+\- Sinh file .jtl thô và thư mục HTML report từ đúng file .jtl đó, đặt tên theo quy ước {StudentID}\_{ScenarioType}\_{YYYYMMDD}.\
+\- Ghi song song CPU/RAM của Node, JMeter và máy theo thời gian (như đã làm ở T03), lưu CSV cạnh .jtl.\
+\- Trong lúc tải đang chạy, dùng computer use chụp Task Manager (thấy tiến trình Node của backend) và cửa sổ công cụ/terminal JMeter. Chụp ít nhất 2 ảnh mỗi lượt: một lúc tải tăng, một lúc đỉnh. Tên file ảnh ghi kịch bản + thời điểm, lưu timestamp để khớp với .jtl.\
+\- Chụp thêm 1 ảnh hardware (dxdiag hoặc System Information) có hostname hiện trên màn hình.\
+\
+3\. Kiểm tra sau mỗi lượt:\
+\- Số dòng .jtl khớp số request trong report; tự tính lại ít nhất RPS, p95 theo label, % lỗi từ .jtl và so với dashboard.\
+\- Phân biệt lỗi hiệu năng (timeout, 5xx) với lỗi do lockout/dữ liệu (401/423, thiếu tài khoản). Lượt hỏng hoặc bỏ dở thì giữ lại và khai báo, không xóa.\
+\- Kiểm tra DB sau lượt (số đơn, bất thường) như T03.\
+\
+4\. Lỗi thật phát hiện dưới tải (5xx, crash, sai chức năng, kể cả lỗi lockout FR-02 nếu thấy trong chạy thật): soạn nháp Issue (tiêu đề, bước tái hiện, kết quả mong đợi/thực tế, ảnh đính kèm). Chưa đăng lên GitHub. Phân biệt rõ với vấn đề latency/error rate.\
+\
+5\. Báo lại cho mình: bảng kết quả mỗi kịch bản (VU thực tế, RPS, p95 theo label, % lỗi, lỗi lạ nếu có), danh sách ảnh đã chụp và thời điểm, lượt nào lỗi/bỏ dở, nháp Issue, và những gì chưa xác minh được. Link tới file thật, đừng tóm tắt thay số liệu.
+
+Đính chính hostname: mình không đổi hostname cho bạn. Bạn chụp với hostname thật của máy (GOYOONJUNG) và ghi lại hostname đó trong tài liệu T04, khớp với Environment.md. Bỏ yêu cầu hostname hiện trên màn hình trong ảnh hardware, chỉ cần ảnh cấu hình máy (dxdiag hoặc System Information). Phần còn lại giữ nguyên.
+```
+
+<a id="msg-59f97b8e0dccbf5d5bac"></a>
+
+### Output
+
+#### Phản hồi 1 — 00:07:05 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình đã xác nhận computer use chụp được Task Manager. Ảnh dxdiag đã lưu từ máy `GOYOONJUNG`. Mình sẽ giữ nguyên Load ở 6 VU trong 150 giây và dùng lại các cửa sổ cần cho bằng chứng. Ngày hiện tại đã sang 19/11/2026, nên mình sẽ xác nhận hậu tố tên file với Vỹ trước khi phát tải.
+```
+
+<a id="msg-c47509e6714d976f83f9"></a>
+
+## P-017
+
+- Timestamp: 00:07:15 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Giữ nguyên câu hỏi hiển thị và lựa chọn của Vỹ. Đã ẩn ID nội bộ của giao diện.
+
+```text
+Ba plan đã duyệt có hậu tố `20261118`, còn lượt đo T04 diễn ra ngày 19/11/2026. Vỹ muốn dùng hậu tố nào cho kết quả T04?
+Dùng 20261119 cho kết quả, giữ nguyên tên 3 plan
+```
+
+<a id="msg-8d6be67b09987f6cdeee"></a>
+
+### Output
+
+#### Phản hồi 1 — 00:07:48 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ dùng hậu tố `20261119` cho kết quả và giữ nguyên tên ba plan. Mình dùng skill `test-execution-reporting` để đối chiếu số liệu từ JTL, dashboard và SQLite sau mỗi lượt.
+```
+
+<a id="msg-648e613f8703b1128eac"></a>
+
+#### Phản hồi 2 — 00:08:37 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Computer use chụp được Task Manager, nhưng Windows chặn thao tác chuyển tab vì cửa sổ này chạy ở mức quyền cao hơn. Vỹ giúp mở tab **Details** trong Task Manager và lọc `node.exe` để thấy cột PID nhé. Mình sẽ giữ bộ lọc đó cho cả ba lượt và tự chụp đúng thời điểm. Nếu Vỹ muốn chụp tay, mình sẽ chờ để phối hợp trước khi phát tải.
+```
+
+<a id="msg-3c95606e40e2a71c0dac"></a>
+
+#### Phản hồi 3 — 00:14:11 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+Computer use chụp được Task Manager và cửa sổ hiển thị đầu ra JMeter CLI. Hostname hiện tại là **`GOYOONJUNG`**, khớp với `Environment.md`. [Ảnh cấu hình dxdiag](../evidence/t04/hardware_dxdiag_20261118_152538Z.jpg)
+
+Mình đã dừng **trước khi phát tải** vì Windows chặn computer use chuyển Task Manager sang tab **Details** để thấy PID của backend. Vỹ giúp mở tab **Details**, lọc `node.exe` và để cột **PID** hiển thị. Mình có thể tự chụp theo mốc tải sau khi tab đó sẵn sàng.
+
+Ở bước chuẩn bị Load, SQLite xác nhận đủ **1.250 tài khoản tổng hợp**, **0 đơn** và **0 tài khoản có dấu khóa hoặc bộ đếm đăng nhập sai**. Cả ba lượt đo vẫn chưa chạy, nên chưa có JTL, dashboard, số đo hay nháp Issue. Ba plan giữ hậu tố `20261118`, kết quả sẽ dùng `20261119` như Vỹ đã chốt. Chưa cập nhật hồ sơ AI hay commit. [Tài liệu T04](../T04_Execution.md) · [Biên bản chuẩn bị Load](../evidence/t04/load-preparation.json)
+```
+
+<a id="msg-a0d9af8ba41f529d1ea0"></a>
+
+## P-018
+
+- Timestamp: 00:48:16 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình chọn chạy từng đoạn và tự chụp ảnh monitor. Bạn không dùng computer use để chụp Task Manager nữa. Làm lại như sau:\
+\
+1\. Đổi tên 3 plan sang hậu tố 20261119 (ngày chạy thật) bằng git mv, cập nhật mọi tham chiếu trong T04_Execution.md, Stress_Spike_Plans.md, Load_Plan.md và README. Kiểm tra bằng grep không còn 20261118 trong tên plan. Đừng sửa phần lịch sử T00–T03 đã commit ngoài các tham chiếu tên plan.\
+\
+2\. Quy trình mỗi lượt (Load, rồi Stress, rồi Spike), dừng ở các điểm sau để mình thao tác:\
+&#x20;  a. Reset DB/khóa/tài khoản và xác nhận SQLite như bạn đã làm với Load. Báo kết quả.\
+&#x20;  b. Dừng và báo mình: "Sẵn sàng chạy \<kịch bản>". Mình sẽ mở Task Manager tab Details (node.exe, cột PID) cạnh cửa sổ JMeter.\
+&#x20;  c. Bạn nói rõ mình bấm chụp ở giây thứ bao nhiêu sau khi tải bắt đầu (ví dụ lúc tải tăng và lúc đỉnh, dựa trên lịch từng plan), rồi mới phát lệnh JMeter. Tải chạy thật, mình chụp ngay khi bạn báo mốc. Nếu cần, ghi mốc ra terminal để mình thấy.\
+&#x20;  d. Khi JMeter xong, bạn xử lý .jtl, HTML report, CSV CPU/RAM, tính lại RPS/p95/% lỗi như đã giao. Mình sẽ đưa ảnh vào evidence/t04 với tên ghi kịch bản + mốc thời gian, và bạn ghi chúng vào T04_Execution.md.\
+&#x20;  e. Dừng, báo kết quả lượt đó, chờ mình nói "tiếp" rồi mới sang lượt sau.\
+\
+3\. Giữ nguyên các yêu cầu cũ: lượt hỏng hoặc bỏ dở phải khai báo, nháp Issue chưa đăng, chưa cập nhật AI files, chưa commit. Ảnh dxdiag của bạn giữ lại làm ảnh hardware.\
+\
+Hãy bắt đầu từ bước 1, rồi 2a và 2b cho Load.
+```
+
+<a id="msg-db8cca56ffdef3145d4a"></a>
+
+### Output
+
+#### Phản hồi 1 — 00:48:27 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đổi tên ba plan sang `20261119`, kiểm tra các tham chiếu rồi reset và xác nhận SQLite cho Load. Khi báo “Sẵn sàng chạy Load”, mình sẽ dừng để Vỹ bố trí cửa sổ. Mình sẽ không dùng computer use để chụp Task Manager.
+```
+
+<a id="msg-fcbd8d99069cf17bd5be"></a>
+
+#### Phản hồi 2 — 00:50:54 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Sẵn sàng chạy Load.** Backend `node.exe` có PID **22712**. Vỹ mở Task Manager → **Details**, lọc `node.exe` và đặt cạnh cửa sổ **HW05 T04 - JMeter CLI**. Mình đang dừng ở bước này. Khi Vỹ báo đã bố trí xong, mình sẽ báo hai mốc chụp trước khi phát tải.
+
+SQLite xác nhận đã đăng ký đủ **1.250 tài khoản tổng hợp** so với mức cần **204**. DB có **0 đơn**, **0 tài khoản bị khóa hoặc có bộ đếm đăng nhập sai**, và `PRAGMA quick_check` trả `ok`. [Biên bản SQLite](../evidence/t04/load-ready.json)
+
+Đã dùng `git mv` đổi tên ba plan sang `20261119` và cập nhật tài liệu. `grep` xác nhận tên cũ chỉ còn trong nhật ký và bằng chứng lịch sử. Cấu hình tải giữ nguyên. Chưa chạy JMeter, cập nhật hồ sơ AI hay commit. [Tài liệu T04](../T04_Execution.md)
+```
+
+<a id="msg-a214e8cdd8df70b25982"></a>
+
+## P-019
+
+- Timestamp: 00:52:37 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Ảnh đính kèm trong lượt này (1): codex-clipboard-6e80574e-aee9-487f-92fc-14dbfd35ac4e.png. Đã ẩn đường dẫn máy và bỏ metadata của giao diện.
+
+```text
+đã bố trí xong
+```
+
+<a id="msg-04a016dea6a95ad21675"></a>
+
+### Output
+
+#### Phản hồi 1 — 00:52:43 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Vỹ bấm chụp ở **giây 14** khi Load đang tăng và **giây 90** khi đã ổn định ở 6 VU. Terminal sẽ hiện `CAPTURE NOW` ở cả hai mốc. Ảnh bố trí đang ở tab **Processes**. Vỹ chuyển sang **Details** và lọc `22712` để ảnh hiện đúng PID backend. Mình kiểm tra RAM và trạng thái backend ngay trước khi phát tải.
+```
+
+<a id="msg-cd3287a828ca1d1b1a3b"></a>
+
+#### Phản hồi 2 — 00:53:02 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+RAM khả dụng vừa đo chỉ 789 MiB. Ở mức này bộ giám sát sẽ dừng lượt trước ảnh giây 14 nếu RAM thấp kéo dài. Vỹ giúp đóng bớt ứng dụng hoặc tab đang bỏ trống tới khi Task Manager còn khoảng 2 GB RAM khả dụng, rồi báo mình. Giữ cửa sổ JMeter và Task Manager mở. Mình chưa phát tải.
+```
+
+<a id="msg-7a999c1c9c79c59b653a"></a>
+
+#### Phản hồi 3 — 00:54:52 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+RAM khả dụng đã lên **3.162 MiB**. Mình phát tải Load sau vài giây. Vỹ nhìn dòng `CAPTURE NOW` trên terminal để chụp ở giây **14** và **90**, kèm hàng `node.exe` PID **22712** trong Task Manager.
+```
+
+<a id="msg-bd8d196f5075efac2844"></a>
+
+#### Phản hồi 4 — 00:55:11 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Load đã bắt đầu lúc **00:55:03.754 (UTC+7)**. Hai mốc chụp tương ứng khoảng **00:55:18** và **00:56:34**. Terminal sẽ đánh dấu cả hai.
+```
+
+<a id="msg-3d7b0a3062f95ff0e729"></a>
+
+#### Phản hồi 5 — 00:57:56 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Load đã kết thúc đúng lịch ở **6 VU**, với **550 request và 0 lỗi**. JTL khớp dashboard cả số mẫu, RPS, p95 và tỷ lệ lỗi theo từng label. SQLite cũng khớp **108 checkout** với **108 đơn**. Mình đang ghi kết quả vào T04 và chờ hai ảnh Load của Vỹ để đối chiếu mốc chụp.
+```
+
+<a id="msg-629d6dfd6cc5011fadf9"></a>
+
+#### Phản hồi 6 — 00:59:23 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Load đã hoàn thành đúng lịch** với **6 VU thực tế**, **550 request**, **3,72 RPS** và **0 lỗi**. Số mẫu, RPS, p95 và tỷ lệ lỗi tính lại từ JTL đều khớp dashboard.
+
+| Label | Request | p95 (ms) |
+| --- | ---: | ---: |
+| Login | 112 | 4,00 |
+| Search products | 112 | 3,00 |
+| Product detail | 110 | 3,00 |
+| Add to cart | 108 | 2,00 |
+| Checkout | 108 | 13,55 |
+
+SQLite có **108 đơn `pending`**, khớp từng checkout. Không thấy timeout, 5xx, lockout hoặc sai lệch dữ liệu, nên lượt Load không phát sinh nháp Issue.
+
+[JTL gốc](../results/23120410_Load_20261119.jtl) · [HTML report](../results/23120410_Load_20261119/index.html) · [CSV CPU/RAM](../results/23120410_Load_20261119_resources.csv) · [Bản đối chiếu](../evidence/t04/load-verification.json)
+
+[Tài liệu T04](../T04_Execution.md) đã ghi hai mốc dự kiến **00:55:18** và **00:56:34** (UTC+7). Hai ảnh chụp trong lượt chưa có trong `evidence/t04`. Mình dừng tại đây, chờ Vỹ gửi ảnh và nói **“tiếp”** trước khi sang Stress. Chưa cập nhật hồ sơ AI hay commit.
+```
+
+<a id="msg-4689eaa48e7409dd1f8a"></a>
+
+## P-020
+
+- Timestamp: 01:01:15 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Ảnh đính kèm trong lượt này (3): Screenshot 2026-11-19 005750.png, Screenshot 2026-11-19 005703.png, Screenshot 2026-11-19 005636.png. Đã ẩn đường dẫn máy và bỏ metadata của giao diện.
+
+```text
+tôi chụp như này thì thỏa không
+```
+
+<a id="msg-14338cfe33fe1f849206"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:01:31 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đối chiếu thời điểm chụp và nội dung hiện trên ba ảnh với yêu cầu bằng chứng của HW05 và các mốc Load đã ghi.
+```
+
+<a id="msg-ae728ddcb9cb88d5e7fd"></a>
+
+#### Phản hồi 2 — 01:02:13 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Bố cục đạt, nhưng bộ ảnh Load còn thiếu ảnh lúc tăng tải và cột PID.** Đề HW05 yêu cầu ảnh JMeter cùng mức sử dụng tài nguyên của tiến trình backend trong lúc chạy. Tiêu chí T04 của mình còn yêu cầu hai ảnh, một lúc tăng tải và một lúc đỉnh. [Đề HW05, trang 5](<<workspace HW05>/2026.HW05.Performance Testing_En.pdf#page=5>)
+
+| Ảnh | Đánh giá |
+| --- | --- |
+| **00:56:36** | Ảnh tốt nhất cho **đỉnh 6 VU**. Dòng `RAMP t=14.1s` trên terminal là log từ trước thời điểm chụp. |
+| **00:57:03** | Ảnh bổ sung khi Load vẫn chạy ở **6 VU**. |
+| **00:57:50** | Ảnh tổng kết sau khi JMeter đã kết thúc, có số liệu **550 request, 0 lỗi**. |
+
+Cả ba ảnh đang ở tab **Processes**, có nhiều dòng Node.js và thiếu cột PID để đối chiếu với backend `22712` trên terminal. Ở lượt sau, Vỹ giữ bố cục này, chuyển sang **Details**, lọc theo PID mình báo và chụp ngay khi hiện `CAPTURE NOW`. Kết quả đo Load vẫn dùng được.
+```
+
+<a id="msg-90ac51f97963a4a3ba45"></a>
+
+## P-021
+
+- Timestamp: 01:04:59 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Ảnh đính kèm trong lượt này (1): codex-clipboard-12143cd2-c39b-46d1-a69a-bbdc72adac42.png. Đã ẩn đường dẫn máy và bỏ metadata của giao diện.
+
+```text
+ò oke hiểu rồi. mở như này đúng không
+```
+
+<a id="msg-a75344a06b12b37f58e6"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:05:06 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Đúng rồi. Tab **Details** đã hiện `node.exe`, PID, CPU và RAM cùng terminal JMeter. PID `22712` đã biến mất vì lượt Load kết thúc và backend đã tắt.
+
+Khi chạy lượt tiếp theo, Vỹ lọc theo **PID mới mình báo** và chụp lúc terminal hiện `CAPTURE NOW`, sao cho hàng `node.exe` và dòng mốc chụp cùng nằm trong khung hình.
+```
+
+<a id="msg-30464d61e4de6a044ab6"></a>
+
+## P-022
+
+- Timestamp: 01:07:34 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+vậy tôi cần bạn setup để tôi có thể chạy lại 1 lượt, xóa các cái cũ đi ta chạy lại từ đầu
+```
+
+<a id="msg-f7b206f3dba5ad919a84"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:07:45 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ dọn kết quả Load cũ khỏi thư mục nộp và cất bản đó riêng để có thể khôi phục. Sau đó mình sẽ reset backend, đăng ký lại tài khoản và báo PID mới. Mình sẽ dừng ở bước sẵn sàng để Vỹ lọc đúng tiến trình trước khi phát tải.
+```
+
+<a id="msg-aa562ab6cb3bc29fb1c0"></a>
+
+#### Phản hồi 2 — 01:09:29 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Sẵn sàng chạy lại Load.** Vỹ mở Task Manager → **Details** và lọc PID mới **`31688`**. Giữ hàng `node.exe` có cột PID, CPU, RAM cùng cửa sổ **HW05 T04 - JMeter CLI** trong khung hình.
+
+Backend đã được dựng lại từ bản sạch. SQLite xác nhận **1.250 tài khoản tổng hợp**, **0 đơn**, **0 tài khoản bị khóa** và `quick_check` trả `ok`. Kết quả Load cũ đã được chuyển ra khỏi thư mục nộp và cất riêng để khôi phục nếu cần. [Biên bản SQLite](../evidence/t04/load-ready.json) · [Bản lưu Load cũ](<runtime local>/T04/Load-original-20261119-005503/T04_Execution.original.md)
+
+RAM khả dụng lúc kiểm tra là **1.057 MiB**. Vỹ giúp giải phóng lên khoảng **2 GiB** rồi báo đã sẵn sàng. Mình chưa phát tải. Khi chạy, terminal sẽ báo `CAPTURE NOW` ở **giây 14** và **giây 90**.
+```
+
+<a id="msg-df8720c81933f855da9a"></a>
+
+## P-023
+
+- Timestamp: 01:11:55 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+sẵn sàng
+```
+
+<a id="msg-76fa5696038093ab4b16"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:11:59 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình kiểm tra RAM và PID backend trước khi phát tải. Vỹ chụp khi terminal hiện `CAPTURE NOW` ở **giây 14** và **giây 90**, với hàng `node.exe` PID **31688** trong cùng khung hình.
+```
+
+<a id="msg-ee49c6e2b6ebcfcb53fb"></a>
+
+#### Phản hồi 2 — 01:12:11 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+RAM khả dụng là **4.318 MiB**, và backend đang nghe đúng PID **31688**. Mình sẽ phát tải sau **6 giây**. Vỹ chuyển sang hai cửa sổ đã bố trí và canh dòng `CAPTURE NOW` đầu tiên.
+```
+
+<a id="msg-48d36f932007a8b23c83"></a>
+
+#### Phản hồi 3 — 01:12:29 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Load đã bắt đầu. Hai mốc chụp theo giờ máy là **01:12:40** và **01:13:56** (UTC+7).
+```
+
+<a id="msg-cdc4b5f0143cd9cf776a"></a>
+
+#### Phản hồi 4 — 01:15:04 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Lượt chạy lại đã hoàn thành đúng lịch ở **6 VU** với **548 request, 0 lỗi**. Số liệu tính lại khớp dashboard, và SQLite có **107 đơn** khớp 107 checkout. Mình đang cập nhật báo cáo bằng kết quả của lượt này.
+```
+
+<a id="msg-ae6c1582b4a65fa0aa47"></a>
+
+#### Phản hồi 5 — 01:16:34 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Lượt chạy lại Load hoàn thành đúng lịch** với **6 VU thực tế**, **548 request**, **3,70 RPS** và **0 lỗi**. Số request, RPS, p95 và tỷ lệ lỗi tính lại từ JTL đều khớp dashboard.
+
+| Label | Request | p95 (ms) |
+| --- | ---: | ---: |
+| Login | 112 | 4,00 |
+| Search products | 111 | 3,00 |
+| Product detail | 109 | 3,00 |
+| Add to cart | 109 | 2,00 |
+| Checkout | 107 | 10,00 |
+
+SQLite có **107 đơn `pending`**, khớp từng checkout. Không ghi nhận 5xx, timeout, lockout hay sai lệch dữ liệu. RAM khả dụng thấp nhất **3.953 MiB**.
+
+[Tài liệu T04](../T04_Execution.md) · [JTL](../results/23120410_Load_20261119.jtl) · [HTML report](../results/23120410_Load_20261119/index.html) · [CSV CPU/RAM](../results/23120410_Load_20261119_resources.csv)
+
+Mình chờ hai ảnh quanh **01:12:40** và **01:13:56** (UTC+7), với PID **31688**. Mình chưa sang Stress và sẽ chờ Vỹ nói **“tiếp”**.
+```
+
+<a id="msg-c7511ac6a0654b0dd6a6"></a>
+
+## P-024
+
+- Timestamp: 01:17:38 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Ảnh đính kèm trong lượt này (2): codex-clipboard-8d93acc7-2411-419a-9039-1f1d33bd9caf.png, codex-clipboard-d7913374-2ca4-4e7f-8d5e-d36a279c672b.png. Đã ẩn đường dẫn máy và bỏ metadata của giao diện.
+
+```text
+2 file ảnh này ổn chứ
+```
+
+<a id="msg-db0d264df8b5023ba2f8"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:17:47 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Cả hai ảnh đã hiện đúng PID **31688** trong Task Manager, cùng mốc `RAMP` và `PEAK` trên terminal. Mình sẽ lưu ảnh gốc và ghi hai mốc vào tài liệu T04.
+```
+
+<a id="msg-4370dec7fc723d276739"></a>
+
+#### Phản hồi 2 — 01:18:17 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+Ổn, **đủ bằng chứng cho lượt Load**. Cả hai ảnh cho thấy JMeter CLI và Task Manager cùng khung, với đúng `node.exe` PID **31688** và các cột CPU, RAM.
+
+- **Tăng tải:** 01:12:40.267, giây 14,3, JMeter báo **3 VU**. [Ảnh ramp](../evidence/t04/Load_ramp_20261119_011240.png)
+- **Đỉnh ổn định:** 01:13:55.952, giây 90,0, JMeter báo **6 VU**. [Ảnh peak](../evidence/t04/Load_peak_20261119_011355.png)
+
+Mình đã lưu hai ảnh gốc và ghi mốc vào [tài liệu T04](../T04_Execution.md). Mình chờ Vỹ nói **“tiếp”** trước khi chuẩn bị Stress.
+```
+
+<a id="msg-5591fb61e0b31a308520"></a>
+
+## P-025
+
+- Timestamp: 01:18:48 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+stress là phải chạy tiếp như vậy và chụp tiếp hã
+```
+
+<a id="msg-eb14ba494db0986049fb"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:18:55 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Đúng. Stress cũng chạy JMeter CLI, và Vỹ chụp hai ảnh cùng bố cục như Load. Mình sẽ reset DB, đăng ký lại tài khoản và báo **PID backend mới** để Vỹ lọc trong Task Manager.
+
+Stress tăng theo bậc **24 → 48 → 96 → 144 VU**. Mốc chụp dự kiến là **giây 31** khi đang tăng tải và **giây 98** nếu đã đạt 144 VU. Terminal sẽ hiện `CAPTURE NOW`. Nếu lượt dừng sớm theo tiêu chí Stress, mình sẽ ghi mức tải cao nhất thực tế.
+
+Khi Vỹ nói **“tiếp”**, mình sẽ chuẩn bị Stress rồi dừng để Vỹ bố trí cửa sổ trước khi phát tải.
+```
+
+<a id="msg-65c1e9b2ee58dc9a0f5a"></a>
+
+## P-026
+
+- Timestamp: 01:19:05 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+tiếp
+```
+
+<a id="msg-bd15954f3e061b0a21e9"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:19:11 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ chuẩn bị Stress từ một bản backend sạch và đối chiếu 7.500 tài khoản với SQLite. Khi backend sẵn sàng, mình sẽ báo PID mới để Vỹ lọc trong Task Manager rồi dừng trước khi phát tải.
+```
+
+<a id="msg-bb92c5c69082d419a6b0"></a>
+
+#### Phản hồi 2 — 01:20:41 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Backend Stress đã khởi động với PID **2524**. SQLite hiện có **4.019/7.500** tài khoản tổng hợp. Mình đang chờ đăng ký xong để đối chiếu toàn bộ tập email và kiểm tra trạng thái khóa.
+```
+
+<a id="msg-15d38f38f71d8a9fb2aa"></a>
+
+#### Phản hồi 3 — 01:22:43 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Sẵn sàng chạy Stress.** Vỹ mở Task Manager → **Details**, lọc `node.exe` theo PID **2524** và giữ cạnh cửa sổ **HW05 T04 - JMeter CLI**.
+
+Backend đã được dựng lại từ bản sạch. SQLite xác nhận **7.500 tài khoản tổng hợp** so với **6.984** cần theo dự trù, **0 đơn**, **0 tài khoản bị khóa hoặc còn bộ đếm đăng nhập sai**. `PRAGMA quick_check` trả `ok`. RAM khả dụng lúc kiểm tra là **4.383 MiB**. [Biên bản SQLite](../evidence/t04/stress-ready.json)
+
+Mốc chụp dự kiến là **giây 31** khi tăng từ 24 lên 48 VU và **giây 98** nếu lượt đạt 144 VU. Mình chưa phát tải, đang chờ Vỹ báo **sẵn sàng**.
+```
+
+<a id="msg-c9283bbbd37afbda1518"></a>
+
+## P-027
+
+- Timestamp: 01:23:14 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+sẵn sàng
+```
+
+<a id="msg-51bba6fd1e407a935493"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:23:19 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Vỹ giữ PID **2524** trong khung hình. Terminal sẽ báo `CAPTURE NOW` ở **giây 31** và **giây 98**. Nếu Stress dừng sớm, ảnh dự phòng ở khoảng **giây 50** hoặc **80** có thể ghi lại bậc cao nhất đã đạt. Mình kiểm tra RAM và PID lần cuối trước khi phát tải.
+```
+
+<a id="msg-ee5d9a76414a8fe2a185"></a>
+
+#### Phản hồi 2 — 01:23:33 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+RAM khả dụng là **4.132 MiB**, PID backend khớp. Mình phát tải sau **6 giây**. Vỹ chuyển sang hai cửa sổ đã bố trí để chụp.
+```
+
+<a id="msg-859676cfd73d053b1d63"></a>
+
+#### Phản hồi 3 — 01:23:53 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Stress đã bắt đầu lúc **01:23:49.100 (UTC+7)**. Hai mốc chụp theo giờ máy là **01:24:20** và **01:25:27**. Vỹ canh dòng `CAPTURE NOW` trên terminal.
+```
+
+<a id="msg-bc567a1578a0776116e6"></a>
+
+## P-028
+
+- Timestamp: 01:24:53 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+ui tôi lở cap sai rồi, setup chạy lại giúp tôi
+```
+
+<a id="msg-c5a79de5bbd89d89fddb"></a>
+
+## P-029
+
+- Timestamp: 01:25:05 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+ui tôi lở cap sai rồi, setup chạy lại giúp tôi
+```
+
+<a id="msg-04b8f8d685eb2490b214"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:25:17 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ chuẩn bị lại Stress để Vỹ chụp từ đầu. Lượt đang chạy sẽ được giữ riêng sau khi kết thúc. Sau đó mình sẽ reset backend, đăng ký lại tài khoản và báo PID mới trước khi phát tải.
+```
+
+<a id="msg-901564751549d62debe6"></a>
+
+#### Phản hồi 2 — 01:26:26 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Lượt Stress đầu đã kết thúc đúng lịch ở **144 VU**, với **20.246 request, 0 lỗi** và **3.988 đơn** khớp SQLite. Mình đã lưu riêng JTL, dashboard và CSV tài nguyên của lượt đó. Backend mới đang được chuẩn bị cho lượt chụp lại.
+```
+
+<a id="msg-7ad3ed0a326a68acecbd"></a>
+
+#### Phản hồi 3 — 01:28:32 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Backend mới có PID **28088**. SQLite đã ghi **5.191/7.500** tài khoản. Vỹ có thể lọc PID `28088` trong tab **Details** ngay bây giờ. Mình sẽ báo khi đối chiếu xong và vẫn dừng trước khi phát tải.
+```
+
+<a id="msg-0a7c503fa6c0921d5ae6"></a>
+
+#### Phản hồi 4 — 01:30:13 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Sẵn sàng chạy lại Stress.** Mình đã mở lại **HW05 T04 - JMeter CLI**. Vỹ đặt Task Manager tab **Details** cạnh terminal và lọc PID mới **`28088`**.
+
+SQLite đã xác nhận **7.500 tài khoản tổng hợp**, **0 đơn**, **0 tài khoản bị khóa hoặc còn bộ đếm đăng nhập sai**. `PRAGMA quick_check` trả `ok`. RAM khả dụng lúc kiểm tra là **4.374 MiB**. Lượt Stress đầu đã được lưu riêng. [Biên bản SQLite](../evidence/t04/stress-ready.json)
+
+Mình chưa phát tải. Khi Vỹ báo **sẵn sàng**, terminal sẽ hiện `CAPTURE NOW` ở **giây 31** và **giây 98** nếu lượt đạt 144 VU.
+```
+
+<a id="msg-bf8280fc8f92ba4943f0"></a>
+
+## P-030
+
+- Timestamp: 01:30:18 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+sẵn sàng
+```
+
+<a id="msg-a07a96606f0d5e22a9c6"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:30:24 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ kiểm tra RAM và PID rồi phát tải sau 6 giây nếu cả hai đạt. Vỹ giữ `node.exe` PID **28088** trong khung và chụp khi dòng `CAPTURE NOW` xuất hiện ở **giây 31** và **giây 98**. Nếu lượt dừng sớm, ảnh dự phòng ở giây **50** hoặc **80** sẽ giúp ghi lại bậc đã đạt.
+```
+
+<a id="msg-a73768fedc349e026c1a"></a>
+
+#### Phản hồi 2 — 01:30:53 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Stress đã bắt đầu lúc **01:30:48.380 (UTC+7)**. Hai mốc chụp là **01:31:19** và **01:32:26**. Vỹ canh dòng `CAPTURE NOW` trên terminal.
+```
+
+<a id="msg-e1353185671461205227"></a>
+
+#### Phản hồi 3 — 01:32:57 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Stress đã kết thúc đúng lịch ở **144 VU**, với **20.224 request và 0 lỗi**. Số liệu tính lại khớp dashboard, và SQLite có **3.991 đơn** khớp từng checkout. Mình đang ghi số liệu theo từng bậc tải vào T04.
+```
+
+<a id="msg-0cdae439332797c8631e"></a>
+
+## P-031
+
+- Timestamp: 01:33:58 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Ảnh đính kèm trong lượt này (2): Screenshot 2026-11-19 013258.png, Screenshot 2026-11-19 013124.png. Đã ẩn đường dẫn máy và bỏ metadata của giao diện.
+
+```text
+2 ảnh này được không, ở lần 2 tôi đã bị lỗi kỹ thuật nên không chụp được ngay lúc nó báo capture now
+```
+
+<a id="msg-9c774874adf0e157f768"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:34:11 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đối chiếu giờ chụp với JTL và CSV tài nguyên. Ảnh đầu có đúng PID đang chạy. Ảnh thứ hai có dòng `PEAK` trong log, nhưng Task Manager lúc chụp đã không còn tiến trình backend.
+```
+
+<a id="msg-b23d63a820d2e1fa1200"></a>
+
+#### Phản hồi 2 — 01:34:56 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Đủ yêu cầu ảnh tối thiểu của đề HW05 cho Stress.** Tiêu chí T04 vẫn thiếu ảnh Task Manager ở đỉnh 144 VU.
+
+- **01:31:24:** Ảnh hợp lệ trong lúc chạy. Cùng khung có JMeter CLI và `node.exe` PID **28088** với CPU, RAM. JTL xác nhận **48 VU** quanh lúc chụp. [Ảnh đầu bậc 48 VU](../evidence/t04/Stress_early_48VU_20261119_013124.png)
+- **01:32:58:** Ảnh tổng kết sau khi lượt đã kết thúc. Terminal còn log **144 VU**, còn Task Manager đã hết kết quả cho PID đó. CSV vẫn có số đo CPU/RAM tại mốc đỉnh. [Ảnh tổng kết](../evidence/t04/Stress_finished_20261119_013258.png) · [CSV CPU/RAM](../results/23120410_Stress_20261119_resources.csv)
+
+Mình đã lưu hai ảnh và ghi rõ phần thiếu trong [tài liệu T04](../T04_Execution.md). Kết quả Stress đã kiểm chứng là **144 VU, 20.224 request, 170,00 RPS và 0 lỗi**. Mình chờ Vỹ nói **“tiếp”** trước khi chuẩn bị Spike.
+```
+
+<a id="msg-ba3f616107a35e736850"></a>
+
+## P-032
+
+- Timestamp: 01:35:20 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+ồ vậy là mặc dù chụp không kịp nhưng vẫn thỏa đúng không, vậy tiếp spike thôi
+```
+
+<a id="msg-51efc987296483620758"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:35:33 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Đúng, Stress đủ yêu cầu ảnh tối thiểu của đề. Tài liệu T04 đã ghi rõ ảnh ở đỉnh còn thiếu và dẫn số đo CPU/RAM tại mốc đó. Mình sẽ chuẩn bị Spike từ backend sạch, đối chiếu tài khoản rồi báo PID mới trước khi phát tải.
+```
+
+<a id="msg-6bd0a5ce1984ca75c9ca"></a>
+
+#### Phản hồi 2 — 01:37:32 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Sẵn sàng chạy Spike.** Vỹ mở Task Manager → **Details**, lọc `node.exe` theo PID **6536**, rồi đặt cạnh cửa sổ **HW05 T04 - JMeter CLI**.
+
+Backend đã được dựng lại từ bản sạch. SQLite xác nhận **3.000 tài khoản tổng hợp** so với **2.868** cần theo dự trù, **0 đơn**, **0 tài khoản bị khóa hoặc còn bộ đếm đăng nhập sai**. `PRAGMA quick_check` trả `ok`. RAM khả dụng lúc kiểm tra là **4.157 MiB**. [Biên bản SQLite](../evidence/t04/spike-ready.json)
+
+Terminal sẽ báo `CAPTURE NOW` ở **giây 60** khi tải bắt đầu nhảy từ 6 lên 144 VU, và **giây 69** ở đỉnh. Pha đỉnh kết thúc khoảng **giây 80**. Mình chưa phát tải, đang chờ Vỹ báo **sẵn sàng**.
+```
+
+<a id="msg-833f98dc9b34e9eedbc5"></a>
+
+## P-033
+
+- Timestamp: 01:38:09 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+sẵn sàng
+```
+
+<a id="msg-32630d018eb025aeb030"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:38:14 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Vỹ giữ `node.exe` PID **6536** trong khung. Mình kiểm tra RAM và PID rồi phát tải sau 6 giây nếu cả hai đạt. Chụp khi terminal hiện `CAPTURE NOW` ở **giây 60** và **giây 69**. Nếu hụt mốc thứ hai, vẫn còn vài giây để chụp ở đỉnh trước khi tải hạ khoảng giây 80.
+```
+
+<a id="msg-e6305c39e9c736c9a903"></a>
+
+#### Phản hồi 2 — 01:38:42 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Spike đã bắt đầu. Hai mốc chụp theo giờ máy là **01:39:36** và **01:39:45** (UTC+7). Pha đỉnh kết thúc khoảng **01:39:56**. Vỹ canh dòng `CAPTURE NOW` trên terminal.
+```
+
+<a id="msg-41482723ebaa4525a006"></a>
+
+#### Phản hồi 3 — 01:41:15 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Spike đã kết thúc đúng lịch, lên **144 VU** rồi trở về **6 VU**. Lượt ghi **7.755 request, 0 lỗi**, và SQLite có **1.490 đơn** khớp từng checkout. Mình đang đối chiếu p95 theo pha và xác định cửa sổ hồi phục.
+```
+
+<a id="msg-8f25331cabaf9ce751ed"></a>
+
+#### Phản hồi 4 — 01:43:13 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Ba lượt đo T04 đã kết thúc đúng lịch.** Số request, RPS, p95 và tỷ lệ lỗi tính lại từ JTL đều khớp dashboard.
+
+| Kịch bản | VU thực tế | Request | RPS | Lỗi | p95 login / search / detail / cart / checkout (ms) |
+| --- | --- | ---: | ---: | ---: | --- |
+| Load | 6 | 548 | 3,70 | 0% | 4 / 3 / 3 / 2 / 10 |
+| Stress | 24 → 48 → 96 → 144 | 20.224 | 170,00 | 0% | 9 / 8 / 9 / 2 / 14 |
+| Spike | 6 → 144 → 6 | 7.755 | 52,06 | 0% | 19 / 11 / 11 / 6 / 30 |
+
+Spike đạt **314,36 RPS** trong cửa sổ đỉnh. Tiêu chí hồi phục đạt ở cuối cửa sổ kiểm tra đầu tiên, **35 giây sau khi nhóm Burst kết thúc**. Stress chưa xác lập điểm bão hòa ở trần thử nghiệm 144 VU. SQLite khớp từng checkout ở cả ba lượt, và không có lỗi cần soạn nháp Issue.
+
+[Tài liệu T04 và bằng chứng từng lượt](../T04_Execution.md) · [JTL Spike](../results/23120410_Spike_20261119.jtl) · [Dashboard Spike](../results/23120410_Spike_20261119/index.html) · [CSV CPU/RAM Spike](../results/23120410_Spike_20261119_resources.csv)
+
+T04 đã ghi rõ ảnh Stress ở đỉnh còn thiếu. Mình chờ hai ảnh Spike quanh **01:39:36** và **01:39:45** (UTC+7), với PID **6536**, để bổ sung trước khi Vỹ review. Chưa cập nhật hồ sơ AI hay commit.
+```
+
+<a id="msg-83997cf0d33ce7daea4e"></a>
+
+## P-034
+
+- Timestamp: 01:43:30 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Ảnh đính kèm trong lượt này (2): Screenshot 2026-11-19 013949.png, Screenshot 2026-11-19 013941.png. Đã ẩn đường dẫn máy và bỏ metadata của giao diện.
+
+```text
+đây, check thử
+```
+
+<a id="msg-d470a24847ac4b4d9199"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:43:37 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Cả hai ảnh đều hiện đúng `node.exe` PID **6536**, CPU và RAM cùng JMeter CLI. Mình sẽ đối chiếu giờ chụp với JTL để ghi đúng pha của từng ảnh.
+```
+
+<a id="msg-cc620ef0f0acb4bccfd6"></a>
+
+#### Phản hồi 2 — 01:44:20 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Cả hai ảnh dùng được làm bằng chứng Spike.** JMeter CLI và Task Manager cùng khung, hiện đúng `node.exe` PID **6536** với CPU và RAM.
+
+- **01:39:41:** Ảnh đầu đỉnh. Terminal còn log lúc tăng tải, còn JTL xác nhận tại giờ chụp đã đạt **144 VU**. [Ảnh đầu đỉnh](../evidence/t04/Spike_early_peak_20261119_013941.png)
+- **01:39:49:** Ảnh trong đỉnh **144 VU**. [Ảnh đỉnh](../evidence/t04/Spike_peak_20261119_013949.png)
+
+Hai ảnh đạt yêu cầu tối thiểu của đề. Pha tăng tải chỉ kéo dài một giây và kết thúc trước cả hai ảnh, nên mình đã ghi đúng thời điểm chụp và dẫn JTL để đối chiếu bước tăng tải.
+
+[Tài liệu T04](../T04_Execution.md) đã cập nhật và sẵn sàng để Vỹ review. Chưa cập nhật hồ sơ AI hay commit.
+```
+
+<a id="msg-6ba815a1cf534bf7029c"></a>
+
+## P-035
+
+- Timestamp: 01:44:54 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+vậy giờ đã làm gì cần review những gì nói hết vào đây tôi review 1 lần
+```
+
+<a id="msg-a46de1608340afcd2c9f"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:45:06 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ rà lại JTL, dashboard, CSV tài nguyên, ảnh và thay đổi trong repo để Vỹ có thể duyệt T04 trong một lượt. Mình sẽ nêu rõ phần ảnh còn thiếu theo tiêu chí chụp hai mốc.
+```
+
+<a id="msg-772f552495d44ceac7a1"></a>
+
+#### Phản hồi 2 — 01:46:15 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**T04 đã chạy xong cả ba kịch bản và sẵn sàng để Vỹ review.** Số liệu đã được đối chiếu giữa JTL, dashboard và SQLite. Điểm cần Vỹ chốt là **bằng chứng ảnh Stress và Spike**. Cả hai đạt yêu cầu ảnh tối thiểu của đề, nhưng thiếu một số mốc theo tiêu chí hai ảnh mình đặt cho T04. [Tài liệu T04](../T04_Execution.md)
+
+### 1. Thiết lập và kết quả
+
+Đã dùng `git mv` đổi tên cả ba plan sang `20261119`, cập nhật tên trong JMX và các link hiện hành. Cấu hình tải giữ nguyên. JMeter 5.6.3 chạy CLI non-GUI với Temurin 17 và heap **384 MiB** trên máy **`GOYOONJUNG`**, cùng máy với Node và SQLite. [Ảnh dxdiag](../evidence/t04/hardware_dxdiag_20261118_152538Z.jpg)
+
+Mỗi lượt dùng bản backend sạch từ `85af3ba` và SQLite mới. Trước khi phát tải, đã đối chiếu đúng tập tài khoản đăng ký từ CSV, **0 đơn**, **0 tài khoản có dấu khóa hoặc bộ đếm đăng nhập sai**, và `quick_check` trả `ok`.
+
+| Kịch bản | Tài khoản đã đăng ký / cần dự trù | VU thực tế | Request | RPS | Lỗi | Đơn khớp SQLite |
+| --- | ---: | --- | ---: | ---: | ---: | ---: |
+| Load | 1.250 / 204 | 6 | 548 | 3,70 | 0% | 107 |
+| Stress | 7.500 / 6.984 | 24 → 48 → 96 → 144 | 20.224 | 170,00 | 0% | 3.991 |
+| Spike | 3.000 / 2.868 | 6 → 144 → 6 | 7.755 | 52,06 | 0% | 1.490 |
+
+| p95 theo label (ms) | Load | Stress | Spike |
+| --- | ---: | ---: | ---: |
+| Login | 4 | 9 | 19 |
+| Search products | 3 | 8 | 11 |
+| Product detail | 3 | 9 | 11 |
+| Add to cart | 2 | 2 | 6 |
+| Checkout | 10 | 14 | 30 |
+| **Toàn lượt** | **9** | **10** | **17** |
+
+HTML report từng lượt được sinh từ đúng JTL gốc. Số mẫu, RPS, p95 và tỷ lệ lỗi tính lại khớp dashboard theo từng label và toàn lượt. CSV tài nguyên ghi CPU/RAM của máy, Node và JMeter khoảng một lần mỗi giây. SQLite khớp từng checkout theo mã đơn, chủ đơn và payload.
+
+| Kịch bản | File để đối chiếu |
+| --- | --- |
+| Load | [JTL](../results/23120410_Load_20261119.jtl) · [Dashboard](../results/23120410_Load_20261119/index.html) · [CPU/RAM](../results/23120410_Load_20261119_resources.csv) |
+| Stress | [JTL](../results/23120410_Stress_20261119.jtl) · [Dashboard](../results/23120410_Stress_20261119/index.html) · [CPU/RAM](../results/23120410_Stress_20261119_resources.csv) |
+| Spike | [JTL](../results/23120410_Spike_20261119.jtl) · [Dashboard](../results/23120410_Spike_20261119/index.html) · [CPU/RAM](../results/23120410_Spike_20261119_resources.csv) |
+
+### 2. Kết luận và lịch sử lượt chạy
+
+- **Stress** đạt **317,57 RPS** trong hai cửa sổ đo ở 144 VU. Không chạm tiêu chí dừng sớm. **144 VU là trần thử nghiệm đã chọn**, và lượt này chưa xác lập điểm bão hòa.
+- **Spike** đạt **314,36 RPS** trong cửa sổ đỉnh. Sau khi nhóm Burst kết thúc, cả hai cửa sổ hồi phục đều đạt tiêu chí p95 theo label và tỷ lệ lỗi. Cửa sổ đầu tiên xác nhận hồi phục kết thúc ở **giây thứ 35 sau Burst**.
+- **Lỗi và Issue.** Cả ba lượt trong bộ nộp đều kết thúc đúng lịch. Không ghi nhận 5xx, timeout, crash, lỗi assertion, cạn credentials hay lockout trong các lượt đo, nên không có nháp Issue mới. Các lượt dùng thông tin đăng nhập hợp lệ, vì vậy T04 không kiểm tra lại hành vi FR-02 khi nhập sai.
+- **Lượt chạy lại.** Load và Stress mỗi kịch bản có một lượt đầu hoàn thành, sau đó đo lại vì ảnh. Dữ liệu lượt đầu được lưu riêng ngoài bộ nộp. Hai lần chuẩn bị Load ban đầu dừng trước khi phát tải và đã được ghi trong tài liệu.
+
+### 3. Ảnh và các điểm Vỹ cần chốt
+
+| Kịch bản | Bằng chứng ảnh |
+| --- | --- |
+| **Load** | Đủ hai mốc. Ảnh tăng tải có **3 VU**, ảnh đỉnh có **6 VU**, cả hai hiện đúng PID **31688**. [Tăng tải](../evidence/t04/Load_ramp_20261119_011240.png) · [Đỉnh](../evidence/t04/Load_peak_20261119_011355.png) |
+| **Stress** | Ảnh lúc chạy có đúng PID **28088** ở đầu bậc **48 VU**. Ảnh còn lại chụp sau khi kết thúc. **Thiếu ảnh Task Manager ở 144 VU**. JTL và CSV có số liệu tại mốc đỉnh. [Ảnh 48 VU](../evidence/t04/Stress_early_48VU_20261119_013124.png) · [Ảnh tổng kết](../evidence/t04/Stress_finished_20261119_013258.png) |
+| **Spike** | Cả hai ảnh lúc chạy có đúng PID **6536** ở **144 VU**. Ảnh đầu giữ dòng log tăng tải, còn thời điểm chụp đã qua ramp một giây. **Thiếu ảnh đúng trong khoảng ramp**. [Ảnh đầu đỉnh](../evidence/t04/Spike_early_peak_20261119_013941.png) · [Ảnh đỉnh](../evidence/t04/Spike_peak_20261119_013949.png) |
+
+Khi duyệt, Vỹ chốt giúp ba điểm: **bộ ba kết quả dùng để nộp**, **cách diễn giải trần Stress và mốc hồi phục Spike**, và **giữ bộ ảnh hiện tại với hai giới hạn đã ghi hay bổ sung ảnh đúng pha**. Mình đã dừng ở T04, chưa cập nhật hồ sơ AI, chưa commit hay push.
+```
+
+<a id="msg-df86d7e7dc5aae12ae12"></a>
+
+## P-036
+
+- Timestamp: 01:49:59 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình duyệt số liệu T04 (JTL, dashboard, SQLite). Về ảnh, mình muốn chạy lại riêng Stress:\
+1\. Chạy lại Stress từ bước reset DB/tài khoản như lần trước, dùng tập tài khoản còn chưa dùng nếu cần. Ảnh Task Manager phải chụp được ở bậc 144 VU (log JMeter hiện Active: 144) và nên có cả ảnh bậc 96 VU. Dừng và báo mình trước khi phát tải, mình chuẩn bị Task Manager, bạn chụp theo mốc như lần trước.\
+2\. Thay bộ kết quả Stress mới (JTL, HTML report, CSV, ảnh) vào results/ và evidence/t04. Lượt Stress cũ chuyển sang lưu riêng như các lượt chạy lại trước, khai báo trong T04_Execution.md. Tính lại RPS, p95, % lỗi và đối chiếu SQLite cho lượt mới.\
+3\. Giữ ảnh Spike hiện tại. Trong T04_Execution.md ghi rõ: cột CPU ở tab Details của Task Manager là ảnh chụp tức thời và có thể chậm so với tải thật, số đo chính thức nằm ở CSV CPU/RAM; bỏ hoặc sửa câu nói ảnh Spike "thiếu ảnh đúng pha ramp" nếu chưa đúng thực tế.\
+4\. Báo lại bảng kết quả Stress mới, chưa cập nhật AI files, chưa commit.
+```
+
+<a id="msg-efc55a328287995d8cbf"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:50:13 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ lưu riêng lượt Stress đã duyệt, reset backend và xác nhận lại tài khoản cho lượt mới. Mình cũng sẽ cập nhật ghi chú CPU của Task Manager và cách mô tả ảnh Spike. Lượt Stress mới sẽ dừng ở bước sẵn sàng để Vỹ bố trí Task Manager theo PID mới.
+```
+
+<a id="msg-f9c40132840fe8d78fbc"></a>
+
+## P-037
+
+- Timestamp: 01:51:24 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Giữ nguyên câu hỏi hiển thị và lựa chọn của Vỹ. Đã ẩn ID nội bộ của giao diện.
+
+```text
+Riêng ảnh Stress lần này, Vỹ muốn mình chụp bằng computer use hay giữ cách lần trước là mình báo mốc và Vỹ bấm chụp?
+Mình báo mốc, Vỹ bấm chụp
+```
+
+<a id="msg-a93409c09c6da305f50e"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:52:44 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ báo mốc để Vỹ bấm chụp. Terminal đã được cập nhật để hiện `CAPTURE NOW` quanh **giây 70** và **giây 100**, sau khi log JMeter báo đúng `Active: 96` hoặc `Active: 144`. Backend mới có PID **26400**. SQLite đã ghi **4.465/7.500** tài khoản.
+```
+
+<a id="msg-2c7675be39354f6fa374"></a>
+
+#### Phản hồi 2 — 01:54:32 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Sẵn sàng chạy lại Stress.** Vỹ đặt Task Manager tab **Details** cạnh cửa sổ **HW05 T04 - JMeter CLI** và lọc `node.exe` theo PID mới **26400**. Mình chưa phát tải.
+
+Backend và SQLite đã được reset. Đã đăng ký và đối chiếu đủ **7.500 tài khoản tổng hợp** so với **6.984** cần theo dự trù. SQLite có **0 đơn**, **0 tài khoản có dấu khóa hoặc bộ đếm đăng nhập sai**, và `quick_check` trả `ok`. RAM khả dụng lúc kiểm tra là **4.568 MiB**. [Biên bản SQLite](../evidence/t04/stress-ready.json)
+
+Khi Vỹ báo **sẵn sàng**, mình sẽ phát tải và báo giờ chụp. Terminal sẽ hiện `CAPTURE NOW` quanh **giây 70** khi JMeter báo `Active: 96`, và quanh **giây 100** khi báo `Active: 144`.
+
+Lượt Stress cũ đã được lưu riêng và ghi vào lịch sử. Ảnh Spike được giữ lại. Tài liệu đã ghi rõ CPU trong Task Manager có thể hiển thị chậm và số đo dùng để phân tích nằm trong CSV CPU/RAM. Chưa cập nhật hồ sơ AI hay commit. [Tài liệu T04](../T04_Execution.md)
+```
+
+<a id="msg-29b6a4049acbb5a948e1"></a>
+
+## P-038
+
+- Timestamp: 01:54:59 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+sẵn sàng
+```
+
+<a id="msg-01fa251ee3b38533247a"></a>
+
+### Output
+
+#### Phản hồi 1 — 01:55:04 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ kiểm tra RAM và PID rồi phát tải sau 6 giây nếu cả hai đạt. Vỹ giữ `node.exe` PID **26400** trong khung và chụp khi terminal hiện `CAPTURE NOW` cùng `Active: 96` hoặc `Active: 144`. Hai mốc dự kiến là **giây 70** và **giây 100**.
+```
+
+<a id="msg-0ce0723c6074d7d4b046"></a>
+
+#### Phản hồi 2 — 01:55:56 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Stress đã bắt đầu lúc **01:55:40.786 (UTC+7)**. Vỹ chụp quanh **01:56:51** ở **96 VU** và **01:57:21** ở **144 VU**, khi terminal hiện `CAPTURE NOW` cho từng bậc.
+```
+
+<a id="msg-2f4f20e31a342c244995"></a>
+
+#### Phản hồi 3 — 01:57:54 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Lượt Stress mới đã kết thúc đúng lịch ở **144 VU**, với **20.203 request, 0 lỗi**. Kết quả tính lại khớp dashboard và **3.986 checkout** khớp từng đơn trong SQLite. Mình đang thay bộ số liệu Stress trong tài liệu T04.
+```
+
+<a id="msg-6f3ae871d361821cf707"></a>
+
+#### Phản hồi 4 — 01:59:41 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Lượt Stress mới đã hoàn thành đúng lịch**, đạt đủ **24 → 48 → 96 → 144 VU**. Kết quả tính lại từ JTL khớp dashboard theo từng label.
+
+| Label | Request | RPS | p95 (ms) | Lỗi |
+| --- | ---: | ---: | ---: | ---: |
+| Login | 4.092 | 34,46 | 9 | 0% |
+| Search products | 4.071 | 34,47 | 9 | 0% |
+| Product detail | 4.041 | 34,34 | 9 | 0% |
+| Add to cart | 4.013 | 34,23 | 2 | 0% |
+| Checkout | 3.986 | 34,10 | 14 | 0% |
+| **Toàn lượt** | **20.203** | **170,12** | **10** | **0%** |
+
+Trong các cửa sổ đo, bậc **96 VU** đạt **210,93 RPS** và bậc **144 VU** đạt **316,86 RPS**. Lượt này chưa xác lập điểm bão hòa. SQLite có **3.986 đơn `pending`**, khớp từng checkout. Không ghi nhận lockout, timeout, 5xx hay sai lệch dữ liệu.
+
+[JTL mới](../results/23120410_Stress_20261119.jtl) · [HTML report](../results/23120410_Stress_20261119/index.html) · [CSV CPU/RAM](../results/23120410_Stress_20261119_resources.csv) · [Tài liệu T04](../T04_Execution.md)
+
+Bộ số liệu mới đã thay bộ cũ. Mình chờ ảnh **96 VU quanh 01:56:51** và **144 VU quanh 01:57:21** (UTC+7), với PID **26400**, để đối chiếu và đưa vào T04. Chưa cập nhật hồ sơ AI hay commit.
+```
+
+<a id="msg-559d9e9c4825edf458ef"></a>
+
+## P-039
+
+- Timestamp: 02:00:02 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Ảnh đính kèm trong lượt này (2): Screenshot 2026-11-19 015725.png, Screenshot 2026-11-19 015654.png. Đã ẩn đường dẫn máy và bỏ metadata của giao diện.
+
+```text
+check ảnh
+```
+
+<a id="msg-1e88d6ee8f531e27c5e3"></a>
+
+### Output
+
+#### Phản hồi 1 — 02:00:08 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Hai ảnh đều hiện đúng PID **26400**, và terminal có đủ `Active: 96` và `Active: 144`. Mình sẽ đối chiếu giờ chụp với JTL rồi lưu ảnh vào T04.
+```
+
+<a id="msg-17c8b9d594b0ec6474ad"></a>
+
+#### Phản hồi 2 — 02:00:47 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Hai ảnh đạt yêu cầu cho lượt Stress mới.** Cả hai chụp khi tải đang chạy, có JMeter CLI và Task Manager cùng khung, hiện đúng `node.exe` PID **26400** với cột CPU và RAM. JTL xác nhận đúng số VU quanh giờ chụp.
+
+- **01:56:54 (UTC+7):** JMeter hiện `Active: 96`. [Ảnh 96 VU](../evidence/t04/Stress_96VU_20261119_015654.png)
+- **01:57:25 (UTC+7):** JMeter hiện `Active: 144`. [Ảnh 144 VU](../evidence/t04/Stress_144VU_20261119_015725.png)
+
+Mình đã lưu hai ảnh gốc và cập nhật [tài liệu T04](../T04_Execution.md). Bộ Stress mới đã đủ ảnh, JTL, dashboard và CSV CPU/RAM. Chưa cập nhật hồ sơ AI hay commit.
+```
+
+<a id="msg-3c2e95f0a2403f1e3305"></a>
+
+## P-040
+
+- Timestamp: 02:01:43 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Ảnh Stress mới đạt. Còn cần sửa T04_Execution.md trước khi mình duyệt:\
+1\. Cập nhật kết quả Stress sang lượt mới (01:5x, PID 26400): số request, RPS, p95 theo label, % lỗi, số đơn khớp SQLite, tính lại từ JTL/dashboard. Mình tính ra 20.203 request, 170,14 RPS, 0 lỗi, p95 toàn lượt 10 ms, nhưng bạn tính lại và đối chiếu SQLite đầy đủ.\
+2\. Bảng "lượt chạy lại" hiện chỉ có hai lượt cũ (01:23:49 và 01:30:48). Thêm lượt mới làm bộ nộp, sửa lại ghi chú lý do cho đúng thực tế, và sửa dòng "Lượt thay thế sẽ có..." thành thì quá khứ.\
+3\. Thêm một câu: cột CPU ở tab Details của Task Manager là ảnh chụp tức thời, có thể chậm so với tải thật (ảnh 144 VU hiện 01% khi CSV cho thấy mức cao hơn), số đo chính thức là CSV CPU/RAM. Dẫn số CSV tại mốc 144 VU để chứng minh.\
+4\. Cập nhật mọi nơi khác còn dùng số Stress cũ (README, Report, Stress_Spike_Plans.md nếu có), grep để chắc chắn.\
+5\. Dừng để mình duyệt. Chưa cập nhật AI files, chưa commit.
+```
+
+<a id="msg-005fc0a4eba0927af278"></a>
+
+### Output
+
+#### Phản hồi 1 — 02:01:57 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ tính lại Stress trực tiếp từ JTL và đối chiếu `statistics.json` cùng SQLite của PID `26400`. Sau đó mình sẽ cập nhật lịch sử chạy, dẫn đúng dòng CPU/RAM tại ảnh 144 VU và rà các tài liệu còn dùng số cũ.
+```
+
+<a id="msg-523df1eccce8a35a424d"></a>
+
+#### Phản hồi 2 — 02:04:28 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+Đã sửa [T04_Execution.md](../T04_Execution.md:65) và đối chiếu lại lượt Stress **01:55:40.786**, backend PID **26400**.
+
+- **Kết quả bộ nộp:** 20.203 request, **170,12 RPS**, 0 lỗi, p95 toàn lượt **10 ms**. JTL và dashboard cùng cho `170,117633… RPS` khi chia 20.203 request cho **118,759 giây**, nên làm tròn thành 170,12. p95 theo thứ tự login, search, detail, cart, checkout là **9 / 9 / 9 / 2 / 14 ms**. [Thống kê dashboard](../results/23120410_Stress_20261119/statistics.json)
+- **SQLite:** 3.986 checkout khớp 1–1 với 3.986 đơn `pending` theo mã đơn, chủ đơn, số tiền và địa chỉ. Có 4.092 tài khoản đăng nhập khác nhau, 0 tài khoản có dấu khóa hoặc bộ đếm sai. `quick_check` trả `ok`. [Bản đối chiếu](../evidence/t04/stress-verification.json)
+- **Ảnh 144 VU:** Task Manager hiện `01%`. Mẫu CSV gần nhất lúc **01:57:24.825** ghi Node dùng **29,09% CPU theo một lõi logic** và **98,94 MiB working set**. Tài liệu giải thích độ trễ cập nhật của tab Details và dùng CSV làm nguồn số đo chính thức. [Dòng CSV đối chiếu](../results/23120410_Stress_20261119_resources.csv:123)
+- **Lịch sử:** Đã thêm lượt mới làm **bộ nộp**, ghi lý do chạy lại của hai lượt cũ và sửa phần mô tả sang thì quá khứ. `grep` xác nhận các số Stress cũ chỉ còn trong hai dòng lịch sử. README, Report và Stress_Spike_Plans không chứa các số đó. [Lịch sử Stress](../T04_Execution.md:104)
+
+Mình dừng để Vỹ duyệt. Chưa cập nhật hồ sơ AI hay commit.
+```
+
+<a id="msg-6f8d5cf976b5c8a6083f"></a>
+
+## P-041
+
+- Timestamp: 02:05:39 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+T04 mình duyệt. Làm bước chốt:\
+1\. Cập nhật AI files: PromptLog (các lượt T04 có nội dung thật), AI_Audit_Report (thêm các hàng T04 với Verdict VALID/INCOMPLETE, Lý do, Bản sinh viên sửa, dẫn PromptLog), README, Report. Các lượt chạy lại (Load, Stress ×2) ghi trong Audit/Prompt Log như thực tế.\
+2\. Báo cáo trung thực trong Report: Load chỉ 6 VU, 3,70 RPS; Stress/Spike dùng trần 144 VU; 0 lỗi nên không có nháp Issue mới; T04 không kiểm lại FR-02 vì dùng credentials hợp lệ.\
+3\. Commit artifact (plans đã đổi tên, results/, evidence/t04, T04_Execution.md) cùng các file AI rồi push, cập nhật GitCommitLog.txt theo quy ước. Báo hash commit.
+```
+
+<a id="msg-f5229b8d2425d430a730"></a>
+
+### Output
+
+#### Phản hồi 1 — 02:05:45 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình dùng skill `course-ai-log` để trích các lượt T04 có nội dung thật và gắn căn cứ review cho từng artifact. Sau đó mình sẽ cập nhật README, Report, kiểm tra bộ file chuẩn bị commit rồi push lên `origin/main`.
+```
+
+<a id="msg-89c8c2f2e722d1f369d5"></a>
+
+#### Phản hồi 2 — 02:08:26 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Prompt Log đã ghi các lượt T04 từ yêu cầu chạy đến lượt duyệt, gồm lần chạy lại Load và hai lần chạy lại Stress. Trong Audit, mình sẽ phân biệt số liệu đã được duyệt với các phần ảnh và tài liệu đã phải bổ sung theo review.
+```
+
+<a id="msg-a2419cf0dab89bd1ece7"></a>
+
+#### Phản hồi 3 — 02:12:45 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình đã kiểm tra các liên kết và thống kê Audit, đồng thời xác nhận `origin/main` vẫn ở commit T03. Bước cuối trước khi commit là kiểm tra Git giữ nguyên byte của JTL và CSV tài nguyên để hash bằng chứng còn khớp sau khi push.
+```

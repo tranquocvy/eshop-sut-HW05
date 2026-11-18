@@ -19,7 +19,7 @@ Load, Stress và Spike dùng cùng workflow trên JMeter. Luồng gồm login, d
 | Endurance | Duy trì tải 10–15 phút và báo cáo ngưỡng có số liệu đo. |
 | Demo và issue | Demo unlisted từ 6 phút, có công cụ và resource monitor cùng khung hình, với lời thuyết minh tiếng Việt của sinh viên. Issue thực tế có ảnh bằng chứng. |
 
-T01 kiểm chứng năm endpoint trên bản sao backend `85af3ba` tại `http://127.0.0.1:3000`. Cả năm request chính và lượt tìm kiếm `Galaxy` đều trả HTTP 200. Đối chiếu code FR-02 với đặc tả cho thấy sai lệch về số lần đăng nhập sai và thời hạn khóa. Smoke kiểm tra trạng thái khóa đặt sẵn, đăng nhập sau khi hết hạn và hai cách reset. T04 dự kiến dùng cùng bản sao backend theo lệnh dựng và khởi động đã ghi. [Môi trường và workflow](Environment.md) · [Bằng chứng smoke T01](evidence/t01-smoke.json)
+T01 kiểm chứng năm endpoint trên bản sao backend `85af3ba` tại `http://127.0.0.1:3000`. Cả năm request chính và lượt tìm kiếm `Galaxy` đều trả HTTP 200. Đối chiếu code FR-02 với đặc tả cho thấy sai lệch về số lần đăng nhập sai và thời hạn khóa. Smoke kiểm tra trạng thái khóa đặt sẵn, đăng nhập sau khi hết hạn và hai cách reset. [Môi trường và workflow](Environment.md) · [Bằng chứng smoke T01](evidence/t01-smoke.json)
 
 T02 tạo Load plan trên JMeter 5.6.3 và Temurin 17, với mức khởi đầu 6 VU, ramp-up 30 giây, tổng 150 giây và think-time 1–2 giây. Plan đọc ba CSV bằng CSV Data Set Config và cấp một tài khoản mới cho mỗi vòng. Credentials mặc định lấy từ repo sau khi đăng ký tài khoản thử. Sau lỗi sample, VU chạy vòng mới. Khi hết dòng credentials, VU dừng theo cấu hình EOF.
 
@@ -28,6 +28,22 @@ Pilot 05 dùng 3 VU với 1.250 tài khoản đã đăng ký. Có 44 sample đ�
 T03 dùng think-time 300–600 ms để tăng mật độ request trong giới hạn RAM của máy chạy chung JMeter và backend. Stress tăng 24 → 48 → 96 → 144 VU với Aggregate Report. Spike đi từ 6 lên 144 rồi về 6 VU với Response Time Graph. Pilot của bản sửa ghi 752/752 sample đạt cho Stress và 502/502 cho Spike. Các lượt nhỏ xác nhận đúng lịch tải và checkout khớp SQLite. [Thiết kế Stress và Spike](Stress_Spike_Plans.md) · [Bằng chứng T03](evidence/t03-pilots.json)
 
 Ở lượt thăm dò 300–600 ms, từ 96 lên 144 VU, p95 checkout tăng từ 21 lên 100 ms và throughput tăng từ 210 lên 304,45 request/giây. Lượt thăm dò chưa xác lập điểm bão hòa. Mốc 144 VU là trần thử nghiệm chọn theo RAM khả dụng của máy dùng chung. Số đo ngắn chưa đủ để kết luận backend chịu được mức tải đó. [JTL thăm dò](evidence/t03-calibration-fast.jtl) · [CPU và RAM](evidence/t03-calibration-fast.csv)
+
+### Kết quả thực thi T04
+
+Ngày 19/11/2026, ba plan được chạy lần lượt trên `GOYOONJUNG` bằng JMeter 5.6.3 CLI non-GUI và Temurin 17, heap tối đa 384 MiB. Mỗi lượt dùng một bản backend mới từ `85af3ba` và SQLite sạch. Các tài khoản được đăng ký lại từ CSV và đối chiếu trong SQLite trước khi đo. [Quy trình reset và bằng chứng](T04_Execution.md)
+
+| Kịch bản | VU thực tế | Request | RPS toàn lượt | p95 (ms) | Lỗi | Checkout khớp đơn |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| Load | 6 | 548 | 3,70 | 9 | 0% | 107 |
+| Stress | 24 → 48 → 96 → 144 | 20.203 | 170,12 | 10 | 0% | 3.986 |
+| Spike | 6 → 144 → 6 | 7.755 | 52,06 | 17 | 0% | 1.490 |
+
+Load chỉ dùng 6 VU với think-time 1–2 giây. Stress và Spike dùng think-time 300–600 ms và trần 144 VU trên máy dùng chung. Stress đạt 316,86 RPS trong các cửa sổ ổn định ở 144 VU, chưa xác lập điểm bão hòa. Spike đạt 314,36 RPS ở đỉnh. Cửa sổ đầu tiên đạt tiêu chí hồi phục kết thúc 35 giây sau khi nhóm Burst dừng. [Số liệu theo bậc, pha và label](T04_Execution.md)
+
+Dashboard mỗi lượt được sinh từ JTL tương ứng. Số mẫu, RPS, p95 và tỷ lệ lỗi được tính lại và đối chiếu theo label. SQLite khớp từng checkout của ba lượt trong bộ nộp. Load chạy lại một lần và Stress chạy lại hai lần để bổ sung ảnh. Lịch sử và ảnh trong báo cáo ghi đúng lượt. CSV CPU/RAM là nguồn số đo tài nguyên dùng cho phân tích. [JTL, dashboard và ảnh giám sát](T04_Execution.md)
+
+Cả ba lượt kết thúc đúng lịch với 0 lỗi, nên không có nháp Issue mới từ T04. T04 dùng credentials hợp lệ và không kiểm lại hành vi khóa tài khoản FR-02 khi nhập sai. Ngưỡng endurance chưa được đo ở T04. [Kết quả đối chiếu và giới hạn](T04_Execution.md)
 
 ## 3. Phân tích kết quả và phản biện AI
 

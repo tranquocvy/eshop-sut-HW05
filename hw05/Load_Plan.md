@@ -2,7 +2,7 @@
 
 ## 1. Tham số Load
 
-Plan [`23120410_Load_20261118.jmx`](plans/23120410_Load_20261118.jmx) chạy workflow năm request trên bản EShop local tại `127.0.0.1:3000`.
+Plan [`23120410_Load_20261119.jmx`](plans/23120410_Load_20261119.jmx) chạy workflow năm request trên bản EShop local tại `127.0.0.1:3000`.
 
 | Tham số | Load mặc định | Căn cứ thiết kế |
 | --- | --- | --- |
@@ -107,7 +107,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Provisioning failed' }
 
 $java = Join-Path $toolRoot 'temurin17-jre/jdk-17.0.21+9-jre/bin/java.exe'
 $jar = Join-Path $toolRoot 'apache-jmeter-5.6.3/bin/ApacheJMeter.jar'
-$plan = Join-Path $suite 'plans/23120410_Load_20261118.jmx'
+$plan = Join-Path $suite 'plans/23120410_Load_20261119.jmx'
 $options = @(
   '-n', '-t', $plan, '-l', (Join-Path $runDir 'pilot.jtl'), '-j', (Join-Path $runDir 'jmeter.log'),
   '-Jhw05.load.threads=3',
