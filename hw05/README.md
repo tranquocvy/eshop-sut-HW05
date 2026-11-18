@@ -11,7 +11,7 @@
 
 ## Phạm vi
 
-Load, Stress và Spike dùng cùng một workflow end-to-end trên REST API, bao phủ auth-heavy, read-heavy và transactional. Workflow cụ thể được xác định ở bước chốt phạm vi sau khi đối chiếu với nhóm.
+Load, Stress và Spike dùng chung workflow JMeter trên REST API. Login phủ auth-heavy. Danh sách hoặc tìm kiếm và chi tiết sản phẩm phủ read-heavy. Thêm vào giỏ và checkout phủ transactional. [Bảng endpoint và cách dựng backend](Environment.md)
 
 ## Bảng tự chấm
 
@@ -27,17 +27,18 @@ Load, Stress và Spike dùng cùng một workflow end-to-end trên REST API, bao
 
 ## Tóm tắt kiểm thử
 
-| Mục | Trạng thái tại T00 |
+| Mục | Trạng thái sau T01 |
 | --- | --- |
-| Kịch bản thực thi | Load, Stress, Spike và soak đều chưa chạy. |
-| Nhóm endpoint được kiểm thử | Chưa đo độ bao phủ. Phạm vi đề bài gồm auth-heavy, read-heavy và transactional. |
+| Kịch bản thực thi | Smoke tuần tự đã kiểm chứng năm request chính và một lượt tìm kiếm. Load, Stress, Spike và soak chưa chạy. |
+| Nhóm endpoint được kiểm thử | Smoke phủ auth-heavy, read-heavy và transactional. Cả năm request chính trả HTTP 200. |
 | Ngưỡng endurance | Chưa đo. |
-| Số bug hoặc performance issue | Chưa có số liệu từ thực thi HW05. |
+| Số bug hoặc performance issue | T01 ghi nhận sai lệch FR-02 khi đối chiếu code với đặc tả. Chưa có kết quả phân loại issue từ các lượt đo tải. |
 | Video demo | Chưa có video HW05. |
 
 ## Tài liệu và dữ liệu
 
 - [Báo cáo chính](Report.md) và [lịch sử commit](GitCommitLog.txt).
+- [Môi trường và workflow](Environment.md) và [bằng chứng smoke T01](evidence/t01-smoke.json).
 - [AI Audit Report](ai/AI_Audit_Report.md), [Prompt Log](ai/PromptLog.md) và [AI Critique](ai/AI_Critique.md).
 - [Khai báo sử dụng AI](ai/AI_Disclosure.md) và [Bảng kiểm quyền riêng tư](ai/AI_Privacy_Checklist.md).
 - `plans/` lưu test plan và `data/` lưu CSV dùng để tham số hóa request.

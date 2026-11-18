@@ -220,3 +220,168 @@ HW04 dùng repo công khai độc lập với `ttbhanh/eshop-sut` làm upstream.
 ```text
 Repo GitHub công khai đã được tạo và đang trống. Bản local dùng mốc EShop `85af3ba`, cùng mốc HW04 đã dùng. Mình đang đối chiếu hồ sơ AI với transcript để giữ đúng prompt, phản hồi và thời gian thực.
 ```
+
+Phạm vi: T01 — Chốt đầu vào và môi trường.
+
+<a id="msg-e12176bf227646477790"></a>
+
+## P-003
+
+- Timestamp: 14:18:30 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Bắt đầu T01 — Chốt đầu vào và môi trường. Làm theo quy trình mỗi task: làm xong dừng chờ review, chưa commit.\
+\
+Thông tin chốt:\
+\- Workflow (cùng cho Load, Stress, Spike): POST /api/login → GET /api/products (danh sách/tìm kiếm) → GET /api/products/:id → POST /api/cart → POST /api/checkout. Phủ ba nhóm: auth-heavy (login), read-heavy (list + detail), transactional (cart + checkout).\
+\- Công cụ: JMeter.\
+\- Ngày dùng trong tên plan: 20261118. Nếu ngày làm plan hoặc chạy thật khác ngày này thì hỏi trước khi đặt tên file.\
+\
+Việc cần làm:\
+1\. Đọc api_specification.md, setup_guide.md và code backend (routes, auth, DB) để lập bảng endpoint thật theo auth-heavy / read-heavy / transactional. Mỗi dòng có method, đường dẫn, body, status mong đợi, nhóm; nêu workflow phủ từng nhóm bằng request nào.\
+2\. Làm rõ quy tắc khóa tài khoản FR-02 bằng đọc code và thử thật (số lần sai, thời gian khóa, cách reset), kèm bước reset khả thi giữa các lượt chạy.\
+3\. Xác định ràng buộc ảnh hưởng tải: tồn kho khi checkout, số tài khoản tối thiểu để tránh lockout, token (JWT) và hết hạn, giới hạn rate nếu có, nguồn dữ liệu seed (tài khoản, sản phẩm).\
+4\. Chạy backend, smoke test từng endpoint trong workflow (curl hoặc script ngắn) và ghi kết quả thật. Ghi hostname và cấu hình máy bằng lệnh hệ thống; nhắc tôi chụp dxdiag nếu cần ảnh.\
+5\. Ghi hạn chế: load generator và SUT cùng máy, DB SQLite, tài nguyên của máy.\
+6\. Lưu tài liệu vào hw05/ (Report.md mục môi trường và workflow, hoặc file riêng). Chỉ ghi điều đã thực sự kiểm chứng; nghi vấn chưa kiểm thì ghi là chưa kiểm.\
+7\. Ghi nhận các lượt tương tác vào Prompt Log. Chưa commit, chưa push. Dừng báo review; sau khi duyệt thì cập nhật hồ sơ AI rồi mới commit + push.
+```
+
+<a id="msg-2acdf1635072df41b0d3"></a>
+
+### Output
+
+#### Phản hồi 1 — 14:18:40 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đối chiếu đặc tả với code backend, rồi chạy smoke test trên một bản EShop local riêng để kiểm tra workflow và hành vi khóa tài khoản. Mình sẽ ghi kết quả đo được vào T01 và dừng cho Vỹ review trước khi commit.
+```
+
+<a id="msg-fdf277a0b22bb1735c50"></a>
+
+#### Phản hồi 2 — 14:21:31 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mã nguồn khác mô tả FR-02 ở cách tăng bộ đếm đăng nhập sai. Mình sẽ ghi rõ sai lệch qua đọc code và dùng tài khoản thử riêng với trạng thái khóa được đặt sẵn để đo thời gian từ chối đăng nhập, thời điểm mở lại và hiệu quả của bước reset.
+```
+
+<a id="msg-f438d25d9f0d752c3f95"></a>
+
+#### Phản hồi 3 — 14:30:27 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Cả 5 request chính và lượt tìm kiếm `Galaxy` đều trả HTTP 200. Mình đã đối chiếu đơn tạo ra trong SQLite và thấy giỏ vẫn còn món sau checkout. JMeter 5.6.3 đã chạy được lệnh kiểm tra phiên bản. Mình đang chờ phép đo hết hạn khóa 180 giây hoàn tất để ghi kết quả reset.
+```
+
+<a id="msg-84b2b6f4630c1ef056b5"></a>
+
+#### Phản hồi 4 — 14:38:00 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Kiểm tra hết hạn khóa đã xong. Login hợp lệ trả 403 khi đang khóa và trả 200 ở lần thử sau 180,378 giây. Reset riêng tài khoản và restart backend cũng cho kết quả mong đợi. Mình đã dừng tiến trình smoke và đang đối chiếu tài liệu với bằng chứng trước khi gửi Vỹ review.
+```
+
+<a id="msg-2fefe2a6db195cda059b"></a>
+
+#### Phản hồi 5 — 14:39:26 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã chuyển đường dẫn máy cá nhân thành đường dẫn tương đối để chia sẻ.
+
+```text
+**T01 đã sẵn sàng để Vỹ review.** Cả **5 request** trong workflow và lượt tìm kiếm `Galaxy` đều trả HTTP **200**. Checkout tạo đơn `pending` trong SQLite, và đọc lại giỏ vẫn thấy món đã thêm. [Workflow và cấu hình môi trường](HW05/eshop-sut-HW05/hw05/Environment.md) · [Bằng chứng smoke](HW05/eshop-sut-HW05/hw05/evidence/t01-smoke.json)
+
+- **FR-02:** Đặc tả quy định **3 lần sai, khóa 30 giây**. Đọc code cho thấy từ bộ đếm 0, tài khoản đạt ngưỡng khóa sau **2 lần sai**, với thời hạn **180 giây**. Khi thử bằng tài khoản local được đặt sẵn trạng thái khóa, login hợp lệ trả **403** trong thời hạn và **200** ở lần kiểm tra sau **180,378 giây**. Reset riêng tài khoản và reset bằng restart backend đều đã được kiểm tra.
+- **Thiết kế tải:** Checkout không kiểm tra tồn kho, giỏ nằm trong RAM và JWT quan sát được không có `exp`. Để cô lập giỏ và bộ đếm đăng nhập, cần một tài khoản riêng cho mỗi VU hoạt động đồng thời. Số tài khoản cụ thể phụ thuộc mức VU đỉnh sẽ chốt khi thiết kế plan.
+- **Môi trường:** Hostname đo được là `GOYOONJUNG`. JMeter **5.6.3** đã chạy thành công lệnh kiểm tra phiên bản. Vỹ chụp `dxdiag` trên máy này và đối chiếu hostname với bằng chứng các HW trước. [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi)
+
+[Prompt Log](HW05/eshop-sut-HW05/hw05/ai/PromptLog.md#p-003) đã có lượt T01. Mình dừng ở mốc review, chưa commit hay push.
+```
+
+<a id="msg-683af5f0be50a7437c39"></a>
+
+## P-004
+
+- Timestamp: 15:15:34 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình review T01, sửa các điểm sau trước khi duyệt:\
+1\. Environment.md: bỏ các câu hướng dẫn nội bộ ("xác nhận lại trước khi đặt tên file", "cần xác nhận" ở hostname và dxdiag); chỉ ghi sự thật đã kiểm.\
+2\. Ghi rõ hai hostname: tên máy thật (GOYOONJUNG) và hostname mình dùng khi quay video (tranquocvy), nêu lý do khác nhau để TA không hiểu nhầm.\
+3\. Ghi rõ smoke chạy trên bản sao backend ngoài working tree (đổi địa chỉ lắng nghe sang 127.0.0.1), và ở T04 sẽ chạy tải trên bản backend nào, khởi động bằng lệnh nào.\
+4\. Giữ lại trong tài liệu các phát hiện để dùng ở task sau: lockout FR-02 (2 lần sai là khóa, 180 giây, trái đặc tả 3 lần và 30 giây), JWT không hết hạn, checkout không kiểm tồn kho và không dọn giỏ, giỏ tích lũy trong RAM, seed chỉ có 1 user và 1 admin (T02 cần tạo thêm tài khoản bằng /api/register).\
+Sửa xong báo lại để mình duyệt. Sau khi mình duyệt thì cập nhật hồ sơ AI rồi commit + push T01.
+```
+
+<a id="msg-21f26e155c9dd683632b"></a>
+
+### Output
+
+#### Phản hồi 1 — 15:16:11 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ sửa `Environment.md` theo góp ý, ghi rõ nguồn của hai tên máy và chốt bản backend cùng lệnh khởi động cho T04. Sau đó mình sẽ gửi lại để Vỹ duyệt.
+```
+
+<a id="msg-bd6e8473e783820a4b20"></a>
+
+#### Phản hồi 2 — 15:19:02 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã chuyển đường dẫn máy cá nhân thành đường dẫn tương đối để chia sẻ.
+
+```text
+[Bản sửa Environment.md](HW05/eshop-sut-HW05/hw05/Environment.md) đã sẵn sàng để Vỹ duyệt.
+
+- Đã bỏ hướng dẫn nội bộ về ngày đặt tên plan và xác nhận `dxdiag`. Tài liệu ghi riêng `GOYOONJUNG` là hostname Windows lúc chạy smoke và `tranquocvy` là tên Vỹ dùng trong video demo.
+- T04 sẽ dùng lại bản sao backend `85af3ba` ngoài working tree tại `HW05/.runtime/T01/backend`, khởi động bằng `node server.js` và chạy JMeter vào `http://127.0.0.1:3000`.
+- Đã giữ các phát hiện về FR-02, JWT, tồn kho, giỏ tích lũy trong RAM và hai tài khoản seed. T02 sẽ tạo thêm tài khoản bằng `POST /api/register`.
+
+Mình chỉ sửa `Environment.md` trong lượt này. Hồ sơ AI sẽ được cập nhật sau khi Vỹ duyệt. Chưa commit hay push.
+```
+
+<a id="msg-96df1a427c45c1b18d16"></a>
+
+## P-005
+
+- Timestamp: 15:22:52 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình duyệt T01, kèm hai chỗ sửa nhỏ trong Environment.md:\
+1\. Dòng ghi "theo thông tin Vỹ cung cấp" và "Vỹ dùng để nhận diện" viết lại trung tính, ví dụ "hostname dùng khi quay video demo".\
+2\. Bản sao backend nằm ở HW05/.runtime/T01/backend (không commit). Ghi thêm cách dựng lại từ commit 85af3ba (lệnh copy hoặc checkout, thư mục backend, cài dependency) để người đọc tái tạo được.\
+Sau đó cập nhật hồ sơ AI cho T01: Prompt Log, README, Report. Nếu Environment.md và t01-smoke.json là sản phẩm nộp thì thêm dòng Audit với Verdict INCOMPLETE, Lý do: bản đầu thiếu ghi hai hostname, thiếu mô tả bản backend dùng cho T04 và còn câu nháp trong tài liệu, Bản sinh viên sửa: mình đã nêu và Codex đã sửa. Dẫn đúng lượt trong Prompt Log. Rồi commit + push T01 và báo hash.
+```
+
+<a id="msg-b666571f9d835f36db28"></a>
+
+### Output
+
+#### Phản hồi 1 — 15:23:49 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ chỉnh cách ghi hostname, bổ sung lệnh dựng lại backend từ `85af3ba` và chạy thử lệnh đó trong thư mục riêng. Sau đó mình sẽ cập nhật hồ sơ T01 theo đúng các lượt review trước khi commit và push.
+```

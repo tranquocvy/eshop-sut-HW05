@@ -6,7 +6,7 @@
 
 HW05-AI kiểm thử hiệu năng REST API của EShop. Bản làm việc lấy từ commit [`85af3ba875c88283615e22cb108f13e2fccaf0e9`](https://github.com/ttbhanh/eshop-sut/tree/85af3ba875c88283615e22cb108f13e2fccaf0e9) trên nhánh `main` của `ttbhanh/eshop-sut`. Tài liệu SUT gồm [đặc tả API](../api_specification.md) và [hướng dẫn cài đặt](../setup_guide.md).
 
-Mỗi kịch bản Load, Stress và Spike phải chạy cùng một workflow bao phủ auth-heavy, read-heavy và transactional. Workflow cần được đối chiếu với các thành viên trong nhóm trước khi thiết kế test.
+Load, Stress và Spike dùng cùng workflow trên JMeter. Luồng gồm login, danh sách hoặc tìm kiếm, chi tiết sản phẩm, thêm giỏ và checkout. [Bảng endpoint, cấu hình máy và kết quả smoke](Environment.md)
 
 ## 2. Thiết kế và thực thi
 
@@ -15,11 +15,11 @@ Mỗi kịch bản Load, Stress và Spike phải chạy cùng một workflow bao
 | Test plan | Ba plan dùng dữ liệu CSV và có lý giải think-time, ramp-up, số thread hoặc VU. Tên theo `{StudentID}_{ScenarioType}_{YYYYMMDD}`. |
 | Báo cáo kết quả | Mỗi kịch bản dùng một report view riêng. Lưu raw log `.jtl` và thư mục HTML report tương ứng. |
 | Bằng chứng chạy | Mỗi lượt có ảnh công cụ test cùng mức sử dụng tài nguyên của tiến trình backend. Báo cáo phần cứng gồm ảnh công cụ hệ thống và bảng cấu hình, với hostname khớp các HW trước. |
-| Account lockout | Khi Stress hoặc Spike kích hoạt khóa sau ba lần đăng nhập sai, ghi quy trình reset thực tế giữa các lượt. |
+| Account lockout | Ghi nhận nếu Stress hoặc Spike kích hoạt khóa. Đối chiếu với FR-02 và dùng quy trình reset đã kiểm chứng tại T01. |
 | Endurance | Duy trì tải 10–15 phút và báo cáo ngưỡng có số liệu đo. |
 | Demo và issue | Demo unlisted từ 6 phút, có công cụ và resource monitor cùng khung hình, với lời thuyết minh tiếng Việt của sinh viên. Issue thực tế có ảnh bằng chứng. |
 
-T00 thiết lập nơi lưu tài liệu và bằng chứng. Việc chọn endpoint, cấu hình môi trường và chạy smoke test thuộc T01. Mọi số liệu kiểm thử sẽ được đối chiếu từ `.jtl` thực tế.
+T01 kiểm chứng năm endpoint trên bản sao backend `85af3ba` tại `http://127.0.0.1:3000`. Cả năm request chính và lượt tìm kiếm `Galaxy` đều trả HTTP 200. Đối chiếu code FR-02 với đặc tả cho thấy sai lệch về số lần đăng nhập sai và thời hạn khóa. Smoke kiểm tra trạng thái khóa đặt sẵn, đăng nhập sau khi hết hạn và hai cách reset. T04 dự kiến dùng cùng bản sao backend theo lệnh dựng và khởi động đã ghi. [Môi trường và workflow](Environment.md) · [Bằng chứng smoke T01](evidence/t01-smoke.json)
 
 ## 3. Phân tích kết quả và phản biện AI
 

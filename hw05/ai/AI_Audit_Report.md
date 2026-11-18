@@ -23,8 +23,18 @@ Mỗi dòng dành cho một sản phẩm thực tế trong bộ nộp, chẳng h
 
 | (1) Prompt và công cụ | (2) Output AI | (3) Verdict | (4) Lý do | (5) Bản sinh viên sửa |
 | --- | --- | --- | --- | --- |
+| T01 · OpenAI Codex · [P-003](PromptLog.md#p-003) | Bản đầu tài liệu môi trường và workflow. [Bản đã sửa](../Environment.md) · [Bằng chứng smoke](../evidence/t01-smoke.json) | INCOMPLETE | Bản đầu thiếu ghi riêng hai hostname, thiếu mô tả bản backend dùng cho T04 và còn câu hướng dẫn nháp trong tài liệu. [Review của Vỹ](PromptLog.md#p-004) | Vỹ nêu các thiếu sót và yêu cầu ghi hai hostname theo ngữ cảnh, chỉ rõ backend T04 và bỏ các câu nháp. Codex đã sửa theo review. Ở lượt duyệt, Vỹ yêu cầu dùng cách ghi trung tính và bổ sung lệnh dựng lại từ `85af3ba`. Codex đã cập nhật cả hai điểm. [Review](PromptLog.md#p-004) · [Duyệt và chỉnh sửa cuối](PromptLog.md#p-005) |
 
-## 4. Xác nhận
+## 4. Tổng kết đánh giá
+
+| Verdict | Số artifact | Tỷ lệ |
+| --- | ---: | ---: |
+| VALID | 0 | 0% |
+| INCOMPLETE | 1 | 100% |
+| INVALID | 0 | 0% |
+| **Tổng** | **1** | **100%** |
+
+## 5. Xác nhận
 
 Phần cam đoan nằm trong [Biểu mẫu Khai báo Sử dụng AI](AI_Disclosure.md).
 

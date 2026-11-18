@@ -1,0 +1,110 @@
+{
+  "sut_revision": "85af3ba875c88283615e22cb108f13e2fccaf0e9",
+  "origin": "http://127.0.0.1:3000",
+  "started_at": "2026-11-18T14:22:39.561+07:00",
+  "result": "passed",
+  "seed": {
+    "user_count_by_role": {
+      "admin": 1,
+      "user": 1
+    },
+    "product_count": 5,
+    "order_count": 0,
+    "sqlite_journal_mode": "delete"
+  },
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/api/login",
+      "http": 200,
+      "assertions": {
+        "user_role": "user",
+        "jwt_claim_names": [
+          "iat",
+          "id",
+          "role"
+        ],
+        "has_exp": false
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/products",
+      "http": 200,
+      "assertions": {
+        "product_count": 5,
+        "selected_id": 2
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/products/2",
+      "http": 200,
+      "assertions": {
+        "id": 2,
+        "name": "Samsung Galaxy S24 Ultra",
+        "price": "28000000",
+        "list_price_type": "int",
+        "detail_price_type": "str"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/cart",
+      "http": 200,
+      "assertions": {
+        "message": "Added to cart",
+        "cart_item_count_after_add": 1
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/api/checkout",
+      "http": 200,
+      "assertions": {
+        "orderId": 1,
+        "db_order_status": "pending",
+        "db_order_total": 28000000,
+        "cart_item_count_after_checkout": 1
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/products?search=Galaxy",
+      "http": 200,
+      "assertions": {
+        "matching_ids": [
+          2
+        ]
+      }
+    }
+  ],
+  "lockout_fixture": {
+    "configured_fixture_seconds": 180,
+    "locked_until_utc": "2026-11-18T07:25:40.338+00:00",
+    "valid_login_while_locked": {
+      "at": "2026-11-18T14:22:40.368+07:00",
+      "http": 403
+    },
+    "valid_login_after_expiry": {
+      "at": "2026-11-18T14:25:40.716+07:00",
+      "http": 200,
+      "elapsed_seconds": 180.378,
+      "db_login_attempts": 0,
+      "db_locked_until": null
+    }
+  },
+  "targeted_reset": {
+    "http_after_reset": 200,
+    "db_login_attempts": 0,
+    "db_locked_until": null
+  },
+  "full_restart_reset": {
+    "fixture_login_after_restart_http": 401,
+    "seed_users": 2,
+    "orders": 0,
+    "products": 5,
+    "nonzero_or_locked_seed_users": 0
+  },
+  "finished_at": "2026-11-18T14:25:41.395+07:00"
+}
