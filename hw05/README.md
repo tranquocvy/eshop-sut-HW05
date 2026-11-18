@@ -27,10 +27,10 @@ Load, Stress và Spike dùng chung workflow JMeter trên REST API. Login phủ a
 
 ## Tóm tắt kiểm thử
 
-| Mục | Trạng thái sau T01 |
+| Mục | Trạng thái sau T02 |
 | --- | --- |
-| Kịch bản thực thi | Smoke tuần tự đã kiểm chứng năm request chính và một lượt tìm kiếm. Load, Stress, Spike và soak chưa chạy. |
-| Nhóm endpoint được kiểm thử | Smoke phủ auth-heavy, read-heavy và transactional. Cả năm request chính trả HTTP 200. |
+| Kịch bản thực thi | Smoke T01 và pilot của Load plan T02. Pilot dùng CSV mặc định có 47 sample đạt và 8 checkout đối chiếu được. Các lượt đo chính thuộc T04 và T05. |
+| Nhóm endpoint được kiểm thử | Smoke và pilot phủ auth-heavy, read-heavy và transactional qua workflow đăng nhập, tìm kiếm, xem chi tiết, thêm giỏ và checkout. |
 | Ngưỡng endurance | Chưa đo. |
 | Số bug hoặc performance issue | T01 ghi nhận sai lệch FR-02 khi đối chiếu code với đặc tả. Chưa có kết quả phân loại issue từ các lượt đo tải. |
 | Video demo | Chưa có video HW05. |
@@ -39,6 +39,7 @@ Load, Stress và Spike dùng chung workflow JMeter trên REST API. Login phủ a
 
 - [Báo cáo chính](Report.md) và [lịch sử commit](GitCommitLog.txt).
 - [Môi trường và workflow](Environment.md) và [bằng chứng smoke T01](evidence/t01-smoke.json).
+- [Load plan](plans/23120410_Load_20261118.jmx), [cách chuẩn bị CSV và chạy lại](Load_Plan.md) và [bằng chứng pilot T02](evidence/t02-pilot.json).
 - [AI Audit Report](ai/AI_Audit_Report.md), [Prompt Log](ai/PromptLog.md) và [AI Critique](ai/AI_Critique.md).
 - [Khai báo sử dụng AI](ai/AI_Disclosure.md) và [Bảng kiểm quyền riêng tư](ai/AI_Privacy_Checklist.md).
 - `plans/` lưu test plan và `data/` lưu CSV dùng để tham số hóa request.

@@ -1,0 +1,584 @@
+{
+  "origin": "http://127.0.0.1:3000",
+  "purpose": "Load plan pilot",
+  "runs": [
+    {
+      "started_at": "2026-11-18T15:44:27+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 6,
+      "pilot_threads": 3,
+      "pilot_ramp_seconds": 6,
+      "pilot_duration_seconds": 25,
+      "result": "failed",
+      "jmeter_exit_code": 0,
+      "total_samples": 0,
+      "failed_samples": 0,
+      "counts_by_label": {},
+      "failure_codes_by_label": {},
+      "threads": [],
+      "sqlite_provisioned_user_count": 6,
+      "sqlite_locked_or_nonzero_user_count": 0,
+      "sqlite_orders_verified": 0,
+      "sqlite_order_count": 0,
+      "finished_at": "2026-11-18T15:44:36+07:00",
+      "java": "Eclipse Temurin 25.0.2",
+      "initialization_error": "Unsupported class file major version 69",
+      "jmx_sha256": "b77a1da3233c7c1bae27e7b0497defaa4551f51cd4a243ae3fc7f8cc0754f3db",
+      "run_id": "pilot-01"
+    },
+    {
+      "started_at": "2026-11-18T15:46:56+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 6,
+      "pilot_threads": 3,
+      "pilot_ramp_seconds": 6,
+      "pilot_duration_seconds": 25,
+      "java": "Eclipse Temurin 17.0.21+9",
+      "result": "passed",
+      "jmeter_exit_code": 0,
+      "total_samples": 42,
+      "failed_samples": 0,
+      "counts_by_label": {
+        "01 Login": 9,
+        "02 Search products": 9,
+        "03 Product detail": 9,
+        "04 Add to cart": 8,
+        "05 Checkout": 7
+      },
+      "failure_codes_by_label": {},
+      "threads": [
+        {
+          "thread": "Load Users 1-1",
+          "samples": 15,
+          "successful_checkouts": 3,
+          "http_workflow_order_ok": true,
+          "data_user_id": 3,
+          "data_product_id": "1"
+        },
+        {
+          "thread": "Load Users 1-2",
+          "samples": 13,
+          "successful_checkouts": 2,
+          "http_workflow_order_ok": true,
+          "data_user_id": 4,
+          "data_product_id": "2"
+        },
+        {
+          "thread": "Load Users 1-3",
+          "samples": 14,
+          "successful_checkouts": 2,
+          "http_workflow_order_ok": true,
+          "data_user_id": 5,
+          "data_product_id": "3"
+        }
+      ],
+      "sqlite_provisioned_user_count": 6,
+      "sqlite_locked_or_nonzero_user_count": 0,
+      "sqlite_orders_verified": 7,
+      "sqlite_order_count": 7,
+      "finished_at": "2026-11-18T15:47:26+07:00",
+      "jmx_sha256": "ce4850aaac34e5dd2cbec5b974c4a568c4a7ffcc75d06b3e28f9dcfd062245b1",
+      "jtl_sha256": "9a08fe653086bde16b541fdb3617dfd6dcfefe8e570872de0015d684a2babdae",
+      "run_id": "pilot-02"
+    },
+    {
+      "started_at": "2026-11-18T15:58:47+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 3,
+      "pilot_threads": 3,
+      "pilot_ramp_seconds": 6,
+      "pilot_duration_seconds": 25,
+      "intentional_product_assertion_failure": false,
+      "java": "Eclipse Temurin 17.0.21+9",
+      "result": "passed",
+      "jmeter_exit_code": 0,
+      "total_samples": 41,
+      "failed_samples": 0,
+      "counts_by_label": {
+        "01 Login": 9,
+        "02 Search products": 9,
+        "03 Product detail": 9,
+        "04 Add to cart": 8,
+        "05 Checkout": 6
+      },
+      "failure_codes_by_label": {},
+      "threads": [
+        {
+          "thread": "Load Users 1-1",
+          "samples": 14,
+          "iterations_started": 3,
+          "successful_checkouts": 2,
+          "http_workflow_order_ok": true,
+          "data_user_id": 3,
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "thread": "Load Users 1-2",
+          "samples": 14,
+          "iterations_started": 3,
+          "successful_checkouts": 2,
+          "http_workflow_order_ok": true,
+          "data_user_id": 4,
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "thread": "Load Users 1-3",
+          "samples": 13,
+          "iterations_started": 3,
+          "successful_checkouts": 2,
+          "http_workflow_order_ok": true,
+          "data_user_id": 5,
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ],
+      "same_vu_completed_later_iteration_after_assertion_failure": null,
+      "sqlite_provisioned_user_count": 3,
+      "sqlite_locked_or_nonzero_user_count": 0,
+      "sqlite_orders_verified": 6,
+      "sqlite_order_count": 6,
+      "finished_at": "2026-11-18T15:59:16+07:00",
+      "run_id": "pilot-03",
+      "jtl_artifact": "t02-sizing-pilot.jtl",
+      "jtl_sha256": "8b94e2d30e282fa52e3d4a197615bbca9d8803137580b614fde4c7d30b394b28",
+      "jmx_sha256": "1dc06f96e7bbdc63270595b146277f5612ca7074d1f37dfc13e13d6b1458eb0b"
+    },
+    {
+      "started_at": "2026-11-18T16:00:10+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 1,
+      "pilot_threads": 1,
+      "pilot_ramp_seconds": 1,
+      "pilot_duration_seconds": 18,
+      "intentional_product_assertion_failure": true,
+      "java": "Eclipse Temurin 17.0.21+9",
+      "result": "passed",
+      "jmeter_exit_code": 0,
+      "total_samples": 12,
+      "failed_samples": 1,
+      "counts_by_label": {
+        "01 Login": 3,
+        "02 Search products": 3,
+        "03 Product detail": 2,
+        "04 Add to cart": 2,
+        "05 Checkout": 2
+      },
+      "failure_codes_by_label": {
+        "02 Search products: 200": 1
+      },
+      "threads": [
+        {
+          "thread": "Load Users 1-1",
+          "samples": 12,
+          "iterations_started": 3,
+          "successful_checkouts": 2,
+          "http_workflow_order_ok": true,
+          "data_user_id": 3,
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ],
+      "same_vu_completed_later_iteration_after_assertion_failure": true,
+      "sqlite_provisioned_user_count": 1,
+      "sqlite_locked_or_nonzero_user_count": 0,
+      "sqlite_orders_verified": 2,
+      "sqlite_order_count": 2,
+      "finished_at": "2026-11-18T16:00:31+07:00",
+      "run_id": "pilot-04",
+      "jtl_sha256": "b7773ccf9efe0febc2a04157e71175dbb4863e3f86a0f6659ad2d0326f1d639b",
+      "jmx_sha256": "1dc06f96e7bbdc63270595b146277f5612ca7074d1f37dfc13e13d6b1458eb0b",
+      "jtl_local_path": "HW05/.runtime/T02/pilot-04/pilot.jtl"
+    },
+    {
+      "started_at": "2026-11-18T16:20:59+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 1250,
+      "pilot_threads": 3,
+      "pilot_ramp_seconds": 6,
+      "pilot_duration_seconds": 25,
+      "intentional_product_assertion_failure": false,
+      "java": "Eclipse Temurin 17.0.21+9",
+      "result": "passed",
+      "jmeter_exit_code": 0,
+      "total_samples": 44,
+      "failed_samples": 0,
+      "counts_by_label": {
+        "01 Login": 9,
+        "02 Search products": 9,
+        "03 Product detail": 9,
+        "04 Add to cart": 9,
+        "05 Checkout": 8
+      },
+      "failure_codes_by_label": {},
+      "threads": [
+        {
+          "thread": "Load Users 1-1",
+          "samples": 15,
+          "iterations_started": 3,
+          "successful_checkouts": 3,
+          "http_workflow_order_ok": true,
+          "data_user_ids_in_iteration_order": [
+            3,
+            6,
+            9
+          ],
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "thread": "Load Users 1-2",
+          "samples": 15,
+          "iterations_started": 3,
+          "successful_checkouts": 3,
+          "http_workflow_order_ok": true,
+          "data_user_ids_in_iteration_order": [
+            4,
+            7,
+            10
+          ],
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3"
+          ]
+        },
+        {
+          "thread": "Load Users 1-3",
+          "samples": 14,
+          "iterations_started": 3,
+          "successful_checkouts": 2,
+          "http_workflow_order_ok": true,
+          "data_user_ids_in_iteration_order": [
+            5,
+            8,
+            11
+          ],
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ],
+      "same_vu_completed_later_iteration_after_assertion_failure": null,
+      "distinct_credentials_with_login": 9,
+      "credentials_eof_thread_stops_in_jmeter_log": 0,
+      "sqlite_provisioned_user_count": 1250,
+      "sqlite_locked_or_nonzero_user_count": 0,
+      "sqlite_orders_verified": 8,
+      "sqlite_order_count": 8,
+      "finished_at": "2026-11-18T16:21:56+07:00",
+      "jtl_artifact": "t02-pilot.jtl",
+      "run_id": "pilot-05",
+      "jtl_sha256": "09031826f2e723fd38dcc87240ac9c0b7b0866947a94fae83b84440e4223b6b9",
+      "jmx_sha256": "0e83677fe37923ceee3d23b0f7d7d9097d593acf7f0dafdad1a65f48b93a73d0"
+    },
+    {
+      "started_at": "2026-11-18T16:22:17+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 2,
+      "pilot_threads": 1,
+      "pilot_ramp_seconds": 1,
+      "pilot_duration_seconds": 18,
+      "intentional_product_assertion_failure": true,
+      "java": "Eclipse Temurin 17.0.21+9",
+      "result": "failed",
+      "jmeter_exit_code": 0,
+      "finished_at": "2026-11-18T16:22:34+07:00",
+      "harness_issue": "UnicodeDecodeError while reading the Windows JMeter log as UTF-8. Verified again using original JTL, log bytes and SQLite before restart.",
+      "recovered_checks": {
+        "result": "passed",
+        "total_samples": 7,
+        "failed_samples": 1,
+        "counts_by_label": {
+          "01 Login": 2,
+          "02 Search products": 2,
+          "03 Product detail": 1,
+          "04 Add to cart": 1,
+          "05 Checkout": 1
+        },
+        "failure_codes_by_label": {
+          "02 Search products: 200": 1
+        },
+        "threads": [
+          {
+            "thread": "Load Users 1-1",
+            "samples": 7,
+            "iterations_started": 2,
+            "successful_checkouts": 1,
+            "http_workflow_order_ok": true,
+            "data_user_ids_in_iteration_order": [
+              3,
+              4
+            ],
+            "fixture_product_ids_in_iteration_order": [
+              "1",
+              "2"
+            ]
+          }
+        ],
+        "same_vu_completed_later_iteration_after_assertion_failure": true,
+        "distinct_credentials_with_login": 2,
+        "credentials_eof_thread_stops_in_jmeter_log": 1,
+        "sqlite_provisioned_user_count": 2,
+        "sqlite_locked_or_nonzero_user_count": 0,
+        "sqlite_orders_verified": 1,
+        "sqlite_order_count": 1
+      },
+      "jtl_local_path": "HW05/.runtime/T02/pilot-06/pilot.jtl",
+      "eof_log_excerpt": "2026-11-18 16:22:33,306 INFO o.a.j.t.JMeterThread: Stop Thread seen for thread Load Users 1-1, reason: org.apache.jorphan.util.JMeterStopThreadException: End of file:credentials.csv detected for CSV DataSet:CSV Data Set Config — New credentials each iteration configured with stopThread:true, recycle:false",
+      "run_id": "pilot-06",
+      "jtl_sha256": "733d9bea0913f21e5457f90debcfb21f882094d8f6e6931bd5e6f57d608b80b7",
+      "jmx_sha256": "0e83677fe37923ceee3d23b0f7d7d9097d593acf7f0dafdad1a65f48b93a73d0"
+    },
+    {
+      "started_at": "2026-11-18T16:23:22+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 2,
+      "pilot_threads": 1,
+      "pilot_ramp_seconds": 1,
+      "pilot_duration_seconds": 18,
+      "intentional_product_assertion_failure": true,
+      "java": "Eclipse Temurin 17.0.21+9",
+      "result": "passed",
+      "jmeter_exit_code": 0,
+      "total_samples": 7,
+      "failed_samples": 1,
+      "counts_by_label": {
+        "01 Login": 2,
+        "02 Search products": 2,
+        "03 Product detail": 1,
+        "04 Add to cart": 1,
+        "05 Checkout": 1
+      },
+      "failure_codes_by_label": {
+        "02 Search products: 200": 1
+      },
+      "threads": [
+        {
+          "thread": "Load Users 1-1",
+          "samples": 7,
+          "iterations_started": 2,
+          "successful_checkouts": 1,
+          "http_workflow_order_ok": true,
+          "data_user_ids_in_iteration_order": [
+            3,
+            4
+          ],
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2"
+          ]
+        }
+      ],
+      "same_vu_completed_later_iteration_after_assertion_failure": true,
+      "distinct_credentials_with_login": 2,
+      "credentials_eof_thread_stops_in_jmeter_log": 1,
+      "sqlite_provisioned_user_count": 2,
+      "sqlite_locked_or_nonzero_user_count": 0,
+      "sqlite_orders_verified": 1,
+      "sqlite_order_count": 1,
+      "finished_at": "2026-11-18T16:23:38+07:00",
+      "eof_log_excerpt": "2026-11-18 16:23:37,741 INFO o.a.j.t.JMeterThread: Stop Thread seen for thread Load Users 1-1, reason: org.apache.jorphan.util.JMeterStopThreadException: End of file:credentials.csv detected for CSV DataSet:CSV Data Set Config — New credentials each iteration configured with stopThread:true, recycle:false",
+      "run_id": "pilot-07",
+      "jtl_sha256": "d1746fdc1ec8ca1f1a1fc175ad89afa52eaff60959cd1aece0de501916260e82",
+      "jmx_sha256": "0e83677fe37923ceee3d23b0f7d7d9097d593acf7f0dafdad1a65f48b93a73d0",
+      "jtl_local_path": "HW05/.runtime/T02/pilot-07/pilot.jtl"
+    },
+    {
+      "started_at": "2026-11-18T16:30:24+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 21,
+      "pilot_threads": 3,
+      "pilot_ramp_seconds": 6,
+      "pilot_duration_seconds": 25,
+      "intentional_product_assertion_failure": false,
+      "credentials_source": "repository_default",
+      "credentials_property_passed": false,
+      "java": "Eclipse Temurin 17.0.21+9",
+      "result": "passed",
+      "jmeter_exit_code": 0,
+      "total_samples": 47,
+      "failed_samples": 0,
+      "counts_by_label": {
+        "01 Login": 11,
+        "02 Search products": 10,
+        "03 Product detail": 9,
+        "04 Add to cart": 9,
+        "05 Checkout": 8
+      },
+      "failure_codes_by_label": {},
+      "threads": [
+        {
+          "thread": "Load Users 1-1",
+          "samples": 16,
+          "iterations_started": 4,
+          "successful_checkouts": 3,
+          "http_workflow_order_ok": true,
+          "data_user_ids_in_iteration_order": [
+            3,
+            6,
+            10,
+            13
+          ],
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "thread": "Load Users 1-2",
+          "samples": 17,
+          "iterations_started": 4,
+          "successful_checkouts": 3,
+          "http_workflow_order_ok": true,
+          "data_user_ids_in_iteration_order": [
+            4,
+            7,
+            9,
+            12
+          ],
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3",
+            "4"
+          ]
+        },
+        {
+          "thread": "Load Users 1-3",
+          "samples": 14,
+          "iterations_started": 3,
+          "successful_checkouts": 2,
+          "http_workflow_order_ok": true,
+          "data_user_ids_in_iteration_order": [
+            5,
+            8,
+            11
+          ],
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2",
+            "3"
+          ]
+        }
+      ],
+      "same_vu_completed_later_iteration_after_assertion_failure": null,
+      "distinct_credentials_with_login": 11,
+      "credentials_eof_thread_stops_in_jmeter_log": 0,
+      "sqlite_provisioned_user_count": 21,
+      "sqlite_locked_or_nonzero_user_count": 0,
+      "sqlite_orders_verified": 8,
+      "sqlite_order_count": 8,
+      "finished_at": "2026-11-18T16:30:53+07:00",
+      "run_id": "pilot-08",
+      "jtl_artifact": "t02-default-credentials.jtl",
+      "jtl_sha256": "e6372a3643d7a84b911e3b5d236cb8dc529d70d1ac23c471b1e6f5dfd773a615",
+      "jmx_sha256": "eb8c6eef38f4def4c2e1b8c983486c015c8aea688ae2f3713c536287071ac508"
+    },
+    {
+      "started_at": "2026-11-18T16:30:54+07:00",
+      "jmx": "23120410_Load_20261118.jmx",
+      "provisioned_credentials": 2,
+      "pilot_threads": 1,
+      "pilot_ramp_seconds": 1,
+      "pilot_duration_seconds": 18,
+      "intentional_product_assertion_failure": true,
+      "credentials_source": "runtime_override",
+      "credentials_property_passed": true,
+      "java": "Eclipse Temurin 17.0.21+9",
+      "result": "passed",
+      "jmeter_exit_code": 0,
+      "total_samples": 7,
+      "failed_samples": 1,
+      "counts_by_label": {
+        "01 Login": 2,
+        "02 Search products": 2,
+        "03 Product detail": 1,
+        "04 Add to cart": 1,
+        "05 Checkout": 1
+      },
+      "failure_codes_by_label": {
+        "02 Search products: 200": 1
+      },
+      "threads": [
+        {
+          "thread": "Load Users 1-1",
+          "samples": 7,
+          "iterations_started": 2,
+          "successful_checkouts": 1,
+          "http_workflow_order_ok": true,
+          "data_user_ids_in_iteration_order": [
+            3,
+            4
+          ],
+          "fixture_product_ids_in_iteration_order": [
+            "1",
+            "2"
+          ]
+        }
+      ],
+      "same_vu_completed_later_iteration_after_assertion_failure": true,
+      "distinct_credentials_with_login": 2,
+      "credentials_eof_thread_stops_in_jmeter_log": 1,
+      "sqlite_provisioned_user_count": 2,
+      "sqlite_locked_or_nonzero_user_count": 0,
+      "sqlite_orders_verified": 1,
+      "sqlite_order_count": 1,
+      "finished_at": "2026-11-18T16:31:10+07:00",
+      "eof_log_excerpt": "2026-11-18 16:31:08,925 INFO o.a.j.t.JMeterThread: Stop Thread seen for thread Load Users 1-1, reason: org.apache.jorphan.util.JMeterStopThreadException: End of file:credentials.csv detected for CSV DataSet:CSV Data Set Config — New credentials each iteration configured with stopThread:true, recycle:false",
+      "run_id": "pilot-09",
+      "jtl_artifact": "t02-next-loop.jtl",
+      "jtl_sha256": "061c497d7f66425387dd85dd8a64f521a49ef471ec0eaa9bb21a5c7b87fa686a",
+      "jmx_sha256": "eb8c6eef38f4def4c2e1b8c983486c015c8aea688ae2f3713c536287071ac508"
+    }
+  ],
+  "credentials_budget": {
+    "soak_vus_assumed": 6,
+    "steady_seconds": 900,
+    "ramp_seconds_budgeted": 30,
+    "minimum_think_time_per_request_seconds": 1,
+    "complete_workflow_requests": 5,
+    "assumed_max_short_iteration_fraction": 0.1,
+    "pilot_03_full_cycle_periods_ms": [
+      8969,
+      7655,
+      7617,
+      8049,
+      8417,
+      7439
+    ],
+    "pilot_05_full_cycle_periods_ms": [
+      8359,
+      7531,
+      7740,
+      7430,
+      6396,
+      8511
+    ],
+    "estimate_from_pilot_03_median_rows": 720,
+    "estimate_from_pilot_05_median_rows": 738,
+    "lower_planning_cycle_seconds": 4.6,
+    "rows_from_lower_planning_cycle": 1224,
+    "rows_provisioned_and_verified_in_pilot_05": 1250
+  }
+}

@@ -31,7 +31,7 @@ Hai cách reset đã kiểm tra trên bản local:
 
 | Mục | Hành vi và hệ quả cho test plan |
 | --- | --- |
-| Tài khoản | Seed thực tế có **1 admin và 1 user**. Smoke đã tạo một tài khoản thử có role `user` bằng `POST /api/register`. T02 dùng endpoint này để tạo thêm tài khoản, theo phương án **mỗi VU hoạt động đồng thời dùng một tài khoản riêng** để cô lập giỏ và bộ đếm. Số hàng CSV tối thiểu theo phương án này bằng số VU ở đỉnh. |
+| Tài khoản | Seed thực tế có **1 admin và 1 user**. Smoke đã tạo một tài khoản thử có role `user` bằng `POST /api/register`. T02 dùng endpoint này để chuẩn bị CSV chung, cấp một tài khoản mới cho mỗi vòng lặp trên toàn bộ lượt chạy. [Cách tính số tài khoản](Load_Plan.md#tính-số-tài-khoản) |
 | Sản phẩm | `database.js` seed **5 sản phẩm**. Smoke xác nhận từ khóa `Galaxy` trả về ID `2`. Giá list của ID này là số, giá detail là chuỗi `"28000000"`. Khi tính tiền, chuyển kiểu một cách tường minh. |
 | Tồn kho và đơn | Schema `products` không có trường tồn kho. Checkout ghi một hàng `orders` trạng thái `pending` với tổng tiền gửi lên. Route không kiểm tra hay trừ tồn kho và không đọc hoặc dọn giỏ. Các vòng lặp checkout làm tăng số dòng đơn. |
 | Giỏ hàng | Mỗi lần thêm món ghi nối vào mảng trong RAM theo ID người dùng. Smoke xác nhận giỏ vẫn còn **1 món** sau checkout. Giỏ tích lũy qua các vòng lặp nếu backend tiếp tục chạy. |
@@ -96,7 +96,7 @@ Kiểm tra thêm `GET /api/products?search=Galaxy` trả **200** và đúng mộ
 | Hệ điều hành | Windows 11 Home 64-bit, build 26300 |
 | Lưu trữ workspace | Phân vùng D: NTFS, dung lượng 170,66 GiB, còn trống 45,52 GiB tại thời điểm kiểm tra, trên SSD NVMe SSSTC 512 GB |
 | Backend và cơ sở dữ liệu | Node.js 24.14.0, npm 11.21.0, driver `sqlite3` 6.0.1, SQLite engine 3.52.0, journal mode `delete` |
-| Công cụ tạo tải | Apache JMeter 5.6.3 trên Java Temurin 25.0.2. Đã kiểm tra SHA-512, xác minh chữ ký bằng khóa Apache công bố và chạy `jmeter.bat -v`. [Apache JMeter](https://jmeter.apache.org/download_jmeter.cgi) |
+| Công cụ tạo tải | Apache JMeter 5.6.3 chạy plan với Eclipse Temurin JRE 17.0.21+9. Ở T01, `jmeter.bat -v` chạy được với Java 25, nhưng pilot T02 trên Java 25 dừng khi Groovy báo `Unsupported class file major version 69`. Bản ZIP JMeter đã được kiểm tra SHA-512 và chữ ký Apache. [Chuẩn bị công cụ và kết quả pilot](Load_Plan.md) |
 
 Hostname trong bảng cấu hình được lấy từ Windows tại thời điểm chạy smoke T01. Hostname dùng khi quay video demo được ghi riêng để đối chiếu với bản ghi hình. Cấu hình máy lấy bằng `Get-CimInstance`, `Get-Partition` và `Get-Disk`.
 

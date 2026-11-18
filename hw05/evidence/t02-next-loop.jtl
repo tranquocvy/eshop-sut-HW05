@@ -1,0 +1,8 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect,"fixture_product_id","expected_user_id","authenticated_user_id","order_id"
+1794994259641,47,01 Login,200,OK,Load Users 1-1,text,true,,680,286,1,1,http://127.0.0.1:3000/api/login,47,0,34,1,3,3,null
+1794994261133,3,02 Search products,200,OK,Load Users 1-1,text,false,The CSV product must be present in search results.,267,214,1,1,http://127.0.0.1:3000/api/products?search=PilotMissingFixture,3,0,0,1,3,3,null
+1794994262594,4,01 Login,200,OK,Load Users 1-1,text,true,,680,286,1,1,http://127.0.0.1:3000/api/login,4,0,0,2,4,4,null
+1794994264551,4,02 Search products,200,OK,Load Users 1-1,text,true,,480,201,1,1,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,4,4,null
+1794994266006,3,03 Product detail,200,OK,Load Users 1-1,text,true,,480,189,1,1,http://127.0.0.1:3000/api/products/2,3,0,0,2,4,4,null
+1794994267673,4,04 Add to cart,200,OK,Load Users 1-1,text,true,,294,433,1,1,http://127.0.0.1:3000/api/cart,4,0,0,2,4,4,null
+1794994268795,102,05 Checkout,200,OK,Load Users 1-1,text,true,,312,468,1,1,http://127.0.0.1:3000/api/checkout,102,0,0,2,4,4,1

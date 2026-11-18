@@ -385,3 +385,283 @@ Sau đó cập nhật hồ sơ AI cho T01: Prompt Log, README, Report. Nếu Env
 ```text
 Mình sẽ chỉnh cách ghi hostname, bổ sung lệnh dựng lại backend từ `85af3ba` và chạy thử lệnh đó trong thư mục riêng. Sau đó mình sẽ cập nhật hồ sơ T01 theo đúng các lượt review trước khi commit và push.
 ```
+
+Phạm vi: T02 — Dữ liệu CSV và Load plan.
+
+<a id="msg-ba52b40f27d161935b35"></a>
+
+## P-006
+
+- Timestamp: 15:34:56 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Bắt đầu T02 — Dữ liệu CSV + Load plan. Làm theo quy trình mỗi task: làm xong dừng chờ mình review, chưa commit.\
+\
+Việc cần làm:\
+1\. Dẫn AI từng bước (không một prompt chung chung): chọn tham số think-time, ramp-up, số thread/VU, thời lượng cho Load, có lý giải dựa trên môi trường ở Environment.md (cùng máy với SUT, SQLite, giỏ trong RAM, JWT không hết hạn, khóa tài khoản FR-02).\
+2\. Thiết kế CSV tách riêng, không hardcode: credentials (mỗi VU đồng thời một tài khoản riêng, đủ để tránh lockout; tạo tài khoản bằng POST /api/register, kiểm ràng buộc đăng ký FR-01 trước), product ID, payload giỏ/đơn. Giải thích cách mỗi VU lấy dòng CSV.\
+3\. Dựng plan JMeter 23120410_Load_20261118.jmx cho workflow login → products → product detail → cart → checkout, có assertion có nghĩa (status và nội dung), correlation token và ID, listener loại 1 (chọn một loại, ghi rõ loại nào; Stress và Spike sẽ dùng hai loại khác).\
+4\. Lưu bản AI đầu trước khi sửa, ghi danh sách AI sai hoặc sót kèm nguyên nhân (prompt, giới hạn model hay đặc thù endpoint), rồi sửa.\
+5\. Chạy thử nhỏ để kiểm tra plan (vài VU, ngắn, không phải lượt đo chính). Ghi kết quả thật. Nếu ngày tạo plan khác 20261118, hỏi mình trước khi đặt tên file.\
+6\. Ghi các lượt tương tác vào Prompt Log. Chưa commit, chưa push. Dừng báo mình review.
+```
+
+<a id="msg-508ec3a4e70d386ea8e6"></a>
+
+### Output
+
+#### Phản hồi 1 — 15:37:05 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ làm T02 theo từng bước. Trước hết mình kiểm tra ngày, FR-01 và môi trường T01. Sau đó mình sẽ chốt tham số Load, thiết kế CSV, dựng plan rồi chạy pilot nhỏ trên backend local để Vỹ review.
+```
+
+<a id="msg-f3a4c02163e25fb0b483"></a>
+
+#### Phản hồi 2 — 15:39:37 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Ngày trên máy là 18/11/2026, khớp ngày đã chốt. Mình chọn Load ban đầu ở 6 VU, ramp-up 30 giây, chạy 150 giây và think-time 1–2 giây trước mỗi request. Mức này dùng để quan sát workflow trên một máy chạy cả JMeter lẫn SUT, với SQLite và giỏ tích lũy trong RAM. Danh sách account thử sẽ nằm trong repo, còn mật khẩu tổng hợp sẽ được tạo vào CSV local khi đăng ký.
+```
+
+<a id="msg-7cbb976bc3dc96b6df4f"></a>
+
+#### Phản hồi 3 — 15:45:16 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Pilot đầu đã đăng ký thành công 6 tài khoản thử, nhưng JMeter ghi 0 HTTP sample. Log cho thấy Groovy đi kèm JMeter 5.6.3 không biên dịch được trên Java 25, dù lệnh `-v` ở T01 chạy được. Mình đã lưu bản đầu và log lỗi, sẽ chạy lại với JRE 17 riêng cho JMeter.
+```
+
+<a id="msg-4075c4315ff6421f6307"></a>
+
+## P-007
+
+- Timestamp: 15:49:23 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+continue
+```
+
+<a id="msg-045ccac3c6cf6b195206"></a>
+
+### Output
+
+#### Phản hồi 1 — 15:49:45 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Pilot chạy lại với JRE 17 đã có 42 HTTP sample thành công và 7 checkout được đối chiếu trong SQLite. Mình sẽ lưu cả kết quả này lẫn thông tin về lượt Java 25 bị lỗi, rồi kiểm tra bộ T02 trước khi gửi Vỹ review.
+```
+
+<a id="msg-adcd0ff103a039c9e368"></a>
+
+#### Phản hồi 2 — 15:52:22 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã chuyển đường dẫn máy cá nhân thành đường dẫn tương đối để chia sẻ.
+
+```text
+**T02 đã sẵn sàng để Vỹ review.** [Load plan `23120410_Load_20261118.jmx`](HW05/eshop-sut-HW05/hw05/plans/23120410_Load_20261118.jmx) dùng **6 VU**, ramp-up **30 giây**, thời lượng **150 giây** và think-time **1–2 giây**. Plan có assertion HTTP và JSON cho cả năm bước, correlation JWT và ID, cùng listener **Summary Report**.
+
+[Tài liệu T02](HW05/eshop-sut-HW05/hw05/Load_Plan.md) ghi căn cứ chọn tải, ràng buộc FR-01 và cách gán CSV. Mỗi VU giữ một tài khoản tổng hợp riêng qua các vòng lặp. Script đăng ký 6 tài khoản qua `POST /api/register` và tạo CSV credentials ngoài repo.
+
+- **Pilot 1:** Groovy không biên dịch được trên Java 25, nên JTL có **0 HTTP sample** dù JMeter trả mã thoát 0.
+- **Pilot 2:** Chạy với JRE 17, **3 VU trong 25 giây**. Cả **42 HTTP sample** đạt assertion và **7 đơn** khớp dữ liệu trong SQLite. [Tổng hợp hai lượt](HW05/eshop-sut-HW05/hw05/evidence/t02-pilot.json) · [JTL gốc](HW05/eshop-sut-HW05/hw05/evidence/t02-pilot.jtl) · [Eclipse Temurin 17](https://adoptium.net/temurin/releases/?version=17)
+
+Đã lưu bản AI đầu và ghi các lượt T02 vào [Prompt Log](HW05/eshop-sut-HW05/hw05/ai/PromptLog.md#p-006). Mình dừng ở mốc review, chưa commit hay push.
+```
+
+<a id="msg-0dc1edb91aa082170742"></a>
+
+## P-008
+
+- Timestamp: 15:55:06 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình review T02, chưa duyệt, sửa các điểm sau:\
+1\. Plan đang đặt on_sample_error = stopthread. Với Load thì tạm chấp nhận, nhưng Stress và Spike cần ghi lỗi mà không dừng VU, nếu không số VU thực tế giảm và kết quả sai. Đổi sang tiếp tục sang vòng lặp sau (continue / start next loop). Nếu giữ stopthread thì giải thích vì sao phù hợp.\
+2\. Đang đọc CSV bằng Groovy tự viết trong "Bind CSV rows to VU", không có CSV Data Set Config. Chuyển sang CSV Data Set Config chuẩn của JMeter cho credentials, product và payload, để đề chấm thấy rõ data-driven và tránh phụ thuộc Groovy (vốn gây lỗi Java 25). Mỗi vòng lặp lấy một dòng credentials mới nếu cần, hãy chỉnh số tài khoản cần đăng ký cho phù hợp và nêu cách tính.\
+3\. Environment.md dòng 99 còn ghi JMeter chạy trên Java 25. Sửa cho khớp thực tế: dùng Temurin 17 để chạy plan, nêu lý do (Java 25 làm Groovy lỗi Unsupported class file major version 69).\
+4\. Đưa file credentials tổng hợp vào repo (mật khẩu giả, không có dữ liệu thật) để người khác chạy lại được plan; nếu thấy không nên thì nói rõ lý do.\
+5\. Load_Plan.md: nêu cách tải và đặt JMeter 5.6.3 và JRE 17 vào HW05/.runtime/tools để người đọc tái tạo được.\
+6\. Mức tải 6 VU, 150 giây giữ làm điểm khởi đầu của Load, mình sẽ chỉnh ở T04 sau khi đo thực tế.\
+Sửa xong chạy lại pilot nhỏ, lưu kết quả, rồi báo mình duyệt. Khi mình duyệt mới cập nhật hồ sơ AI và commit + push.
+```
+
+<a id="msg-a60d9539c282d6244337"></a>
+
+### Output
+
+#### Phản hồi 1 — 15:55:57 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ chuyển cả ba nguồn dữ liệu sang CSV Data Set Config chuẩn và cho VU sang vòng mới khi gặp lỗi. Sau đó mình sẽ thử lại việc gán tài khoản, cập nhật hướng dẫn JMeter và Temurin 17, rồi gửi bản sửa để Vỹ duyệt.
+```
+
+<a id="msg-7057d997bdf578d22edf"></a>
+
+#### Phản hồi 2 — 15:57:20 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình chọn một tài khoản cố định cho mỗi VU. JMeter sẽ đọc lại dòng đó từ file riêng của VU ở mỗi vòng, nên Load 6 VU vẫn cần đúng 6 tài khoản. Repo sẽ có CSV nguồn chứa credentials giả. Sau khi đăng ký qua API local, script sẽ tách CSV theo VU và ghi thêm ID thực tế để plan kiểm tra.
+```
+
+<a id="msg-3cd6881749d0a7afd86c"></a>
+
+#### Phản hồi 3 — 16:00:08 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Pilot với ba CSV Data Set Config đã chạy đủ 3 VU, ghi 41 sample đạt và đối chiếu 6 đơn trong SQLite. Mình sẽ kiểm tra thêm nhánh lỗi bằng một dòng sản phẩm thử riêng để xác nhận JMeter ghi lỗi rồi cho chính VU đó chạy vòng tiếp theo.
+```
+
+<a id="msg-b68d3cdfd8d076f153c5"></a>
+
+#### Phản hồi 4 — 16:01:57 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã chuyển đường dẫn máy cá nhân thành đường dẫn tương đối để chia sẻ.
+
+```text
+**Bản sửa T02 đã sẵn sàng để Vỹ duyệt.** [Load plan](HW05/eshop-sut-HW05/hw05/plans/23120410_Load_20261118.jmx) giữ **6 VU, ramp-up 30 giây, thời lượng 150 giây** làm mức khởi đầu cho T04.
+
+- Plan dùng **Start Next Thread Loop** và ba **CSV Data Set Config** chuẩn cho credentials, sản phẩm và payload. Mỗi VU dùng lại một tài khoản riêng qua các vòng, nên Load 6 VU cần đúng **6 tài khoản**. [CSV credentials giả](HW05/eshop-sut-HW05/hw05/data/load-credentials.csv)
+- [Environment.md](HW05/eshop-sut-HW05/hw05/Environment.md) đã ghi Temurin 17 và lỗi biên dịch Groovy trên Java 25. [Load_Plan.md](HW05/eshop-sut-HW05/hw05/Load_Plan.md) có link tải và hướng dẫn đặt JMeter 5.6.3 cùng JRE 17 vào `HW05/.runtime/tools`.
+
+**Pilot sau sửa** chạy 3 VU trong 25 giây, có **41/41 sample đạt** và **6 đơn khớp SQLite**. Lượt kiểm tra riêng ghi **1 lỗi assertion chủ đích** ở bước tìm kiếm. Cùng VU đó bỏ các request còn lại của vòng lỗi và hoàn tất **2 checkout ở các vòng sau**. [JTL pilot](HW05/eshop-sut-HW05/hw05/evidence/t02-pilot.jtl) · [JTL kiểm tra chuyển vòng](HW05/eshop-sut-HW05/hw05/evidence/t02-next-loop.jtl)
+
+Hồ sơ AI giữ nguyên trong lượt sửa này. Chưa commit hay push.
+```
+
+<a id="msg-37a61f379833804a62c1"></a>
+
+## P-009
+
+- Timestamp: 16:18:08 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình review T02, chưa duyệt, sửa các điểm sau:\
+1\. Plan đang đặt on_sample_error = stopthread. Với Load thì tạm chấp nhận, nhưng Stress và Spike cần ghi lỗi mà không dừng VU, nếu không số VU thực tế giảm và kết quả sai. Đổi sang tiếp tục sang vòng lặp sau (continue / start next loop). Nếu giữ stopthread thì giải thích vì sao phù hợp.\
+2\. Đang đọc CSV bằng Groovy tự viết trong "Bind CSV rows to VU", không có CSV Data Set Config. Chuyển sang CSV Data Set Config chuẩn của JMeter cho credentials, product và payload, để đề chấm thấy rõ data-driven và tránh phụ thuộc Groovy (vốn gây lỗi Java 25). Mỗi vòng lặp lấy một dòng credentials mới nếu cần, hãy chỉnh số tài khoản cần đăng ký cho phù hợp và nêu cách tính.\
+3\. Environment.md dòng 99 còn ghi JMeter chạy trên Java 25. Sửa cho khớp thực tế: dùng Temurin 17 để chạy plan, nêu lý do (Java 25 làm Groovy lỗi Unsupported class file major version 69).\
+4\. Đưa file credentials tổng hợp vào repo (mật khẩu giả, không có dữ liệu thật) để người khác chạy lại được plan; nếu thấy không nên thì nói rõ lý do.\
+5\. Load_Plan.md: nêu cách tải và đặt JMeter 5.6.3 và JRE 17 vào HW05/.runtime/tools để người đọc tái tạo được.\
+6\. Mức tải 6 VU, 150 giây giữ làm điểm khởi đầu của Load, mình sẽ chỉnh ở T04 sau khi đo thực tế.\
+Sửa xong chạy lại pilot nhỏ, lưu kết quả, rồi báo mình duyệt. Khi mình duyệt mới cập nhật hồ sơ AI và commit + push.
+Bổ sung mục 2: chọn mỗi vòng lặp lấy một dòng credentials mới. Tính số tài khoản cần cho lượt dài nhất (soak 10–15 phút) từ số VU, think-time và thời gian một vòng workflow đo được ở pilot, rồi tạo đủ tài khoản thay vì quay vòng. Chốt quy ước khi hết dòng (Recycle on EOF = false, Stop thread on EOF = true) và ghi rõ trong Load_Plan.md cách tính số tài khoản, kèm giả định.
+```
+
+<a id="msg-4e12828548aac02c0d17"></a>
+
+### Output
+
+#### Phản hồi 1 — 16:19:06 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đổi sang một dòng credentials mới cho mỗi vòng, dùng chung một CSV giữa các VU. Mình sẽ tính số dòng cho soak 15 phút từ pilot, ghi rõ giả định dự phòng, rồi chạy thử cả luồng bình thường và tình huống hết CSV.
+```
+
+<a id="msg-7365c49238950b4b6a6e"></a>
+
+#### Phản hồi 2 — 16:20:58 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Pilot trước có 6 vòng đo được, với trung vị **7,852 giây/vòng**. Với giả định 6 VU, 15 phút tải ổn định, tối đa 30 giây ramp-up và tối đa 10% vòng lỗi ngắn, mình tính cần 1.224 dòng và làm tròn lên **1.250 tài khoản giả**. Mình sẽ kiểm tra việc đăng ký đủ số này trên backend local trước khi chạy pilot.
+```
+
+<a id="msg-50336d13472e4085e7be"></a>
+
+#### Phản hồi 3 — 16:22:32 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Backend local đã đăng ký đủ **1.250 tài khoản**. Pilot mới ghi **44/44 sample đạt**. Chín lần login dùng chín ID khác nhau, và tám đơn khớp SQLite. Mình đang kiểm tra riêng với CSV chỉ có hai dòng để xác nhận VU dừng đúng lúc hết dữ liệu.
+```
+
+<a id="msg-b8fa607e515bdc593256"></a>
+
+#### Phản hồi 4 — 16:25:32 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã chuyển đường dẫn máy cá nhân thành đường dẫn tương đối để chia sẻ.
+
+```text
+**Bản sửa T02 đã sẵn sàng để Vỹ duyệt.** [Load plan](HW05/eshop-sut-HW05/hw05/plans/23120410_Load_20261118.jmx) dùng CSV credentials chung và cấp **một tài khoản mới cho mỗi vòng**. Lỗi sample chuyển VU sang vòng tiếp theo. Khi hết dòng, VU dừng theo cấu hình `Recycle on EOF = false` và `Stop thread on EOF = true`.
+
+[Load_Plan.md](HW05/eshop-sut-HW05/hw05/Load_Plan.md) ghi cách tính **1.224 dòng** cho soak với giả định **6 VU, 15 phút tải ổn định, 30 giây ramp-up** và tối đa **10% vòng bị cắt ngắn do lỗi**. Từ chu kỳ đo được ở pilot và cận think-time, mình làm tròn lên **1.250 tài khoản giả**. Đã đăng ký và xác nhận đủ số này trong SQLite. [CSV nguồn](HW05/eshop-sut-HW05/hw05/data/load-credentials.csv)
+
+- **Pilot 3 VU:** 44/44 sample đạt, 9 login dùng 9 ID khác nhau và 8 đơn khớp SQLite. [JTL pilot](HW05/eshop-sut-HW05/hw05/evidence/t02-pilot.jtl)
+- **Kiểm tra EOF với 2 dòng:** Sau lỗi assertion chủ đích, cùng VU dùng tài khoản thứ hai để checkout rồi dừng trước login thứ ba. Lượt kiểm tra đầu gặp lỗi đọc mã hóa log Windows. Mình đã đối chiếu lại log gốc và chạy xác nhận thêm một lượt. [JTL kiểm tra EOF](HW05/eshop-sut-HW05/hw05/evidence/t02-next-loop.jtl) · [Tổng hợp các lượt](HW05/eshop-sut-HW05/hw05/evidence/t02-pilot.json)
+
+Hồ sơ AI chờ Vỹ duyệt. Chưa commit hay push.
+```
+
+<a id="msg-a457ff180f2ac8cecffb"></a>
+
+## P-010
+
+- Timestamp: 16:28:30 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình duyệt T02, kèm hai sửa nhỏ:\
+1\. Đường dẫn mặc định hw05.credentials trong plan đang trỏ .runtime/T02/credentials.csv ngoài repo. Đổi mặc định sang data/load-credentials.csv (đường dẫn tương đối đúng với vị trí plan) để chạy lại từ repo không cần tham số.\
+2\. evidence/t02-sizing-pilot.jtl chưa được dẫn trong tài liệu. Dẫn trong Load_Plan.md hoặc t02-pilot.json, nếu không cần thì bỏ khỏi commit.\
+Sau đó cập nhật hồ sơ AI cho T02: Prompt Log, README, Report. Audit thêm dòng riêng cho từng artifact nộp (plan .jmx, bộ CSV cùng script provision, Load_Plan.md nếu là sản phẩm nộp), Verdict, Lý do, Bản sinh viên sửa theo đúng chat review: bản đầu để stopthread khi lỗi, đọc CSV bằng Groovy thay vì CSV Data Set Config, giả định Java 25 chạy được Groovy, credentials ngoài repo, VU dùng tài khoản cố định. Dẫn đúng lượt Prompt Log. Cập nhật bảng thống kê verdict. Rồi commit + push T02 và báo hash.
+```
+
+<a id="msg-6a5261d23d3121e423be"></a>
+
+### Output
+
+#### Phản hồi 1 — 16:29:24 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đổi mặc định sang `../data/load-credentials.csv` và chạy một pilot không truyền `hw05.credentials`. CSV trong repo và CSV do script tạo đang dùng tên cột khác nhau, nên mình sẽ đồng bộ hai định dạng trước khi cập nhật Audit và push T02.
+```
+
+<a id="msg-055010db4f8cb69ffdc6"></a>
+
+#### Phản hồi 2 — 16:38:32 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Pilot dùng CSV mặc định trong repo đã đạt **47/47 sample** mà không truyền `hw05.credentials`. Lượt dùng CSV thay thế cũng xác nhận VU chuyển vòng sau lỗi assertion và dừng tại EOF. Mình sẽ lưu hai kết quả này và đối chiếu các link review trong Audit trước khi commit.
+```

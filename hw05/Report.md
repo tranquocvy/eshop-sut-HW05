@@ -21,6 +21,10 @@ Load, Stress và Spike dùng cùng workflow trên JMeter. Luồng gồm login, d
 
 T01 kiểm chứng năm endpoint trên bản sao backend `85af3ba` tại `http://127.0.0.1:3000`. Cả năm request chính và lượt tìm kiếm `Galaxy` đều trả HTTP 200. Đối chiếu code FR-02 với đặc tả cho thấy sai lệch về số lần đăng nhập sai và thời hạn khóa. Smoke kiểm tra trạng thái khóa đặt sẵn, đăng nhập sau khi hết hạn và hai cách reset. T04 dự kiến dùng cùng bản sao backend theo lệnh dựng và khởi động đã ghi. [Môi trường và workflow](Environment.md) · [Bằng chứng smoke T01](evidence/t01-smoke.json)
 
+T02 tạo Load plan trên JMeter 5.6.3 và Temurin 17, với mức khởi đầu 6 VU, ramp-up 30 giây, tổng 150 giây và think-time 1–2 giây. Plan đọc ba CSV bằng CSV Data Set Config và cấp một tài khoản mới cho mỗi vòng. Credentials mặc định lấy từ repo sau khi đăng ký tài khoản thử. Sau lỗi sample, VU chạy vòng mới. Khi hết dòng credentials, VU dừng theo cấu hình EOF.
+
+Pilot 05 dùng 3 VU với 1.250 tài khoản đã đăng ký. Có 44 sample đạt, 9 ID đăng nhập riêng biệt và 8 đơn khớp SQLite. Pilot 08 xác minh đường dẫn CSV mặc định từ thư mục làm việc ngoài repo, với 47 sample đạt và 8 đơn khớp SQLite. Pilot 09 xác nhận VU dùng tài khoản kế tiếp sau lỗi assertion và dừng khi hết dòng. Các lượt này xác minh plan và fixture trước khi đo chính. [Thiết kế Load và cách tính số tài khoản](Load_Plan.md) · [Bằng chứng pilot](evidence/t02-pilot.json)
+
 ## 3. Phân tích kết quả và phản biện AI
 
 Task 2 dùng raw log để yêu cầu AI phân tích và đề xuất ngưỡng. Mỗi lỗi diễn giải phát hiện được sẽ có giá trị đúng, cách đối chiếu từ log và lý do sai. Tính khả thi của từng đề xuất tối ưu được đánh giá theo mã nguồn và cấu hình SUT.
