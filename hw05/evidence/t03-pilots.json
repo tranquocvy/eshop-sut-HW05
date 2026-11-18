@@ -1,0 +1,648 @@
+{
+  "date": "2026-11-18",
+  "timezone": "UTC+07:00",
+  "scope": "Local capacity reconnaissance, then short revised-plan workflow, shape, fixture and shutdown validation.",
+  "endpoint": "http://127.0.0.1:3000",
+  "backend_source": "85af3ba",
+  "backend_copy": "HW05/.runtime/T01/backend",
+  "java": "Eclipse Temurin 17.0.21+9",
+  "jmeter": "5.6.3",
+  "repo_credential_rows": 7500,
+  "default_profiles": {
+    "Stress": {
+      "repository_credentials_required": 6984,
+      "jmeter_result_view": "Aggregate Report",
+      "listener_enabled": true
+    },
+    "Spike": {
+      "repository_credentials_required": 2868,
+      "jmeter_result_view": "Response Time Graph",
+      "listener_enabled": true
+    }
+  },
+  "initial_ai_snapshot_sha256": {
+    "Stress_Spike_Plans.md": "edc6153f7792c862b34a4f7c328a9369d2b93c0f94ba5d89553dec4d75aa4885",
+    "plans/23120410_Spike_20261118.jmx": "8bbe6482828896d1b9d457284450543c896e1b4352511ca19415d0ae1b31f1b2",
+    "plans/23120410_Stress_20261118.jmx": "d07700e3790c6e2e11a0af26fc846214a9889cb591f81d6e8630dca6025bc5c2"
+  },
+  "calibration": {
+    "standard": {
+      "first_group_started_at": "2026-11-18T18:10:59.437000+07:00",
+      "think_time_ms": [
+        1000,
+        2000
+      ],
+      "group_ramp_seconds": 2,
+      "group_delay_spacing_seconds": 18,
+      "additional_vu": [
+        6,
+        18,
+        48,
+        72
+      ],
+      "whole_run_http_samples": 2754,
+      "whole_run_failures": 0,
+      "max_allThreads": 144,
+      "stop_reason": "planned cap and duration",
+      "stages": [
+        {
+          "vu": 6,
+          "window_seconds": [
+            4,
+            15
+          ],
+          "samples": 42,
+          "request_starts_per_second": 3.82,
+          "errors": 0,
+          "failure_codes": [],
+          "p95_by_label_ms": {
+            "01 Login": 4,
+            "02 Search products": 16,
+            "03 Product detail": 6,
+            "04 Add to cart": 6,
+            "05 Checkout": 37
+          },
+          "host_cpu_mean_pct": 11.6,
+          "host_cpu_max_pct": 18.86,
+          "node_cpu_mean_pct_of_one_core": 0.85,
+          "jmeter_cpu_mean_pct_of_one_core": 22.97,
+          "min_available_mib": 2028,
+          "samples_by_label": {
+            "02 Search products": 12,
+            "03 Product detail": 10,
+            "04 Add to cart": 8,
+            "05 Checkout": 6,
+            "01 Login": 6
+          },
+          "complete_login_to_login_periods": 0,
+          "median_login_to_login_ms": null
+        },
+        {
+          "vu": 24,
+          "window_seconds": [
+            22,
+            33
+          ],
+          "samples": 179,
+          "request_starts_per_second": 16.27,
+          "errors": 0,
+          "failure_codes": [],
+          "p95_by_label_ms": {
+            "01 Login": 10,
+            "02 Search products": 4,
+            "03 Product detail": 7,
+            "04 Add to cart": 6,
+            "05 Checkout": 24
+          },
+          "host_cpu_mean_pct": 10.79,
+          "host_cpu_max_pct": 15.87,
+          "node_cpu_mean_pct_of_one_core": 1.7,
+          "jmeter_cpu_mean_pct_of_one_core": 7.24,
+          "min_available_mib": 2070,
+          "samples_by_label": {
+            "04 Add to cart": 41,
+            "05 Checkout": 33,
+            "01 Login": 27,
+            "02 Search products": 34,
+            "03 Product detail": 44
+          },
+          "complete_login_to_login_periods": 3,
+          "median_login_to_login_ms": 6497
+        },
+        {
+          "vu": 72,
+          "window_seconds": [
+            40,
+            51
+          ],
+          "samples": 529,
+          "request_starts_per_second": 48.09,
+          "errors": 0,
+          "failure_codes": [],
+          "p95_by_label_ms": {
+            "01 Login": 15,
+            "02 Search products": 10,
+            "03 Product detail": 12,
+            "04 Add to cart": 3,
+            "05 Checkout": 23
+          },
+          "host_cpu_mean_pct": 13.58,
+          "host_cpu_max_pct": 22.43,
+          "node_cpu_mean_pct_of_one_core": 10.77,
+          "jmeter_cpu_mean_pct_of_one_core": 24.1,
+          "min_available_mib": 2130,
+          "samples_by_label": {
+            "01 Login": 89,
+            "02 Search products": 109,
+            "03 Product detail": 123,
+            "04 Add to cart": 114,
+            "05 Checkout": 94
+          },
+          "complete_login_to_login_periods": 17,
+          "median_login_to_login_ms": 7095
+        },
+        {
+          "vu": 144,
+          "window_seconds": [
+            58,
+            69
+          ],
+          "samples": 1047,
+          "request_starts_per_second": 95.18,
+          "errors": 0,
+          "failure_codes": [],
+          "p95_by_label_ms": {
+            "01 Login": 20,
+            "02 Search products": 13,
+            "03 Product detail": 16,
+            "04 Add to cart": 3,
+            "05 Checkout": 28
+          },
+          "host_cpu_mean_pct": 16.27,
+          "host_cpu_max_pct": 22.79,
+          "node_cpu_mean_pct_of_one_core": 32.35,
+          "jmeter_cpu_mean_pct_of_one_core": 28.51,
+          "min_available_mib": 2024,
+          "samples_by_label": {
+            "03 Product detail": 235,
+            "04 Add to cart": 228,
+            "05 Checkout": 195,
+            "01 Login": 187,
+            "02 Search products": 202
+          },
+          "complete_login_to_login_periods": 43,
+          "median_login_to_login_ms": 7336
+        }
+      ],
+      "provisioned_credentials": 1250,
+      "java_heap_max_mib": 384,
+      "sampling_note": "JTL windows use sample-start timestamps at the target allThreads. CPU and physical memory came from Windows counters sampled about once per second.",
+      "raw_jtl": "t03-calibration-standard.jtl",
+      "raw_jtl_sha256": "1992a5f279b677d0bbace10bc031722ded03c96e85c9bcbbd38503bc5b6ecb64",
+      "resources_csv": "t03-calibration-standard.csv",
+      "resources_csv_sha256": "338f250f25226b2c6603d26451d3916195e2f3e5da21cb8f4ad83a47874c9013"
+    },
+    "fast": {
+      "first_group_started_at": "2026-11-18T18:13:56.136000+07:00",
+      "think_time_ms": [
+        300,
+        600
+      ],
+      "group_ramp_seconds": 2,
+      "group_delay_spacing_seconds": 18,
+      "additional_vu": [
+        24,
+        24,
+        48,
+        48
+      ],
+      "whole_run_http_samples": 11686,
+      "whole_run_failures": 0,
+      "max_allThreads": 144,
+      "stop_reason": "planned cap and duration",
+      "stages": [
+        {
+          "vu": 24,
+          "window_seconds": [
+            4,
+            15
+          ],
+          "samples": 569,
+          "request_starts_per_second": 51.73,
+          "errors": 0,
+          "failure_codes": [],
+          "samples_by_label": {
+            "02 Search products": 114,
+            "03 Product detail": 117,
+            "04 Add to cart": 115,
+            "05 Checkout": 115,
+            "01 Login": 108
+          },
+          "p95_by_label_ms": {
+            "01 Login": 12,
+            "02 Search products": 10,
+            "03 Product detail": 10,
+            "04 Add to cart": 3,
+            "05 Checkout": 21
+          },
+          "host_cpu_mean_pct": 15.05,
+          "host_cpu_max_pct": 27.09,
+          "node_cpu_mean_pct_of_one_core": 8.08,
+          "jmeter_cpu_mean_pct_of_one_core": 31.06,
+          "min_available_mib": 2389,
+          "complete_login_to_login_periods": 84,
+          "median_login_to_login_ms": 2323.0
+        },
+        {
+          "vu": 48,
+          "window_seconds": [
+            22,
+            33
+          ],
+          "samples": 1133,
+          "request_starts_per_second": 103.0,
+          "errors": 0,
+          "failure_codes": [],
+          "samples_by_label": {
+            "02 Search products": 233,
+            "03 Product detail": 232,
+            "04 Add to cart": 225,
+            "05 Checkout": 221,
+            "01 Login": 222
+          },
+          "p95_by_label_ms": {
+            "01 Login": 18,
+            "02 Search products": 15,
+            "03 Product detail": 15,
+            "04 Add to cart": 3,
+            "05 Checkout": 34
+          },
+          "host_cpu_mean_pct": 19.79,
+          "host_cpu_max_pct": 36.77,
+          "node_cpu_mean_pct_of_one_core": 17.58,
+          "jmeter_cpu_mean_pct_of_one_core": 30.92,
+          "min_available_mib": 1934,
+          "complete_login_to_login_periods": 174,
+          "median_login_to_login_ms": 2327.5
+        },
+        {
+          "vu": 96,
+          "window_seconds": [
+            40,
+            51
+          ],
+          "samples": 2310,
+          "request_starts_per_second": 210.0,
+          "errors": 0,
+          "failure_codes": [],
+          "samples_by_label": {
+            "02 Search products": 460,
+            "03 Product detail": 462,
+            "04 Add to cart": 459,
+            "05 Checkout": 463,
+            "01 Login": 466
+          },
+          "p95_by_label_ms": {
+            "01 Login": 17,
+            "02 Search products": 13,
+            "03 Product detail": 12,
+            "04 Add to cart": 5,
+            "05 Checkout": 21
+          },
+          "host_cpu_mean_pct": 20.67,
+          "host_cpu_max_pct": 32.52,
+          "node_cpu_mean_pct_of_one_core": 22.43,
+          "jmeter_cpu_mean_pct_of_one_core": 45.14,
+          "min_available_mib": 1867,
+          "complete_login_to_login_periods": 370,
+          "median_login_to_login_ms": 2263.0
+        },
+        {
+          "vu": 144,
+          "window_seconds": [
+            58,
+            69
+          ],
+          "samples": 3349,
+          "request_starts_per_second": 304.45,
+          "errors": 0,
+          "failure_codes": [],
+          "samples_by_label": {
+            "01 Login": 671,
+            "02 Search products": 675,
+            "03 Product detail": 681,
+            "04 Add to cart": 666,
+            "05 Checkout": 656
+          },
+          "p95_by_label_ms": {
+            "01 Login": 45,
+            "02 Search products": 55,
+            "03 Product detail": 52,
+            "04 Add to cart": 24,
+            "05 Checkout": 100
+          },
+          "host_cpu_mean_pct": 22.57,
+          "host_cpu_max_pct": 38.42,
+          "node_cpu_mean_pct_of_one_core": 51.36,
+          "jmeter_cpu_mean_pct_of_one_core": 34.33,
+          "min_available_mib": 1805,
+          "complete_login_to_login_periods": 527,
+          "median_login_to_login_ms": 2357
+        }
+      ],
+      "provisioned_credentials": 4500,
+      "java_heap_max_mib": 384,
+      "sampling_note": "JTL windows use sample-start timestamps at the target allThreads. CPU and physical memory came from Windows counters sampled about once per second.",
+      "raw_jtl": "t03-calibration-fast.jtl",
+      "raw_jtl_sha256": "7eb6e08127041458a4d0ff33593b9cdab5730a158dc939a91ec974b5bd07df69",
+      "resources_csv": "t03-calibration-fast.csv",
+      "resources_csv_sha256": "95a5ca445a0ada58db6f5607e8be1698ad94bdf420b4790cc3682e6e0b1c530d"
+    }
+  },
+  "stress_window_review": {
+    "first_group_started_at": "2026-11-18T17:44:51.037+07:00",
+    "http_samples": 78,
+    "failed_samples": 0,
+    "checkout_samples": 14,
+    "jmeter_exit_code": 0,
+    "validation_issue": "Window [38, 47) included the start of thread wind-down; counts at allThreads 4, 3 and 2 were 24, 2, 1.",
+    "correction": "Used the interior [38, 45) window and reran the plan with the same JMX.",
+    "local_raw_jtl": "HW05/.runtime/T03/pilot-stress-window-review/pilot.jtl"
+  },
+  "pilots": {
+    "stress": {
+      "started_at": "2026-11-18T18:15:14+07:00",
+      "plan": "23120410_Stress_20261118.jmx",
+      "plan_sha256": "4d13d6f1d85dd0fbdaa191bfabbce9678bdab5f80716be538e8c4bc92aae735b",
+      "credentials_source": "repo default",
+      "provisioned_credentials": 7500,
+      "pilot_budget": 284,
+      "sqlite_after_restart": {
+        "users": 2,
+        "fixture_users": 0,
+        "products": 5,
+        "orders": 0,
+        "locked_or_nonzero_users": 0
+      },
+      "sqlite_before_measurement": {
+        "users": 7502,
+        "fixture_users": 7500,
+        "products": 5,
+        "orders": 0,
+        "locked_or_nonzero_users": 0
+      },
+      "jmeter_exit_code": 0,
+      "first_group_started_at": "2026-11-18T18:17:47.180+07:00",
+      "http_samples": 752,
+      "failed_samples": 0,
+      "counts_by_label": {
+        "01 Login": 156,
+        "02 Search products": 153,
+        "03 Product detail": 151,
+        "04 Add to cart": 149,
+        "05 Checkout": 143
+      },
+      "login_ids_distinct": 156,
+      "credentials_eof_stops": 0,
+      "sqlite_orders_verified": 143,
+      "sqlite_locked_or_nonzero_users_after": 0,
+      "maximum_allThreads_in_jtl": 16,
+      "groups": [
+        {
+          "group": "Stress Band 1",
+          "threads": 2,
+          "delay_seconds": 0,
+          "ramp_seconds": 1,
+          "duration_seconds": 48,
+          "threads_with_samples": 2,
+          "first_sample_elapsed_seconds": 1.034,
+          "last_sample_elapsed_seconds": 47.691
+        },
+        {
+          "group": "Stress Band 2",
+          "threads": 2,
+          "delay_seconds": 12,
+          "ramp_seconds": 1,
+          "duration_seconds": 36,
+          "threads_with_samples": 2,
+          "first_sample_elapsed_seconds": 12.342,
+          "last_sample_elapsed_seconds": 47.91
+        },
+        {
+          "group": "Stress Band 3",
+          "threads": 4,
+          "delay_seconds": 24,
+          "ramp_seconds": 1,
+          "duration_seconds": 24,
+          "threads_with_samples": 4,
+          "first_sample_elapsed_seconds": 24.453,
+          "last_sample_elapsed_seconds": 47.972
+        },
+        {
+          "group": "Stress Band 4",
+          "threads": 8,
+          "delay_seconds": 36,
+          "ramp_seconds": 1,
+          "duration_seconds": 12,
+          "threads_with_samples": 8,
+          "first_sample_elapsed_seconds": 36.547,
+          "last_sample_elapsed_seconds": 48.02
+        }
+      ],
+      "phase_windows": [
+        {
+          "from_seconds": 2,
+          "to_seconds": 9,
+          "samples_by_allThreads": {
+            "2": 30
+          }
+        },
+        {
+          "from_seconds": 14,
+          "to_seconds": 21,
+          "samples_by_allThreads": {
+            "4": 60
+          }
+        },
+        {
+          "from_seconds": 26,
+          "to_seconds": 33,
+          "samples_by_allThreads": {
+            "8": 121
+          }
+        },
+        {
+          "from_seconds": 38,
+          "to_seconds": 45,
+          "samples_by_allThreads": {
+            "16": 235
+          }
+        }
+      ],
+      "jtl_sha256": "7ec347bad2cd01c43bf70b960d4e6eb16a4afa55dc6d86ccb78a7b479c486a8a",
+      "result": "passed",
+      "finished_at": "2026-11-18T18:18:36+07:00",
+      "raw_jtl": "t03-stress-pilot.jtl",
+      "jtl_replayed_to_html_dashboard": true
+    },
+    "spike": {
+      "started_at": "2026-11-18T18:18:36+07:00",
+      "plan": "23120410_Spike_20261118.jmx",
+      "plan_sha256": "b07278192f15a2bde422e1e3bca55903621ae93d8ecf42d8246426b0dbb4d4a3",
+      "credentials_source": "repo default",
+      "provisioned_credentials": 198,
+      "pilot_budget": 198,
+      "sqlite_after_restart": {
+        "users": 2,
+        "fixture_users": 0,
+        "products": 5,
+        "orders": 0,
+        "locked_or_nonzero_users": 0
+      },
+      "sqlite_before_measurement": {
+        "users": 200,
+        "fixture_users": 198,
+        "products": 5,
+        "orders": 0,
+        "locked_or_nonzero_users": 0
+      },
+      "jmeter_exit_code": 0,
+      "first_group_started_at": "2026-11-18T18:18:44.683+07:00",
+      "http_samples": 502,
+      "failed_samples": 0,
+      "counts_by_label": {
+        "01 Login": 106,
+        "02 Search products": 104,
+        "03 Product detail": 102,
+        "04 Add to cart": 97,
+        "05 Checkout": 93
+      },
+      "login_ids_distinct": 106,
+      "credentials_eof_stops": 0,
+      "sqlite_orders_verified": 93,
+      "sqlite_locked_or_nonzero_users_after": 0,
+      "maximum_allThreads_in_jtl": 16,
+      "groups": [
+        {
+          "group": "Spike Baseline",
+          "threads": 2,
+          "delay_seconds": 0,
+          "ramp_seconds": 1,
+          "duration_seconds": 38,
+          "threads_with_samples": 2,
+          "first_sample_elapsed_seconds": 1.2,
+          "last_sample_elapsed_seconds": 38.012
+        },
+        {
+          "group": "Spike Burst",
+          "threads": 14,
+          "delay_seconds": 12,
+          "ramp_seconds": 1,
+          "duration_seconds": 12,
+          "threads_with_samples": 14,
+          "first_sample_elapsed_seconds": 12.395,
+          "last_sample_elapsed_seconds": 23.905
+        }
+      ],
+      "phase_windows": [
+        {
+          "from_seconds": 2,
+          "to_seconds": 11,
+          "samples_by_allThreads": {
+            "2": 37
+          }
+        },
+        {
+          "from_seconds": 14,
+          "to_seconds": 22,
+          "samples_by_allThreads": {
+            "16": 277
+          }
+        },
+        {
+          "from_seconds": 26,
+          "to_seconds": 35,
+          "samples_by_allThreads": {
+            "2": 39
+          }
+        }
+      ],
+      "jtl_sha256": "a7acf74703272a06e674d2d493d366c9833189f67431ca2883d96ef42a9d3a7f",
+      "result": "passed",
+      "finished_at": "2026-11-18T18:19:23+07:00",
+      "raw_jtl": "t03-spike-pilot.jtl",
+      "jtl_replayed_to_html_dashboard": true
+    },
+    "stress-shutdown": {
+      "started_at": "2026-11-18T18:19:23+07:00",
+      "plan": "23120410_Stress_20261118.jmx",
+      "plan_sha256": "4d13d6f1d85dd0fbdaa191bfabbce9678bdab5f80716be538e8c4bc92aae735b",
+      "credentials_source": "repo default",
+      "provisioned_credentials": 284,
+      "pilot_budget": 284,
+      "sqlite_after_restart": {
+        "users": 2,
+        "fixture_users": 0,
+        "products": 5,
+        "orders": 0,
+        "locked_or_nonzero_users": 0
+      },
+      "sqlite_before_measurement": {
+        "users": 286,
+        "fixture_users": 284,
+        "products": 5,
+        "orders": 0,
+        "locked_or_nonzero_users": 0
+      },
+      "shutdown_requested_at": "2026-11-18T18:19:37+07:00",
+      "shutdown_client_output": "Sending Shutdown request to port 4445",
+      "jmeter_exit_code": 0,
+      "first_group_started_at": "2026-11-18T18:19:34.424+07:00",
+      "http_samples": 10,
+      "failed_samples": 0,
+      "counts_by_label": {
+        "01 Login": 2,
+        "02 Search products": 2,
+        "03 Product detail": 2,
+        "04 Add to cart": 2,
+        "05 Checkout": 2
+      },
+      "login_ids_distinct": 2,
+      "credentials_eof_stops": 0,
+      "sqlite_orders_verified": 2,
+      "sqlite_locked_or_nonzero_users_after": 0,
+      "maximum_allThreads_in_jtl": 2,
+      "groups": [
+        {
+          "group": "Stress Band 1",
+          "threads": 2,
+          "delay_seconds": 0,
+          "ramp_seconds": 1,
+          "duration_seconds": 48,
+          "threads_with_samples": 2,
+          "first_sample_elapsed_seconds": 0.959,
+          "last_sample_elapsed_seconds": 3.32
+        },
+        {
+          "group": "Stress Band 2",
+          "threads": 2,
+          "delay_seconds": 12,
+          "ramp_seconds": 1,
+          "duration_seconds": 36,
+          "threads_with_samples": 0,
+          "first_sample_elapsed_seconds": null,
+          "last_sample_elapsed_seconds": null
+        },
+        {
+          "group": "Stress Band 3",
+          "threads": 4,
+          "delay_seconds": 24,
+          "ramp_seconds": 1,
+          "duration_seconds": 24,
+          "threads_with_samples": 0,
+          "first_sample_elapsed_seconds": null,
+          "last_sample_elapsed_seconds": null
+        },
+        {
+          "group": "Stress Band 4",
+          "threads": 8,
+          "delay_seconds": 36,
+          "ramp_seconds": 1,
+          "duration_seconds": 12,
+          "threads_with_samples": 0,
+          "first_sample_elapsed_seconds": null,
+          "last_sample_elapsed_seconds": null
+        }
+      ],
+      "phase_windows": [],
+      "jtl_sha256": "f3c938834c45a958fb43eb3f14dc6ade0385be29dfc0b18df8b3785922f1b36f",
+      "result": "passed",
+      "finished_at": "2026-11-18T18:19:39+07:00",
+      "raw_jtl": "t03-stress-shutdown.jtl",
+      "shutdown_engine_log": [
+        "2026-11-18 18:19:37,792 INFO o.a.j.JMeter: Command: Shutdown received from /127.0.0.1"
+      ]
+    }
+  },
+  "checksum_convention": "Pilot and calibration checksums use LF-normalized bytes as stored in Git. Initial AI snapshot checksums use the original local bytes."
+}

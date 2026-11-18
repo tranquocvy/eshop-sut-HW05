@@ -27,10 +27,11 @@ Load, Stress và Spike dùng chung workflow JMeter trên REST API. Login phủ a
 
 ## Tóm tắt kiểm thử
 
-| Mục | Trạng thái sau T02 |
+| Mục | Trạng thái sau T03 |
 | --- | --- |
-| Kịch bản thực thi | Smoke T01 và pilot của Load plan T02. Pilot dùng CSV mặc định có 47 sample đạt và 8 checkout đối chiếu được. Các lượt đo chính thuộc T04 và T05. |
+| Kịch bản thực thi | Smoke T01, pilot Load T02, hai lượt thăm dò và pilot Stress/Spike T03. Pilot Load dùng CSV mặc định có 47 sample đạt. Pilot Stress đạt 752/752 và Spike đạt 502/502. |
 | Nhóm endpoint được kiểm thử | Smoke và pilot phủ auth-heavy, read-heavy và transactional qua workflow đăng nhập, tìm kiếm, xem chi tiết, thêm giỏ và checkout. |
+| Điểm bão hòa | Chưa xác lập. Mốc 144 VU là trần thử nghiệm trên máy dùng chung. |
 | Ngưỡng endurance | Chưa đo. |
 | Số bug hoặc performance issue | T01 ghi nhận sai lệch FR-02 khi đối chiếu code với đặc tả. Chưa có kết quả phân loại issue từ các lượt đo tải. |
 | Video demo | Chưa có video HW05. |
@@ -40,6 +41,7 @@ Load, Stress và Spike dùng chung workflow JMeter trên REST API. Login phủ a
 - [Báo cáo chính](Report.md) và [lịch sử commit](GitCommitLog.txt).
 - [Môi trường và workflow](Environment.md) và [bằng chứng smoke T01](evidence/t01-smoke.json).
 - [Load plan](plans/23120410_Load_20261118.jmx), [cách chuẩn bị CSV và chạy lại](Load_Plan.md) và [bằng chứng pilot T02](evidence/t02-pilot.json).
+- [Stress plan](plans/23120410_Stress_20261118.jmx), [Spike plan](plans/23120410_Spike_20261118.jmx), [thiết kế và cách chạy lại](Stress_Spike_Plans.md) và [bằng chứng thăm dò, pilot T03](evidence/t03-pilots.json).
 - [AI Audit Report](ai/AI_Audit_Report.md), [Prompt Log](ai/PromptLog.md) và [AI Critique](ai/AI_Critique.md).
 - [Khai báo sử dụng AI](ai/AI_Disclosure.md) và [Bảng kiểm quyền riêng tư](ai/AI_Privacy_Checklist.md).
 - `plans/` lưu test plan và `data/` lưu CSV dùng để tham số hóa request.

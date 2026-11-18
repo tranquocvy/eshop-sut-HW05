@@ -19,7 +19,7 @@ Plan [`23120410_Load_20261118.jmx`](plans/23120410_Load_20261118.jmx) chạy wor
 
 | CSV | Vai trò |
 | --- | --- |
-| [`load-credentials.csv`](data/load-credentials.csv) | Nguồn mặc định của plan, gồm 1.250 tên, email miền `hw05.example.test` và mật khẩu giả dùng cho EShop local. JMX tìm file ở `../data/load-credentials.csv` tính từ thư mục `plans`. |
+| [`load-credentials.csv`](data/load-credentials.csv) | Nguồn mặc định của ba plan, gồm tên, email miền `hw05.example.test` và mật khẩu giả dùng cho EShop local. T03 mở rộng từ 1.250 lên 7.500 dòng, giữ nguyên 1.250 dòng T02 ở đầu file. JMX tìm file ở `../data/load-credentials.csv` tính từ thư mục `plans`. |
 | `credentials.csv` | CSV tùy chọn do [script provision](data/provision_load_users.py) ghi ngoài repo bằng `--output`. File giới hạn ở các tài khoản đã đăng ký và bổ sung ID do API trả về. JMeter dùng file này khi có `-Jhw05.credentials`. |
 | [`load-products.csv`](data/load-products.csv) | Cặp `fixture_product_id,search_keyword` cho 5 sản phẩm seed. |
 | [`load-order-payloads.csv`](data/load-order-payloads.csv) | Cặp `quantity,shipping_address` tổng hợp. Giá và tên lấy từ response chi tiết. Tổng đơn là giá nhân số lượng. |
@@ -93,7 +93,7 @@ Sau giải nén, công cụ nằm trong `apache-jmeter-5.6.3/bin` và `temurin17
 
 ## 7. Chạy lại pilot
 
-Khởi động EShop theo [môi trường T01](Environment.md) ở terminal riêng. Backend seed hai tài khoản ban đầu, nên script cần đăng ký tài khoản thử trước khi chạy. Ví dụ dưới đây đăng ký 21 tài khoản cho pilot 3 VU và để JMeter dùng CSV mặc định trong repo. Với cấu hình Load mặc định, có thể đăng ký toàn bộ 1.250 dòng rồi chạy plan với thông số mặc định. Nếu chỉ muốn đăng ký và sử dụng một phần CSV có ranh giới EOF tương ứng, dùng `--output` để xuất file và truyền `-Jhw05.credentials` chỉ tới file đó.
+Khởi động EShop theo [môi trường T01](Environment.md) ở terminal riêng. Backend seed hai tài khoản ban đầu, nên script cần đăng ký tài khoản thử trước khi chạy. Ví dụ dưới đây đăng ký 21 tài khoản cho pilot 3 VU và để JMeter dùng CSV mặc định trong repo. Với cấu hình Load mặc định, đăng ký 1.250 dòng đầu đủ theo dự trù ở mục 2. Nếu muốn ranh giới EOF khớp số dòng đã đăng ký, dùng `--output` để xuất file và truyền `-Jhw05.credentials` chỉ tới file đó.
 
 Từ thư mục `SoftwareTesting`, chạy pilot với JMeter 5.6.3 và JRE 17 đã giải nén:
 

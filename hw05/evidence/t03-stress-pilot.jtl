@@ -1,0 +1,753 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect,"fixture_product_id","authenticated_user_id","order_id"
+1795000668214,38,01 Login,200,OK,Stress Band 1 1-1,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,38,0,23,1,3,null
+1795000668636,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,3,0,1,1,4,null
+1795000668839,3,02 Search products,200,OK,Stress Band 1 1-1,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,3,null
+1795000669187,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,4,null
+1795000669473,3,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,3,0,0,1,3,null
+1795000669727,1,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,1,0,0,1,4,null
+1795000669890,3,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,3,0,0,1,3,null
+1795000670201,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,2,0,0,1,4,null
+1795000670280,6,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,312,471,2,2,http://127.0.0.1:3000/api/checkout,6,0,0,1,3,1
+1795000670747,6,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,312,471,2,2,http://127.0.0.1:3000/api/checkout,6,0,0,1,4,2
+1795000670889,3,01 Login,200,OK,Stress Band 1 1-1,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,2,5,null
+1795000671098,2,01 Login,200,OK,Stress Band 1 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,2,6,null
+1795000671368,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,480,201,2,2,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,5,null
+1795000671655,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,480,201,2,2,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,6,null
+1795000671884,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,480,189,2,2,http://127.0.0.1:3000/api/products/2,2,0,0,2,5,null
+1795000672039,3,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,480,189,2,2,http://127.0.0.1:3000/api/products/2,3,0,0,2,6,null
+1795000672254,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,433,2,2,http://127.0.0.1:3000/api/cart,2,0,0,2,5,null
+1795000672632,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,433,2,2,http://127.0.0.1:3000/api/cart,2,0,0,2,6,null
+1795000672724,8,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,312,468,2,2,http://127.0.0.1:3000/api/checkout,8,0,0,2,5,3
+1795000672958,15,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,312,468,2,2,http://127.0.0.1:3000/api/checkout,15,0,0,2,6,4
+1795000673082,3,01 Login,200,OK,Stress Band 1 1-1,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,3,7,null
+1795000673485,1,01 Login,200,OK,Stress Band 1 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,1,0,0,3,8,null
+1795000673595,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,450,202,2,2,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,7,null
+1795000673918,3,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,448,189,2,2,http://127.0.0.1:3000/api/products/3,3,0,0,3,7,null
+1795000673994,3,02 Search products,200,OK,Stress Band 1 1-2,text,true,,450,202,2,2,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,8,null
+1795000674427,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,423,2,2,http://127.0.0.1:3000/api/cart,2,0,0,3,7,null
+1795000674551,3,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,448,189,2,2,http://127.0.0.1:3000/api/products/3,3,0,0,3,8,null
+1795000674875,9,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,312,470,2,2,http://127.0.0.1:3000/api/checkout,8,0,0,3,7,5
+1795000675127,3,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,423,2,2,http://127.0.0.1:3000/api/cart,3,0,0,3,8,null
+1795000675453,2,01 Login,200,OK,Stress Band 1 1-1,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,4,9,null
+1795000675655,10,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,312,470,2,2,http://127.0.0.1:3000/api/checkout,10,0,0,3,8,6
+1795000675984,4,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,2,http://127.0.0.1:3000/api/login,4,0,0,4,10,null
+1795000676045,3,02 Search products,200,OK,Stress Band 1 1-1,text,true,,461,202,2,2,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,9,null
+1795000676402,3,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,461,189,2,2,http://127.0.0.1:3000/api/products/4,3,0,0,4,9,null
+1795000676527,1,02 Search products,200,OK,Stress Band 1 1-2,text,true,,461,202,2,2,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,10,null
+1795000676729,4,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,430,2,2,http://127.0.0.1:3000/api/cart,4,0,0,4,9,null
+1795000676870,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,461,189,2,2,http://127.0.0.1:3000/api/products/4,2,0,0,4,10,null
+1795000677153,9,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,312,470,2,2,http://127.0.0.1:3000/api/checkout,9,0,0,4,9,7
+1795000677215,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,432,2,2,http://127.0.0.1:3000/api/cart,2,0,0,4,10,null
+1795000677574,3,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,5,11,null
+1795000677749,9,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,312,472,2,2,http://127.0.0.1:3000/api/checkout,9,0,0,4,10,8
+1795000678048,3,02 Search products,200,OK,Stress Band 1 1-1,text,true,,469,203,2,2,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,11,null
+1795000678251,5,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,2,http://127.0.0.1:3000/api/login,5,0,0,5,12,null
+1795000678362,3,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,467,189,2,2,http://127.0.0.1:3000/api/products/5,2,0,0,5,11,null
+1795000678658,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,469,203,2,2,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,12,null
+1795000678720,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,448,2,2,http://127.0.0.1:3000/api/cart,1,0,0,5,11,null
+1795000678988,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,467,189,2,2,http://127.0.0.1:3000/api/products/5,2,0,0,5,12,null
+1795000679177,13,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,312,469,2,2,http://127.0.0.1:3000/api/checkout,13,0,0,5,11,9
+1795000679522,4,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,1,3,http://127.0.0.1:3000/api/login,3,0,2,1,14,null
+1795000679585,1,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,448,2,3,http://127.0.0.1:3000/api/cart,1,0,0,5,12,null
+1795000679679,2,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,3,http://127.0.0.1:3000/api/login,2,0,0,1,13,null
+1795000679993,10,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,469,2,3,http://127.0.0.1:3000/api/checkout,10,0,0,5,12,10
+1795000680072,2,02 Search products,200,OK,Stress Band 2 2-1,text,true,,453,201,1,3,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,14,null
+1795000680262,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,453,201,2,4,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,13,null
+1795000680420,4,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,4,0,0,1,15,null
+1795000680420,7,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,451,189,2,4,http://127.0.0.1:3000/api/products/1,7,0,0,1,14,null
+1795000680684,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,451,189,2,4,http://127.0.0.1:3000/api/products/1,2,0,0,1,13,null
+1795000680810,4,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,4,0,2,1,16,null
+1795000680825,1,02 Search products,200,OK,Stress Band 1 1-2,text,true,,453,201,2,4,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,15,null
+1795000680903,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,428,2,4,http://127.0.0.1:3000/api/cart,2,0,0,1,14,null
+1795000681045,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,428,2,4,http://127.0.0.1:3000/api/cart,2,0,0,1,13,null
+1795000681295,2,02 Search products,200,OK,Stress Band 2 2-2,text,true,,453,201,2,4,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,16,null
+1795000681342,12,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,473,2,4,http://127.0.0.1:3000/api/checkout,12,0,0,1,14,11
+1795000681389,4,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,451,189,2,4,http://127.0.0.1:3000/api/products/1,4,0,0,1,15,null
+1795000681607,12,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,472,2,4,http://127.0.0.1:3000/api/checkout,12,0,0,1,13,12
+1795000681685,2,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,451,189,2,4,http://127.0.0.1:3000/api/products/1,2,0,0,1,16,null
+1795000681701,3,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,3,0,0,2,17,null
+1795000681856,1,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,428,2,4,http://127.0.0.1:3000/api/cart,1,0,0,1,15,null
+1795000682104,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,428,2,4,http://127.0.0.1:3000/api/cart,1,0,0,1,16,null
+1795000682104,1,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,1,0,0,2,18,null
+1795000682180,2,02 Search products,200,OK,Stress Band 2 2-1,text,true,,480,201,2,4,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,17,null
+1795000682399,11,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,472,2,4,http://127.0.0.1:3000/api/checkout,11,0,0,1,15,13
+1795000682525,7,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,473,2,4,http://127.0.0.1:3000/api/checkout,7,0,0,1,16,14
+1795000682665,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,480,201,2,4,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,18,null
+1795000682728,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,3,0,0,2,19,null
+1795000682759,3,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,480,189,2,4,http://127.0.0.1:3000/api/products/2,3,0,0,2,17,null
+1795000683135,2,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,2,0,0,2,20,null
+1795000683150,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,480,189,2,4,http://127.0.0.1:3000/api/products/2,2,0,0,2,18,null
+1795000683181,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,435,2,4,http://127.0.0.1:3000/api/cart,2,0,0,2,17,null
+1795000683243,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,480,201,2,4,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,19,null
+1795000683571,3,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,480,189,2,4,http://127.0.0.1:3000/api/products/2,3,0,0,2,19,null
+1795000683650,1,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,435,2,4,http://127.0.0.1:3000/api/cart,1,0,0,2,18,null
+1795000683695,10,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,470,2,4,http://127.0.0.1:3000/api/checkout,10,0,0,2,17,15
+1795000683711,3,02 Search products,200,OK,Stress Band 2 2-2,text,true,,480,201,2,4,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,20,null
+1795000684023,2,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,2,0,0,3,21,null
+1795000684086,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,435,2,4,http://127.0.0.1:3000/api/cart,2,0,0,2,19,null
+1795000684162,2,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,480,189,2,4,http://127.0.0.1:3000/api/products/2,2,0,0,2,20,null
+1795000684225,10,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,473,2,4,http://127.0.0.1:3000/api/checkout,10,0,0,2,18,16
+1795000684507,2,02 Search products,200,OK,Stress Band 2 2-1,text,true,,450,202,2,4,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,21,null
+1795000684600,9,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,473,2,4,http://127.0.0.1:3000/api/checkout,9,0,0,2,19,17
+1795000684616,2,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,2,0,0,3,22,null
+1795000684631,2,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,435,2,4,http://127.0.0.1:3000/api/cart,2,0,0,2,20,null
+1795000684925,3,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,448,189,2,4,http://127.0.0.1:3000/api/products/3,3,0,0,3,21,null
+1795000684925,3,02 Search products,200,OK,Stress Band 1 1-1,text,true,,450,202,2,4,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,22,null
+1795000684971,12,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,470,2,4,http://127.0.0.1:3000/api/checkout,12,0,0,2,20,18
+1795000685127,2,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,2,0,0,3,23,null
+1795000685378,1,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,425,2,4,http://127.0.0.1:3000/api/cart,1,0,0,3,21,null
+1795000685519,3,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,448,189,2,4,http://127.0.0.1:3000/api/products/3,3,0,0,3,22,null
+1795000685535,2,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,2,0,0,3,24,null
+1795000685582,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,450,202,2,4,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,23,null
+1795000685968,3,02 Search products,200,OK,Stress Band 2 2-2,text,true,,450,202,2,4,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,24,null
+1795000685984,4,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,448,189,2,4,http://127.0.0.1:3000/api/products/3,4,0,0,3,23,null
+1795000685984,15,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,472,2,4,http://127.0.0.1:3000/api/checkout,15,0,0,3,21,19
+1795000685999,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,425,2,4,http://127.0.0.1:3000/api/cart,2,0,0,3,22,null
+1795000686360,3,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,448,189,2,4,http://127.0.0.1:3000/api/products/3,3,0,0,3,24,null
+1795000686422,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,425,2,4,http://127.0.0.1:3000/api/cart,2,0,0,3,23,null
+1795000686438,4,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,4,0,0,4,25,null
+1795000686516,9,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,470,2,4,http://127.0.0.1:3000/api/checkout,9,0,0,3,22,20
+1795000686689,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,425,2,4,http://127.0.0.1:3000/api/cart,1,0,0,3,24,null
+1795000686862,2,02 Search products,200,OK,Stress Band 2 2-1,text,true,,461,202,2,4,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,25,null
+1795000686879,12,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,470,2,4,http://127.0.0.1:3000/api/checkout,12,0,0,3,23,21
+1795000687033,3,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,3,0,0,4,26,null
+1795000687158,13,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,472,2,4,http://127.0.0.1:3000/api/checkout,13,0,0,3,24,22
+1795000687236,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,3,0,0,4,27,null
+1795000687457,2,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,461,189,2,4,http://127.0.0.1:3000/api/products/4,2,0,0,4,25,null
+1795000687504,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,461,202,2,4,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,26,null
+1795000687739,3,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,3,0,0,4,28,null
+1795000687754,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,461,202,2,4,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,27,null
+1795000687848,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,432,2,4,http://127.0.0.1:3000/api/cart,2,0,0,4,25,null
+1795000687910,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,461,189,2,4,http://127.0.0.1:3000/api/products/4,2,0,0,4,26,null
+1795000688066,2,02 Search products,200,OK,Stress Band 2 2-2,text,true,,461,202,2,4,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,28,null
+1795000688300,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,461,189,2,4,http://127.0.0.1:3000/api/products/4,2,0,0,4,27,null
+1795000688442,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,432,2,4,http://127.0.0.1:3000/api/cart,2,0,0,4,26,null
+1795000688458,7,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,472,2,4,http://127.0.0.1:3000/api/checkout,7,0,0,4,25,23
+1795000688569,2,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,461,189,2,4,http://127.0.0.1:3000/api/products/4,2,0,0,4,28,null
+1795000688804,1,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,432,2,4,http://127.0.0.1:3000/api/cart,1,0,0,4,27,null
+1795000688882,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,432,2,4,http://127.0.0.1:3000/api/cart,1,0,0,4,28,null
+1795000688976,5,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,5,0,0,5,29,null
+1795000689006,8,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,471,2,4,http://127.0.0.1:3000/api/checkout,8,0,0,4,26,24
+1795000689163,22,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,471,2,4,http://127.0.0.1:3000/api/checkout,22,0,0,4,27,25
+1795000689288,9,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,472,2,4,http://127.0.0.1:3000/api/checkout,9,0,0,4,28,26
+1795000689508,2,02 Search products,200,OK,Stress Band 2 2-1,text,true,,469,203,2,4,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,29,null
+1795000689555,2,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,2,0,0,5,30,null
+1795000689632,3,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,3,0,0,5,32,null
+1795000689787,2,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,2,0,0,5,31,null
+1795000689834,2,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,467,189,2,4,http://127.0.0.1:3000/api/products/5,1,0,0,5,29,null
+1795000689897,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,469,203,2,4,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,30,null
+1795000690132,3,02 Search products,200,OK,Stress Band 1 1-2,text,true,,469,203,2,4,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,31,null
+1795000690148,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,448,2,4,http://127.0.0.1:3000/api/cart,2,0,0,5,29,null
+1795000690209,1,02 Search products,200,OK,Stress Band 2 2-2,text,true,,469,203,2,4,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,32,null
+1795000690304,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,467,189,2,4,http://127.0.0.1:3000/api/products/5,2,0,0,5,30,null
+1795000690525,3,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,467,189,2,4,http://127.0.0.1:3000/api/products/5,3,0,0,5,31,null
+1795000690540,1,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,467,189,2,4,http://127.0.0.1:3000/api/products/5,1,0,0,5,32,null
+1795000690712,7,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,469,2,4,http://127.0.0.1:3000/api/checkout,7,0,0,5,29,27
+1795000690851,1,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,448,2,4,http://127.0.0.1:3000/api/cart,1,0,0,5,30,null
+1795000691022,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,448,2,4,http://127.0.0.1:3000/api/cart,2,0,0,5,31,null
+1795000691037,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,448,2,4,http://127.0.0.1:3000/api/cart,1,0,0,5,32,null
+1795000691100,2,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,4,http://127.0.0.1:3000/api/login,2,0,0,1,33,null
+1795000691332,11,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,472,2,5,http://127.0.0.1:3000/api/checkout,11,0,0,5,30,28
+1795000691379,13,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,472,2,5,http://127.0.0.1:3000/api/checkout,13,0,0,5,31,29
+1795000691475,9,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,469,2,5,http://127.0.0.1:3000/api/checkout,9,0,0,5,32,30
+1795000691633,4,01 Login,200,OK,Stress Band 3 3-1,text,true,,683,286,2,6,http://127.0.0.1:3000/api/login,4,0,2,1,34,null
+1795000691679,1,02 Search products,200,OK,Stress Band 2 2-1,text,true,,453,201,2,6,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,33,null
+1795000691740,2,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,6,http://127.0.0.1:3000/api/login,2,0,0,1,36,null
+1795000691818,1,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,6,http://127.0.0.1:3000/api/login,1,0,0,1,37,null
+1795000691897,2,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,7,http://127.0.0.1:3000/api/login,2,0,0,1,35,null
+1795000691975,4,01 Login,200,OK,Stress Band 3 3-2,text,true,,683,286,3,7,http://127.0.0.1:3000/api/login,4,0,2,1,38,null
+1795000692147,1,02 Search products,200,OK,Stress Band 1 1-2,text,true,,453,201,2,7,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,36,null
+1795000692179,2,02 Search products,200,OK,Stress Band 3 3-1,text,true,,453,201,3,7,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,34,null
+1795000692274,2,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,451,189,2,8,http://127.0.0.1:3000/api/products/1,2,0,0,1,33,null
+1795000692290,3,01 Login,200,OK,Stress Band 3 3-3,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,3,0,1,1,39,null
+1795000692336,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,453,201,2,8,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,35,null
+1795000692398,1,02 Search products,200,OK,Stress Band 2 2-2,text,true,,453,201,2,8,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,37,null
+1795000692460,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,451,189,2,8,http://127.0.0.1:3000/api/products/1,2,0,0,1,36,null
+1795000692585,6,02 Search products,200,OK,Stress Band 3 3-2,text,true,,453,201,4,8,http://127.0.0.1:3000/api/products?search=iPhone,6,0,0,1,38,null
+1795000692647,2,02 Search products,200,OK,Stress Band 3 3-3,text,true,,453,201,4,8,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,39,null
+1795000692711,1,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,428,2,8,http://127.0.0.1:3000/api/cart,1,0,0,1,33,null
+1795000692743,2,01 Login,200,OK,Stress Band 3 3-4,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,1,1,40,null
+1795000692774,3,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,451,189,4,8,http://127.0.0.1:3000/api/products/1,3,0,0,1,34,null
+1795000692853,2,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,451,189,2,8,http://127.0.0.1:3000/api/products/1,2,0,0,1,37,null
+1795000692885,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,451,189,2,8,http://127.0.0.1:3000/api/products/1,2,0,0,1,35,null
+1795000692964,1,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,451,189,4,8,http://127.0.0.1:3000/api/products/1,1,0,0,1,39,null
+1795000693041,3,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,451,189,4,8,http://127.0.0.1:3000/api/products/1,3,0,0,1,38,null
+1795000693057,1,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,428,2,8,http://127.0.0.1:3000/api/cart,1,0,0,1,36,null
+1795000693135,1,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,428,4,8,http://127.0.0.1:3000/api/cart,1,0,0,1,34,null
+1795000693214,2,02 Search products,200,OK,Stress Band 3 3-4,text,true,,453,201,4,8,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,40,null
+1795000693262,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,428,2,8,http://127.0.0.1:3000/api/cart,1,0,0,1,37,null
+1795000693278,10,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,472,2,8,http://127.0.0.1:3000/api/checkout,10,0,0,1,33,31
+1795000693494,1,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,428,2,8,http://127.0.0.1:3000/api/cart,1,0,0,1,35,null
+1795000693494,8,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,313,473,4,8,http://127.0.0.1:3000/api/checkout,8,0,0,1,34,32
+1795000693510,6,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,470,2,8,http://127.0.0.1:3000/api/checkout,6,0,0,1,36,33
+1795000693541,2,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,428,4,8,http://127.0.0.1:3000/api/cart,2,0,0,1,39,null
+1795000693604,2,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,428,4,8,http://127.0.0.1:3000/api/cart,2,0,0,1,38,null
+1795000693604,5,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,451,189,4,8,http://127.0.0.1:3000/api/products/1,5,0,0,1,40,null
+1795000693621,4,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,4,0,0,2,41,null
+1795000693667,13,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,472,2,8,http://127.0.0.1:3000/api/checkout,13,0,0,1,37,34
+1795000693918,3,01 Login,200,OK,Stress Band 3 3-1,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,3,0,0,2,42,null
+1795000693967,10,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,470,2,8,http://127.0.0.1:3000/api/checkout,10,0,0,1,35,35
+1795000693982,5,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,428,4,8,http://127.0.0.1:3000/api/cart,5,0,0,1,40,null
+1795000694013,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,3,0,0,2,43,null
+1795000694060,17,02 Search products,200,OK,Stress Band 2 2-1,text,true,,480,201,2,8,http://127.0.0.1:3000/api/products?search=Galaxy,17,0,0,2,41,null
+1795000694077,9,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,313,473,4,8,http://127.0.0.1:3000/api/checkout,9,0,0,1,38,36
+1795000694123,7,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,313,473,4,8,http://127.0.0.1:3000/api/checkout,7,0,0,1,39,37
+1795000694139,5,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,5,0,0,2,44,null
+1795000694262,2,02 Search products,200,OK,Stress Band 3 3-1,text,true,,480,201,4,8,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,42,null
+1795000694356,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,480,201,2,8,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,43,null
+1795000694435,9,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,313,473,4,8,http://127.0.0.1:3000/api/checkout,9,0,0,1,40,38
+1795000694497,1,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,1,0,0,2,45,null
+1795000694544,1,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,480,189,2,8,http://127.0.0.1:3000/api/products/2,1,0,0,2,41,null
+1795000694575,2,01 Login,200,OK,Stress Band 3 3-2,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,2,46,null
+1795000694655,3,02 Search products,200,OK,Stress Band 2 2-2,text,true,,480,201,2,8,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,44,null
+1795000694686,3,01 Login,200,OK,Stress Band 3 3-3,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,3,0,0,2,47,null
+1795000694718,2,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,480,189,4,8,http://127.0.0.1:3000/api/products/2,2,0,0,2,42,null
+1795000694858,3,01 Login,200,OK,Stress Band 3 3-4,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,2,48,null
+1795000694873,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,480,189,2,8,http://127.0.0.1:3000/api/products/2,2,0,0,2,43,null
+1795000694920,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,480,201,2,8,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,45,null
+1795000694951,1,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,435,2,8,http://127.0.0.1:3000/api/cart,1,0,0,2,41,null
+1795000695059,4,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,480,189,2,8,http://127.0.0.1:3000/api/products/2,4,0,0,2,44,null
+1795000695060,5,02 Search products,200,OK,Stress Band 3 3-2,text,true,,480,201,4,8,http://127.0.0.1:3000/api/products?search=Galaxy,5,0,0,2,46,null
+1795000695199,1,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,435,4,8,http://127.0.0.1:3000/api/cart,1,0,0,2,42,null
+1795000695230,1,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,435,2,8,http://127.0.0.1:3000/api/cart,1,0,0,2,43,null
+1795000695277,3,02 Search products,200,OK,Stress Band 3 3-3,text,true,,480,201,4,8,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,47,null
+1795000695324,3,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,480,189,2,8,http://127.0.0.1:3000/api/products/2,3,0,0,2,45,null
+1795000695371,11,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,473,2,8,http://127.0.0.1:3000/api/checkout,11,0,0,2,41,39
+1795000695371,12,02 Search products,200,OK,Stress Band 3 3-4,text,true,,480,201,4,8,http://127.0.0.1:3000/api/products?search=Galaxy,12,0,0,2,48,null
+1795000695465,1,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,480,189,4,8,http://127.0.0.1:3000/api/products/2,1,0,0,2,46,null
+1795000695544,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,435,2,8,http://127.0.0.1:3000/api/cart,1,0,0,2,44,null
+1795000695605,8,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,472,2,8,http://127.0.0.1:3000/api/checkout,8,0,0,2,43,40
+1795000695713,11,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,313,470,4,8,http://127.0.0.1:3000/api/checkout,11,0,0,2,42,41
+1795000695729,2,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,480,189,4,8,http://127.0.0.1:3000/api/products/2,2,0,0,2,47,null
+1795000695806,2,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,480,189,4,8,http://127.0.0.1:3000/api/products/2,2,0,0,2,48,null
+1795000695822,1,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,435,4,8,http://127.0.0.1:3000/api/cart,1,0,0,2,46,null
+1795000695885,3,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,3,0,0,3,49,null
+1795000695933,1,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,435,2,8,http://127.0.0.1:3000/api/cart,1,0,0,2,45,null
+1795000696041,8,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,473,2,8,http://127.0.0.1:3000/api/checkout,8,0,0,2,44,42
+1795000696124,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,3,0,0,3,50,null
+1795000696152,2,01 Login,200,OK,Stress Band 3 3-1,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,3,51,null
+1795000696184,1,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,435,4,8,http://127.0.0.1:3000/api/cart,1,0,0,2,48,null
+1795000696184,2,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,435,4,8,http://127.0.0.1:3000/api/cart,2,0,0,2,47,null
+1795000696279,1,02 Search products,200,OK,Stress Band 2 2-1,text,true,,450,202,2,8,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,49,null
+1795000696356,10,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,313,470,4,8,http://127.0.0.1:3000/api/checkout,10,0,0,2,46,43
+1795000696403,8,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,472,2,8,http://127.0.0.1:3000/api/checkout,8,0,0,2,45,44
+1795000696418,3,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,3,0,0,3,52,null
+1795000696560,3,02 Search products,200,OK,Stress Band 3 3-1,text,true,,450,202,4,8,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,51,null
+1795000696560,10,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,313,470,4,8,http://127.0.0.1:3000/api/checkout,10,0,0,2,48,45
+1795000696591,7,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,313,470,4,8,http://127.0.0.1:3000/api/checkout,7,0,0,2,47,46
+1795000696607,2,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,448,189,2,8,http://127.0.0.1:3000/api/products/3,2,0,0,3,49,null
+1795000696683,3,01 Login,200,OK,Stress Band 3 3-2,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,3,0,0,3,53,null
+1795000696714,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,450,202,2,8,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,50,null
+1795000696869,2,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,2,0,0,3,54,null
+1795000696962,2,02 Search products,200,OK,Stress Band 2 2-2,text,true,,450,202,2,8,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,52,null
+1795000696977,2,01 Login,200,OK,Stress Band 3 3-4,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,3,55,null
+1795000697055,1,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,448,189,4,8,http://127.0.0.1:3000/api/products/3,1,0,0,3,51,null
+1795000697180,3,01 Login,200,OK,Stress Band 3 3-3,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,3,0,0,3,56,null
+1795000697196,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,425,2,8,http://127.0.0.1:3000/api/cart,2,0,0,3,49,null
+1795000697227,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,448,189,2,8,http://127.0.0.1:3000/api/products/3,2,0,0,3,50,null
+1795000697258,1,02 Search products,200,OK,Stress Band 3 3-2,text,true,,450,202,4,8,http://127.0.0.1:3000/api/products?search=MacBook,1,0,0,3,53,null
+1795000697445,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,450,202,2,8,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,54,null
+1795000697507,3,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,448,189,2,8,http://127.0.0.1:3000/api/products/3,3,0,0,3,52,null
+1795000697507,3,02 Search products,200,OK,Stress Band 3 3-4,text,true,,450,202,4,8,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,55,null
+1795000697523,1,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,425,4,8,http://127.0.0.1:3000/api/cart,1,0,0,3,51,null
+1795000697538,8,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,470,2,8,http://127.0.0.1:3000/api/checkout,8,0,0,3,49,47
+1795000697554,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,425,2,8,http://127.0.0.1:3000/api/cart,2,0,0,3,50,null
+1795000697585,2,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,448,189,4,8,http://127.0.0.1:3000/api/products/3,2,0,0,3,53,null
+1795000697601,3,02 Search products,200,OK,Stress Band 3 3-3,text,true,,450,202,4,8,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,56,null
+1795000697900,14,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,473,2,8,http://127.0.0.1:3000/api/checkout,14,0,0,3,50,48
+1795000697915,3,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,448,189,4,8,http://127.0.0.1:3000/api/products/3,3,0,0,3,56,null
+1795000697946,3,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,425,2,8,http://127.0.0.1:3000/api/cart,3,0,0,3,52,null
+1795000697962,3,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,448,189,2,8,http://127.0.0.1:3000/api/products/3,3,0,0,3,54,null
+1795000697978,12,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,313,472,4,8,http://127.0.0.1:3000/api/checkout,12,0,0,3,51,49
+1795000697993,4,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,448,189,4,8,http://127.0.0.1:3000/api/products/3,4,0,0,3,55,null
+1795000697993,4,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,4,0,0,4,57,null
+1795000698131,2,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,425,4,8,http://127.0.0.1:3000/api/cart,2,0,0,3,53,null
+1795000698287,2,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,425,4,8,http://127.0.0.1:3000/api/cart,2,0,0,3,56,null
+1795000698287,3,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,425,2,8,http://127.0.0.1:3000/api/cart,3,0,0,3,54,null
+1795000698333,2,02 Search products,200,OK,Stress Band 2 2-1,text,true,,461,202,2,8,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,57,null
+1795000698410,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,3,0,0,4,58,null
+1795000698489,1,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,425,4,8,http://127.0.0.1:3000/api/cart,1,0,0,3,55,null
+1795000698504,8,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,313,472,4,8,http://127.0.0.1:3000/api/checkout,8,0,0,3,53,50
+1795000698504,15,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,470,2,8,http://127.0.0.1:3000/api/checkout,15,0,0,3,52,51
+1795000698537,2,01 Login,200,OK,Stress Band 3 3-1,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,4,59,null
+1795000698771,10,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,313,472,4,8,http://127.0.0.1:3000/api/checkout,10,0,0,3,56,52
+1795000698786,2,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,461,189,2,8,http://127.0.0.1:3000/api/products/4,2,0,0,4,57,null
+1795000698849,3,02 Search products,200,OK,Stress Band 1 1-2,text,true,,461,202,2,8,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,58,null
+1795000698865,8,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,473,2,8,http://127.0.0.1:3000/api/checkout,8,0,0,3,54,53
+1795000698881,1,02 Search products,200,OK,Stress Band 3 3-1,text,true,,461,202,4,8,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,59,null
+1795000698943,17,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,313,472,4,8,http://127.0.0.1:3000/api/checkout,17,0,0,3,55,54
+1795000698960,4,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,3,0,0,4,61,null
+1795000699007,4,01 Login,200,OK,Stress Band 3 3-2,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,4,0,0,4,60,null
+1795000699177,2,01 Login,200,OK,Stress Band 3 3-3,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,4,62,null
+1795000699239,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,461,189,2,8,http://127.0.0.1:3000/api/products/4,2,0,0,4,58,null
+1795000699255,1,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,461,189,4,8,http://127.0.0.1:3000/api/products/4,1,0,0,4,59,null
+1795000699364,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,432,2,8,http://127.0.0.1:3000/api/cart,2,0,0,4,57,null
+1795000699364,4,01 Login,200,OK,Stress Band 3 3-4,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,4,0,0,4,64,null
+1795000699396,2,02 Search products,200,OK,Stress Band 2 2-2,text,true,,461,202,2,8,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,61,null
+1795000699427,3,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,2,0,0,4,63,null
+1795000699521,3,02 Search products,200,OK,Stress Band 3 3-3,text,true,,461,202,4,8,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,62,null
+1795000699567,3,02 Search products,200,OK,Stress Band 3 3-2,text,true,,461,202,4,8,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,60,null
+1795000699644,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,432,2,8,http://127.0.0.1:3000/api/cart,2,0,0,4,58,null
+1795000699675,2,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,432,4,8,http://127.0.0.1:3000/api/cart,2,0,0,4,59,null
+1795000699737,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,461,202,2,8,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,63,null
+1795000699737,2,02 Search products,200,OK,Stress Band 3 3-4,text,true,,461,202,4,8,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,64,null
+1795000699893,3,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,461,189,4,8,http://127.0.0.1:3000/api/products/4,3,0,0,4,62,null
+1795000699893,9,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,471,2,8,http://127.0.0.1:3000/api/checkout,9,0,0,4,57,55
+1795000699970,2,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,461,189,2,8,http://127.0.0.1:3000/api/products/4,2,0,0,4,61,null
+1795000700049,2,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,461,189,4,8,http://127.0.0.1:3000/api/products/4,2,0,0,4,60,null
+1795000700234,2,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,432,4,8,http://127.0.0.1:3000/api/cart,2,0,0,4,62,null
+1795000700234,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,461,189,2,8,http://127.0.0.1:3000/api/products/4,2,0,0,4,63,null
+1795000700249,7,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,470,2,8,http://127.0.0.1:3000/api/checkout,7,0,0,4,58,56
+1795000700281,2,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,461,189,4,8,http://127.0.0.1:3000/api/products/4,2,0,0,4,64,null
+1795000700281,8,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,313,472,4,8,http://127.0.0.1:3000/api/checkout,8,0,0,4,59,57
+1795000700344,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,432,2,8,http://127.0.0.1:3000/api/cart,1,0,0,4,61,null
+1795000700375,2,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,2,0,0,5,65,null
+1795000700515,1,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,432,4,8,http://127.0.0.1:3000/api/cart,1,0,0,4,60,null
+1795000700577,10,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,313,472,4,8,http://127.0.0.1:3000/api/checkout,10,0,0,4,62,58
+1795000700639,2,01 Login,200,OK,Stress Band 3 3-1,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,5,67,null
+1795000700669,1,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,432,2,8,http://127.0.0.1:3000/api/cart,1,0,0,4,63,null
+1795000700684,2,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,2,0,0,5,66,null
+1795000700792,7,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,471,2,8,http://127.0.0.1:3000/api/checkout,7,0,0,4,61,59
+1795000700854,3,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,432,4,8,http://127.0.0.1:3000/api/cart,3,0,0,4,64,null
+1795000700854,5,02 Search products,200,OK,Stress Band 2 2-1,text,true,,469,203,2,8,http://127.0.0.1:3000/api/products?search=Keychron,5,0,0,5,65,null
+1795000700916,3,01 Login,200,OK,Stress Band 3 3-3,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,3,0,0,5,68,null
+1795000701038,3,02 Search products,200,OK,Stress Band 1 1-2,text,true,,469,203,2,8,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,66,null
+1795000701100,11,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,313,472,4,8,http://127.0.0.1:3000/api/checkout,11,0,0,4,60,60
+1795000701131,4,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,4,0,0,5,69,null
+1795000701131,13,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,470,2,8,http://127.0.0.1:3000/api/checkout,13,0,0,4,63,61
+1795000701162,3,02 Search products,200,OK,Stress Band 3 3-1,text,true,,469,203,4,8,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,67,null
+1795000701208,9,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,313,472,4,8,http://127.0.0.1:3000/api/checkout,9,0,0,4,64,62
+1795000701287,2,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,467,189,2,8,http://127.0.0.1:3000/api/products/5,2,0,0,5,65,null
+1795000701439,2,02 Search products,200,OK,Stress Band 3 3-3,text,true,,469,203,4,8,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,68,null
+1795000701501,2,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,467,189,4,8,http://127.0.0.1:3000/api/products/5,2,0,0,5,67,null
+1795000701516,1,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,467,189,2,8,http://127.0.0.1:3000/api/products/5,1,0,0,5,66,null
+1795000701532,2,01 Login,200,OK,Stress Band 3 3-2,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,5,70,null
+1795000701535,1,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,1,0,0,5,71,null
+1795000701580,2,01 Login,200,OK,Stress Band 3 3-4,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,5,72,null
+1795000701735,1,02 Search products,200,OK,Stress Band 2 2-2,text,true,,469,203,2,8,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,69,null
+1795000701766,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,448,2,8,http://127.0.0.1:3000/api/cart,2,0,0,5,65,null
+1795000701812,2,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,467,189,4,8,http://127.0.0.1:3000/api/products/5,2,0,0,5,68,null
+1795000701874,2,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,448,4,8,http://127.0.0.1:3000/api/cart,2,0,0,5,67,null
+1795000701889,2,02 Search products,200,OK,Stress Band 3 3-2,text,true,,469,203,4,8,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,70,null
+1795000701997,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,448,2,8,http://127.0.0.1:3000/api/cart,2,0,0,5,66,null
+1795000702012,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,469,203,2,8,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,71,null
+1795000702089,2,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,467,189,2,8,http://127.0.0.1:3000/api/products/5,2,0,0,5,69,null
+1795000702120,4,02 Search products,200,OK,Stress Band 3 3-4,text,true,,469,203,4,8,http://127.0.0.1:3000/api/products?search=Keychron,4,0,0,5,72,null
+1795000702121,13,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,472,2,8,http://127.0.0.1:3000/api/checkout,12,0,0,5,65,63
+1795000702214,11,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,313,469,4,8,http://127.0.0.1:3000/api/checkout,11,0,0,5,67,64
+1795000702229,4,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,467,189,4,8,http://127.0.0.1:3000/api/products/5,4,0,0,5,70,null
+1795000702260,1,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,448,4,8,http://127.0.0.1:3000/api/cart,1,0,0,5,68,null
+1795000702400,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,467,189,2,8,http://127.0.0.1:3000/api/products/5,2,0,0,5,71,null
+1795000702493,2,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,448,2,8,http://127.0.0.1:3000/api/cart,2,0,0,5,69,null
+1795000702493,9,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,471,2,8,http://127.0.0.1:3000/api/checkout,9,0,0,5,66,65
+1795000702557,2,01 Login,200,OK,Stress Band 3 3-1,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,1,74,null
+1795000702572,2,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,467,189,4,8,http://127.0.0.1:3000/api/products/5,2,0,0,5,72,null
+1795000702696,3,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,3,0,0,1,73,null
+1795000702757,10,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,313,469,4,8,http://127.0.0.1:3000/api/checkout,10,0,0,5,68,66
+1795000702789,1,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,448,4,8,http://127.0.0.1:3000/api/cart,1,0,0,5,70,null
+1795000702853,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,448,2,8,http://127.0.0.1:3000/api/cart,2,0,0,5,71,null
+1795000702853,8,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,472,2,8,http://127.0.0.1:3000/api/checkout,8,0,0,5,69,67
+1795000702963,2,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,448,4,8,http://127.0.0.1:3000/api/cart,2,0,0,5,72,null
+1795000703025,2,02 Search products,200,OK,Stress Band 3 3-1,text,true,,453,201,4,8,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,74,null
+1795000703057,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,8,http://127.0.0.1:3000/api/login,3,0,0,1,75,null
+1795000703088,2,01 Login,200,OK,Stress Band 3 3-3,text,true,,683,286,4,8,http://127.0.0.1:3000/api/login,2,0,0,1,76,null
+1795000703227,3,02 Search products,200,OK,Stress Band 2 2-1,text,true,,453,201,2,9,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,73,null
+1795000703243,11,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,313,469,4,9,http://127.0.0.1:3000/api/checkout,11,0,0,5,70,68
+1795000703337,10,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,471,2,9,http://127.0.0.1:3000/api/checkout,10,0,0,5,71,69
+1795000703369,2,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,10,http://127.0.0.1:3000/api/login,2,0,0,1,77,null
+1795000703387,2,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,451,189,4,10,http://127.0.0.1:3000/api/products/1,2,0,0,1,74,null
+1795000703447,1,02 Search products,200,OK,Stress Band 3 3-3,text,true,,453,201,4,10,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,76,null
+1795000703478,1,02 Search products,200,OK,Stress Band 1 1-2,text,true,,453,201,2,10,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,75,null
+1795000703494,8,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,313,469,4,10,http://127.0.0.1:3000/api/checkout,8,0,0,5,72,70
+1795000703665,3,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,12,http://127.0.0.1:3000/api/login,3,0,0,1,80,null
+1795000703728,3,01 Login,200,OK,Stress Band 4 4-1,text,true,,683,286,4,12,http://127.0.0.1:3000/api/login,3,0,1,1,78,null
+1795000703727,5,01 Login,200,OK,Stress Band 4 4-2,text,true,,683,286,4,12,http://127.0.0.1:3000/api/login,5,0,2,1,81,null
+1795000703774,2,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,428,4,12,http://127.0.0.1:3000/api/cart,2,0,0,1,74,null
+1795000703805,3,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,451,189,2,13,http://127.0.0.1:3000/api/products/1,3,0,0,1,73,null
+1795000703821,3,01 Login,200,OK,Stress Band 3 3-2,text,true,,683,286,4,13,http://127.0.0.1:3000/api/login,3,0,0,1,79,null
+1795000703821,3,02 Search products,200,OK,Stress Band 2 2-2,text,true,,453,201,2,13,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,77,null
+1795000703852,3,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,451,189,4,13,http://127.0.0.1:3000/api/products/1,3,0,0,1,76,null
+1795000703900,3,01 Login,200,OK,Stress Band 3 3-4,text,true,,683,286,4,13,http://127.0.0.1:3000/api/login,3,0,0,1,82,null
+1795000703977,1,02 Search products,200,OK,Stress Band 1 1-1,text,true,,453,201,2,14,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,80,null
+1795000703978,3,01 Login,200,OK,Stress Band 4 4-3,text,true,,683,286,6,14,http://127.0.0.1:3000/api/login,3,0,1,1,83,null
+1795000704025,4,01 Login,200,OK,Stress Band 4 4-4,text,true,,683,286,6,14,http://127.0.0.1:3000/api/login,4,0,2,1,84,null
+1795000704040,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,451,189,2,14,http://127.0.0.1:3000/api/products/1,2,0,0,1,75,null
+1795000704133,4,01 Login,200,OK,Stress Band 4 4-5,text,true,,683,286,7,15,http://127.0.0.1:3000/api/login,4,0,2,1,85,null
+1795000704148,2,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,451,189,2,15,http://127.0.0.1:3000/api/products/1,2,0,0,1,77,null
+1795000704179,11,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,313,472,4,15,http://127.0.0.1:3000/api/checkout,11,0,0,1,74,71
+1795000704212,2,02 Search products,200,OK,Stress Band 4 4-1,text,true,,453,201,7,15,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,78,null
+1795000704212,2,02 Search products,200,OK,Stress Band 4 4-2,text,true,,453,201,7,15,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,81,null
+1795000704227,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,428,2,16,http://127.0.0.1:3000/api/cart,2,0,0,1,73,null
+1795000704321,2,02 Search products,200,OK,Stress Band 3 3-4,text,true,,453,201,4,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,82,null
+1795000704353,1,02 Search products,200,OK,Stress Band 3 3-2,text,true,,453,201,4,16,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,79,null
+1795000704414,2,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,428,4,16,http://127.0.0.1:3000/api/cart,2,0,0,1,76,null
+1795000704430,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,451,189,2,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,80,null
+1795000704431,4,01 Login,200,OK,Stress Band 4 4-6,text,true,,683,286,8,16,http://127.0.0.1:3000/api/login,4,0,2,1,86,null
+1795000704446,4,02 Search products,200,OK,Stress Band 4 4-3,text,true,,453,201,8,16,http://127.0.0.1:3000/api/products?search=iPhone,4,0,0,1,83,null
+1795000704478,2,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,428,2,16,http://127.0.0.1:3000/api/cart,2,0,0,1,77,null
+1795000704524,4,02 Search products,200,OK,Stress Band 4 4-4,text,true,,453,201,8,16,http://127.0.0.1:3000/api/products?search=iPhone,4,0,0,1,84,null
+1795000704525,4,02 Search products,200,OK,Stress Band 4 4-5,text,true,,453,201,8,16,http://127.0.0.1:3000/api/products?search=iPhone,4,0,0,1,85,null
+1795000704525,5,01 Login,200,OK,Stress Band 4 4-7,text,true,,683,286,8,16,http://127.0.0.1:3000/api/login,5,0,2,1,87,null
+1795000704556,9,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,470,2,16,http://127.0.0.1:3000/api/checkout,9,0,0,1,73,72
+1795000704572,1,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,428,2,16,http://127.0.0.1:3000/api/cart,1,0,0,1,75,null
+1795000704619,2,03 Product detail,200,OK,Stress Band 4 4-2,text,true,,451,189,8,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,81,null
+1795000704620,3,01 Login,200,OK,Stress Band 4 4-8,text,true,,683,286,8,16,http://127.0.0.1:3000/api/login,3,0,1,1,89,null
+1795000704680,3,01 Login,200,OK,Stress Band 3 3-1,text,true,,683,286,4,16,http://127.0.0.1:3000/api/login,3,0,0,2,88,null
+1795000704695,2,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,451,189,4,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,82,null
+1795000704742,2,03 Product detail,200,OK,Stress Band 4 4-1,text,true,,451,189,8,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,78,null
+1795000704774,12,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,313,472,4,16,http://127.0.0.1:3000/api/checkout,12,0,0,1,76,73
+1795000704820,8,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,470,2,16,http://127.0.0.1:3000/api/checkout,8,0,0,1,77,74
+1795000704835,1,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,451,189,4,16,http://127.0.0.1:3000/api/products/1,1,0,0,1,79,null
+1795000704867,2,02 Search products,200,OK,Stress Band 4 4-7,text,true,,453,201,8,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,87,null
+1795000704882,1,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,428,2,16,http://127.0.0.1:3000/api/cart,1,0,0,1,80,null
+1795000704913,2,03 Product detail,200,OK,Stress Band 4 4-5,text,true,,451,189,8,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,85,null
+1795000704913,2,03 Product detail,200,OK,Stress Band 4 4-4,text,true,,451,189,8,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,84,null
+1795000704929,7,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,473,2,16,http://127.0.0.1:3000/api/checkout,7,0,0,1,75,75
+1795000704945,2,03 Product detail,200,OK,Stress Band 4 4-3,text,true,,451,189,8,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,83,null
+1795000704975,2,02 Search products,200,OK,Stress Band 4 4-6,text,true,,453,201,8,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,86,null
+1795000705007,2,02 Search products,200,OK,Stress Band 3 3-1,text,true,,480,201,4,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,88,null
+1795000705007,2,02 Search products,200,OK,Stress Band 4 4-8,text,true,,453,201,8,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,89,null
+1795000705117,2,01 Login,200,OK,Stress Band 2 2-1,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,2,0,0,2,90,null
+1795000705148,1,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,428,4,16,http://127.0.0.1:3000/api/cart,1,0,0,1,79,null
+1795000705163,1,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,428,4,16,http://127.0.0.1:3000/api/cart,1,0,0,1,82,null
+1795000705179,1,04 Add to cart,200,OK,Stress Band 4 4-2,text,true,,294,428,8,16,http://127.0.0.1:3000/api/cart,1,0,0,1,81,null
+1795000705287,2,01 Login,200,OK,Stress Band 3 3-3,text,true,,683,286,4,16,http://127.0.0.1:3000/api/login,2,0,0,2,91,null
+1795000705287,3,01 Login,200,OK,Stress Band 2 2-2,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,2,92,null
+1795000705302,2,03 Product detail,200,OK,Stress Band 4 4-7,text,true,,451,189,8,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,87,null
+1795000705318,2,04 Add to cart,200,OK,Stress Band 4 4-1,text,true,,294,428,8,16,http://127.0.0.1:3000/api/cart,2,0,0,1,78,null
+1795000705350,2,04 Add to cart,200,OK,Stress Band 4 4-3,text,true,,294,428,8,16,http://127.0.0.1:3000/api/cart,2,0,0,1,83,null
+1795000705412,11,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,473,2,16,http://127.0.0.1:3000/api/checkout,11,0,0,1,80,76
+1795000705428,2,04 Add to cart,200,OK,Stress Band 4 4-4,text,true,,294,428,8,16,http://127.0.0.1:3000/api/cart,2,0,0,1,84,null
+1795000705428,2,03 Product detail,200,OK,Stress Band 4 4-6,text,true,,451,189,8,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,86,null
+1795000705459,2,04 Add to cart,200,OK,Stress Band 4 4-5,text,true,,294,428,8,16,http://127.0.0.1:3000/api/cart,2,0,0,1,85,null
+1795000705491,2,01 Login,200,OK,Stress Band 1 1-2,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,2,0,0,2,93,null
+1795000705584,1,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,480,189,4,16,http://127.0.0.1:3000/api/products/2,1,0,0,2,88,null
+1795000705584,3,03 Product detail,200,OK,Stress Band 4 4-8,text,true,,451,189,8,16,http://127.0.0.1:3000/api/products/1,3,0,0,1,89,null
+1795000705615,9,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,313,472,4,16,http://127.0.0.1:3000/api/checkout,9,0,0,1,79,77
+1795000705647,21,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,313,472,4,16,http://127.0.0.1:3000/api/checkout,21,0,0,1,82,78
+1795000705662,8,02 Search products,200,OK,Stress Band 2 2-1,text,true,,480,201,2,16,http://127.0.0.1:3000/api/products?search=Galaxy,8,0,0,2,90,null
+1795000705725,2,04 Add to cart,200,OK,Stress Band 4 4-7,text,true,,294,428,8,16,http://127.0.0.1:3000/api/cart,2,0,0,1,87,null
+1795000705725,34,05 Checkout,200,OK,Stress Band 4 4-2,text,true,,313,473,8,16,http://127.0.0.1:3000/api/checkout,34,0,0,1,81,79
+1795000705773,1,04 Add to cart,200,OK,Stress Band 4 4-6,text,true,,294,428,8,16,http://127.0.0.1:3000/api/cart,1,0,0,1,86,null
+1795000705741,57,05 Checkout,200,OK,Stress Band 4 4-4,text,true,,313,473,8,16,http://127.0.0.1:3000/api/checkout,57,0,0,1,84,80
+1795000705741,68,05 Checkout,200,OK,Stress Band 4 4-3,text,true,,313,473,8,16,http://127.0.0.1:3000/api/checkout,68,0,0,1,83,81
+1795000705804,7,02 Search products,200,OK,Stress Band 3 3-3,text,true,,480,201,4,16,http://127.0.0.1:3000/api/products?search=Galaxy,7,0,0,2,91,null
+1795000705805,13,05 Checkout,200,OK,Stress Band 4 4-5,text,true,,313,473,8,16,http://127.0.0.1:3000/api/checkout,13,0,0,1,85,82
+1795000705836,4,01 Login,200,OK,Stress Band 1 1-1,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,4,0,0,2,94,null
+1795000705851,39,05 Checkout,200,OK,Stress Band 4 4-1,text,true,,313,473,8,16,http://127.0.0.1:3000/api/checkout,39,0,0,1,78,83
+1795000705883,8,02 Search products,200,OK,Stress Band 2 2-2,text,true,,480,201,2,16,http://127.0.0.1:3000/api/products?search=Galaxy,8,0,0,2,92,null
+1795000705899,2,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,435,4,16,http://127.0.0.1:3000/api/cart,2,0,0,2,88,null
+1795000705930,3,01 Login,200,OK,Stress Band 3 3-2,text,true,,683,286,4,16,http://127.0.0.1:3000/api/login,3,0,0,2,95,null
+1795000705962,1,02 Search products,200,OK,Stress Band 1 1-2,text,true,,480,201,2,16,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,93,null
+1795000706038,1,04 Add to cart,200,OK,Stress Band 4 4-8,text,true,,294,428,8,16,http://127.0.0.1:3000/api/cart,1,0,0,1,89,null
+1795000706069,42,05 Checkout,200,OK,Stress Band 4 4-7,text,true,,313,473,8,16,http://127.0.0.1:3000/api/checkout,42,0,0,1,87,84
+1795000706116,2,01 Login,200,OK,Stress Band 3 3-4,text,true,,683,286,4,16,http://127.0.0.1:3000/api/login,2,0,0,2,96,null
+1795000706131,2,01 Login,200,OK,Stress Band 4 4-2,text,true,,683,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,2,97,null
+1795000706147,1,01 Login,200,OK,Stress Band 4 4-5,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,1,0,0,2,100,null
+1795000706177,2,01 Login,200,OK,Stress Band 4 4-4,text,true,,683,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,2,98,null
+1795000706238,21,05 Checkout,200,OK,Stress Band 4 4-6,text,true,,313,473,8,16,http://127.0.0.1:3000/api/checkout,21,0,0,1,86,85
+1795000706268,3,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,480,189,2,16,http://127.0.0.1:3000/api/products/2,3,0,0,2,90,null
+1795000706284,2,02 Search products,200,OK,Stress Band 3 3-2,text,true,,480,201,4,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,95,null
+1795000706300,3,01 Login,200,OK,Stress Band 4 4-3,text,true,,683,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,2,99,null
+1795000706331,2,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,480,189,4,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,91,null
+1795000706439,3,01 Login,200,OK,Stress Band 4 4-1,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,2,101,null
+1795000706439,10,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,313,473,4,16,http://127.0.0.1:3000/api/checkout,10,0,0,2,88,86
+1795000706439,10,02 Search products,200,OK,Stress Band 1 1-1,text,true,,480,201,2,16,http://127.0.0.1:3000/api/products?search=Galaxy,10,0,0,2,94,null
+1795000706454,3,01 Login,200,OK,Stress Band 4 4-7,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,2,102,null
+1795000706470,3,02 Search products,200,OK,Stress Band 3 3-4,text,true,,480,201,4,16,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,96,null
+1795000706487,3,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,480,189,2,16,http://127.0.0.1:3000/api/products/2,3,0,0,2,92,null
+1795000706503,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,480,189,2,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,93,null
+1795000706565,2,02 Search products,200,OK,Stress Band 4 4-4,text,true,,480,201,8,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,98,null
+1795000706597,2,02 Search products,200,OK,Stress Band 4 4-2,text,true,,480,201,8,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,97,null
+1795000706676,1,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,435,2,16,http://127.0.0.1:3000/api/cart,1,0,0,2,90,null
+1795000706643,41,05 Checkout,200,OK,Stress Band 4 4-8,text,true,,313,473,8,16,http://127.0.0.1:3000/api/checkout,41,0,0,1,89,87
+1795000706659,26,01 Login,200,OK,Stress Band 4 4-6,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,26,0,0,2,103,null
+1795000706659,26,02 Search products,200,OK,Stress Band 4 4-5,text,true,,480,201,8,16,http://127.0.0.1:3000/api/products?search=Galaxy,26,0,0,2,100,null
+1795000706770,3,01 Login,200,OK,Stress Band 3 3-1,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,3,0,0,3,104,null
+1795000706801,2,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,480,189,4,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,95,null
+1795000706817,2,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,435,2,16,http://127.0.0.1:3000/api/cart,2,0,0,2,92,null
+1795000706849,2,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,480,189,4,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,96,null
+1795000706910,3,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,480,189,2,16,http://127.0.0.1:3000/api/products/2,3,0,0,2,94,null
+1795000706911,3,02 Search products,200,OK,Stress Band 4 4-3,text,true,,480,201,8,16,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,99,null
+1795000706942,2,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,435,4,16,http://127.0.0.1:3000/api/cart,2,0,0,2,91,null
+1795000706958,7,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,435,2,16,http://127.0.0.1:3000/api/cart,7,0,0,2,93,null
+1795000706989,2,03 Product detail,200,OK,Stress Band 4 4-2,text,true,,480,189,8,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,97,null
+1795000707004,2,02 Search products,200,OK,Stress Band 4 4-1,text,true,,480,201,8,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,101,null
+1795000707004,44,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,313,472,2,16,http://127.0.0.1:3000/api/checkout,44,0,0,2,90,88
+1795000707020,29,02 Search products,200,OK,Stress Band 4 4-6,text,true,,480,201,8,16,http://127.0.0.1:3000/api/products?search=Galaxy,29,0,0,2,103,null
+1795000707036,14,03 Product detail,200,OK,Stress Band 4 4-5,text,true,,480,189,8,16,http://127.0.0.1:3000/api/products/2,14,0,0,2,100,null
+1795000707068,2,02 Search products,200,OK,Stress Band 4 4-7,text,true,,480,201,8,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,102,null
+1795000707161,4,01 Login,200,OK,Stress Band 4 4-8,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,4,0,0,2,105,null
+1795000707176,2,03 Product detail,200,OK,Stress Band 4 4-4,text,true,,480,189,8,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,98,null
+1795000707208,4,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,435,4,16,http://127.0.0.1:3000/api/cart,4,0,0,2,95,null
+1795000707238,3,03 Product detail,200,OK,Stress Band 4 4-3,text,true,,480,189,8,16,http://127.0.0.1:3000/api/products/2,3,0,0,2,99,null
+1795000707254,2,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,435,4,16,http://127.0.0.1:3000/api/cart,2,0,0,2,96,null
+1795000707333,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,435,2,16,http://127.0.0.1:3000/api/cart,2,0,0,2,94,null
+1795000707364,2,02 Search products,200,OK,Stress Band 3 3-1,text,true,,450,202,4,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,104,null
+1795000707411,11,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,313,472,2,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,92,89
+1795000707459,2,03 Product detail,200,OK,Stress Band 4 4-1,text,true,,480,189,8,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,101,null
+1795000707475,9,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,313,473,4,16,http://127.0.0.1:3000/api/checkout,9,0,0,2,91,90
+1795000707491,1,04 Add to cart,200,OK,Stress Band 4 4-5,text,true,,294,436,8,16,http://127.0.0.1:3000/api/cart,1,0,0,2,100,null
+1795000707521,2,03 Product detail,200,OK,Stress Band 4 4-7,text,true,,480,189,8,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,102,null
+1795000707537,1,04 Add to cart,200,OK,Stress Band 4 4-2,text,true,,294,435,8,16,http://127.0.0.1:3000/api/cart,1,0,0,2,97,null
+1795000707537,12,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,313,470,2,16,http://127.0.0.1:3000/api/checkout,12,0,0,2,93,91
+1795000707584,2,03 Product detail,200,OK,Stress Band 4 4-6,text,true,,480,189,8,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,103,null
+1795000707599,7,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,313,473,4,16,http://127.0.0.1:3000/api/checkout,7,0,0,2,95,92
+1795000707630,3,01 Login,200,OK,Stress Band 2 2-1,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,3,106,null
+1795000707677,1,04 Add to cart,200,OK,Stress Band 4 4-4,text,true,,294,435,8,16,http://127.0.0.1:3000/api/cart,1,0,0,2,98,null
+1795000707754,3,02 Search products,200,OK,Stress Band 4 4-8,text,true,,480,201,8,16,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,105,null
+1795000707756,18,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,313,473,4,16,http://127.0.0.1:3000/api/checkout,18,0,0,2,96,93
+1795000707817,1,04 Add to cart,200,OK,Stress Band 4 4-3,text,true,,294,435,8,16,http://127.0.0.1:3000/api/cart,1,0,0,2,99,null
+1795000707878,4,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,448,189,4,16,http://127.0.0.1:3000/api/products/3,4,0,0,3,104,null
+1795000707879,12,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,313,470,2,16,http://127.0.0.1:3000/api/checkout,12,0,0,2,94,94
+1795000707893,2,04 Add to cart,200,OK,Stress Band 4 4-7,text,true,,294,436,8,16,http://127.0.0.1:3000/api/cart,1,0,0,2,102,null
+1795000707893,2,04 Add to cart,200,OK,Stress Band 4 4-1,text,true,,294,436,8,16,http://127.0.0.1:3000/api/cart,2,0,0,2,101,null
+1795000707924,4,01 Login,200,OK,Stress Band 3 3-2,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,4,0,0,3,110,null
+1795000707956,11,05 Checkout,200,OK,Stress Band 4 4-5,text,true,,313,471,8,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,100,95
+1795000707957,11,01 Login,200,OK,Stress Band 2 2-2,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,11,0,0,3,107,null
+1795000707988,2,01 Login,200,OK,Stress Band 3 3-3,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,2,0,0,3,108,null
+1795000708097,10,05 Checkout,200,OK,Stress Band 4 4-2,text,true,,313,470,8,16,http://127.0.0.1:3000/api/checkout,10,0,0,2,97,96
+1795000708144,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,3,109,null
+1795000708160,1,04 Add to cart,200,OK,Stress Band 4 4-6,text,true,,294,436,8,16,http://127.0.0.1:3000/api/cart,1,0,0,2,103,null
+1795000708207,3,01 Login,200,OK,Stress Band 1 1-1,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,3,112,null
+1795000708207,4,02 Search products,200,OK,Stress Band 2 2-1,text,true,,450,202,2,16,http://127.0.0.1:3000/api/products?search=MacBook,4,0,0,3,106,null
+1795000708207,5,03 Product detail,200,OK,Stress Band 4 4-8,text,true,,480,189,8,16,http://127.0.0.1:3000/api/products/2,5,0,0,2,105,null
+1795000708238,9,05 Checkout,200,OK,Stress Band 4 4-3,text,true,,313,470,8,16,http://127.0.0.1:3000/api/checkout,9,0,0,2,99,97
+1795000708254,10,05 Checkout,200,OK,Stress Band 4 4-1,text,true,,313,471,8,16,http://127.0.0.1:3000/api/checkout,10,0,0,2,101,98
+1795000708254,17,05 Checkout,200,OK,Stress Band 4 4-4,text,true,,313,470,8,16,http://127.0.0.1:3000/api/checkout,17,0,0,2,98,99
+1795000708269,3,01 Login,200,OK,Stress Band 4 4-5,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,3,113,null
+1795000708285,2,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,426,4,16,http://127.0.0.1:3000/api/cart,2,0,0,3,104,null
+1795000708284,6,01 Login,200,OK,Stress Band 3 3-4,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,6,0,0,3,111,null
+1795000708333,11,05 Checkout,200,OK,Stress Band 4 4-7,text,true,,314,471,8,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,102,100
+1795000708364,3,02 Search products,200,OK,Stress Band 3 3-3,text,true,,450,202,4,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,108,null
+1795000708473,2,02 Search products,200,OK,Stress Band 3 3-2,text,true,,450,202,4,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,110,null
+1795000708473,3,02 Search products,200,OK,Stress Band 2 2-2,text,true,,450,202,2,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,107,null
+1795000708520,11,05 Checkout,200,OK,Stress Band 4 4-6,text,true,,314,471,8,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,103,101
+1795000708581,2,01 Login,200,OK,Stress Band 4 4-1,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,3,116,null
+1795000708613,2,01 Login,200,OK,Stress Band 4 4-2,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,3,114,null
+1795000708644,3,01 Login,200,OK,Stress Band 4 4-3,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,3,115,null
+1795000708644,4,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,448,189,2,16,http://127.0.0.1:3000/api/products/3,4,0,0,3,106,null
+1795000708676,2,01 Login,200,OK,Stress Band 4 4-7,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,3,118,null
+1795000708707,11,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,314,471,4,16,http://127.0.0.1:3000/api/checkout,11,0,0,3,104,102
+1795000708707,11,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,448,189,4,16,http://127.0.0.1:3000/api/products/3,11,0,0,3,108,null
+1795000708722,2,02 Search products,200,OK,Stress Band 3 3-4,text,true,,450,202,4,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,111,null
+1795000708752,3,02 Search products,200,OK,Stress Band 1 1-2,text,true,,450,202,2,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,109,null
+1795000708768,1,04 Add to cart,200,OK,Stress Band 4 4-8,text,true,,294,436,8,16,http://127.0.0.1:3000/api/cart,1,0,0,2,105,null
+1795000708799,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,450,202,2,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,112,null
+1795000708815,2,02 Search products,200,OK,Stress Band 4 4-5,text,true,,450,202,8,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,113,null
+1795000708862,2,01 Login,200,OK,Stress Band 4 4-4,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,3,117,null
+1795000708893,1,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,448,189,4,16,http://127.0.0.1:3000/api/products/3,1,0,0,3,110,null
+1795000708940,1,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,448,189,2,16,http://127.0.0.1:3000/api/products/3,1,0,0,3,107,null
+1795000709003,3,02 Search products,200,OK,Stress Band 4 4-1,text,true,,450,202,8,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,116,null
+1795000709034,2,01 Login,200,OK,Stress Band 4 4-6,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,3,119,null
+1795000709049,2,02 Search products,200,OK,Stress Band 4 4-7,text,true,,450,202,8,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,118,null
+1795000709065,2,02 Search products,200,OK,Stress Band 4 4-3,text,true,,450,202,8,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,115,null
+1795000709080,3,02 Search products,200,OK,Stress Band 4 4-2,text,true,,450,202,8,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,114,null
+1795000709096,1,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,426,4,16,http://127.0.0.1:3000/api/cart,1,0,0,3,108,null
+1795000709190,1,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,426,2,16,http://127.0.0.1:3000/api/cart,1,0,0,3,106,null
+1795000709190,1,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,448,189,4,16,http://127.0.0.1:3000/api/products/3,1,0,0,3,111,null
+1795000709222,3,01 Login,200,OK,Stress Band 3 3-1,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,3,0,0,4,120,null
+1795000709254,10,05 Checkout,200,OK,Stress Band 4 4-8,text,true,,314,471,8,16,http://127.0.0.1:3000/api/checkout,10,0,0,2,105,103
+1795000709300,1,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,448,189,2,16,http://127.0.0.1:3000/api/products/3,1,0,0,3,112,null
+1795000709347,1,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,426,4,16,http://127.0.0.1:3000/api/cart,1,0,0,3,110,null
+1795000709347,2,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,448,189,2,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,109,null
+1795000709362,11,03 Product detail,200,OK,Stress Band 4 4-5,text,true,,448,189,8,16,http://127.0.0.1:3000/api/products/3,11,0,0,3,113,null
+1795000709363,10,02 Search products,200,OK,Stress Band 4 4-6,text,true,,450,202,8,16,http://127.0.0.1:3000/api/products?search=MacBook,10,0,0,3,119,null
+1795000709424,1,03 Product detail,200,OK,Stress Band 4 4-1,text,true,,448,189,8,16,http://127.0.0.1:3000/api/products/3,1,0,0,3,116,null
+1795000709459,8,02 Search products,200,OK,Stress Band 4 4-4,text,true,,450,202,8,16,http://127.0.0.1:3000/api/products?search=MacBook,8,0,0,3,117,null
+1795000709501,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,426,2,16,http://127.0.0.1:3000/api/cart,1,0,0,3,107,null
+1795000709532,1,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,426,4,16,http://127.0.0.1:3000/api/cart,1,0,0,3,111,null
+1795000709548,8,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,314,471,4,16,http://127.0.0.1:3000/api/checkout,8,0,0,3,108,104
+1795000709548,16,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,314,474,2,16,http://127.0.0.1:3000/api/checkout,16,0,0,3,106,105
+1795000709548,17,03 Product detail,200,OK,Stress Band 4 4-2,text,true,,448,189,8,16,http://127.0.0.1:3000/api/products/3,17,0,0,3,114,null
+1795000709626,2,03 Product detail,200,OK,Stress Band 4 4-7,text,true,,448,189,8,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,118,null
+1795000709626,2,03 Product detail,200,OK,Stress Band 4 4-3,text,true,,448,189,8,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,115,null
+1795000709687,3,01 Login,200,OK,Stress Band 4 4-8,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,3,121,null
+1795000709780,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,426,2,16,http://127.0.0.1:3000/api/cart,2,0,0,3,112,null
+1795000709780,3,02 Search products,200,OK,Stress Band 3 3-1,text,true,,461,202,4,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,120,null
+1795000709780,5,03 Product detail,200,OK,Stress Band 4 4-4,text,true,,448,189,8,16,http://127.0.0.1:3000/api/products/3,5,0,0,3,117,null
+1795000709811,2,04 Add to cart,200,OK,Stress Band 4 4-5,text,true,,294,426,8,16,http://127.0.0.1:3000/api/cart,2,0,0,3,113,null
+1795000709827,2,03 Product detail,200,OK,Stress Band 4 4-6,text,true,,448,189,8,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,119,null
+1795000709904,13,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,314,471,4,16,http://127.0.0.1:3000/api/checkout,13,0,0,3,110,106
+1795000709936,2,04 Add to cart,200,OK,Stress Band 4 4-1,text,true,,294,426,8,16,http://127.0.0.1:3000/api/cart,1,0,0,3,116,null
+1795000709936,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,426,2,16,http://127.0.0.1:3000/api/cart,2,0,0,3,109,null
+1795000709936,4,04 Add to cart,200,OK,Stress Band 4 4-3,text,true,,294,426,8,16,http://127.0.0.1:3000/api/cart,4,0,0,3,115,null
+1795000709936,16,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,314,474,2,16,http://127.0.0.1:3000/api/checkout,16,0,0,3,107,107
+1795000709951,4,01 Login,200,OK,Stress Band 3 3-3,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,4,0,0,4,122,null
+1795000710029,1,04 Add to cart,200,OK,Stress Band 4 4-2,text,true,,294,426,8,16,http://127.0.0.1:3000/api/cart,1,0,0,3,114,null
+1795000710076,1,04 Add to cart,200,OK,Stress Band 4 4-7,text,true,,294,426,8,16,http://127.0.0.1:3000/api/cart,1,0,0,3,118,null
+1795000710076,10,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,314,471,4,16,http://127.0.0.1:3000/api/checkout,10,0,0,3,111,108
+1795000710076,12,01 Login,200,OK,Stress Band 2 2-1,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,12,0,0,4,123,null
+1795000710186,2,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,461,189,4,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,120,null
+1795000710186,9,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,314,473,2,16,http://127.0.0.1:3000/api/checkout,9,0,0,3,112,109
+1795000710216,2,04 Add to cart,200,OK,Stress Band 4 4-4,text,true,,294,426,8,16,http://127.0.0.1:3000/api/cart,2,0,0,3,117,null
+1795000710264,2,02 Search products,200,OK,Stress Band 4 4-8,text,true,,450,202,8,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,121,null
+1795000710279,3,01 Login,200,OK,Stress Band 3 3-2,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,3,0,0,4,124,null
+1795000710279,12,05 Checkout,200,OK,Stress Band 4 4-3,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,11,0,0,3,115,110
+1795000710374,1,04 Add to cart,200,OK,Stress Band 4 4-6,text,true,,294,426,8,16,http://127.0.0.1:3000/api/cart,1,0,0,3,119,null
+1795000710389,9,05 Checkout,200,OK,Stress Band 4 4-5,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,9,0,0,3,113,111
+1795000710420,12,05 Checkout,200,OK,Stress Band 4 4-7,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,12,0,0,3,118,112
+1795000710437,2,01 Login,200,OK,Stress Band 2 2-2,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,2,0,0,4,125,null
+1795000710452,11,05 Checkout,200,OK,Stress Band 4 4-1,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,11,0,0,3,116,113
+1795000710468,3,02 Search products,200,OK,Stress Band 3 3-3,text,true,,461,202,4,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,122,null
+1795000710484,3,01 Login,200,OK,Stress Band 3 3-4,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,2,0,0,4,126,null
+1795000710530,2,02 Search products,200,OK,Stress Band 2 2-1,text,true,,461,202,2,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,123,null
+1795000710530,9,05 Checkout,200,OK,Stress Band 4 4-2,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,9,0,0,3,114,114
+1795000710545,8,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,314,473,2,16,http://127.0.0.1:3000/api/checkout,8,0,0,3,109,115
+1795000710561,3,01 Login,200,OK,Stress Band 1 1-1,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,4,127,null
+1795000710592,2,03 Product detail,200,OK,Stress Band 4 4-8,text,true,,448,189,8,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,121,null
+1795000710701,1,02 Search products,200,OK,Stress Band 3 3-2,text,true,,461,202,4,16,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,124,null
+1795000710762,13,05 Checkout,200,OK,Stress Band 4 4-4,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,13,0,0,3,117,116
+1795000710777,2,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,433,4,16,http://127.0.0.1:3000/api/cart,2,0,0,4,120,null
+1795000710793,4,02 Search products,200,OK,Stress Band 2 2-2,text,true,,461,202,2,16,http://127.0.0.1:3000/api/products?search=AirPods,4,0,0,4,125,null
+1795000710808,4,01 Login,200,OK,Stress Band 4 4-3,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,4,0,0,4,128,null
+1795000710887,7,05 Checkout,200,OK,Stress Band 4 4-6,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,7,0,0,3,119,117
+1795000710918,2,04 Add to cart,200,OK,Stress Band 4 4-8,text,true,,294,426,8,16,http://127.0.0.1:3000/api/cart,2,0,0,3,121,null
+1795000710918,4,01 Login,200,OK,Stress Band 4 4-7,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,4,0,0,4,130,null
+1795000710918,5,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,461,189,4,16,http://127.0.0.1:3000/api/products/4,5,0,0,4,122,null
+1795000710918,5,01 Login,200,OK,Stress Band 4 4-1,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,5,0,0,4,131,null
+1795000710934,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,461,202,2,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,127,null
+1795000710950,3,01 Login,200,OK,Stress Band 1 1-2,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,4,133,null
+1795000710950,4,02 Search products,200,OK,Stress Band 3 3-4,text,true,,461,202,4,16,http://127.0.0.1:3000/api/products?search=AirPods,4,0,0,4,126,null
+1795000710980,3,01 Login,200,OK,Stress Band 4 4-2,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,4,132,null
+1795000710980,4,01 Login,200,OK,Stress Band 4 4-5,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,4,0,0,4,129,null
+1795000711121,6,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,461,189,4,16,http://127.0.0.1:3000/api/products/4,6,0,0,4,124,null
+1795000711121,14,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,461,189,2,16,http://127.0.0.1:3000/api/products/4,14,0,0,4,123,null
+1795000711121,15,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,314,472,4,16,http://127.0.0.1:3000/api/checkout,15,0,0,4,120,118
+1795000711198,2,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,461,189,2,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,125,null
+1795000711261,1,01 Login,200,OK,Stress Band 4 4-6,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,1,0,0,4,135,null
+1795000711308,1,02 Search products,200,OK,Stress Band 4 4-7,text,true,,461,202,8,16,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,130,null
+1795000711308,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,461,202,2,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,133,null
+1795000711323,1,02 Search products,200,OK,Stress Band 4 4-3,text,true,,461,202,8,16,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,128,null
+1795000711355,1,02 Search products,200,OK,Stress Band 4 4-1,text,true,,461,202,8,16,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,131,null
+1795000711371,2,01 Login,200,OK,Stress Band 4 4-4,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,4,134,null
+1795000711417,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,461,189,2,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,127,null
+1795000711434,9,05 Checkout,200,OK,Stress Band 4 4-8,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,9,0,0,3,121,119
+1795000711464,2,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,433,4,16,http://127.0.0.1:3000/api/cart,2,0,0,4,124,null
+1795000711480,2,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,461,189,4,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,126,null
+1795000711495,2,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,433,4,16,http://127.0.0.1:3000/api/cart,2,0,0,4,122,null
+1795000711495,2,02 Search products,200,OK,Stress Band 4 4-2,text,true,,461,202,8,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,132,null
+1795000711511,1,02 Search products,200,OK,Stress Band 4 4-5,text,true,,461,202,8,16,http://127.0.0.1:3000/api/products?search=AirPods,1,0,0,4,129,null
+1795000711542,1,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,433,2,16,http://127.0.0.1:3000/api/cart,1,0,0,4,125,null
+1795000711620,2,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,433,2,16,http://127.0.0.1:3000/api/cart,2,0,0,4,123,null
+1795000711714,2,01 Login,200,OK,Stress Band 3 3-1,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,2,0,0,5,136,null
+1795000711745,2,03 Product detail,200,OK,Stress Band 4 4-3,text,true,,461,189,8,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,128,null
+1795000711760,2,02 Search products,200,OK,Stress Band 4 4-6,text,true,,461,202,8,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,135,null
+1795000711791,1,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,461,189,2,16,http://127.0.0.1:3000/api/products/4,1,0,0,4,133,null
+1795000711807,2,03 Product detail,200,OK,Stress Band 4 4-7,text,true,,461,189,8,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,130,null
+1795000711807,3,01 Login,200,OK,Stress Band 4 4-8,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,4,137,null
+1795000711823,2,03 Product detail,200,OK,Stress Band 4 4-1,text,true,,461,189,8,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,131,null
+1795000711838,2,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,433,4,16,http://127.0.0.1:3000/api/cart,2,0,0,4,126,null
+1795000711854,2,03 Product detail,200,OK,Stress Band 4 4-5,text,true,,461,189,8,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,129,null
+1795000711854,3,02 Search products,200,OK,Stress Band 4 4-4,text,true,,461,202,8,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,134,null
+1795000711949,2,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,433,2,16,http://127.0.0.1:3000/api/cart,1,0,0,4,127,null
+1795000711949,12,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,314,471,2,16,http://127.0.0.1:3000/api/checkout,12,0,0,4,123,120
+1795000711995,10,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,314,471,2,16,http://127.0.0.1:3000/api/checkout,10,0,0,4,125,121
+1795000712025,13,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,314,472,4,16,http://127.0.0.1:3000/api/checkout,13,0,0,4,124,122
+1795000712025,13,03 Product detail,200,OK,Stress Band 4 4-2,text,true,,461,189,8,16,http://127.0.0.1:3000/api/products/4,13,0,0,4,132,null
+1795000712072,8,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,314,472,4,16,http://127.0.0.1:3000/api/checkout,8,0,0,4,122,123
+1795000712182,2,02 Search products,200,OK,Stress Band 3 3-1,text,true,,469,203,4,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,136,null
+1795000712198,10,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,314,472,4,16,http://127.0.0.1:3000/api/checkout,10,0,0,4,126,124
+1795000712261,1,04 Add to cart,200,OK,Stress Band 4 4-1,text,true,,294,433,8,16,http://127.0.0.1:3000/api/cart,1,0,0,4,131,null
+1795000712277,1,04 Add to cart,200,OK,Stress Band 4 4-5,text,true,,294,433,8,16,http://127.0.0.1:3000/api/cart,1,0,0,4,129,null
+1795000712308,1,04 Add to cart,200,OK,Stress Band 4 4-3,text,true,,294,433,8,16,http://127.0.0.1:3000/api/cart,1,0,0,4,128,null
+1795000712324,2,01 Login,200,OK,Stress Band 2 2-1,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,1,0,0,5,138,null
+1795000712324,2,03 Product detail,200,OK,Stress Band 4 4-6,text,true,,461,189,8,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,135,null
+1795000712339,1,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,433,2,16,http://127.0.0.1:3000/api/cart,1,0,0,4,133,null
+1795000712355,2,02 Search products,200,OK,Stress Band 4 4-8,text,true,,461,202,8,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,137,null
+1795000712387,2,03 Product detail,200,OK,Stress Band 4 4-4,text,true,,461,189,8,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,134,null
+1795000712402,1,04 Add to cart,200,OK,Stress Band 4 4-7,text,true,,294,433,8,16,http://127.0.0.1:3000/api/cart,1,0,0,4,130,null
+1795000712402,3,01 Login,200,OK,Stress Band 3 3-2,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,3,0,0,5,140,null
+1795000712433,10,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,314,473,2,16,http://127.0.0.1:3000/api/checkout,10,0,0,4,127,125
+1795000712558,3,01 Login,200,OK,Stress Band 2 2-2,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,5,139,null
+1795000712574,3,01 Login,200,OK,Stress Band 3 3-4,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,3,0,0,5,142,null
+1795000712604,3,01 Login,200,OK,Stress Band 3 3-3,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,3,0,0,5,141,null
+1795000712604,5,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,467,189,4,16,http://127.0.0.1:3000/api/products/5,5,0,0,5,136,null
+1795000712635,2,04 Add to cart,200,OK,Stress Band 4 4-2,text,true,,294,433,8,16,http://127.0.0.1:3000/api/cart,2,0,0,4,132,null
+1795000712667,12,05 Checkout,200,OK,Stress Band 4 4-1,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,12,0,0,4,131,126
+1795000712682,2,02 Search products,200,OK,Stress Band 2 2-1,text,true,,469,203,2,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,138,null
+1795000712698,11,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,314,473,2,16,http://127.0.0.1:3000/api/checkout,11,0,0,4,133,127
+1795000712729,2,03 Product detail,200,OK,Stress Band 4 4-8,text,true,,461,189,8,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,137,null
+1795000712745,2,02 Search products,200,OK,Stress Band 3 3-2,text,true,,469,203,4,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,140,null
+1795000712760,1,04 Add to cart,200,OK,Stress Band 4 4-6,text,true,,294,433,8,16,http://127.0.0.1:3000/api/cart,1,0,0,4,135,null
+1795000712761,1,04 Add to cart,200,OK,Stress Band 4 4-4,text,true,,294,433,8,16,http://127.0.0.1:3000/api/cart,1,0,0,4,134,null
+1795000712762,24,05 Checkout,200,OK,Stress Band 4 4-7,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,24,0,0,4,130,128
+1795000712792,7,05 Checkout,200,OK,Stress Band 4 4-5,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,7,0,0,4,129,129
+1795000712917,10,05 Checkout,200,OK,Stress Band 4 4-3,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,10,0,0,4,128,130
+1795000712979,2,01 Login,200,OK,Stress Band 1 1-1,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,2,0,0,5,143,null
+1795000712995,11,05 Checkout,200,OK,Stress Band 4 4-2,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,11,0,0,4,132,131
+1795000713011,1,02 Search products,200,OK,Stress Band 3 3-4,text,true,,469,203,4,16,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,142,null
+1795000713011,2,01 Login,200,OK,Stress Band 4 4-1,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,5,144,null
+1795000713027,1,02 Search products,200,OK,Stress Band 2 2-2,text,true,,469,203,2,16,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,139,null
+1795000713122,8,05 Checkout,200,OK,Stress Band 4 4-6,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,8,0,0,4,135,132
+1795000713137,2,01 Login,200,OK,Stress Band 1 1-2,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,2,0,0,5,145,null
+1795000713153,1,01 Login,200,OK,Stress Band 4 4-5,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,1,0,0,5,147,null
+1795000713184,8,05 Checkout,200,OK,Stress Band 4 4-4,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,8,0,0,4,134,133
+1795000713200,1,04 Add to cart,200,OK,Stress Band 3 3-1,text,true,,294,449,4,16,http://127.0.0.1:3000/api/cart,1,0,0,5,136,null
+1795000713200,2,02 Search products,200,OK,Stress Band 3 3-3,text,true,,469,203,4,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,141,null
+1795000713232,1,03 Product detail,200,OK,Stress Band 2 2-1,text,true,,467,189,2,16,http://127.0.0.1:3000/api/products/5,1,0,0,5,138,null
+1795000713279,1,01 Login,200,OK,Stress Band 4 4-7,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,1,0,0,5,146,null
+1795000713295,1,04 Add to cart,200,OK,Stress Band 4 4-8,text,true,,294,433,8,16,http://127.0.0.1:3000/api/cart,1,0,0,4,137,null
+1795000713310,2,02 Search products,200,OK,Stress Band 1 1-1,text,true,,469,203,2,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,143,null
+1795000713342,2,03 Product detail,200,OK,Stress Band 3 3-4,text,true,,467,189,4,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,142,null
+1795000713342,2,03 Product detail,200,OK,Stress Band 3 3-2,text,true,,467,189,4,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,140,null
+1795000713483,1,02 Search products,200,OK,Stress Band 4 4-1,text,true,,469,203,8,16,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,144,null
+1795000713514,3,01 Login,200,OK,Stress Band 4 4-3,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,5,148,null
+1795000713530,2,03 Product detail,200,OK,Stress Band 3 3-3,text,true,,467,189,4,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,141,null
+1795000713530,3,01 Login,200,OK,Stress Band 4 4-6,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,5,150,null
+1795000713530,3,03 Product detail,200,OK,Stress Band 2 2-2,text,true,,467,189,2,16,http://127.0.0.1:3000/api/products/5,3,0,0,5,139,null
+1795000713530,3,01 Login,200,OK,Stress Band 4 4-4,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,3,0,0,5,151,null
+1795000713593,2,01 Login,200,OK,Stress Band 4 4-2,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,2,0,0,5,149,null
+1795000713608,13,05 Checkout,200,OK,Stress Band 4 4-8,text,true,,314,473,8,16,http://127.0.0.1:3000/api/checkout,13,0,0,4,137,134
+1795000713672,2,02 Search products,200,OK,Stress Band 4 4-7,text,true,,469,203,8,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,146,null
+1795000713687,1,02 Search products,200,OK,Stress Band 4 4-5,text,true,,469,203,8,16,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,147,null
+1795000713703,6,05 Checkout,200,OK,Stress Band 3 3-1,text,true,,314,473,4,16,http://127.0.0.1:3000/api/checkout,6,0,0,5,136,135
+1795000713734,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,469,203,2,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,145,null
+1795000713765,1,04 Add to cart,200,OK,Stress Band 2 2-1,text,true,,294,449,2,16,http://127.0.0.1:3000/api/cart,1,0,0,5,138,null
+1795000713797,1,04 Add to cart,200,OK,Stress Band 3 3-4,text,true,,294,449,4,16,http://127.0.0.1:3000/api/cart,1,0,0,5,142,null
+1795000713844,2,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,467,189,2,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,143,null
+1795000713938,2,04 Add to cart,200,OK,Stress Band 3 3-2,text,true,,294,449,4,16,http://127.0.0.1:3000/api/cart,2,0,0,5,140,null
+1795000713938,2,02 Search products,200,OK,Stress Band 4 4-4,text,true,,469,203,8,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,151,null
+1795000714031,1,02 Search products,200,OK,Stress Band 4 4-2,text,true,,469,203,8,16,http://127.0.0.1:3000/api/products?search=Keychron,1,0,0,5,149,null
+1795000714046,2,03 Product detail,200,OK,Stress Band 4 4-1,text,true,,467,189,8,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,144,null
+1795000714077,1,01 Login,200,OK,Stress Band 4 4-8,text,true,,685,286,8,16,http://127.0.0.1:3000/api/login,1,0,0,5,152,null
+1795000714091,7,05 Checkout,200,OK,Stress Band 2 2-1,text,true,,314,472,2,16,http://127.0.0.1:3000/api/checkout,7,0,0,5,138,136
+1795000714091,7,02 Search products,200,OK,Stress Band 4 4-3,text,true,,469,203,8,16,http://127.0.0.1:3000/api/products?search=Keychron,7,0,0,5,148,null
+1795000714107,1,04 Add to cart,200,OK,Stress Band 3 3-3,text,true,,294,449,4,16,http://127.0.0.1:3000/api/cart,1,0,0,5,141,null
+1795000714107,2,02 Search products,200,OK,Stress Band 4 4-6,text,true,,469,203,8,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,150,null
+1795000714123,2,04 Add to cart,200,OK,Stress Band 2 2-2,text,true,,294,449,2,16,http://127.0.0.1:3000/api/cart,2,0,0,5,139,null
+1795000714139,2,03 Product detail,200,OK,Stress Band 4 4-5,text,true,,467,189,8,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,147,null
+1795000714155,2,01 Login,200,OK,Stress Band 3 3-1,text,true,,685,286,4,16,http://127.0.0.1:3000/api/login,2,0,0,1,153,null
+1795000714186,2,03 Product detail,200,OK,Stress Band 4 4-7,text,true,,467,189,8,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,146,null
+1795000714202,8,05 Checkout,200,OK,Stress Band 3 3-4,text,true,,314,473,4,16,http://127.0.0.1:3000/api/checkout,8,0,0,5,142,137
+1795000714295,1,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,467,189,2,16,http://127.0.0.1:3000/api/products/5,1,0,0,5,145,null
+1795000714357,2,03 Product detail,200,OK,Stress Band 4 4-4,text,true,,467,189,8,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,151,null
+1795000714388,14,05 Checkout,200,OK,Stress Band 3 3-2,text,true,,314,473,4,16,http://127.0.0.1:3000/api/checkout,14,0,0,5,140,138
+1795000714451,1,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,449,2,16,http://127.0.0.1:3000/api/cart,1,0,0,5,143,null
+1795000714482,1,04 Add to cart,200,OK,Stress Band 4 4-1,text,true,,294,449,8,16,http://127.0.0.1:3000/api/cart,1,0,0,5,144,null
+1795000714497,2,03 Product detail,200,OK,Stress Band 4 4-6,text,true,,467,189,8,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,150,null
+1795000714592,2,03 Product detail,200,OK,Stress Band 4 4-2,text,true,,467,189,8,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,149,null
+1795000714607,3,02 Search products,200,OK,Stress Band 4 4-8,text,true,,469,203,8,16,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,152,null
+1795000714622,3,02 Search products,200,OK,Stress Band 3 3-1,text,true,,453,201,4,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,153,null
+1795000714653,4,03 Product detail,200,OK,Stress Band 4 4-3,text,true,,467,189,8,16,http://127.0.0.1:3000/api/products/5,4,0,0,5,148,null
+1795000714685,3,04 Add to cart,200,OK,Stress Band 4 4-5,text,true,,294,449,8,16,http://127.0.0.1:3000/api/cart,3,0,0,5,147,null
+1795000714685,14,05 Checkout,200,OK,Stress Band 2 2-2,text,true,,314,472,2,16,http://127.0.0.1:3000/api/checkout,14,0,0,5,139,139
+1795000714685,24,05 Checkout,200,OK,Stress Band 3 3-3,text,true,,314,473,4,16,http://127.0.0.1:3000/api/checkout,24,0,0,5,141,140
+1795000714685,25,01 Login,200,OK,Stress Band 2 2-1,text,true,,685,286,2,16,http://127.0.0.1:3000/api/login,25,0,0,1,154,null
+1795000714717,2,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,449,2,16,http://127.0.0.1:3000/api/cart,2,0,0,5,145,null
+1795000714732,1,04 Add to cart,200,OK,Stress Band 4 4-7,text,true,,294,449,8,15,http://127.0.0.1:3000/api/cart,1,0,0,5,146,null
+1795000714747,4,01 Login,200,OK,Stress Band 3 3-4,text,true,,685,286,4,14,http://127.0.0.1:3000/api/login,4,0,0,1,155,null
+1795000714809,2,04 Add to cart,200,OK,Stress Band 4 4-4,text,true,,294,449,7,14,http://127.0.0.1:3000/api/cart,2,0,0,5,151,null
+1795000714842,10,05 Checkout,200,OK,Stress Band 4 4-1,text,true,,314,470,6,13,http://127.0.0.1:3000/api/checkout,10,0,0,5,144,141
+1795000714871,16,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,314,470,1,12,http://127.0.0.1:3000/api/checkout,16,0,0,5,143,142
+1795000714887,5,01 Login,200,OK,Stress Band 3 3-2,text,true,,685,286,4,11,http://127.0.0.1:3000/api/login,5,0,0,1,156,null
+1795000714903,1,04 Add to cart,200,OK,Stress Band 4 4-6,text,true,,294,449,5,10,http://127.0.0.1:3000/api/cart,1,0,0,5,150,null
+1795000714996,1,03 Product detail,200,OK,Stress Band 3 3-1,text,true,,451,189,3,9,http://127.0.0.1:3000/api/products/1,1,0,0,1,153,null
+1795000715028,1,02 Search products,200,OK,Stress Band 2 2-1,text,true,,453,201,2,8,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,154,null
+1795000715044,2,01 Login,200,OK,Stress Band 3 3-3,text,true,,685,286,2,7,http://127.0.0.1:3000/api/login,2,0,0,1,158,null
+1795000715075,1,04 Add to cart,200,OK,Stress Band 4 4-3,text,true,,294,449,4,6,http://127.0.0.1:3000/api/cart,1,0,0,5,148,null
+1795000715090,2,04 Add to cart,200,OK,Stress Band 4 4-2,text,true,,294,449,3,5,http://127.0.0.1:3000/api/cart,2,0,0,5,149,null
+1795000715090,4,01 Login,200,OK,Stress Band 2 2-2,text,true,,685,286,1,5,http://127.0.0.1:3000/api/login,4,0,0,1,157,null
+1795000715121,2,03 Product detail,200,OK,Stress Band 4 4-8,text,true,,467,189,2,3,http://127.0.0.1:3000/api/products/5,2,0,0,5,152,null
+1795000715152,2,02 Search products,200,OK,Stress Band 3 3-4,text,true,,453,201,1,2,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,155,null
+1795000715200,8,05 Checkout,200,OK,Stress Band 4 4-5,text,true,,314,470,1,1,http://127.0.0.1:3000/api/checkout,8,0,0,5,147,143

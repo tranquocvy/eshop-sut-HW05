@@ -25,6 +25,10 @@ T02 tạo Load plan trên JMeter 5.6.3 và Temurin 17, với mức khởi đầu
 
 Pilot 05 dùng 3 VU với 1.250 tài khoản đã đăng ký. Có 44 sample đạt, 9 ID đăng nhập riêng biệt và 8 đơn khớp SQLite. Pilot 08 xác minh đường dẫn CSV mặc định từ thư mục làm việc ngoài repo, với 47 sample đạt và 8 đơn khớp SQLite. Pilot 09 xác nhận VU dùng tài khoản kế tiếp sau lỗi assertion và dừng khi hết dòng. Các lượt này xác minh plan và fixture trước khi đo chính. [Thiết kế Load và cách tính số tài khoản](Load_Plan.md) · [Bằng chứng pilot](evidence/t02-pilot.json)
 
+T03 dùng think-time 300–600 ms để tăng mật độ request trong giới hạn RAM của máy chạy chung JMeter và backend. Stress tăng 24 → 48 → 96 → 144 VU với Aggregate Report. Spike đi từ 6 lên 144 rồi về 6 VU với Response Time Graph. Pilot của bản sửa ghi 752/752 sample đạt cho Stress và 502/502 cho Spike. Các lượt nhỏ xác nhận đúng lịch tải và checkout khớp SQLite. [Thiết kế Stress và Spike](Stress_Spike_Plans.md) · [Bằng chứng T03](evidence/t03-pilots.json)
+
+Ở lượt thăm dò 300–600 ms, từ 96 lên 144 VU, p95 checkout tăng từ 21 lên 100 ms và throughput tăng từ 210 lên 304,45 request/giây. Lượt thăm dò chưa xác lập điểm bão hòa. Mốc 144 VU là trần thử nghiệm chọn theo RAM khả dụng của máy dùng chung. Số đo ngắn chưa đủ để kết luận backend chịu được mức tải đó. [JTL thăm dò](evidence/t03-calibration-fast.jtl) · [CPU và RAM](evidence/t03-calibration-fast.csv)
+
 ## 3. Phân tích kết quả và phản biện AI
 
 Task 2 dùng raw log để yêu cầu AI phân tích và đề xuất ngưỡng. Mỗi lỗi diễn giải phát hiện được sẽ có giá trị đúng, cách đối chiếu từ log và lý do sai. Tính khả thi của từng đề xuất tối ưu được đánh giá theo mã nguồn và cấu hình SUT.

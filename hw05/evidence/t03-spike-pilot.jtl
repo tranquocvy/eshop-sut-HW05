@@ -1,0 +1,503 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect,"fixture_product_id","authenticated_user_id","order_id"
+1795000726052,4,01 Login,200,OK,Spike Baseline 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,4,0,1,1,4,null
+1795000725883,33,01 Login,200,OK,Spike Baseline 1-1,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,33,0,21,1,3,null
+1795000726464,3,02 Search products,200,OK,Spike Baseline 1-2,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,4,null
+1795000726541,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,3,null
+1795000727125,3,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,3,0,0,1,3,null
+1795000727107,4,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,4,0,0,1,4,null
+1795000727718,4,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,4,0,0,1,4,null
+1795000727829,3,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,3,0,0,1,3,null
+1795000728124,10,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,312,471,2,2,http://127.0.0.1:3000/api/checkout,10,0,0,1,4,1
+1795000728437,12,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,312,471,2,2,http://127.0.0.1:3000/api/checkout,12,0,0,1,3,2
+1795000728515,3,01 Login,200,OK,Spike Baseline 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,2,5,null
+1795000728864,4,01 Login,200,OK,Spike Baseline 1-1,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,4,0,0,2,6,null
+1795000728957,3,02 Search products,200,OK,Spike Baseline 1-2,text,true,,480,201,2,2,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,5,null
+1795000729301,3,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,480,189,2,2,http://127.0.0.1:3000/api/products/2,3,0,0,2,5,null
+1795000729332,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,480,201,2,2,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,6,null
+1795000729830,3,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,433,2,2,http://127.0.0.1:3000/api/cart,3,0,0,2,5,null
+1795000729893,3,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,480,189,2,2,http://127.0.0.1:3000/api/products/2,3,0,0,2,6,null
+1795000730160,9,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,312,468,2,2,http://127.0.0.1:3000/api/checkout,9,0,0,2,5,3
+1795000730407,2,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,433,2,2,http://127.0.0.1:3000/api/cart,2,0,0,2,6,null
+1795000730547,3,01 Login,200,OK,Spike Baseline 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,3,7,null
+1795000730800,9,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,312,468,2,2,http://127.0.0.1:3000/api/checkout,9,0,0,2,6,4
+1795000731065,4,02 Search products,200,OK,Spike Baseline 1-2,text,true,,450,202,2,2,http://127.0.0.1:3000/api/products?search=MacBook,4,0,0,3,7,null
+1795000731268,4,01 Login,200,OK,Spike Baseline 1-1,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,4,0,0,3,8,null
+1795000731548,3,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,448,189,2,2,http://127.0.0.1:3000/api/products/3,3,0,0,3,7,null
+1795000731640,4,02 Search products,200,OK,Spike Baseline 1-1,text,true,,450,202,2,2,http://127.0.0.1:3000/api/products?search=MacBook,4,0,0,3,8,null
+1795000731967,3,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,423,2,2,http://127.0.0.1:3000/api/cart,2,0,0,3,7,null
+1795000731998,4,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,448,189,2,2,http://127.0.0.1:3000/api/products/3,4,0,0,3,8,null
+1795000732374,9,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,312,470,2,2,http://127.0.0.1:3000/api/checkout,9,0,0,3,7,5
+1795000732609,3,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,423,2,2,http://127.0.0.1:3000/api/cart,3,0,0,3,8,null
+1795000732734,3,01 Login,200,OK,Spike Baseline 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,4,9,null
+1795000733189,12,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,312,470,2,2,http://127.0.0.1:3000/api/checkout,12,0,0,3,8,6
+1795000733265,6,02 Search products,200,OK,Spike Baseline 1-2,text,true,,461,202,2,2,http://127.0.0.1:3000/api/products?search=AirPods,6,0,0,4,9,null
+1795000733671,2,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,461,189,2,2,http://127.0.0.1:3000/api/products/4,2,0,0,4,9,null
+1795000733781,4,01 Login,200,OK,Spike Baseline 1-1,text,true,,683,286,2,2,http://127.0.0.1:3000/api/login,4,0,0,4,10,null
+1795000734124,3,02 Search products,200,OK,Spike Baseline 1-1,text,true,,461,202,2,2,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,10,null
+1795000734234,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,430,2,2,http://127.0.0.1:3000/api/cart,2,0,0,4,9,null
+1795000734483,2,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,461,189,2,2,http://127.0.0.1:3000/api/products/4,2,0,0,4,10,null
+1795000734715,12,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,312,470,2,2,http://127.0.0.1:3000/api/checkout,12,0,0,4,9,7
+1795000734872,2,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,432,2,2,http://127.0.0.1:3000/api/cart,2,0,0,4,10,null
+1795000735200,3,01 Login,200,OK,Spike Baseline 1-2,text,true,,683,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,5,11,null
+1795000735247,12,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,312,472,2,2,http://127.0.0.1:3000/api/checkout,11,0,0,4,10,8
+1795000735719,3,01 Login,200,OK,Spike Baseline 1-1,text,true,,683,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,5,12,null
+1795000735796,3,02 Search products,200,OK,Spike Baseline 1-2,text,true,,469,203,2,2,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,11,null
+1795000736031,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,469,203,2,2,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,12,null
+1795000736250,3,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,467,189,2,2,http://127.0.0.1:3000/api/products/5,2,0,0,5,11,null
+1795000736452,3,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,467,189,2,2,http://127.0.0.1:3000/api/products/5,3,0,0,5,12,null
+1795000736733,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,448,2,3,http://127.0.0.1:3000/api/cart,2,0,0,5,11,null
+1795000736811,3,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,448,2,4,http://127.0.0.1:3000/api/cart,3,0,0,5,12,null
+1795000737078,4,01 Login,200,OK,Spike Burst 2-1,text,true,,683,286,5,7,http://127.0.0.1:3000/api/login,4,0,2,1,13,null
+1795000737186,5,01 Login,200,OK,Spike Burst 2-2,text,true,,683,286,7,9,http://127.0.0.1:3000/api/login,5,0,2,1,14,null
+1795000737248,10,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,312,469,2,10,http://127.0.0.1:3000/api/checkout,10,0,0,5,11,9
+1795000737265,4,01 Login,200,OK,Spike Burst 2-3,text,true,,683,286,8,10,http://127.0.0.1:3000/api/login,4,0,1,1,15,null
+1795000737265,5,01 Login,200,OK,Spike Burst 2-4,text,true,,683,286,8,10,http://127.0.0.1:3000/api/login,5,0,1,1,16,null
+1795000737296,9,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,469,2,10,http://127.0.0.1:3000/api/checkout,9,0,0,5,12,10
+1795000737405,3,02 Search products,200,OK,Spike Burst 2-1,text,true,,453,201,9,11,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,13,null
+1795000737550,7,01 Login,200,OK,Spike Burst 2-5,text,true,,683,286,11,13,http://127.0.0.1:3000/api/login,7,0,3,1,17,null
+1795000737597,2,02 Search products,200,OK,Spike Burst 2-4,text,true,,453,201,12,14,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,16,null
+1795000737644,8,01 Login,200,OK,Spike Burst 2-9,text,true,,683,286,13,15,http://127.0.0.1:3000/api/login,7,0,3,1,23,null
+1795000737664,6,01 Login,200,OK,Spike Baseline 1-2,text,true,,683,286,2,15,http://127.0.0.1:3000/api/login,5,0,0,1,21,null
+1795000737665,7,01 Login,200,OK,Spike Burst 2-7,text,true,,683,286,13,15,http://127.0.0.1:3000/api/login,7,0,4,1,19,null
+1795000737675,2,02 Search products,200,OK,Spike Burst 2-3,text,true,,453,201,13,15,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,15,null
+1795000737690,4,02 Search products,200,OK,Spike Burst 2-2,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,4,0,0,1,14,null
+1795000737691,5,01 Login,200,OK,Spike Burst 2-6,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,5,0,3,1,18,null
+1795000737785,7,01 Login,200,OK,Spike Burst 2-10,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,7,0,3,1,24,null
+1795000737816,6,01 Login,200,OK,Spike Burst 2-8,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,6,0,2,1,20,null
+1795000737878,3,01 Login,200,OK,Spike Baseline 1-1,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,1,22,null
+1795000737909,2,03 Product detail,200,OK,Spike Burst 2-4,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,16,null
+1795000737909,4,02 Search products,200,OK,Spike Burst 2-5,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,4,0,0,1,17,null
+1795000737924,2,03 Product detail,200,OK,Spike Burst 2-1,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,13,null
+1795000738033,2,03 Product detail,200,OK,Spike Burst 2-3,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,15,null
+1795000738034,3,01 Login,200,OK,Spike Burst 2-14,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,2,1,28,null
+1795000738065,5,01 Login,200,OK,Spike Burst 2-12,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,5,0,2,1,26,null
+1795000738095,2,02 Search products,200,OK,Spike Burst 2-7,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,19,null
+1795000738096,3,01 Login,200,OK,Spike Burst 2-11,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,1,1,25,null
+1795000738112,4,01 Login,200,OK,Spike Burst 2-13,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,1,1,27,null
+1795000738127,2,03 Product detail,200,OK,Spike Burst 2-2,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,1,0,0,1,14,null
+1795000738144,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,453,201,2,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,21,null
+1795000738220,2,02 Search products,200,OK,Spike Burst 2-6,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,18,null
+1795000738251,3,02 Search products,200,OK,Spike Burst 2-9,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,23,null
+1795000738282,3,02 Search products,200,OK,Spike Burst 2-8,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,20,null
+1795000738282,4,02 Search products,200,OK,Spike Burst 2-10,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,4,0,0,1,24,null
+1795000738329,2,04 Add to cart,200,OK,Spike Burst 2-1,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,13,null
+1795000738345,2,04 Add to cart,200,OK,Spike Burst 2-4,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,16,null
+1795000738345,5,02 Search products,200,OK,Spike Burst 2-14,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,5,0,0,1,28,null
+1795000738439,6,03 Product detail,200,OK,Spike Burst 2-5,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,6,0,0,1,17,null
+1795000738440,6,02 Search products,200,OK,Spike Baseline 1-1,text,true,,453,201,2,16,http://127.0.0.1:3000/api/products?search=iPhone,6,0,0,1,22,null
+1795000738455,2,02 Search products,200,OK,Spike Burst 2-13,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,27,null
+1795000738487,2,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,451,189,2,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,21,null
+1795000738534,2,03 Product detail,200,OK,Spike Burst 2-6,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,18,null
+1795000738549,2,03 Product detail,200,OK,Spike Burst 2-7,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,19,null
+1795000738580,2,03 Product detail,200,OK,Spike Burst 2-9,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,23,null
+1795000738611,2,04 Add to cart,200,OK,Spike Burst 2-3,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,15,null
+1795000738643,2,02 Search products,200,OK,Spike Burst 2-12,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,26,null
+1795000738643,2,02 Search products,200,OK,Spike Burst 2-11,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,25,null
+1795000738690,2,03 Product detail,200,OK,Spike Burst 2-10,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,24,null
+1795000738706,2,04 Add to cart,200,OK,Spike Burst 2-2,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,14,null
+1795000738737,40,05 Checkout,200,OK,Spike Burst 2-1,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,40,0,0,1,13,11
+1795000738813,4,03 Product detail,200,OK,Spike Burst 2-8,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,4,0,0,1,20,null
+1795000738814,10,05 Checkout,200,OK,Spike Burst 2-4,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,10,0,0,1,16,12
+1795000738844,3,03 Product detail,200,OK,Spike Burst 2-13,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,3,0,0,1,27,null
+1795000738876,2,03 Product detail,200,OK,Spike Burst 2-14,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,28,null
+1795000738939,2,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,451,189,2,16,http://127.0.0.1:3000/api/products/1,2,0,0,1,22,null
+1795000738987,3,04 Add to cart,200,OK,Spike Burst 2-7,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,3,0,0,1,19,null
+1795000739003,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,428,2,16,http://127.0.0.1:3000/api/cart,2,0,0,1,21,null
+1795000739033,3,04 Add to cart,200,OK,Spike Burst 2-6,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,3,0,0,1,18,null
+1795000739033,3,04 Add to cart,200,OK,Spike Burst 2-5,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,3,0,0,1,17,null
+1795000739033,6,03 Product detail,200,OK,Spike Burst 2-11,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,6,0,0,1,25,null
+1795000739048,23,05 Checkout,200,OK,Spike Burst 2-3,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,22,0,0,1,15,13
+1795000739079,3,03 Product detail,200,OK,Spike Burst 2-12,text,true,,451,189,14,16,http://127.0.0.1:3000/api/products/1,3,0,0,1,26,null
+1795000739095,2,04 Add to cart,200,OK,Spike Burst 2-10,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,24,null
+1795000739173,2,04 Add to cart,200,OK,Spike Burst 2-9,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,23,null
+1795000739142,40,05 Checkout,200,OK,Spike Burst 2-2,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,40,0,0,1,14,14
+1795000739141,43,01 Login,200,OK,Spike Burst 2-1,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,42,0,0,2,29,null
+1795000739188,3,04 Add to cart,200,OK,Spike Burst 2-14,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,28,null
+1795000739266,1,04 Add to cart,200,OK,Spike Burst 2-13,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,1,0,0,1,27,null
+1795000739281,2,04 Add to cart,200,OK,Spike Burst 2-8,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,20,null
+1795000739375,2,04 Add to cart,200,OK,Spike Burst 2-11,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,25,null
+1795000739391,3,01 Login,200,OK,Spike Burst 2-4,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,2,30,null
+1795000739407,2,04 Add to cart,200,OK,Spike Burst 2-12,text,true,,294,428,14,16,http://127.0.0.1:3000/api/cart,2,0,0,1,26,null
+1795000739406,29,05 Checkout,200,OK,Spike Burst 2-6,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,29,0,0,1,18,15
+1795000739422,57,05 Checkout,200,OK,Spike Burst 2-10,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,57,0,0,1,24,16
+1795000739499,3,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,428,2,16,http://127.0.0.1:3000/api/cart,3,0,0,1,22,null
+1795000739437,82,05 Checkout,200,OK,Spike Burst 2-5,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,82,0,0,1,17,17
+1795000739438,90,05 Checkout,200,OK,Spike Burst 2-7,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,90,0,0,1,19,18
+1795000739545,22,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,472,2,16,http://127.0.0.1:3000/api/checkout,22,0,0,1,21,19
+1795000739577,2,01 Login,200,OK,Spike Burst 2-3,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,2,31,null
+1795000739592,16,05 Checkout,200,OK,Spike Burst 2-9,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,16,0,0,1,23,20
+1795000739639,10,05 Checkout,200,OK,Spike Burst 2-13,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,10,0,0,1,27,21
+1795000739654,3,02 Search products,200,OK,Spike Burst 2-1,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,29,null
+1795000739685,3,01 Login,200,OK,Spike Burst 2-2,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,2,32,null
+1795000739732,12,05 Checkout,200,OK,Spike Burst 2-14,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,1,28,22
+1795000739764,3,01 Login,200,OK,Spike Burst 2-6,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,2,33,null
+1795000739811,44,05 Checkout,200,OK,Spike Burst 2-8,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,44,0,0,1,20,23
+1795000739874,2,01 Login,200,OK,Spike Burst 2-5,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,2,35,null
+1795000739889,41,05 Checkout,200,OK,Spike Burst 2-12,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,41,0,0,1,26,24
+1795000739889,49,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,472,2,16,http://127.0.0.1:3000/api/checkout,49,0,0,1,22,25
+1795000739920,58,05 Checkout,200,OK,Spike Burst 2-11,text,true,,313,473,14,16,http://127.0.0.1:3000/api/checkout,58,0,0,1,25,26
+1795000739936,42,02 Search products,200,OK,Spike Burst 2-4,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,42,0,0,2,30,null
+1795000739951,29,01 Login,200,OK,Spike Burst 2-10,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,29,0,0,2,34,null
+1795000740030,3,01 Login,200,OK,Spike Baseline 1-2,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,2,37,null
+1795000740030,3,02 Search products,200,OK,Spike Burst 2-2,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,32,null
+1795000740045,3,01 Login,200,OK,Spike Burst 2-13,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,2,39,null
+1795000740091,4,01 Login,200,OK,Spike Burst 2-9,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,2,38,null
+1795000740107,3,02 Search products,200,OK,Spike Burst 2-3,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,31,null
+1795000740122,4,03 Product detail,200,OK,Spike Burst 2-1,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,4,0,0,2,29,null
+1795000740123,4,01 Login,200,OK,Spike Burst 2-7,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,2,36,null
+1795000740200,3,01 Login,200,OK,Spike Burst 2-8,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,2,41,null
+1795000740215,3,02 Search products,200,OK,Spike Burst 2-6,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,33,null
+1795000740325,2,03 Product detail,200,OK,Spike Burst 2-4,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,30,null
+1795000740341,3,01 Login,200,OK,Spike Burst 2-14,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,2,40,null
+1795000740418,2,02 Search products,200,OK,Spike Burst 2-13,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,39,null
+1795000740433,2,02 Search products,200,OK,Spike Burst 2-5,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,35,null
+1795000740448,3,02 Search products,200,OK,Spike Burst 2-9,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,3,0,0,2,38,null
+1795000740449,5,01 Login,200,OK,Spike Baseline 1-1,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,5,0,0,2,43,null
+1795000740511,2,01 Login,200,OK,Spike Burst 2-12,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,2,42,null
+1795000740511,3,01 Login,200,OK,Spike Burst 2-11,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,2,44,null
+1795000740542,2,03 Product detail,200,OK,Spike Burst 2-6,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,33,null
+1795000740557,2,02 Search products,200,OK,Spike Burst 2-8,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,41,null
+1795000740557,2,02 Search products,200,OK,Spike Burst 2-10,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,34,null
+1795000740604,2,03 Product detail,200,OK,Spike Burst 2-2,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,32,null
+1795000740620,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,480,201,2,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,37,null
+1795000740636,1,04 Add to cart,200,OK,Spike Burst 2-4,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,1,0,0,2,30,null
+1795000740651,1,04 Add to cart,200,OK,Spike Burst 2-1,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,1,0,0,2,29,null
+1795000740666,2,02 Search products,200,OK,Spike Burst 2-14,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,40,null
+1795000740698,4,03 Product detail,200,OK,Spike Burst 2-3,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,4,0,0,2,31,null
+1795000740698,5,02 Search products,200,OK,Spike Burst 2-7,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,5,0,0,2,36,null
+1795000740761,2,03 Product detail,200,OK,Spike Burst 2-5,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,35,null
+1795000740931,2,02 Search products,200,OK,Spike Burst 2-11,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,44,null
+1795000740931,2,03 Product detail,200,OK,Spike Burst 2-13,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,39,null
+1795000740947,1,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,480,189,2,16,http://127.0.0.1:3000/api/products/2,1,0,0,2,37,null
+1795000740962,3,03 Product detail,200,OK,Spike Burst 2-9,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,3,0,0,2,38,null
+1795000740978,1,02 Search products,200,OK,Spike Burst 2-12,text,true,,480,201,14,16,http://127.0.0.1:3000/api/products?search=Galaxy,1,0,0,2,42,null
+1795000740993,1,04 Add to cart,200,OK,Spike Burst 2-6,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,1,0,0,2,33,null
+1795000740993,2,03 Product detail,200,OK,Spike Burst 2-8,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,41,null
+1795000741008,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,480,201,2,16,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,43,null
+1795000741024,2,03 Product detail,200,OK,Spike Burst 2-7,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,36,null
+1795000741071,3,03 Product detail,200,OK,Spike Burst 2-14,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,3,0,0,2,40,null
+1795000741071,11,05 Checkout,200,OK,Spike Burst 2-4,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,30,27
+1795000741087,2,04 Add to cart,200,OK,Spike Burst 2-2,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,1,0,0,2,32,null
+1795000741117,13,05 Checkout,200,OK,Spike Burst 2-1,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,13,0,0,2,29,28
+1795000741133,3,03 Product detail,200,OK,Spike Burst 2-10,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,3,0,0,2,34,null
+1795000741242,1,04 Add to cart,200,OK,Spike Burst 2-3,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,1,0,0,2,31,null
+1795000741303,2,04 Add to cart,200,OK,Spike Burst 2-5,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,2,0,0,2,35,null
+1795000741380,3,04 Add to cart,200,OK,Spike Burst 2-9,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,2,0,0,2,38,null
+1795000741380,3,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,435,2,16,http://127.0.0.1:3000/api/cart,3,0,0,2,37,null
+1795000741380,5,03 Product detail,200,OK,Spike Burst 2-12,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,5,0,0,2,42,null
+1795000741428,9,05 Checkout,200,OK,Spike Burst 2-2,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,9,0,0,2,32,29
+1795000741445,2,01 Login,200,OK,Spike Burst 2-4,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,3,45,null
+1795000741460,1,04 Add to cart,200,OK,Spike Burst 2-14,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,1,0,0,2,40,null
+1795000741460,2,04 Add to cart,200,OK,Spike Burst 2-10,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,2,0,0,2,34,null
+1795000741475,2,04 Add to cart,200,OK,Spike Burst 2-8,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,2,0,0,2,41,null
+1795000741491,2,04 Add to cart,200,OK,Spike Burst 2-13,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,2,0,0,2,39,null
+1795000741523,6,03 Product detail,200,OK,Spike Burst 2-11,text,true,,480,189,14,16,http://127.0.0.1:3000/api/products/2,5,0,0,2,44,null
+1795000741539,3,01 Login,200,OK,Spike Burst 2-1,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,3,46,null
+1795000741554,10,05 Checkout,200,OK,Spike Burst 2-6,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,9,0,0,2,33,30
+1795000741569,2,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,480,189,2,16,http://127.0.0.1:3000/api/products/2,2,0,0,2,43,null
+1795000741617,2,04 Add to cart,200,OK,Spike Burst 2-7,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,2,0,0,2,36,null
+1795000741742,12,05 Checkout,200,OK,Spike Burst 2-3,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,2,31,31
+1795000741742,21,01 Login,200,OK,Spike Burst 2-2,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,21,0,0,3,47,null
+1795000741742,21,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,473,2,16,http://127.0.0.1:3000/api/checkout,21,0,0,2,37,32
+1795000741773,12,05 Checkout,200,OK,Spike Burst 2-9,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,2,38,33
+1795000741820,2,02 Search products,200,OK,Spike Burst 2-4,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,45,null
+1795000741836,11,05 Checkout,200,OK,Spike Burst 2-8,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,41,34
+1795000741851,11,05 Checkout,200,OK,Spike Burst 2-14,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,40,35
+1795000741866,12,05 Checkout,200,OK,Spike Burst 2-10,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,34,36
+1795000741897,9,05 Checkout,200,OK,Spike Burst 2-5,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,9,0,0,2,35,37
+1795000741944,1,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,435,2,16,http://127.0.0.1:3000/api/cart,1,0,0,2,43,null
+1795000741991,2,04 Add to cart,200,OK,Spike Burst 2-12,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,2,0,0,2,42,null
+1795000742022,12,05 Checkout,200,OK,Spike Burst 2-7,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,2,36,38
+1795000742070,3,04 Add to cart,200,OK,Spike Burst 2-11,text,true,,294,435,14,16,http://127.0.0.1:3000/api/cart,3,0,0,2,44,null
+1795000742070,12,05 Checkout,200,OK,Spike Burst 2-13,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,2,39,39
+1795000742070,13,02 Search products,200,OK,Spike Burst 2-1,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,13,0,0,3,46,null
+1795000742102,2,02 Search products,200,OK,Spike Burst 2-2,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,47,null
+1795000742148,5,01 Login,200,OK,Spike Baseline 1-2,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,5,0,0,3,50,null
+1795000742148,6,01 Login,200,OK,Spike Burst 2-6,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,6,0,0,3,48,null
+1795000742195,3,03 Product detail,200,OK,Spike Burst 2-4,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,45,null
+1795000742210,2,01 Login,200,OK,Spike Burst 2-8,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,3,52,null
+1795000742225,4,01 Login,200,OK,Spike Burst 2-10,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,3,54,null
+1795000742256,2,01 Login,200,OK,Spike Burst 2-9,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,3,51,null
+1795000742303,2,01 Login,200,OK,Spike Burst 2-3,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,3,49,null
+1795000742318,13,05 Checkout,200,OK,Spike Burst 2-12,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,13,0,0,2,42,40
+1795000742334,9,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,473,2,16,http://127.0.0.1:3000/api/checkout,9,0,0,2,43,41
+1795000742380,3,01 Login,200,OK,Spike Burst 2-7,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,3,56,null
+1795000742473,3,01 Login,200,OK,Spike Burst 2-14,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,3,53,null
+1795000742488,2,01 Login,200,OK,Spike Burst 2-5,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,3,55,null
+1795000742488,3,03 Product detail,200,OK,Spike Burst 2-2,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,47,null
+1795000742519,3,03 Product detail,200,OK,Spike Burst 2-1,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,46,null
+1795000742629,2,01 Login,200,OK,Spike Burst 2-13,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,3,57,null
+1795000742644,11,05 Checkout,200,OK,Spike Burst 2-11,text,true,,313,470,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,2,44,42
+1795000742659,3,02 Search products,200,OK,Spike Burst 2-8,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,52,null
+1795000742690,3,02 Search products,200,OK,Spike Burst 2-3,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,49,null
+1795000742691,3,02 Search products,200,OK,Spike Baseline 1-2,text,true,,450,202,2,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,50,null
+1795000742706,3,02 Search products,200,OK,Spike Burst 2-6,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,48,null
+1795000742722,2,04 Add to cart,200,OK,Spike Burst 2-4,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,45,null
+1795000742797,4,02 Search products,200,OK,Spike Burst 2-10,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,4,0,0,3,54,null
+1795000742798,4,02 Search products,200,OK,Spike Burst 2-7,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,4,0,0,3,56,null
+1795000742845,3,01 Login,200,OK,Spike Baseline 1-1,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,3,59,null
+1795000742860,2,02 Search products,200,OK,Spike Burst 2-9,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,51,null
+1795000742875,3,04 Add to cart,200,OK,Spike Burst 2-2,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,3,0,0,3,47,null
+1795000742875,4,02 Search products,200,OK,Spike Burst 2-14,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,4,0,0,3,53,null
+1795000742891,3,04 Add to cart,200,OK,Spike Burst 2-1,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,3,0,0,3,46,null
+1795000742938,3,01 Login,200,OK,Spike Burst 2-12,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,3,58,null
+1795000742969,2,02 Search products,200,OK,Spike Burst 2-13,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,57,null
+1795000743047,3,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,448,189,2,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,50,null
+1795000743063,3,02 Search products,200,OK,Spike Burst 2-5,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,55,null
+1795000743111,2,03 Product detail,200,OK,Spike Burst 2-8,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,52,null
+1795000743142,13,05 Checkout,200,OK,Spike Burst 2-4,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,13,0,0,3,45,43
+1795000743157,3,03 Product detail,200,OK,Spike Burst 2-3,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,49,null
+1795000743173,3,03 Product detail,200,OK,Spike Burst 2-9,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,51,null
+1795000743220,2,03 Product detail,200,OK,Spike Burst 2-6,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,48,null
+1795000743235,3,03 Product detail,200,OK,Spike Burst 2-10,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,54,null
+1795000743235,5,01 Login,200,OK,Spike Burst 2-11,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,5,0,0,3,60,null
+1795000743281,15,05 Checkout,200,OK,Spike Burst 2-1,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,15,0,0,3,46,44
+1795000743328,2,03 Product detail,200,OK,Spike Burst 2-7,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,56,null
+1795000743344,1,03 Product detail,200,OK,Spike Burst 2-13,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,1,0,0,3,57,null
+1795000743375,3,03 Product detail,200,OK,Spike Burst 2-14,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,53,null
+1795000743391,3,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,425,2,16,http://127.0.0.1:3000/api/cart,3,0,0,3,50,null
+1795000743391,4,02 Search products,200,OK,Spike Burst 2-12,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,4,0,0,3,58,null
+1795000743406,3,02 Search products,200,OK,Spike Baseline 1-1,text,true,,450,202,2,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,59,null
+1795000743422,11,05 Checkout,200,OK,Spike Burst 2-2,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,3,47,45
+1795000743610,2,04 Add to cart,200,OK,Spike Burst 2-3,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,49,null
+1795000743655,3,04 Add to cart,200,OK,Spike Burst 2-8,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,3,0,0,3,52,null
+1795000743656,4,04 Add to cart,200,OK,Spike Burst 2-9,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,4,0,0,3,51,null
+1795000743656,6,01 Login,200,OK,Spike Burst 2-4,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,6,0,0,4,61,null
+1795000743670,2,04 Add to cart,200,OK,Spike Burst 2-6,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,48,null
+1795000743670,3,04 Add to cart,200,OK,Spike Burst 2-10,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,54,null
+1795000743671,3,03 Product detail,200,OK,Spike Burst 2-5,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,55,null
+1795000743686,3,02 Search products,200,OK,Spike Burst 2-11,text,true,,450,202,14,16,http://127.0.0.1:3000/api/products?search=MacBook,3,0,0,3,60,null
+1795000743718,2,01 Login,200,OK,Spike Burst 2-1,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,4,62,null
+1795000743748,1,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,448,189,2,16,http://127.0.0.1:3000/api/products/3,1,0,0,3,59,null
+1795000743780,2,03 Product detail,200,OK,Spike Burst 2-12,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,2,0,0,3,58,null
+1795000743875,2,01 Login,200,OK,Spike Burst 2-2,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,4,63,null
+1795000743906,1,04 Add to cart,200,OK,Spike Burst 2-13,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,1,0,0,3,57,null
+1795000743906,2,04 Add to cart,200,OK,Spike Burst 2-7,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,56,null
+1795000743937,2,04 Add to cart,200,OK,Spike Burst 2-14,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,53,null
+1795000743969,9,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,470,2,16,http://127.0.0.1:3000/api/checkout,9,0,0,3,50,46
+1795000743984,2,02 Search products,200,OK,Spike Burst 2-4,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,61,null
+1795000744015,12,05 Checkout,200,OK,Spike Burst 2-9,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,3,51,47
+1795000744031,9,05 Checkout,200,OK,Spike Burst 2-10,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,9,0,0,3,54,48
+1795000744047,8,05 Checkout,200,OK,Spike Burst 2-6,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,8,0,0,3,48,49
+1795000744141,2,04 Add to cart,200,OK,Spike Burst 2-5,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,55,null
+1795000744141,3,02 Search products,200,OK,Spike Burst 2-1,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,62,null
+1795000744173,11,05 Checkout,200,OK,Spike Burst 2-3,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,3,49,50
+1795000744188,3,03 Product detail,200,OK,Spike Burst 2-11,text,true,,448,189,14,16,http://127.0.0.1:3000/api/products/3,3,0,0,3,60,null
+1795000744250,14,05 Checkout,200,OK,Spike Burst 2-8,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,14,0,0,3,52,51
+1795000744281,3,02 Search products,200,OK,Spike Burst 2-2,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,63,null
+1795000744297,1,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,425,2,16,http://127.0.0.1:3000/api/cart,1,0,0,3,59,null
+1795000744343,16,05 Checkout,200,OK,Spike Burst 2-14,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,16,0,0,3,53,52
+1795000744374,2,04 Add to cart,200,OK,Spike Burst 2-12,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,58,null
+1795000744374,3,01 Login,200,OK,Spike Baseline 1-2,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,3,0,0,4,64,null
+1795000744389,2,01 Login,200,OK,Spike Burst 2-9,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,4,65,null
+1795000744435,16,05 Checkout,200,OK,Spike Burst 2-13,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,16,0,0,3,57,53
+1795000744466,2,03 Product detail,200,OK,Spike Burst 2-4,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,61,null
+1795000744481,15,05 Checkout,200,OK,Spike Burst 2-7,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,15,0,0,3,56,54
+1795000744513,2,01 Login,200,OK,Spike Burst 2-10,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,4,66,null
+1795000744528,2,04 Add to cart,200,OK,Spike Burst 2-11,text,true,,294,425,14,16,http://127.0.0.1:3000/api/cart,2,0,0,3,60,null
+1795000744622,5,01 Login,200,OK,Spike Burst 2-6,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,4,67,null
+1795000744622,12,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,470,2,16,http://127.0.0.1:3000/api/checkout,12,0,0,3,59,55
+1795000744622,12,03 Product detail,200,OK,Spike Burst 2-1,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,12,0,0,4,62,null
+1795000744654,3,01 Login,200,OK,Spike Burst 2-8,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,4,69,null
+1795000744700,9,05 Checkout,200,OK,Spike Burst 2-5,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,9,0,0,3,55,56
+1795000744731,2,01 Login,200,OK,Spike Burst 2-3,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,4,68,null
+1795000744746,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,461,202,2,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,64,null
+1795000744824,2,02 Search products,200,OK,Spike Burst 2-9,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,65,null
+1795000744855,1,04 Add to cart,200,OK,Spike Burst 2-4,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,1,0,0,4,61,null
+1795000744871,2,01 Login,200,OK,Spike Burst 2-13,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,4,71,null
+1795000744886,3,03 Product detail,200,OK,Spike Burst 2-2,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,3,0,0,4,63,null
+1795000744886,4,01 Login,200,OK,Spike Burst 2-7,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,4,72,null
+1795000744901,4,01 Login,200,OK,Spike Burst 2-14,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,4,70,null
+1795000744963,10,05 Checkout,200,OK,Spike Burst 2-12,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,10,0,0,3,58,57
+1795000744995,3,02 Search products,200,OK,Spike Burst 2-10,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,66,null
+1795000745010,3,02 Search products,200,OK,Spike Burst 2-8,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,69,null
+1795000745042,1,04 Add to cart,200,OK,Spike Burst 2-1,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,1,0,0,4,62,null
+1795000745042,4,01 Login,200,OK,Spike Baseline 1-1,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,4,0,0,4,73,null
+1795000745042,12,05 Checkout,200,OK,Spike Burst 2-11,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,3,60,58
+1795000745042,14,01 Login,200,OK,Spike Burst 2-5,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,14,0,0,4,74,null
+1795000745149,3,02 Search products,200,OK,Spike Burst 2-6,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,67,null
+1795000745181,3,03 Product detail,200,OK,Spike Burst 2-9,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,3,0,0,4,65,null
+1795000745197,3,02 Search products,200,OK,Spike Burst 2-3,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,68,null
+1795000745260,3,02 Search products,200,OK,Spike Burst 2-14,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,70,null
+1795000745307,4,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,461,189,2,16,http://127.0.0.1:3000/api/products/4,4,0,0,4,64,null
+1795000745307,4,03 Product detail,200,OK,Spike Burst 2-10,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,4,0,0,4,66,null
+1795000745340,3,03 Product detail,200,OK,Spike Burst 2-8,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,3,0,0,4,69,null
+1795000745385,3,04 Add to cart,200,OK,Spike Burst 2-2,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,3,0,0,4,63,null
+1795000745385,13,05 Checkout,200,OK,Spike Burst 2-1,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,13,0,0,4,62,59
+1795000745385,14,01 Login,200,OK,Spike Burst 2-11,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,14,0,0,4,76,null
+1795000745417,2,02 Search products,200,OK,Spike Burst 2-13,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,71,null
+1795000745448,16,05 Checkout,200,OK,Spike Burst 2-4,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,16,0,0,4,61,60
+1795000745495,2,02 Search products,200,OK,Spike Burst 2-7,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,72,null
+1795000745542,2,01 Login,200,OK,Spike Burst 2-12,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,4,75,null
+1795000745573,2,03 Product detail,200,OK,Spike Burst 2-14,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,70,null
+1795000745621,1,04 Add to cart,200,OK,Spike Burst 2-9,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,1,0,0,4,65,null
+1795000745637,3,03 Product detail,200,OK,Spike Burst 2-3,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,3,0,0,4,68,null
+1795000745637,3,02 Search products,200,OK,Spike Burst 2-5,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,74,null
+1795000745652,3,02 Search products,200,OK,Spike Baseline 1-1,text,true,,461,202,2,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,73,null
+1795000745668,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,432,2,16,http://127.0.0.1:3000/api/cart,2,0,0,4,64,null
+1795000745668,2,03 Product detail,200,OK,Spike Burst 2-6,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,2,0,0,4,67,null
+1795000745746,1,04 Add to cart,200,OK,Spike Burst 2-10,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,1,0,0,4,66,null
+1795000745746,1,04 Add to cart,200,OK,Spike Burst 2-8,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,1,0,0,4,69,null
+1795000745761,4,01 Login,200,OK,Spike Burst 2-1,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,5,77,null
+1795000745808,4,03 Product detail,200,OK,Spike Burst 2-13,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,4,0,0,4,71,null
+1795000745871,11,05 Checkout,200,OK,Spike Burst 2-2,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,4,63,61
+1795000745918,3,02 Search products,200,OK,Spike Burst 2-11,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,3,0,0,4,76,null
+1795000745966,1,03 Product detail,200,OK,Spike Burst 2-5,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,1,0,0,4,74,null
+1795000745996,3,01 Login,200,OK,Spike Burst 2-4,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,5,78,null
+1795000746011,2,02 Search products,200,OK,Spike Burst 2-12,text,true,,461,202,14,16,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,75,null
+1795000746043,1,04 Add to cart,200,OK,Spike Burst 2-6,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,1,0,0,4,67,null
+1795000746058,2,04 Add to cart,200,OK,Spike Burst 2-14,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,2,0,0,4,70,null
+1795000746058,3,04 Add to cart,200,OK,Spike Burst 2-3,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,3,0,0,4,68,null
+1795000746058,3,03 Product detail,200,OK,Spike Burst 2-7,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,3,0,0,4,72,null
+1795000746073,13,05 Checkout,200,OK,Spike Burst 2-10,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,13,0,0,4,66,62
+1795000746120,11,05 Checkout,200,OK,Spike Burst 2-9,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,4,65,63
+1795000746152,10,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,471,2,16,http://127.0.0.1:3000/api/checkout,10,0,0,4,64,64
+1795000746152,11,02 Search products,200,OK,Spike Burst 2-1,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,11,0,0,5,77,null
+1795000746215,5,04 Add to cart,200,OK,Spike Burst 2-13,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,5,0,0,4,71,null
+1795000746231,3,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,461,189,2,16,http://127.0.0.1:3000/api/products/4,3,0,0,4,73,null
+1795000746310,2,02 Search products,200,OK,Spike Burst 2-4,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,78,null
+1795000746325,10,05 Checkout,200,OK,Spike Burst 2-8,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,10,0,0,4,69,65
+1795000746357,2,04 Add to cart,200,OK,Spike Burst 2-5,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,2,0,0,4,74,null
+1795000746404,10,05 Checkout,200,OK,Spike Burst 2-6,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,10,0,0,4,67,66
+1795000746436,3,01 Login,200,OK,Spike Burst 2-2,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,5,79,null
+1795000746436,5,03 Product detail,200,OK,Spike Burst 2-12,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,5,0,0,4,75,null
+1795000746515,4,01 Login,200,OK,Spike Burst 2-9,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,5,81,null
+1795000746515,4,03 Product detail,200,OK,Spike Burst 2-11,text,true,,461,189,14,16,http://127.0.0.1:3000/api/products/4,4,0,0,4,76,null
+1795000746546,3,01 Login,200,OK,Spike Burst 2-10,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,5,80,null
+1795000746608,4,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,432,2,16,http://127.0.0.1:3000/api/cart,4,0,0,4,73,null
+1795000746608,15,05 Checkout,200,OK,Spike Burst 2-13,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,14,0,0,4,71,67
+1795000746624,11,05 Checkout,200,OK,Spike Burst 2-3,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,4,68,68
+1795000746639,13,05 Checkout,200,OK,Spike Burst 2-14,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,4,70,69
+1795000746670,3,04 Add to cart,200,OK,Spike Burst 2-7,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,3,0,0,4,72,null
+1795000746671,4,01 Login,200,OK,Spike Baseline 1-2,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,4,0,0,5,82,null
+1795000746686,3,01 Login,200,OK,Spike Burst 2-8,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,5,83,null
+1795000746702,12,05 Checkout,200,OK,Spike Burst 2-5,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,12,0,0,4,74,70
+1795000746718,2,03 Product detail,200,OK,Spike Burst 2-4,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,78,null
+1795000746733,3,03 Product detail,200,OK,Spike Burst 2-1,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,3,0,0,5,77,null
+1795000746748,3,02 Search products,200,OK,Spike Burst 2-2,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,79,null
+1795000746811,1,04 Add to cart,200,OK,Spike Burst 2-12,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,1,0,0,4,75,null
+1795000746874,2,04 Add to cart,200,OK,Spike Burst 2-11,text,true,,294,432,14,16,http://127.0.0.1:3000/api/cart,2,0,0,4,76,null
+1795000746920,3,02 Search products,200,OK,Spike Burst 2-10,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,80,null
+1795000746997,3,02 Search products,200,OK,Spike Burst 2-8,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,83,null
+1795000746997,5,01 Login,200,OK,Spike Burst 2-6,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,5,0,0,5,84,null
+1795000747028,2,02 Search products,200,OK,Spike Burst 2-9,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,81,null
+1795000747030,3,01 Login,200,OK,Spike Burst 2-3,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,3,0,0,5,86,null
+1795000747059,2,04 Add to cart,200,OK,Spike Burst 2-1,text,true,,294,448,14,16,http://127.0.0.1:3000/api/cart,2,0,0,5,77,null
+1795000747075,3,02 Search products,200,OK,Spike Baseline 1-2,text,true,,469,203,2,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,82,null
+1795000747090,4,01 Login,200,OK,Spike Burst 2-14,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,5,87,null
+1795000747105,11,05 Checkout,200,OK,Spike Burst 2-7,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,4,72,71
+1795000747120,6,01 Login,200,OK,Spike Burst 2-13,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,6,0,0,5,85,null
+1795000747152,4,03 Product detail,200,OK,Spike Burst 2-2,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,4,0,0,5,79,null
+1795000747168,13,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,471,2,16,http://127.0.0.1:3000/api/checkout,13,0,0,4,73,72
+1795000747231,16,05 Checkout,200,OK,Spike Burst 2-12,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,16,0,0,4,75,73
+1795000747278,1,04 Add to cart,200,OK,Spike Burst 2-4,text,true,,294,448,14,16,http://127.0.0.1:3000/api/cart,1,0,0,5,78,null
+1795000747278,2,01 Login,200,OK,Spike Burst 2-5,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,5,88,null
+1795000747387,2,03 Product detail,200,OK,Spike Burst 2-8,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,83,null
+1795000747387,3,02 Search products,200,OK,Spike Burst 2-6,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,84,null
+1795000747387,3,03 Product detail,200,OK,Spike Burst 2-10,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,3,0,0,5,80,null
+1795000747402,9,05 Checkout,200,OK,Spike Burst 2-1,text,true,,313,469,14,16,http://127.0.0.1:3000/api/checkout,9,0,0,5,77,74
+1795000747418,3,02 Search products,200,OK,Spike Burst 2-3,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,3,0,0,5,86,null
+1795000747418,11,05 Checkout,200,OK,Spike Burst 2-11,text,true,,313,472,14,16,http://127.0.0.1:3000/api/checkout,11,0,0,4,76,75
+1795000747434,2,02 Search products,200,OK,Spike Burst 2-14,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,87,null
+1795000747464,2,03 Product detail,200,OK,Spike Burst 2-9,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,81,null
+1795000747558,2,01 Login,200,OK,Spike Baseline 1-1,text,true,,683,286,2,16,http://127.0.0.1:3000/api/login,2,0,0,5,90,null
+1795000747573,1,04 Add to cart,200,OK,Spike Burst 2-2,text,true,,294,448,14,16,http://127.0.0.1:3000/api/cart,1,0,0,5,79,null
+1795000747588,2,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,467,189,2,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,82,null
+1795000747665,13,05 Checkout,200,OK,Spike Burst 2-4,text,true,,313,469,14,16,http://127.0.0.1:3000/api/checkout,13,0,0,5,78,76
+1795000747666,13,02 Search products,200,OK,Spike Burst 2-13,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,13,0,0,5,85,null
+1795000747681,4,01 Login,200,OK,Spike Burst 2-7,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,5,89,null
+1795000747681,6,01 Login,200,OK,Spike Burst 2-12,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,6,0,0,5,91,null
+1795000747759,2,04 Add to cart,200,OK,Spike Burst 2-8,text,true,,294,448,14,16,http://127.0.0.1:3000/api/cart,2,0,0,5,83,null
+1795000747760,2,01 Login,200,OK,Spike Burst 2-1,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,1,92,null
+1795000747807,2,02 Search products,200,OK,Spike Burst 2-5,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,88,null
+1795000747854,1,04 Add to cart,200,OK,Spike Burst 2-10,text,true,,294,448,14,16,http://127.0.0.1:3000/api/cart,1,0,0,5,80,null
+1795000747854,2,03 Product detail,200,OK,Spike Burst 2-6,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,2,0,0,5,84,null
+1795000747885,1,04 Add to cart,200,OK,Spike Burst 2-9,text,true,,294,448,14,16,http://127.0.0.1:3000/api/cart,1,0,0,5,81,null
+1795000747931,8,05 Checkout,200,OK,Spike Burst 2-2,text,true,,313,469,14,16,http://127.0.0.1:3000/api/checkout,8,0,0,5,79,77
+1795000747962,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,448,2,16,http://127.0.0.1:3000/api/cart,2,0,0,5,82,null
+1795000747962,4,01 Login,200,OK,Spike Burst 2-11,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,4,0,0,5,93,null
+1795000747978,2,03 Product detail,200,OK,Spike Burst 2-3,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,1,0,0,5,86,null
+1795000747994,3,03 Product detail,200,OK,Spike Burst 2-14,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,3,0,0,5,87,null
+1795000747994,4,03 Product detail,200,OK,Spike Burst 2-13,text,true,,467,189,14,16,http://127.0.0.1:3000/api/products/5,4,0,0,5,85,null
+1795000748010,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,469,203,2,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,90,null
+1795000748010,2,02 Search products,200,OK,Spike Burst 2-7,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,89,null
+1795000748072,2,02 Search products,200,OK,Spike Burst 2-12,text,true,,469,203,14,16,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,91,null
+1795000748136,2,02 Search products,200,OK,Spike Burst 2-1,text,true,,453,201,14,16,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,92,null
+1795000748167,2,01 Login,200,OK,Spike Burst 2-4,text,true,,683,286,14,16,http://127.0.0.1:3000/api/login,2,0,0,1,94,null
+1795000748292,8,05 Checkout,200,OK,Spike Burst 2-8,text,true,,313,469,14,16,http://127.0.0.1:3000/api/checkout,8,0,0,5,83,78
+1795000748324,2,03 Product detail,200,OK,Spike Burst 2-7,text,true,,467,189,13,15,http://127.0.0.1:3000/api/products/5,2,0,0,5,89,null
+1795000748339,2,03 Product detail,200,OK,Spike Burst 2-5,text,true,,467,189,12,14,http://127.0.0.1:3000/api/products/5,2,0,0,5,88,null
+1795000748339,2,02 Search products,200,OK,Spike Burst 2-11,text,true,,469,203,12,14,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,93,null
+1795000748355,2,04 Add to cart,200,OK,Spike Burst 2-14,text,true,,294,448,10,12,http://127.0.0.1:3000/api/cart,2,0,0,5,87,null
+1795000748355,2,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,467,189,2,12,http://127.0.0.1:3000/api/products/5,2,0,0,5,90,null
+1795000748371,2,01 Login,200,OK,Spike Burst 2-2,text,true,,683,286,9,11,http://127.0.0.1:3000/api/login,2,0,0,1,95,null
+1795000748433,1,03 Product detail,200,OK,Spike Burst 2-12,text,true,,467,189,8,10,http://127.0.0.1:3000/api/products/5,1,0,0,5,91,null
+1795000748448,3,04 Add to cart,200,OK,Spike Burst 2-6,text,true,,294,448,7,9,http://127.0.0.1:3000/api/cart,3,0,0,5,84,null
+1795000748448,15,05 Checkout,200,OK,Spike Burst 2-9,text,true,,313,469,6,8,http://127.0.0.1:3000/api/checkout,15,0,0,5,81,79
+1795000748448,23,05 Checkout,200,OK,Spike Burst 2-10,text,true,,313,469,5,7,http://127.0.0.1:3000/api/checkout,23,0,0,5,80,80
+1795000748510,2,04 Add to cart,200,OK,Spike Burst 2-3,text,true,,294,448,4,6,http://127.0.0.1:3000/api/cart,2,0,0,5,86,null
+1795000748526,3,04 Add to cart,200,OK,Spike Burst 2-13,text,true,,294,448,3,5,http://127.0.0.1:3000/api/cart,3,0,0,5,85,null
+1795000748526,4,03 Product detail,200,OK,Spike Burst 2-1,text,true,,451,189,3,5,http://127.0.0.1:3000/api/products/1,4,0,0,1,92,null
+1795000748557,10,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,472,2,3,http://127.0.0.1:3000/api/checkout,10,0,0,5,82,81
+1795000748588,3,02 Search products,200,OK,Spike Burst 2-4,text,true,,453,201,1,3,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,94,null
+1795000748726,3,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,448,2,2,http://127.0.0.1:3000/api/cart,3,0,0,5,90,null
+1795000748883,2,01 Login,200,OK,Spike Baseline 1-2,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,1,103,null
+1795000749336,10,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,472,2,2,http://127.0.0.1:3000/api/checkout,10,0,0,5,90,82
+1795000749398,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,103,null
+1795000749865,2,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,2,0,0,1,103,null
+1795000749944,2,01 Login,200,OK,Spike Baseline 1-1,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,1,0,0,1,104,null
+1795000750428,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,429,2,2,http://127.0.0.1:3000/api/cart,2,0,0,1,103,null
+1795000750428,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,104,null
+1795000750896,12,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,471,2,2,http://127.0.0.1:3000/api/checkout,12,0,0,1,103,83
+1795000750957,2,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,2,0,0,1,104,null
+1795000751222,2,01 Login,200,OK,Spike Baseline 1-2,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,2,105,null
+1795000751285,3,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,429,2,2,http://127.0.0.1:3000/api/cart,3,0,0,1,104,null
+1795000751647,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,480,201,2,2,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,105,null
+1795000751834,12,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,471,2,2,http://127.0.0.1:3000/api/checkout,12,0,0,1,104,84
+1795000752053,1,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,480,189,2,2,http://127.0.0.1:3000/api/products/2,1,0,0,2,105,null
+1795000752319,2,01 Login,200,OK,Spike Baseline 1-1,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,2,106,null
+1795000752474,1,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,436,2,2,http://127.0.0.1:3000/api/cart,1,0,0,2,105,null
+1795000752708,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,480,201,2,2,http://127.0.0.1:3000/api/products?search=Galaxy,2,0,0,2,106,null
+1795000752880,10,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,473,2,2,http://127.0.0.1:3000/api/checkout,10,0,0,2,105,85
+1795000753100,1,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,480,189,2,2,http://127.0.0.1:3000/api/products/2,1,0,0,2,106,null
+1795000753393,2,01 Login,200,OK,Spike Baseline 1-2,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,3,107,null
+1795000753706,1,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,436,2,2,http://127.0.0.1:3000/api/cart,1,0,0,2,106,null
+1795000753737,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,450,202,2,2,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,107,null
+1795000754080,9,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,473,2,2,http://127.0.0.1:3000/api/checkout,9,0,0,2,106,86
+1795000754095,2,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,448,189,2,2,http://127.0.0.1:3000/api/products/3,2,0,0,3,107,null
+1795000754498,3,01 Login,200,OK,Spike Baseline 1-1,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,3,108,null
+1795000754592,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,2,0,0,3,107,null
+1795000754905,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,450,202,2,2,http://127.0.0.1:3000/api/products?search=MacBook,2,0,0,3,108,null
+1795000755013,13,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,474,2,2,http://127.0.0.1:3000/api/checkout,13,0,0,3,107,87
+1795000755371,4,01 Login,200,OK,Spike Baseline 1-2,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,4,0,0,4,109,null
+1795000755449,2,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,448,189,2,2,http://127.0.0.1:3000/api/products/3,2,0,0,3,108,null
+1795000755871,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,461,202,2,2,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,109,null
+1795000756042,1,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,1,0,0,3,108,null
+1795000756432,1,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,461,189,2,2,http://127.0.0.1:3000/api/products/4,1,0,0,4,109,null
+1795000756632,12,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,474,2,2,http://127.0.0.1:3000/api/checkout,12,0,0,3,108,88
+1795000756988,1,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,433,2,2,http://127.0.0.1:3000/api/cart,1,0,0,4,109,null
+1795000757175,3,01 Login,200,OK,Spike Baseline 1-1,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,4,110,null
+1795000757578,9,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,471,2,2,http://127.0.0.1:3000/api/checkout,9,0,0,4,109,89
+1795000757765,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,461,202,2,2,http://127.0.0.1:3000/api/products?search=AirPods,2,0,0,4,110,null
+1795000758093,1,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,461,189,2,2,http://127.0.0.1:3000/api/products/4,1,0,0,4,110,null
+1795000758156,2,01 Login,200,OK,Spike Baseline 1-2,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,5,111,null
+1795000758562,1,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,433,2,2,http://127.0.0.1:3000/api/cart,1,0,0,4,110,null
+1795000758562,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,469,203,2,2,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,111,null
+1795000758969,1,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,467,189,2,2,http://127.0.0.1:3000/api/products/5,1,0,0,5,111,null
+1795000758983,10,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,471,2,2,http://127.0.0.1:3000/api/checkout,10,0,0,4,110,90
+1795000759451,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,449,2,2,http://127.0.0.1:3000/api/cart,2,0,0,5,111,null
+1795000759592,3,01 Login,200,OK,Spike Baseline 1-1,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,5,112,null
+1795000759905,8,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,472,2,2,http://127.0.0.1:3000/api/checkout,8,0,0,5,111,91
+1795000759968,2,02 Search products,200,OK,Spike Baseline 1-1,text,true,,469,203,2,2,http://127.0.0.1:3000/api/products?search=Keychron,2,0,0,5,112,null
+1795000760360,1,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,467,189,2,2,http://127.0.0.1:3000/api/products/5,1,0,0,5,112,null
+1795000760517,2,01 Login,200,OK,Spike Baseline 1-2,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,1,113,null
+1795000760797,1,04 Add to cart,200,OK,Spike Baseline 1-1,text,true,,294,449,2,2,http://127.0.0.1:3000/api/cart,1,0,0,5,112,null
+1795000761078,2,02 Search products,200,OK,Spike Baseline 1-2,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,113,null
+1795000761219,10,05 Checkout,200,OK,Spike Baseline 1-1,text,true,,313,472,2,2,http://127.0.0.1:3000/api/checkout,10,0,0,5,112,92
+1795000761390,3,03 Product detail,200,OK,Spike Baseline 1-2,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,3,0,0,1,113,null
+1795000761749,2,04 Add to cart,200,OK,Spike Baseline 1-2,text,true,,294,429,2,2,http://127.0.0.1:3000/api/cart,2,0,0,1,113,null
+1795000761811,3,01 Login,200,OK,Spike Baseline 1-1,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,3,0,0,1,114,null
+1795000762184,9,05 Checkout,200,OK,Spike Baseline 1-2,text,true,,313,474,2,2,http://127.0.0.1:3000/api/checkout,9,0,0,1,113,93
+1795000762262,1,02 Search products,200,OK,Spike Baseline 1-1,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,1,0,0,1,114,null
+1795000762664,2,01 Login,200,OK,Spike Baseline 1-2,text,true,,685,286,2,2,http://127.0.0.1:3000/api/login,2,0,0,2,115,null
+1795000762695,2,03 Product detail,200,OK,Spike Baseline 1-1,text,true,,451,189,1,1,http://127.0.0.1:3000/api/products/1,2,0,0,1,114,null

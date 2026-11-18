@@ -1,0 +1,11 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect,"fixture_product_id","authenticated_user_id","order_id"
+1795000775383,25,01 Login,200,OK,Stress Band 1 1-1,text,true,,680,286,1,1,http://127.0.0.1:3000/api/login,24,0,15,1,3,null
+1795000775742,6,01 Login,200,OK,Stress Band 1 1-2,text,true,,680,286,2,2,http://127.0.0.1:3000/api/login,6,0,1,1,4,null
+1795000775986,3,02 Search products,200,OK,Stress Band 1 1-1,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,3,0,0,1,3,null
+1795000776254,2,02 Search products,200,OK,Stress Band 1 1-2,text,true,,453,201,2,2,http://127.0.0.1:3000/api/products?search=iPhone,2,0,0,1,4,null
+1795000776589,6,03 Product detail,200,OK,Stress Band 1 1-2,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,6,0,0,1,4,null
+1795000776558,4,03 Product detail,200,OK,Stress Band 1 1-1,text,true,,451,189,2,2,http://127.0.0.1:3000/api/products/1,4,0,0,1,3,null
+1795000777089,8,04 Add to cart,200,OK,Stress Band 1 1-2,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,8,0,0,1,4,null
+1795000777243,3,04 Add to cart,200,OK,Stress Band 1 1-1,text,true,,294,426,2,2,http://127.0.0.1:3000/api/cart,3,0,0,1,3,null
+1795000777603,10,05 Checkout,200,OK,Stress Band 1 1-1,text,true,,312,471,2,2,http://127.0.0.1:3000/api/checkout,10,0,0,1,3,1
+1795000777744,12,05 Checkout,200,OK,Stress Band 1 1-2,text,true,,312,471,2,2,http://127.0.0.1:3000/api/checkout,12,0,0,1,4,2

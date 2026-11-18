@@ -6,4 +6,16 @@ EShop upstream baseline (SHA, author date, subject)
 first upload
 
 HW05 commits after the baseline
-(none at T00)
+a2a1b002799204cd17b875732e4f26874b661708
+2026-11-18T14:00:43+07:00
+docs(hw05): set up performance testing workspace
+
+f06edcde2fe138f2beb00c1a8a0b79bbf1b1fd03
+2026-11-18T15:28:02+07:00
+docs(hw05): record workflow and smoke test environment
+
+d14eaad06a510657c90de816ea1348e1176bc958
+2026-11-18T16:39:53+07:00
+test(hw05): add data-driven load plan
+
+Lịch sử đến T02. Xuất đầy đủ từ Git ở T08.

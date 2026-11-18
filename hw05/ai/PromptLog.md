@@ -665,3 +665,216 @@ Mình sẽ đổi mặc định sang `../data/load-credentials.csv` và chạy m
 ```text
 Pilot dùng CSV mặc định trong repo đã đạt **47/47 sample** mà không truyền `hw05.credentials`. Lượt dùng CSV thay thế cũng xác nhận VU chuyển vòng sau lỗi assertion và dừng tại EOF. Mình sẽ lưu hai kết quả này và đối chiếu các link review trong Audit trước khi commit.
 ```
+
+Phạm vi: T03 — Stress + Spike plan
+
+<a id="msg-3b62ffae9cdb709ff684"></a>
+
+## P-011
+
+- Timestamp: 17:41:37 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Bắt đầu T03 — Stress + Spike plan. Làm theo quy trình mỗi task: làm xong dừng chờ mình review, chưa commit.\
+\
+Việc cần làm:\
+1\. Dùng cùng workflow, cùng bộ CSV (credentials, product, payload) và cùng cấu trúc assertion/correlation với plan Load. Tên plan: 23120410_Stress_20261118.jmx và 23120410_Spike_20261118.jmx (nếu ngày làm hoặc chạy khác 20261118 thì hỏi mình trước).\
+2\. Dẫn AI từng bước chọn mô hình tải có lý giải dựa trên môi trường ở Environment.md và kết quả pilot:\
+&#x20;  \- Stress: tăng dần số VU theo các bậc cho tới khi có dấu hiệu quá tải (latency tăng, lỗi xuất hiện) hoặc chạm mức trần hợp lý của máy, ghi rõ tiêu chí dừng.\
+&#x20;  \- Spike: tải nền thấp rồi tăng đột ngột lên đỉnh, giữ ngắn, rồi hạ về nền để quan sát hồi phục.\
+3\. Ba plan phải dùng ba loại listener khác nhau. Load đang dùng Summary Report; chọn hai loại còn lại (ví dụ Aggregate Report và View Results Tree, hoặc loại khác), ghi rõ loại nào cho Stress, loại nào cho Spike, và lưu ý View Results Tree chỉ dùng cho pilot nhỏ hoặc cấu hình nhẹ, không để làm lệch số đo ở lượt chạy thật.\
+4\. Tính lại số tài khoản credentials cần cho Stress và Spike (cùng cách tính ở Load_Plan.md). Nếu 1.250 dòng chưa đủ thì bổ sung và đăng ký thêm.\
+5\. Viết quy trình reset khóa tài khoản và reset giữa các lượt, dựa trên thao tác đã kiểm chứng ở T01 (reset riêng tài khoản bằng SQLite và restart backend), ghi rõ khi nào dùng cách nào và kiểm chứng lại đã sạch trước mỗi lượt.\
+6\. Lưu bản AI đầu trước khi sửa, ghi danh sách AI sai hoặc sót kèm nguyên nhân, rồi sửa. Chạy thử nhỏ từng plan (vài VU, ngắn) để kiểm tra, ghi kết quả thật.\
+7\. Ghi các lượt tương tác vào Prompt Log. Chưa commit, chưa push. Dừng báo mình review.
+```
+
+<a id="msg-440b427b399baf88b48a"></a>
+
+### Output
+
+#### Phản hồi 1 — 17:41:40 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đối chiếu plan Load và số liệu pilot để chọn các bậc Stress, pha Spike và ngân sách tài khoản. Sau khi thử cả hai plan trên backend local, mình sẽ lưu bằng chứng và dừng ở bước review. Mình dùng skill `course-ai-log` để ghi các lượt trao đổi T03.
+```
+
+<a id="msg-b8ce2d7d76d699197e4a"></a>
+
+#### Phản hồi 2 — 17:42:33 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đường dẫn tuyệt đối trên máy được đổi thành đường dẫn tương đối trong repo.
+
+```text
+Pilot Load đo được trung vị 7,852 giây cho một vòng. Mình giữ think-time 1–2 giây để so sánh được giữa các plan, chọn Stress tăng 6 VU mỗi bậc đến trần thử nghiệm 24, và Spike giữ nền 3 VU rồi cộng 15 VU trong 20 giây. Các mức này dùng để kiểm tra tải trên máy hiện tại, còn ngưỡng quá tải sẽ dựa vào số đo ở T04. [Số liệu pilot Load](../Load_Plan.md)
+```
+
+<a id="msg-5a932c2e610805e2c909"></a>
+
+#### Phản hồi 3 — 17:46:40 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Lượt Stress đầu đạt các bậc VU dự kiến. JTL cũng cho thấy các thread bắt đầu kết thúc lệch nhau trong khoảng hai giây cuối, nên mình đã thu cửa sổ kiểm tra tải ổn định vào giữa bậc và chạy lại. Mình sẽ kiểm tra cả lệnh dừng sớm để xác nhận các bậc đang chờ không phát request sau khi dừng.
+```
+
+<a id="msg-5784672ac5ca181f819a"></a>
+
+#### Phản hồi 4 — 17:49:38 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đường dẫn tuyệt đối trên máy được đổi thành đường dẫn tương đối trong repo.
+
+```text
+Cả hai pilot đã đạt. Stress ghi 77/77 sample đạt qua các bậc 1 → 2 → 3 → 4 VU. Spike ghi 39/39 sample đạt với nhịp 1 → 3 → 1 VU. Mọi checkout đều khớp SQLite, và phép thử Shutdown xác nhận ba nhóm đang chờ không phát request. [Bằng chứng T03](../evidence/t03-pilots.json)
+```
+
+<a id="msg-a6a6eab27dc0dc37fbdf"></a>
+
+#### Phản hồi 5 — 17:50:09 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đường dẫn tuyệt đối trên máy được đổi thành đường dẫn tương đối trong repo.
+
+```text
+T03 đã xong và đang chờ Vỹ review. Chưa commit, chưa push.
+
+| Plan | Cấu hình mặc định | Listener | Kết quả pilot |
+| --- | --- | --- | --- |
+| [Stress](../plans/23120410_Stress_20261118.jmx) | 6 → 12 → 18 → 24 VU, mỗi bậc 60 giây | Aggregate Report | 77/77 sample đạt, 14 đơn khớp SQLite |
+| [Spike](../plans/23120410_Spike_20261118.jmx) | 3 VU nền, lên 18 VU trong 20 giây, về 3 VU trong 70 giây | Response Time Graph | 39/39 sample đạt, 6 đơn khớp SQLite |
+
+Hai plan dùng chung workflow, CSV, assertion và correlation của Load. Dự trù **828 tài khoản cho Stress** và **192 cho Spike**, đều nằm trong bộ 1.250 dòng hiện có. Pilot xác nhận không trùng ID login giữa các nhóm, không gặp EOF và lệnh Shutdown dừng Stress trước khi các bậc đang chờ phát request. [Bằng chứng pilot](../evidence/t03-pilots.json)
+
+Đã lưu bản AI đầu và ghi các chỗ sửa về cách tính tài khoản, phạm vi listener và tiêu chí dừng. Tài liệu có quy trình reset, kiểm tra SQLite trước mỗi lượt và lệnh chạy lại. Ngưỡng quá tải và thời gian hồi phục sẽ được đo ở T04. [Tài liệu T03](../Stress_Spike_Plans.md) · [Prompt Log P-011](../ai/PromptLog.md:673)
+```
+
+<a id="msg-bf369d22a5455e250d29"></a>
+
+## P-012
+
+- Timestamp: 18:09:02 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình review T03, chưa duyệt, sửa các điểm sau:\
+1\. Listener của Stress (Aggregate Report) và Spike (Response Time Graph) đang để disabled. Đề yêu cầu dùng ba loại listener khác nhau trong ba plan, nên bật cả hai (enabled) để người chấm thấy ngay trong plan. Nếu bật làm tốn bộ nhớ ở lượt dài thì ghi rõ cách giảm (không lưu body, khoảng gộp), không tắt listener.\
+2\. Mức tải hiện tại quá nhẹ để gọi là Stress và Spike. Ở 24 VU và khoảng 7,85 giây mỗi vòng, tải chỉ khoảng 15 request/giây, nhiều khả năng backend không quá tải và tiêu chí dừng không bao giờ kích hoạt. Spike 3 → 18 VU cũng chỉ gấp 6 lần nền. Thêm một bước hiệu chỉnh ngắn trước khi chốt: chạy thăm dò tăng dần số VU (hoặc giảm think-time) để tìm điểm bão hòa của máy (latency tăng, lỗi, hoặc CPU cao), ghi số đo thật. Rồi đặt các bậc Stress và đỉnh Spike theo kết quả đó, có lý giải, và tính lại số tài khoản (đăng ký thêm nếu cần). Nếu hiệu chỉnh cho thấy máy vẫn chưa bão hòa ở mức hợp lý thì nêu rõ giới hạn đó và vì sao dừng ở mức đã chọn.\
+3\. Cập nhật pilot, Stress_Spike_Plans.md và bằng chứng cho khớp bản sửa. Dừng báo mình review, chưa commit.
+```
+
+<a id="msg-c9061d8050142bdd064c"></a>
+
+### Output
+
+#### Phản hồi 1 — 18:09:06 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ bật hai listener rồi chạy thăm dò trên backend local để đo VU thực tế, throughput, p95, lỗi và CPU. Mình sẽ dùng số đo để chọn lại các bậc Stress và đỉnh Spike, tính lại số tài khoản, rồi chạy pilot trên hai plan đã sửa trước khi gửi Vỹ review.
+```
+
+<a id="msg-22af6cd9cc699aa09534"></a>
+
+#### Phản hồi 2 — 18:12:32 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Thăm dò với think-time 1–2 giây ghi nhận 16,27 request/giây ở 24 VU. Ở 144 VU, tải đạt 95,18 request/giây, p95 checkout là 28 ms và không có lỗi trong toàn lượt. Mình đang chạy lượt thứ hai với think-time 300–600 ms để xem tải dày hơn có làm độ trễ tăng hoặc throughput chững lại.
+```
+
+<a id="msg-41248370e9f45ef8f105"></a>
+
+#### Phản hồi 3 — 18:15:32 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Ở lượt think-time 300–600 ms, 144 VU đạt 304,45 request/giây. P95 checkout tăng từ 21 ms ở 96 VU lên 100 ms ở 144 VU, trong khi cả lượt không có lỗi và throughput vẫn tăng. Mình chọn 144 VU làm trần Stress và đỉnh Spike dựa trên dấu hiệu tăng độ trễ này. Pilot bản sửa đang chạy, bắt đầu bằng việc đăng ký đủ 7.500 tài khoản tổng hợp để kiểm chứng bộ CSV mở rộng.
+```
+
+<a id="msg-06fd8cfac4d2d6b90967"></a>
+
+#### Phản hồi 4 — 18:18:08 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+API đã đăng ký đủ 7.500 tài khoản tổng hợp. Bộ CSV mới giữ nguyên 1.250 dòng của T02. Dự trù sau hiệu chỉnh là 6.984 tài khoản cho Stress và 2.868 cho Spike, theo giả định tối đa 10% vòng lặp bị cắt ngắn.
+```
+
+<a id="msg-659e58540e9a37d6b3b5"></a>
+
+#### Phản hồi 5 — 18:20:15 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Hai pilot bản sửa đã đạt: Stress 752/752 sample và Spike 502/502 sample. Mọi checkout đều khớp SQLite. Lệnh Shutdown cũng dừng được Stress trước khi bậc 2 phát request. Mình đang đối chiếu lần cuối JTL, số liệu CPU/RAM và Prompt Log.
+```
+
+<a id="msg-571b3135f405f47f6b7d"></a>
+
+#### Phản hồi 6 — 18:20:40 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đường dẫn tuyệt đối trên máy được đổi thành đường dẫn tương đối trong repo.
+
+```text
+Đã sửa T03 theo review. **Chưa commit, chưa push.**
+
+Thăm dò với think-time **300–600 ms** đạt **304,45 request/giây ở 144 VU**. Từ 96 lên 144 VU, p95 checkout tăng từ **21 lên 100 ms**. Cả lượt không có lỗi và throughput vẫn tăng, nên 144 VU là mức đã quan sát thấy độ trễ tăng. Điểm bão hòa vẫn chưa được xác lập. [JTL, CPU/RAM và số liệu theo endpoint](../evidence/t03-pilots.json)
+
+| Plan | Cấu hình sau hiệu chỉnh | Listener đã bật | Pilot bản sửa |
+| --- | --- | --- | --- |
+| Stress | 24 → 48 → 96 → 144 VU, mỗi bậc 30 giây | Aggregate Report | 752/752 sample đạt, 143 đơn khớp SQLite |
+| Spike | 6 → 144 → 6 VU, giữ đỉnh 20 giây | Response Time Graph | 502/502 sample đạt, 93 đơn khớp SQLite |
+
+Dự trù **6.984 tài khoản cho Stress** và **2.868 cho Spike**. CSV dùng chung đã mở rộng lên **7.500 dòng tổng hợp**, tất cả đã đăng ký và đối chiếu trong SQLite trước pilot Stress. Phép thử Shutdown cũng xác nhận các bậc đang chờ không phát request sau khi dừng.
+
+Đã cập nhật cách chạy CLI với listener bật, cấu hình JTL bỏ body và header, tiêu chí dừng và bằng chứng để Vỹ review. [Tài liệu T03](../Stress_Spike_Plans.md) · [Prompt Log P-012](../ai/PromptLog.md:764)
+```
+
+<a id="msg-675242c3e79c71a6815c"></a>
+
+## P-013
+
+- Timestamp: 22:11:18 18/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+T03 mình duyệt rồi. Bạn làm tiếp phần chốt:\
+1\. Trong Stress_Spike_Plans.md, thêm 1–2 câu giải thích vì sao Stress/Spike dùng think-time 300–600 ms khác Load (1–2 s): mục đích là tăng áp lực lên backend trong giới hạn RAM của máy dùng chung.\
+2\. Ghi rõ trong Report/Plans: chưa xác lập điểm bão hòa ở 144 VU, đây là giới hạn của máy, không phải kết luận backend chịu được tải đó.\
+3\. Cập nhật AI files: PromptLog, AI_Audit_Report (các hàng T03 có Verdict, Lý do, Bản sinh viên sửa dẫn P-0xx), README, Report.\
+4\. Commit artifact + AI files của T03 rồi push. Dùng GitCommitLog.txt như các task trước. Báo lại hash commit.
+```
+
+<a id="msg-47394f287f40203a2210"></a>
+
+### Output
+
+#### Phản hồi 1 — 22:11:23 18/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ chốt cách diễn giải mốc 144 VU trong tài liệu, đối chiếu từng dòng audit với lượt review và duyệt của Vỹ, rồi commit và xác minh `origin/main` đã nhận T03.
+```
