@@ -1,0 +1,9 @@
+HW05 - Git commit log
+
+EShop upstream baseline (SHA, author date, subject)
+85af3ba875c88283615e22cb108f13e2fccaf0e9
+2026-05-15T08:30:35+07:00
+first upload
+
+HW05 commits after the baseline
+(none at T00)
