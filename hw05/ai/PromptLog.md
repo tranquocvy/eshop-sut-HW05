@@ -974,6 +974,8 @@ Mình đã tạm dừng theo yêu cầu. Chưa phát tải JMeter.
 
 ### Prompt
 
+> Vỹ gửi lại yêu cầu ở [P-014](#p-014) sau khi tạm dừng ở [P-015](#p-015).
+
 ```text
 Sang T04: chạy thật Load, Stress, Spike. Làm theo thứ tự dưới đây, xong thì dừng để mình review, chưa cập nhật AI files, chưa commit.\
 \
