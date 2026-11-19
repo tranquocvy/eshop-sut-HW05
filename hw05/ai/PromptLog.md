@@ -2273,3 +2273,437 @@ Prompt Log đã ghi các lượt T04 từ yêu cầu chạy đến lượt duy�
 ```text
 Mình đã kiểm tra các liên kết và thống kê Audit, đồng thời xác nhận `origin/main` vẫn ở commit T03. Bước cuối trước khi commit là kiểm tra Git giữ nguyên byte của JTL và CSV tài nguyên để hash bằng chứng còn khớp sau khi push.
 ```
+
+Phạm vi: T05 — Thiết kế, pilot, thực thi và duyệt Endurance
+
+<a id="msg-eff81874df807f8a76f7"></a>
+
+## P-042
+
+- Timestamp: 10:08:40 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Sang T05: endurance (soak) 15 phút. Làm theo thứ tự, dừng ở các điểm báo mình, chưa cập nhật AI files, chưa commit.\
+\
+1\. Đề xuất thiết kế, chờ mình duyệt trước khi chạy:\
+\- Mức tải ổn định (số VU, think-time) và vì sao chọn: dựa trên số đo T03/T04 (máy dùng chung, RAM khả dụng, 144 VU chưa bão hòa). Chọn mức thấp hơn trần 144 VU, đủ để thấy trôi hiệu năng hoặc rò bộ nhớ nếu có, nhưng không làm sập máy.\
+\- Thời lượng 15 phút ở tải ổn định (ramp-up ngắn rồi giữ phẳng), tên plan theo ngày chạy thật: 23120410_Endurance\_\<YYYYMMDD>.jmx.\
+\- Số tài khoản cần dùng theo công thức đã có, đối chiếu với CSV hiện có (7.500 dòng), báo nếu thiếu.\
+\- Tiêu chí "ổn định" bằng số, định nghĩa trước khi chạy: ví dụ p95 từng label của 3 phút cuối không vượt quá X% so với 3 phút đầu sau ramp-up, tỷ lệ lỗi ≤ Y%, độ dốc working set của Node (MiB/phút) dưới Z, RAM khả dụng không giảm dưới W. Giải thích vì sao chọn các ngưỡng đó.\
+\- Tiêu chí dừng sớm và cách báo lượt hỏng.\
+\- Kế hoạch chụp ảnh Task Manager 3 mốc (đầu, giữa, cuối) và quy trình dừng/chờ mình như T04. Listener cho plan này chọn loại nhẹ, khác loại đã dùng nếu có thể; chạy CLI, heap 384 MiB.\
+\
+2\. Sau khi mình duyệt: tạo plan, reset DB/tài khoản như T04, chạy pilot ngắn (1–2 phút) kiểm tra plan, rồi dừng báo mình "Sẵn sàng chạy Endurance" để mình mở Task Manager. Chờ mình rồi mới phát tải. Ghi mốc CAPTURE NOW ra terminal.\
+\
+3\. Sau lượt chạy: sinh .jtl, HTML report, CSV CPU/RAM (1 mẫu/giây, gồm working set của Node và JMeter), đối chiếu SQLite (số đơn, quick_check, số tài khoản dùng). Tính lại RPS, p95 theo label, % lỗi từ .jtl. Vẽ hoặc lập bảng chia cửa sổ theo thời gian (ví dụ mỗi 3 phút) cho p95, RPS, lỗi, working set của Node để thấy xu hướng.\
+\
+4\. Kết luận ngưỡng bằng số: max stable RPS đã quan sát trong 15 phút, memory ceiling (working set cao nhất của Node), p95 ổn định hay trôi (cả giá trị đầu và cuối). Chỉ kết luận từ dữ liệu đã đo, không ngoại suy; ghi giới hạn: 15 phút, máy dùng chung, giỏ hàng nằm trong RAM của backend, đơn tích lũy vào SQLite, tải chạy chung máy với JMeter.\
+\
+5\. Lỗi thật (5xx, crash, timeout) soạn nháp Issue có ảnh nhưng chưa đăng. Lượt hỏng hoặc chạy lại giữ lại và khai báo như T04.\
+\
+Bắt đầu từ bước 1.
+```
+
+<a id="msg-9c0cbb2c9f6bcc84bd07"></a>
+
+### Output
+
+#### Phản hồi 1 — 10:08:46 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đối chiếu số đo T03/T04 và công thức tính tài khoản để đề xuất mức tải, ngưỡng ổn định và mốc chụp cho lượt Endurance 15 phút. Mình dừng ở bản thiết kế để Vỹ duyệt.
+```
+
+<a id="msg-1fcaf7ddddbe067e36d9"></a>
+
+#### Phản hồi 2 — 10:10:04 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+Mình đề xuất **32 VU, think-time 1–2 giây trước mỗi request, ramp-up 20 giây rồi giữ 32 VU đủ 15 phút**. Tổng thời lượng cấu hình là **15 phút 20 giây**. Mình dừng ở thiết kế để Vỹ duyệt.
+
+### Mức tải và tài khoản
+
+- **Tải dự kiến khoảng 20–22 RPS.** T03 đo được 16,27 RPS ở 24 VU và 48,09 RPS ở 72 VU với cùng think-time. Mức 32 VU cao hơn Load T04 (6 VU, 3,70 RPS) và đủ để theo dõi độ trễ khi giỏ trong RAM và đơn trong SQLite tích lũy qua 15 phút. T03 từng xuống **1.805 MiB RAM khả dụng** ở 144 VU. T04 cũng chưa xác lập điểm bão hòa ở 144 VU, nên mình chọn mức thấp hơn để chừa RAM cho cả Node và JMeter trên máy dùng chung. [Số đo T03](../Stress_Spike_Plans.md) · [Số đo T04](../T04_Execution.md)
+- **Cần dự trù 6.432 tài khoản.** Tính cả ramp-up cho mọi VU theo công thức T02, `32 × (ceil(920 / 4,6) + 1) = 6.432`. Mốc 4,6 giây/vòng giả định tối đa 10% vòng bị cắt sớm và bỏ qua thời gian HTTP. Mình đã kiểm CSV có **7.500 email duy nhất**, dư **1.068 dòng** so với dự trù. Lượt chính sẽ provision cả 7.500 vào DB sạch và cấp mỗi tài khoản một lần. [Công thức T02](../Load_Plan.md#tính-số-tài-khoản)
+
+### Tiêu chí ổn định
+
+Chia 15 phút sau ramp-up thành **5 cửa sổ 3 phút**, dùng cửa sổ đầu làm mốc. Lấy mẫu CPU/RAM mỗi giây cho máy, Node và JMeter.
+
+| Chỉ số | Ngưỡng đề xuất | Lý do |
+|---|---|---|
+| p95 từng label | Các cửa sổ sau không cao hơn mốc đầu quá **25% hoặc 3 ms**, lấy mức chênh lớn hơn | Mức dung sai 3 ms giúp tránh đánh giá quá mức dao động nhỏ ở các endpoint vốn chỉ mất vài ms |
+| RPS | Mỗi cửa sổ sau đạt ít nhất **90%** RPS cửa sổ đầu | Phát hiện throughput giảm dù số VU và think-time giữ nguyên |
+| Tỷ lệ lỗi | **≤0,5%** trong từng cửa sổ | T03/T04 ghi nhận 0 lỗi, nên ngưỡng này vẫn đủ nhạy để phát hiện lỗi lặp lại |
+| Working set của Node | Độ dốc tuyến tính **≤2 MiB/phút** trong 15 phút | Mức tăng đều tương đương 30 MiB trong 15 phút đáng ghi nhận so với đỉnh Node khoảng 100–120 MiB ở Stress/Spike T04 |
+| RAM khả dụng của máy | Mẫu thấp nhất **≥2.048 MiB** | Chừa khoảng đệm cho Windows, Node và JMeter trên máy dùng chung |
+
+Nếu đạt đủ 15 phút và các ngưỡng trên, báo **RPS bền vững quan sát được tại 32 VU** bằng tổng request trong 15 phút chia cho 900 giây. Báo riêng RPS cao nhất của cửa sổ 3 phút, working set Node cao nhất và p95 đầu/cuối theo từng label. Độ dốc RAM phản ánh xu hướng trong lượt đo, chưa đủ để xác định rò bộ nhớ.
+
+**Dừng sớm** nếu CPU toàn máy ≥90% hoặc RAM khả dụng <1.536 MiB trong 10 giây liên tục, tỷ lệ lỗi ≥5% trong hai cửa sổ 30 giây liên tiếp, tiến trình Node/JMeter thoát bất thường, hoặc phát hiện EOF hay lỗi dữ liệu tài khoản. Giữ JTL, CSV và log của lượt dừng, ghi mốc, thời lượng thực tế và lý do. Nếu có 5xx, crash hoặc timeout, lưu bằng chứng để soạn nháp Issue.
+
+### Pilot và mốc chụp
+
+Sau khi Vỹ duyệt, mình sẽ tạo plan `23120410_Endurance_<YYYYMMDD>.jmx` theo ngày chạy thực tế (UTC+7), dùng **Simple Data Writer** để ghi một JTL CSV gọn, chạy **JMeter CLI với `-Xmx384m`**. Pilot dài **110 giây**, gồm 20 giây ramp và 90 giây giữ tải. Sau pilot, mình reset DB và provision lại cho lượt chính, báo **“Sẵn sàng chạy Endurance”** rồi chờ Vỹ.
+
+Terminal sẽ hiện **`CAPTURE NOW`** ở giây **35, 470 và 900** tính từ lúc bắt đầu nhóm tải. Vỹ chụp JMeter CLI và Task Manager tab Details trong cùng khung, thấy `node.exe` đúng PID. Ba mốc này lần lượt nằm ở đầu, giữa và 20 giây trước khi kết thúc pha giữ tải.
+
+Chưa tạo plan, phát tải, cập nhật AI files hay commit.
+```
+
+<a id="msg-1b9b0b1ba4235a8151de"></a>
+
+## P-043
+
+- Timestamp: 10:15:25 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Mình duyệt thiết kế T05: 32 VU, think-time 1–2 s, ramp 20 s, giữ 15 phút, ngưỡng ổn định và tiêu chí dừng như bạn đề xuất, ba mốc chụp ở giây 35, 470, 900. Thêm một điều chỉnh: báo độ dốc working set của Node ở hai mức, toàn 15 phút và 12 phút cuối (bỏ 3 phút đầu để loại giai đoạn Node làm nóng máy), và ghi rõ cả hai trong kết luận. Ngưỡng 2 MiB/phút áp dụng cho độ dốc 12 phút cuối; độ dốc toàn lượt chỉ để tham khảo.\
+\
+Làm tiếp theo kế hoạch: tạo plan 23120410_Endurance\_\<ngày chạy thật>.jmx, chạy pilot 110 giây, reset DB và provision lại, rồi báo "Sẵn sàng chạy Endurance" để mình mở Task Manager. Chưa cập nhật AI files, chưa commit.
+```
+
+<a id="msg-b229383346de31988269"></a>
+
+### Output
+
+#### Phản hồi 1 — 10:15:29 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ tạo plan và chạy pilot 110 giây, rồi reset SQLite và đăng ký lại tài khoản cho lượt chính. Mình sẽ báo khi backend sẵn sàng và chờ Vỹ trước khi phát tải. Ngưỡng 2 MiB/phút sẽ áp dụng cho 12 phút cuối, còn độ dốc toàn 15 phút sẽ được báo riêng.
+```
+
+<a id="msg-c161f8dd5ccd47249e86"></a>
+
+#### Phản hồi 2 — 10:18:01 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Guard RAM đã dừng pilot khi máy còn dưới 1.536 MiB khả dụng trong 10 giây. Mình đã giữ log và CSV của lần dừng, rồi sẽ kiểm tra lại RAM trước khi thử tiếp.
+```
+
+<a id="msg-093360dffb006b87233e"></a>
+
+#### Phản hồi 3 — 10:18:52 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Pilot đã dừng vì thiếu RAM. Lần kiểm tra vừa rồi máy chỉ còn 628–1.607 MiB khả dụng. Nếu tiện, Vỹ lưu công việc rồi đóng bớt ứng dụng đang mở và báo mình. Unity đang chiếm khoảng 3,3 GiB working set. Mình sẽ đo lại RAM để chạy lại pilot.
+```
+
+<a id="msg-d588625b6495f8dcab10"></a>
+
+#### Phản hồi 4 — 10:19:46 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+RAM khả dụng đã lên khoảng 4.850 MiB. Mình đã khởi động lại pilot 110 giây với cùng cấu hình và giữ riêng bằng chứng của lần dừng trước.
+```
+
+<a id="msg-69c4211a4ca5a8093cb4"></a>
+
+#### Phản hồi 5 — 10:21:35 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+Đã tạo [plan Endurance ngày 19/11/2026](../plans/23120410_Endurance_20261119.jmx). **Chưa sẵn sàng chạy lượt chính.** Cả hai lần pilot đều dừng theo ngưỡng đã duyệt vì RAM khả dụng dưới **1.536 MiB trong 10 giây liên tục**.
+
+- Lần đầu dừng lúc JMeter vừa khởi động, chưa ghi request. [Biên bản](<runtime local>/T05/pilot-20261119-101706/pilot-verification.json)
+- Lần chạy lại đạt **32 VU** và chạy khoảng **55 giây** trong số 110 giây dự kiến. JTL có **898 request, 0 lỗi**. SQLite có **166 đơn khớp JTL**, `quick_check` trả `ok`. [Biên bản](<runtime local>/T05/pilot-20261119-101945/pilot-verification.json) · [CSV CPU/RAM](<runtime local>/T05/pilot-20261119-101945/resources.csv)
+
+Lần kiểm tra gần nhất máy còn **826 MiB** khả dụng. Vỹ lưu công việc và đóng bớt ứng dụng đang mở, chẳng hạn Unity hoặc các tab Chrome không cần, rồi báo mình để chạy lại pilot. Sau khi pilot đủ 110 giây, mình sẽ reset DB, provision 7.500 tài khoản và dừng ở mốc **“Sẵn sàng chạy Endurance”**. Chưa cập nhật AI files hay commit.
+```
+
+<a id="msg-d476ee430bd628d37151"></a>
+
+## P-044
+
+- Timestamp: 12:09:16 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+tôi đã giải phóng ram
+```
+
+<a id="msg-9a425df3c46ea1bc192e"></a>
+
+### Output
+
+#### Phản hồi 1 — 12:09:22 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ kiểm tra RAM rồi chạy lại pilot 110 giây. Nếu pilot đạt, mình sẽ reset DB, provision lại tài khoản và báo Vỹ khi sẵn sàng chụp Task Manager.
+```
+
+<a id="msg-df5235238e793f384b4e"></a>
+
+#### Phản hồi 2 — 12:10:54 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Pilot đã đạt 32 VU. Log chưa ghi lỗi và mẫu gần nhất cho thấy máy còn khoảng 5.700 MiB RAM khả dụng. Mình sẽ chờ đủ 110 giây rồi đối chiếu JTL với SQLite.
+```
+
+<a id="msg-6c033b896aa5fb41f62a"></a>
+
+#### Phản hồi 3 — 12:12:19 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Pilot đã chạy đủ 110 giây ở cấu hình 32 VU, ghi 2.121 request, 0 lỗi và 410 đơn khớp SQLite. RAM khả dụng thấp nhất là 3.878 MiB. Mình đang provision 7.500 tài khoản trên DB mới cho lượt chính.
+```
+
+<a id="msg-c35c3f80943fb6d78e2a"></a>
+
+#### Phản hồi 4 — 12:14:18 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+DB mới đã có hơn 4.700 tài khoản thử. Khi đủ 7.500, mình sẽ kiểm danh sách tài khoản, trạng thái đơn và khóa đăng nhập trước khi báo Vỹ.
+```
+
+<a id="msg-305c8bcfbca81aae625f"></a>
+
+#### Phản hồi 5 — 12:15:49 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Sẵn sàng chạy Endurance.** Backend đang chờ ở PID **23804**. Lượt chính chưa bắt đầu.
+
+- Pilot đã chạy đủ **110 giây**, đạt **32 VU**, ghi **2.121 request, 0 lỗi** và **410 đơn khớp SQLite**. RAM khả dụng thấp nhất là **3.878 MiB**. [Kết quả pilot](<runtime local>/T05/pilot-20261119-120935/pilot-verification.json)
+- DB mới có đủ **7.500 tài khoản thử**, **0 đơn**, **0 tài khoản có dấu khóa hoặc bộ đếm sai**, và `quick_check` trả `ok`. RAM khả dụng khi sẵn sàng là **4.529 MiB**. [Biên bản chuẩn bị](<runtime local>/T05/main-20261119-121216/preparation.json)
+
+Vỹ mở **Task Manager → Details**, lọc PID **23804**, rồi đặt cạnh cửa sổ **HW05 T05 - JMeter CLI**. Báo mình khi bố trí xong. Terminal sẽ hiện `CAPTURE NOW` ở giây **35, 470 và 900** để Vỹ chụp. Chưa cập nhật AI files hay commit.
+```
+
+<a id="msg-4681f00306ffdba3e8a5"></a>
+
+## P-045
+
+- Timestamp: 12:37:32 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+sẵn sàng
+```
+
+<a id="msg-21115a2eaded7d75a7a3"></a>
+
+### Output
+
+#### Phản hồi 1 — 12:37:39 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình bắt đầu lượt Endurance. Vỹ chụp khi terminal hiện `CAPTURE NOW` ở giây **35, 470 và 900**, với `node.exe` PID **23804** hiện cạnh log JMeter.
+```
+
+<a id="msg-76441ea04f1bae46f832"></a>
+
+#### Phản hồi 2 — 12:39:22 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Lượt chính đã lên 32 VU và terminal đã phát mốc đầu lúc **12:38:23**. Hai mốc tiếp theo dự kiến khoảng **12:45:38** và **12:52:48**, giờ UTC+7.
+```
+
+<a id="msg-cacba9e4070d0d74b5e5"></a>
+
+#### Phản hồi 3 — 12:42:22 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Cửa sổ 3 phút đầu sau ramp-up đạt **21,27 req/s**, **0 lỗi**, RAM khả dụng thấp nhất **4.245 MiB**. Đây là mốc đối chiếu cho bốn cửa sổ sau.
+```
+
+<a id="msg-8ce65f4bc7dedbfdc4d5"></a>
+
+#### Phản hồi 4 — 12:45:45 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mốc giữa đã hiện trên terminal lúc **12:45:38**. JMeter đang giữ **32 VU**, với **0 lỗi** sau 9.772 request đã ghi ở mốc này. Mốc cuối vẫn dự kiến lúc **12:52:48**.
+```
+
+<a id="msg-f2f1a08264876eacf135"></a>
+
+#### Phản hồi 5 — 12:48:35 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình đã kiểm tra ảnh đầu lúc **12:38:26**. Ảnh hiện đúng `Active: 32`, marker đầu và Node PID **23804**. Nếu Vỹ lưu ảnh giữa ở chỗ khác, gửi ảnh đó cùng ảnh cuối sau lượt chạy.
+```
+
+<a id="msg-2c4179fa5056a8e54576"></a>
+
+#### Phản hồi 6 — 12:51:57 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Còn khoảng một phút đến mốc cuối. Khi terminal hiện `CAPTURE NOW Endurance END`, Vỹ chụp cùng khung với Task Manager đang lọc PID **23804**.
+```
+
+<a id="msg-6565a1480804d17262fd"></a>
+
+#### Phản hồi 7 — 12:53:20 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Lượt chính đã kết thúc đúng lịch. Mình đang kiểm tra dashboard, JTL và SQLite. Mình đã xác minh ảnh đầu, còn ảnh giữa và ảnh cuối chưa thấy trong thư mục ảnh chụp. Nếu Vỹ đã lưu hai ảnh đó, gửi mình để đối chiếu.
+```
+
+<a id="msg-c61d10559666b2f7837a"></a>
+
+#### Phản hồi 8 — 12:54:15 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+Lượt Endurance hoàn tất pha đo **15 phút ở cấu hình 32 VU** và đạt các ngưỡng ổn định đã duyệt. [Báo cáo T05](../T05_Endurance.md)
+
+| Chỉ số | Kết quả |
+|---|---:|
+| RPS bền vững trong 15 phút | **21,26 req/s** |
+| RPS cao nhất trong một cửa sổ 3 phút | 21,32 req/s |
+| Toàn lượt, gồm ramp-up | 19.333 request, 0 lỗi |
+| Working set Node cao nhất | 64,21 MiB |
+| Độ dốc working set toàn 15 phút / 12 phút cuối | +0,18 / **+0,02 MiB/phút** |
+| RAM khả dụng thấp nhất | 4.013 MiB |
+
+p95 từng label đều nằm trong ngưỡng. Từ 3 phút đầu đến 3 phút cuối, login giữ **3 ms**, search và detail giảm **3 → 2 ms**, cart **2 → 1 ms**, checkout **11 → 10 ms**. Dashboard khớp JTL. SQLite có **3.858 đơn khớp checkout**, **3.880 tài khoản đăng nhập duy nhất**, và `quick_check` trả `ok`. Hai lần pilot dừng do RAM đã được ghi trong báo cáo. Không phát sinh nháp issue. [JTL](../results/23120410_Endurance_20261119.jtl) · [Dashboard](../results/23120410_Endurance_20261119/index.html) · [CSV CPU/RAM](../results/23120410_Endurance_20261119_resources.csv)
+
+Đã lưu [ảnh đầu lúc 12:38:26](../evidence/t05/Endurance_start_20261119_123826.png). Còn chờ ảnh giữa và ảnh cuối để xác minh hai mốc **12:45:38** và **12:52:48** (UTC+7). Chưa cập nhật AI files hay commit.
+```
+
+<a id="msg-f602368508c4bf4a79d3"></a>
+
+## P-046
+
+- Timestamp: 12:56:29 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Ảnh đính kèm trong lượt này (3): Screenshot 2026-11-19 125610.png, Screenshot 2026-11-19 125454.png, Screenshot 2026-11-19 123826.png. Đã ẩn đường dẫn máy và bỏ metadata của giao diện.
+
+```text
+check ảnh xem thỏa không
+```
+
+<a id="msg-9fdea0d002cfbbea77e1"></a>
+
+### Output
+
+#### Phản hồi 1 — 12:56:36 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đối chiếu marker trong ba ảnh với log và JTL, vì tên file của hai ảnh sau hiển thị giờ muộn hơn mốc trên màn hình.
+```
+
+<a id="msg-69f4855487ea2231686a"></a>
+
+#### Phản hồi 2 — 12:57:16 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Đủ cả ba ảnh bằng chứng cho T05.** Mỗi ảnh đều hiện `Active: 32` trong JMeter CLI và `node.exe` PID `23804` ở tab Details của Task Manager.
+
+- **Đầu:** marker lúc **12:38:23**. [Ảnh đầu](../evidence/t05/Endurance_start_20261119_123826.png)
+- **Giữa:** marker lúc **12:45:38**. [Ảnh giữa](../evidence/t05/Endurance_mid_20261119_124538.png)
+- **Cuối:** marker lúc **12:52:48**. [Ảnh cuối](../evidence/t05/Endurance_end_20261119_125248.png)
+
+Tên file nguồn của ảnh giữa và ảnh cuối mang giờ muộn hơn. Mình đã ghi rõ trong báo cáo rằng các mốc lấy từ `CAPTURE NOW` trên ảnh và đã đối chiếu với log cùng JTL. Cả ba ảnh đã được lưu để Vỹ review. [Báo cáo T05](../T05_Endurance.md#ảnh-trong-lượt-đo)
+```
+
+<a id="msg-5c6500445756e9f2422a"></a>
+
+## P-047
+
+- Timestamp: 13:03:34 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+T05 mình duyệt. Làm bước chốt:\
+1\. Cập nhật AI files: PromptLog (các lượt T05, gồm hai pilot dừng do RAM), AI_Audit_Report (thêm hàng T05: plan Endurance, JTL/dashboard/CSV, T05_Endurance.md, kèm Verdict, Lý do, Bản sinh viên sửa dẫn PromptLog; cập nhật mục 4), README, Report. Báo ngưỡng endurance bằng số trong Report: RPS bền vững 21,26 req/s ở 32 VU trong 15 phút, working set Node cao nhất 64,21 MiB, độ dốc 12 phút cuối +0,02 MiB/phút, p95 đầu/cuối theo label, 0 lỗi. Ghi giới hạn: 15 phút, máy dùng chung, không ngoại suy.\
+2\. Commit plan Endurance, results/, evidence/t05, T05_Endurance.md cùng AI files, push, cập nhật GitCommitLog.txt theo quy ước và báo hash.
+```
+
+<a id="msg-33770f5c81f040fe3462"></a>
+
+### Output
+
+#### Phản hồi 1 — 13:03:37 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ dùng skill `course-ai-log` để ghi lại các lượt T05 từ chat gốc, gồm hai pilot dừng do RAM. Sau khi đối chiếu Audit và số liệu trong Report, mình sẽ commit và push T05.
+```
+
+<a id="msg-1a2f84e3543b25cea9be"></a>
+
+#### Phản hồi 2 — 13:04:33 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình tìm được sáu lượt T05 trong chat gốc. Audit sẽ ghi riêng plan, bộ số liệu và báo cáo. Hai pilot dừng do RAM sẽ có trong Prompt Log, và hàng báo cáo sẽ ghi rõ phần ảnh giữa và ảnh cuối được bổ sung sau lượt đo.
+```
+
+<a id="msg-4377cc9938e541ab3d98"></a>
+
+#### Phản hồi 3 — 13:06:26 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Prompt Log đã có P-042 đến P-047. Audit có 17 hàng, gồm 6 VALID và 11 INCOMPLETE. Số liệu Report đã khớp với JTL, dashboard và SQLite. Mình sẽ kiểm tra các file đã stage trước khi commit.
+```

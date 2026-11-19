@@ -22,4 +22,12 @@ test(hw05): add data-driven load plan
 2026-11-18T22:14:31+07:00
 test(hw05): calibrate stress and spike plans
 
-Lịch sử đến T03, trước commit T04. Xuất đầy đủ từ Git ở T08.
+de1a3afee073858442702cc6a111180e91bad4f0
+2026-11-19T02:13:20+07:00
+test(hw05): record t04 performance runs
+
+598484935427df6c698f95d84aa35812a1f26c67
+2026-11-19T02:21:02+07:00
+docs(hw05): streamline ai audit and prompt log
+
+Lịch sử đến commit dọn hồ sơ AI sau T04, trước commit T05. Xuất đầy đủ từ Git ở T08.

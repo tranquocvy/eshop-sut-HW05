@@ -6,7 +6,7 @@
 
 HW05-AI kiểm thử hiệu năng REST API của EShop. Bản làm việc lấy từ commit [`85af3ba875c88283615e22cb108f13e2fccaf0e9`](https://github.com/ttbhanh/eshop-sut/tree/85af3ba875c88283615e22cb108f13e2fccaf0e9) trên nhánh `main` của `ttbhanh/eshop-sut`. Tài liệu SUT gồm [đặc tả API](../api_specification.md) và [hướng dẫn cài đặt](../setup_guide.md).
 
-Load, Stress và Spike dùng cùng workflow trên JMeter. Luồng gồm login, danh sách hoặc tìm kiếm, chi tiết sản phẩm, thêm giỏ và checkout. [Bảng endpoint, cấu hình máy và kết quả smoke](Environment.md)
+Load, Stress, Spike và Endurance dùng cùng workflow trên JMeter. Luồng gồm login, danh sách hoặc tìm kiếm, chi tiết sản phẩm, thêm giỏ và checkout. [Bảng endpoint, cấu hình máy và kết quả smoke](Environment.md)
 
 ## 2. Thiết kế và thực thi
 
@@ -43,7 +43,23 @@ Load chỉ dùng 6 VU với think-time 1–2 giây. Stress và Spike dùng think
 
 Dashboard mỗi lượt được sinh từ JTL tương ứng. Số mẫu, RPS, p95 và tỷ lệ lỗi được tính lại và đối chiếu theo label. SQLite khớp từng checkout của ba lượt trong bộ nộp. Load chạy lại một lần và Stress chạy lại hai lần để bổ sung ảnh. Lịch sử và ảnh trong báo cáo ghi đúng lượt. CSV CPU/RAM là nguồn số đo tài nguyên dùng cho phân tích. [JTL, dashboard và ảnh giám sát](T04_Execution.md)
 
-Cả ba lượt kết thúc đúng lịch với 0 lỗi, nên không có nháp Issue mới từ T04. T04 dùng credentials hợp lệ và không kiểm lại hành vi khóa tài khoản FR-02 khi nhập sai. Ngưỡng endurance chưa được đo ở T04. [Kết quả đối chiếu và giới hạn](T04_Execution.md)
+Cả ba lượt kết thúc đúng lịch với 0 lỗi, nên không có nháp Issue mới từ T04. T04 dùng credentials hợp lệ và không kiểm lại hành vi khóa tài khoản FR-02 khi nhập sai. [Kết quả đối chiếu và giới hạn](T04_Execution.md)
+
+### Kết quả Endurance T05
+
+Ngày 19/11/2026, Endurance chạy trên máy `GOYOONJUNG` với **32 VU**, ramp-up 20 giây, think-time 1–2 giây và pha giữ tải 15 phút. Hai pilot đầu dừng theo ngưỡng RAM khả dụng. Sau khi Vỹ giải phóng RAM, pilot thứ ba hoàn tất 110 giây. Lượt chính dùng backend mới với SQLite sạch và 7.500 tài khoản thử đăng ký lại. [Quy trình và lịch sử pilot](T05_Endurance.md)
+
+Mức RPS bền vững quan sát được là **21,26 req/s ở 32 VU trong 15 phút**. Cửa sổ 3 phút cao nhất đạt 21,32 req/s. Toàn lượt gồm ramp-up có **19.333 request, 0 lỗi**, khớp dashboard và 3.858 đơn trong SQLite. `PRAGMA quick_check` trả `ok`. Working set Node cao nhất **64,21 MiB**. Độ dốc working set là **+0,02 MiB/phút trong 12 phút cuối**, thấp hơn ngưỡng 2 MiB/phút. Độ dốc toàn 15 phút là +0,18 MiB/phút để tham khảo. RAM khả dụng thấp nhất là 4.013 MiB. [JTL](results/23120410_Endurance_20261119.jtl) · [Dashboard](results/23120410_Endurance_20261119/index.html) · [CSV CPU/RAM](results/23120410_Endurance_20261119_resources.csv)
+
+| Label | p95 3 phút đầu sau ramp-up (ms) | p95 3 phút cuối (ms) |
+| --- | ---: | ---: |
+| 01 Login | 3 | 3 |
+| 02 Search products | 3 | 2 |
+| 03 Product detail | 3 | 2 |
+| 04 Add to cart | 2 | 1 |
+| 05 Checkout | 11 | 10 |
+
+p95 theo từng label nằm trong ngưỡng ở cả năm cửa sổ. Kết quả giới hạn ở pha đo **15 phút** và cấu hình đã thử trên cùng máy cho Node và JMeter. Giỏ hàng nằm trong RAM của backend và đơn tích lũy vào SQLite. Không ngoại suy công suất tối đa hay kết quả chạy dài hơn. [Cửa sổ đo, tiêu chí và ba ảnh giám sát](T05_Endurance.md)
 
 ## 3. Phân tích kết quả và phản biện AI
 

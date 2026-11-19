@@ -19,9 +19,10 @@ I use AI tools for the following tasks,
 - Đối chiếu đặc tả, xác định workflow, kiểm thử smoke và ghi cấu hình môi trường (T01).
 - Thiết kế và hiệu chỉnh các plan JMeter cho Load, Stress và Spike (T02–T03).
 - Tạo CSV dữ liệu tổng hợp và script đăng ký tài khoản thử (T02–T03).
-- Chạy pilot, thăm dò và ba kịch bản đo chính bằng JMeter CLI (T02–T04).
-- Tạo dashboard, thu CPU/RAM, tính lại số liệu JTL và đối chiếu đơn trong SQLite (T04).
-- Soạn và sửa tài liệu kiểm thử, báo cáo và hồ sơ AI theo review (T00–T04).
+- Thiết kế và chạy Endurance ở 32 VU, xác định ngưỡng ổn định từ 15 phút giữ tải (T05).
+- Chạy pilot, thăm dò và các lượt đo chính bằng JMeter CLI (T02–T05).
+- Tạo dashboard, thu CPU/RAM, tính lại số liệu JTL và đối chiếu đơn trong SQLite (T04–T05).
+- Soạn và sửa tài liệu kiểm thử, báo cáo và hồ sơ AI theo review (T00–T05).
 
 Công cụ, ngày giờ, prompt và phản hồi được ghi trong [Prompt Log](PromptLog.md).
 
@@ -45,15 +46,18 @@ Mỗi dòng dành cho một sản phẩm thực tế trong bộ nộp, chẳng h
 | T04 · OpenAI Codex · [P-033](PromptLog.md#p-033) | Spike: [JTL](../results/23120410_Spike_20261119.jtl) · [HTML dashboard](../results/23120410_Spike_20261119/index.html) · [CSV CPU/RAM](../results/23120410_Spike_20261119_resources.csv) · [Đối chiếu SQLite và hồi phục](../evidence/t04/spike-verification.json) | VALID | Vỹ duyệt số liệu Spike. JTL có 7.755 request, 0 lỗi, khớp dashboard và 1.490 đơn. CSV ghi tài nguyên của cùng lượt. [P-036](PromptLog.md#p-036) | Giữ bộ dữ liệu của lượt đã đo. Vỹ yêu cầu làm rõ cách đọc CPU trong tài liệu. [P-036](PromptLog.md#p-036) · [P-041](PromptLog.md#p-041) |
 | T04 · OpenAI Codex · [P-014](PromptLog.md#p-014) | [Ảnh cấu hình dxdiag](../evidence/t04/hardware_dxdiag_20261118_152538Z.jpg) | VALID | Ảnh cấu hình được chụp bằng computer use từ máy đo. Vỹ yêu cầu giữ ảnh này làm bằng chứng phần cứng. [P-016](PromptLog.md#p-016) · [P-018](PromptLog.md#p-018) | Giữ ảnh gốc và ghi hostname thật `GOYOONJUNG` trong tài liệu T04 theo xác nhận của Vỹ. [P-016](PromptLog.md#p-016) · [P-018](PromptLog.md#p-018) |
 | T04 · OpenAI Codex · [P-014](PromptLog.md#p-014) · [P-035](PromptLog.md#p-035) | [Tài liệu thực thi T04](../T04_Execution.md), kèm đối chiếu ảnh do Vỹ chụp | INCOMPLETE | Bộ bằng chứng trước review thiếu ảnh Load đủ hai mốc và ảnh backend ở đỉnh Stress. Bản trước chốt còn thiếu lượt Stress dùng để nộp trong bảng lịch sử và số CSV tại mốc 144 VU. [P-020](PromptLog.md#p-020) · [P-031](PromptLog.md#p-031) · [P-040](PromptLog.md#p-040) | Vỹ yêu cầu đo lại Load một lần và Stress hai lần để chụp ảnh. Vỹ xác nhận ảnh Load và Stress mới, đồng thời giữ ảnh Spike. Codex ghi lịch sử ba lượt Stress, đối chiếu dashboard và dẫn số CPU/RAM tại mốc ảnh. [P-022](PromptLog.md#p-022) · [P-024](PromptLog.md#p-024) · [P-029](PromptLog.md#p-029) · [P-034](PromptLog.md#p-034) · [P-036](PromptLog.md#p-036) · [P-039](PromptLog.md#p-039) · [P-040](PromptLog.md#p-040) · [P-041](PromptLog.md#p-041) |
+| T05 · OpenAI Codex · [P-042](PromptLog.md#p-042) · [P-043](PromptLog.md#p-043) | [Plan Endurance](../plans/23120410_Endurance_20261119.jmx) | VALID | Vỹ duyệt 32 VU, think-time 1–2 giây, ramp-up 20 giây và 15 phút giữ tải. Plan đã chạy đúng lịch với Simple Data Writer. Pilot đạt 32 VU và 0 lỗi sau khi RAM khả dụng đủ. [P-043](PromptLog.md#p-043) · [P-044](PromptLog.md#p-044) · [P-047](PromptLog.md#p-047) | Giữ cấu hình tải của plan đã duyệt. Vỹ yêu cầu áp dụng ngưỡng độ dốc working set cho 12 phút cuối và báo thêm độ dốc toàn 15 phút. Codex áp dụng yêu cầu đó khi phân tích CSV và viết báo cáo. [P-043](PromptLog.md#p-043) |
+| T05 · OpenAI Codex · [P-045](PromptLog.md#p-045) | Endurance · [JTL](../results/23120410_Endurance_20261119.jtl) · [HTML dashboard](../results/23120410_Endurance_20261119/index.html) · [CSV CPU/RAM](../results/23120410_Endurance_20261119_resources.csv) · [Đối chiếu SQLite](../evidence/t05/endurance-verification.json) | VALID | Vỹ duyệt T05. JTL có 19.333 request, 0 lỗi, khớp dashboard và 3.858 đơn trong SQLite. CSV có 900 mẫu trong pha giữ tải. [P-045](PromptLog.md#p-045) · [P-047](PromptLog.md#p-047) | Giữ bộ dữ liệu của lượt chính. Hai pilot dừng theo guard RAM được lưu riêng. Sau khi Vỹ giải phóng RAM, Codex chạy lại pilot đủ 110 giây, reset backend rồi đăng ký lại 7.500 tài khoản cho lượt chính. [P-043](PromptLog.md#p-043) · [P-044](PromptLog.md#p-044) |
+| T05 · OpenAI Codex · [P-042](PromptLog.md#p-042) · [P-045](PromptLog.md#p-045) | [Báo cáo Endurance](../T05_Endurance.md), kèm ảnh Task Manager do Vỹ chụp | INCOMPLETE | Bản lúc báo kết quả chỉ có ảnh đầu và còn chờ ảnh giữa, ảnh cuối. [P-045](PromptLog.md#p-045) | Vỹ gửi đủ ba ảnh để kiểm tra. Codex bổ sung hai ảnh còn thiếu, lấy mốc từ CAPTURE NOW trên ảnh và đối chiếu với JTL, rồi ghi rõ chênh lệch giữa giờ trên ảnh và giờ tạo file. Vỹ duyệt T05. [P-046](PromptLog.md#p-046) · [P-047](PromptLog.md#p-047) |
 
 ## 4. Tổng kết đánh giá
 
 | Verdict | Số artifact | Tỷ lệ |
 | --- | ---: | ---: |
-| VALID | 4 | 28,57% |
-| INCOMPLETE | 10 | 71,43% |
+| VALID | 6 | 35,29% |
+| INCOMPLETE | 11 | 64,71% |
 | INVALID | 0 | 0% |
-| **Tổng** | **14** | **100%** |
+| **Tổng** | **17** | **100%** |
 
 ## 5. Xác nhận
 
