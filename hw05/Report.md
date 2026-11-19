@@ -63,7 +63,16 @@ p95 theo từng label nằm trong ngưỡng ở cả năm cửa sổ. Kết qu�
 
 ## 3. Phân tích kết quả và phản biện AI
 
-Task 2 dùng raw log để yêu cầu AI phân tích và đề xuất ngưỡng. Mỗi lỗi diễn giải phát hiện được sẽ có giá trị đúng, cách đối chiếu từ log và lý do sai. Tính khả thi của từng đề xuất tối ưu được đánh giá theo mã nguồn và cấu hình SUT.
+T06 dùng OpenAI Codex trong chat riêng để phân tích JTL gốc của Stress và Spike. Lịch sử công cụ ghi nhận hai JTL là dữ liệu SUT được đọc trong lượt đó. Tính lại số request, p95, RPS và tỷ lệ lỗi từ JTL chưa phát hiện số liệu sai theo quy ước AI công bố. [Prompt và phản hồi chat riêng](ai/PromptLog.md#p-049) · [Output nguyên văn](ai/T06_External_AI_Raw.txt) · [Script tái tính](evidence/t06/recompute_jtl.py)
+
+Phản biện làm rõ bốn điểm khi diễn giải:
+
+1. Mốc hồi phục Spike khoảng 6 giây dùng p95 gộp. Search ở cửa sổ đầu đạt 4 ms, cao hơn ngưỡng riêng 3,6 ms. T04 xác nhận theo từng label ở 35 giây.
+2. Mục tiêu ≥300 req/s ở 144 VU là ngưỡng tạm thời cho think-time 300–600 ms. Thăm dò ở cùng số VU với think-time 1–2 giây đạt 95,18 req/s.
+3. Đề xuất 168 hoặc 192 VU vượt trần thử nghiệm của máy dùng chung. RAM khả dụng từng xuống 1.805 MiB ở cửa sổ 144 VU của T03.
+4. RPS Search trong Stress là 34,28 theo khoảng toàn lượt và 34,47 theo khoảng riêng của label. Cả hai hợp lệ với mẫu số tương ứng.
+
+Đối chiếu mã nguồn phân loại **1 đề xuất hallucinated** là rút ngắn khối transaction Checkout ở tầng ứng dụng, vì route chỉ gọi một INSERT và dùng transaction ngầm của SQLite. **3 đề xuất feasible có điều kiện** gồm thử WAL, kiểm tra kế hoạch truy vấn Search/Detail và profiling event loop trước khi cân nhắc chuyển tác vụ. Các ngưỡng AI đề xuất cho tải ngắn được đối chiếu với T04 và mức soak riêng của T05. [Báo cáo Task 2](AI_Log_Analysis.md)
 
 ## 4. Kết luận và Continuous Performance Testing
 

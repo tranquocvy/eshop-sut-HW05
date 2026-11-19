@@ -1,0 +1,76 @@
+\*\*Stress đạt 316,25 RPS ở 144 luồng trong cửa sổ 20 giây, với p95 12 ms. Spike đạt 313,40 RPS ở 144 luồng trong cửa sổ 10 giây, với p95 16 ms, rồi trở về mức nền khoảng 13 RPS.\*\* Cả hai lượt ghi nhận 0 lỗi. Hai JTL cho thấy các đợt tăng độ trễ ngắn, nhưng chưa đủ để xác định công suất tối đa hay điểm gãy của backend.\
+\
+\## 1. Kết quả từ hai JTL gốc\
+\
+\| Label | Stress request | Stress RPS | Stress p95 (ms) | Stress lỗi | Spike request | Spike RPS | Spike p95 (ms) | Spike lỗi |\
+\|---|---:|---:|---:|---:|---:|---:|---:|---:|\
+\| \*\*Toàn lượt\*\* | \*\*20.203\*\* | \*\*170,12\*\* | \*\*10\*\* | \*\*0,00%\*\* | \*\*7.755\*\* | \*\*52,06\*\* | \*\*17\*\* | \*\*0,00%\*\* |\
+\| 01 Login | 4.092 | 34,46 | 9 | 0,00% | 1.609 | 10,80 | 19 | 0,00% |\
+\| 02 Search products | 4.071 | 34,28 | 9 | 0,00% | 1.588 | 10,66 | 11 | 0,00% |\
+\| 03 Product detail | 4.041 | 34,03 | 9 | 0,00% | 1.551 | 10,41 | 11 | 0,00% |\
+\| 04 Add to cart | 4.013 | 33,79 | 2 | 0,00% | 1.517 | 10,18 | 6 | 0,00% |\
+\| 05 Checkout | 3.986 | 33,56 | 14 | 0,00% | 1.490 | 10,00 | 30 | 0,00% |\
+\
+Mỗi dòng CSV sau header được tính là một request. Mình dùng \`label\` để nhóm, \`elapsed\` để đo thời gian phản hồi và quy ước \`timeStamp\` là thời điểm bắt đầu sample, tính theo epoch mili giây. Khoảng đo đi từ \`min(timeStamp)\` đến \`max(timeStamp + elapsed)\`. RPS của từng label dùng \*\*cùng mẫu số với toàn lượt\*\*, nên thể hiện phần throughput mà label đó đóng góp.\
+\
+\- \*\*Stress:\*\* 118,759 giây, từ 01:55:42.043 đến 01:57:40.802 ngày 19/11/2026, UTC+7. [JTL Stress]\(D:/Workspace/SoftwareTesting/HW05/eshop-sut-HW05/hw05/results/23120410_Stress_20261119.jtl)\
+\- \*\*Spike:\*\* 148,959 giây, từ 01:38:37.404 đến 01:41:06.363 cùng ngày, UTC+7. [JTL Spike]\(D:/Workspace/SoftwareTesting/HW05/eshop-sut-HW05/hw05/results/23120410_Spike_20261119.jtl)\
+\
+P95 dùng phương pháp \*nearest rank\*. Sắp \`elapsed\` tăng dần và lấy mẫu ở vị trí \`ceil(0,95 × N)\`, đánh số từ 1. Tỷ lệ lỗi là số dòng \`success=false\` chia cho số dòng trong nhóm. Đối chiếu thêm \`responseCode\` và \`failureMessage\`, cả 27.958 dòng đều có HTTP 200 và \`success=true\`, với \`failureMessage\` trống. JTL chưa đủ để xác định các assertion đã bao phủ những điều kiện nghiệp vụ nào, chẳng hạn đơn hàng có được lưu đúng sau Checkout hay không.\
+\
+\## 2. Diễn biến tải và khả năng hồi phục\
+\
+\`t\` là số giây kể từ sample đầu tiên của từng lượt. Mỗi cửa sổ \`[a, b)\` đếm request \*\*hoàn tất\*\* trong khoảng đó, theo \`timeStamp + elapsed\`. P95 và tỷ lệ lỗi dùng cùng tập request. Số luồng lấy từ \`allThreads\` ghi trên sample. Mọi cửa sổ dưới đây đều có 0 lỗi.\
+\
+\### Stress\
+\
+\| Cửa sổ \`t\` (giây) | Luồng | Request | RPS | p95 (ms) |\
+\|---|---:|---:|---:|---:|\
+\| 5–25 | 24 | 1.063 | 53,15 | 8 |\
+\| 35–55 | 48 | 2.116 | 105,80 | 8 |\
+\| 65–85 | 96 | 4.217 | 210,85 | 10 |\
+\| 89–90 | 102–125 | 246 | 246,00 | 8 |\
+\| 90–91 | 126–144 | 284 | 284,00 | \*\*99\*\* |\
+\| 91–92 | 144 | 321 | 321,00 | 10 |\
+\| 95–115 | 144 | 6.325 | 316,25 | 12 |\
+\| 111–112 | 144 | 314 | 314,00 | \*\*46\*\* |\
+\
+Throughput tăng gần tỷ lệ với số luồng qua bốn bậc. Biến động lớn nhất xảy ra lúc chuyển lên 144 luồng, ở \*\*01:57:12.043–01:57:13.043\*\*. Cả 14 request có \`elapsed ≥ 100 ms\` của lượt đều bắt đầu trong khoảng \`t=90,012–90,063 s\`, cao nhất là một Checkout \*\*159 ms\*\*. Ngay giây kế tiếp, p95 về 10 ms trong khi throughput tăng lên 321 RPS ở 144 luồng. Lượt còn một đợt chậm ngắn ở \`t=111–112 s\`, với p95 46 ms và 314 RPS. Các mốc này cho thấy độ trễ hồi phục ngay cả khi tải vẫn cao. Lượt kết thúc ngay sau bậc cao nhất, nên chưa có pha tải thấp đủ dài để đánh giá hồi phục sau khi hạ tải. [Checkout 159 ms trong JTL Stress]\(D:/Workspace/SoftwareTesting/HW05/eshop-sut-HW05/hw05/results/23120410_Stress_20261119.jtl:11163)\
+\
+\### Spike\
+\
+\| Cửa sổ \`t\` (giây) | Luồng | Request | RPS | p95 (ms) |\
+\|---|---:|---:|---:|---:|\
+\| 5–55 | 6 | 662 | 13,24 | 9 |\
+\| 59–60 | 6–136 | 92 | 92,00 | 3 |\
+\| 60–65 | 138–144 | 1.567 | 313,40 | \*\*29\*\* |\
+\| 65–75 | 144 | 3.134 | 313,40 | 16 |\
+\| 75–76 | 144 | 311 | 311,00 | \*\*45\*\* |\
+\| 80–85 | 6 | 66 | 13,20 | 7 |\
+\| 85–145 | 6 | 787 | 13,12 | 8 |\
+\
+Nhóm \`Spike Burst\`, nhận diện từ \`threadName\`, xuất hiện ở \`t=59,372 s\` (\*\*01:39:36.776\*\*) và có sample hoàn tất cuối cùng ở \`t=79,001 s\`. Trong 5 giây đầu tải cao, p95 toàn bộ là 29 ms, riêng Checkout là \*\*46 ms\*\*. Ở \`t=75–76 s\`, p95 tăng lại lên 45 ms dù throughput vẫn đạt 311 RPS, với Checkout chậm nhất \*\*71 ms\*\*. Sau burst, cửa sổ \`80–85 s\` đã trở về 6 luồng, 13,20 RPS và p95 7 ms. Mức nền được duy trì đến ít nhất \`t=145 s\`, hỗ trợ kết luận lượt này hồi phục sau khi giảm tải. [Checkout 71 ms]\(D:/Workspace/SoftwareTesting/HW05/eshop-sut-HW05/hw05/results/23120410_Spike_20261119.jtl:5701) · [Sample cuối nhóm Burst]\(D:/Workspace/SoftwareTesting/HW05/eshop-sut-HW05/hw05/results/23120410_Spike_20261119.jtl:6836)\
+\
+\*\*Mức tải cao đã quan sát được là khoảng 313–316 RPS ở 144 luồng\*\* trong các cửa sổ nêu trên. Ở bậc cuối của Stress, throughput vẫn tăng và p95 trở lại mức thấp sau đợt tăng ngắn. Dữ liệu chưa cho thấy throughput chững hoặc giảm kéo dài khi tăng tải. Vì Express và JMeter chạy chung máy, JTL cũng chưa xác định được phần giới hạn đến từ backend, SQLite hay máy phát tải. \`allThreads\` là số luồng JMeter ghi nhận, còn RPS ở đây là số request hoàn tất.\
+\
+\## 3. Tối ưu backend và cách kiểm chứng\
+\
+\| Thay đổi có điều kiện | Vấn đề và giả định cần kiểm tra | Đo lại để xác minh |\
+\|---|---|---|\
+\| \*\*Rút ngắn transaction ghi của Checkout.\*\* Thử WAL riêng nếu đo thấy đọc và ghi cản nhau. | Checkout có p95 cao nhất ở cả hai lượt. Kiểm tra xem phần chậm nằm ở chờ khóa, thời gian giữ transaction, \`COMMIT\` hay xử lý ngoài DB. | Đo riêng các đoạn đó và đếm \`SQLITE_BUSY\`. Chạy lại cùng dữ liệu và tải, so p95 Checkout ở cửa sổ 5 giây đầu Spike và throughput ở 144 luồng. Xác nhận mỗi Checkout thành công tạo đúng một đơn với dữ liệu nhất quán. |\
+\| \*\*Tối ưu truy vấn Search products và Product detail theo kế hoạch thực thi.\*\* | Hai label đọc cũng xuất hiện trong đợt chậm của Stress. Kiểm tra bằng \`EXPLAIN QUERY PLAN\` và thời gian SQL xem có quét bảng, truy vấn lặp hoặc đọc dư dữ liệu. | So thời gian SQL và p95 từng label với cùng từ khóa, kích thước DB và phân bố sản phẩm. Đo lại Checkout vì thêm index có thể tăng chi phí ghi. |\
+\| \*\*Chuyển phần xử lý đồng bộ đã xác nhận là nặng ra khỏi event loop của Express.\*\* | Nhiều label chậm cùng lúc ở giây 90 của Stress. Trong 14 sample từ 100 ms trở lên, \`Connect\` chỉ 0–1 ms và \`Latency\` bằng \`elapsed\`. Kiểm tra event-loop delay và CPU profile để xem xử lý đồng bộ trong Login hoặc middleware chung có góp phần hay không. | Ghi event-loop delay và CPU của cả Node lẫn JMeter theo cửa sổ 1 giây, rồi so p95 ở thời điểm lên 144 luồng khi chỉ đổi một yếu tố. Một lượt đối chứng chạy JMeter trên máy khác giúp kiểm tra ảnh hưởng tranh tài nguyên. |\
+\
+\## 4. Ngưỡng đề xuất cho lần sau\
+\
+Các ngưỡng dưới đây là \*\*mục tiêu hồi quy tạm thời\*\* cho cùng cấu hình local, dữ liệu và hỗn hợp request.\
+\
+\| Pha đánh giá | Ngưỡng đề xuất | Căn cứ quan sát |\
+\|---|---|---|\
+\| \*\*Stress ổn định ở 144 luồng\*\* | Giữ bậc ít nhất \*\*30 giây\*\*. Mỗi cửa sổ 5 giây trọn vẹn đạt \*\*≥300 RPS\*\*, \*\*p95 chung ≤20 ms\*\*, \*\*p95 Checkout ≤25 ms\*\*. | Bốn cửa sổ 5 giây trong \`t=95–115 s\` đạt 314,40–318,80 RPS, p95 chung 11–13 ms và Checkout 15–17 ms. |\
+\| \*\*Stress khi chuyển lên 144 luồng\*\* | \*\*p95 chung ≤75 ms\*\* trong mỗi cửa sổ 1 giây có ít nhất 100 request trong đoạn chuyển bậc. | Giây chuyển bậc đạt 99 ms. Mức 75 ms đặt mục tiêu giảm đợt tăng ngắn mà cửa sổ 5 giây dễ che khuất. |\
+\| \*\*Spike ở tải cao\*\* | Mỗi cửa sổ 5 giây trọn vẹn của pha tải cao đạt \*\*≥300 RPS\*\*, \*\*p95 chung ≤35 ms\*\*, \*\*p95 Checkout ≤50 ms\*\*. Thêm ngưỡng \*\*p95 chung ≤50 ms\*\* theo cửa sổ 1 giây có ít nhất 100 request. | Các cửa sổ 60–65, 65–70 và 70–75 giây đạt 313,00–313,80 RPS. Cửa sổ đầu có p95 chung 29 ms, Checkout 46 ms. P95 một giây cao nhất trong pha đạt 45 ms. |\
+\| \*\*Hồi phục Spike ở 6 luồng\*\* | Trong vòng \*\*6 giây\*\* sau sample burst cuối, có một cửa sổ 5 giây đạt \*\*12–15 RPS\*\*, \*\*p95 ≤12 ms\*\*, \*\*0 lỗi\*\*. Duy trì qua hai cửa sổ 5 giây liền sau. | Ba cửa sổ \`80–95 s\` đạt 13,00–13,60 RPS, p95 7–9 ms và 0 lỗi. Cửa sổ đầu kết thúc khoảng 6 giây sau burst. |\
+\| \*\*Tỷ lệ lỗi ở pha tải cao\*\* | \*\*≤0,10%\*\* trên toàn pha tải cao của mỗi lượt, với cùng tiêu chí \`success=false\`. | Hai lượt quan sát được 0 lỗi. Mức 0,10% là dung sai đề xuất, tương đương tối đa 1 lỗi trên 1.000 request. |\
+\
+Lần sau nên lặp mỗi profile ít nhất ba lượt với dữ liệu đầu vào tương đương. Để tìm điểm gãy, kéo dài bậc 144 luồng rồi tăng từng bậc, chẳng hạn lên 168 và 192, đồng thời ghi CPU, event-loop delay và thời gian chờ SQLite. Dấu hiệu cần tìm là throughput hoàn tất chững hoặc giảm qua nhiều cửa sổ dù tải tăng, kèm độ trễ hoặc lỗi tăng kéo dài.

@@ -22,7 +22,8 @@ I use AI tools for the following tasks,
 - Thiết kế và chạy Endurance ở 32 VU, xác định ngưỡng ổn định từ 15 phút giữ tải (T05).
 - Chạy pilot, thăm dò và các lượt đo chính bằng JMeter CLI (T02–T05).
 - Tạo dashboard, thu CPU/RAM, tính lại số liệu JTL và đối chiếu đơn trong SQLite (T04–T05).
-- Soạn và sửa tài liệu kiểm thử, báo cáo và hồ sơ AI theo review (T00–T05).
+- Phân tích hai JTL ở chat riêng, rồi tính lại chỉ số và kiểm đề xuất tối ưu theo mã SUT (T06).
+- Soạn và sửa tài liệu kiểm thử, báo cáo và hồ sơ AI theo review (T00–T06).
 
 Công cụ, ngày giờ, prompt và phản hồi được ghi trong [Prompt Log](PromptLog.md).
 
@@ -49,15 +50,18 @@ Mỗi dòng dành cho một sản phẩm thực tế trong bộ nộp, chẳng h
 | T05 · OpenAI Codex · [P-042](PromptLog.md#p-042) · [P-043](PromptLog.md#p-043) | [Plan Endurance](../plans/23120410_Endurance_20261119.jmx) | VALID | Vỹ duyệt 32 VU, think-time 1–2 giây, ramp-up 20 giây và 15 phút giữ tải. Plan đã chạy đúng lịch với Simple Data Writer. Pilot đạt 32 VU và 0 lỗi sau khi RAM khả dụng đủ. [P-043](PromptLog.md#p-043) · [P-044](PromptLog.md#p-044) · [P-047](PromptLog.md#p-047) | Giữ cấu hình tải của plan đã duyệt. Vỹ yêu cầu áp dụng ngưỡng độ dốc working set cho 12 phút cuối và báo thêm độ dốc toàn 15 phút. Codex áp dụng yêu cầu đó khi phân tích CSV và viết báo cáo. [P-043](PromptLog.md#p-043) |
 | T05 · OpenAI Codex · [P-045](PromptLog.md#p-045) | Endurance · [JTL](../results/23120410_Endurance_20261119.jtl) · [HTML dashboard](../results/23120410_Endurance_20261119/index.html) · [CSV CPU/RAM](../results/23120410_Endurance_20261119_resources.csv) · [Đối chiếu SQLite](../evidence/t05/endurance-verification.json) | VALID | Vỹ duyệt T05. JTL có 19.333 request, 0 lỗi, khớp dashboard và 3.858 đơn trong SQLite. CSV có 900 mẫu trong pha giữ tải. [P-045](PromptLog.md#p-045) · [P-047](PromptLog.md#p-047) | Giữ bộ dữ liệu của lượt chính. Hai pilot dừng theo guard RAM được lưu riêng. Sau khi Vỹ giải phóng RAM, Codex chạy lại pilot đủ 110 giây, reset backend rồi đăng ký lại 7.500 tài khoản cho lượt chính. [P-043](PromptLog.md#p-043) · [P-044](PromptLog.md#p-044) |
 | T05 · OpenAI Codex · [P-042](PromptLog.md#p-042) · [P-045](PromptLog.md#p-045) | [Báo cáo Endurance](../T05_Endurance.md), kèm ảnh Task Manager do Vỹ chụp | INCOMPLETE | Bản lúc báo kết quả chỉ có ảnh đầu và còn chờ ảnh giữa, ảnh cuối. [P-045](PromptLog.md#p-045) | Vỹ gửi đủ ba ảnh để kiểm tra. Codex bổ sung hai ảnh còn thiếu, lấy mốc từ CAPTURE NOW trên ảnh và đối chiếu với JTL, rồi ghi rõ chênh lệch giữa giờ trên ảnh và giờ tạo file. Vỹ duyệt T05. [P-046](PromptLog.md#p-046) · [P-047](PromptLog.md#p-047) |
+| T06 · OpenAI Codex (chat riêng) · [P-049](PromptLog.md#p-049) | [Output phân tích JTL nguyên văn](T06_External_AI_Raw.txt) | INCOMPLETE | Các số liệu khớp JTL theo quy ước đã công bố. Kết luận hồi phục và ngưỡng tải cần giới hạn theo phép đo. Đề xuất rút ngắn transaction Checkout giả định có khối transaction riêng trong ứng dụng. [P-049](PromptLog.md#p-049) · [P-053](PromptLog.md#p-053) | Vỹ gửi output để lưu nguyên văn và yêu cầu đối chiếu bốn điểm diễn giải. Codex ghi phần phản biện và phân loại đề xuất trong báo cáo T06. [P-050](PromptLog.md#p-050) · [P-053](PromptLog.md#p-053) · [P-054](PromptLog.md#p-054) |
+| T06 · OpenAI Codex · [P-050](PromptLog.md#p-050) · [P-052](PromptLog.md#p-052) | [Báo cáo đối chiếu T06](../AI_Log_Analysis.md) | INCOMPLETE | Bản đầu kết luận số liệu khớp nhưng bảng misinterpretation chưa nêu các giới hạn diễn giải. Phạm vi thực tế của chat riêng chưa được đối chiếu với lịch sử công cụ. [P-053](PromptLog.md#p-053) | Vỹ chỉ ra bốn điểm cần làm rõ. Codex bổ sung bảng, tái tính RAM ở 144 VU từ CSV và xác minh các file chat riêng đã đọc. Vỹ duyệt bản sửa. [P-053](PromptLog.md#p-053) · [P-054](PromptLog.md#p-054) |
+| T06 · OpenAI Codex · [P-048](PromptLog.md#p-048) · [P-050](PromptLog.md#p-050) | [Script tái tính JTL](../evidence/t06/recompute_jtl.py) | VALID | Script chạy lại được trên hai JTL gốc và kết quả khớp các phép đếm, RPS, p95 và cửa sổ đối chiếu đã kiểm. Vỹ duyệt T06 và đưa script vào bộ nộp. [P-052](PromptLog.md#p-052) · [P-054](PromptLog.md#p-054) | Vỹ giữ script tái tính. Codex bổ sung lệnh tính RAM từ CSV trong báo cáo theo yêu cầu review. [P-053](PromptLog.md#p-053) · [P-054](PromptLog.md#p-054) |
 
 ## 4. Tổng kết đánh giá
 
 | Verdict | Số artifact | Tỷ lệ |
 | --- | ---: | ---: |
-| VALID | 6 | 35,29% |
-| INCOMPLETE | 11 | 64,71% |
+| VALID | 7 | 35% |
+| INCOMPLETE | 13 | 65% |
 | INVALID | 0 | 0% |
-| **Tổng** | **17** | **100%** |
+| **Tổng** | **20** | **100%** |
 
 ## 5. Xác nhận
 

@@ -2707,3 +2707,504 @@ Mình tìm được sáu lượt T05 trong chat gốc. Audit sẽ ghi riêng pla
 ```text
 Prompt Log đã có P-042 đến P-047. Audit có 17 hàng, gồm 6 VALID và 11 INCOMPLETE. Số liệu Report đã khớp với JTL, dashboard và SQLite. Mình sẽ kiểm tra các file đã stage trước khi commit.
 ```
+
+Phạm vi: T06 — Phân tích JTL ở chat riêng và đối chiếu
+
+<a id="msg-d5d11c5b25109930ec80"></a>
+
+## P-048
+
+- Timestamp: 13:29:17 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Sang T06 (Task 2: AI phân tích log JTL). Mình sẽ dùng một AI khác (chat riêng) để phân tích, bạn không tự viết câu trả lời của AI đó. Làm theo thứ tự, dừng ở các điểm báo mình, chưa commit.\
+\
+1\. Soạn sẵn prompt cho AI kia và danh sách file đính kèm. Dùng JTL thật: Stress và Spike (cần ít nhất một file có điểm gãy hoặc biến động rõ). Prompt cần yêu cầu AI: (a) tóm tắt các chỉ số chính (số request, RPS, p95 theo label, tỷ lệ lỗi), (b) nhận xét ngưỡng chịu tải và điểm bất thường, (c) đề xuất các tối ưu cho backend, (d) đề xuất ngưỡng hiệu năng. Chỉ cho AI biết các thông tin sinh viên có thể nói thật khi dùng AI (SUT là e-shop Express + SQLite, chạy local, JMeter chạy cùng máy), không gợi ý đáp án và không nói trước những gì bạn đã tính được. Đưa prompt và danh sách file cho mình trong một khối copy được rồi dừng.\
+\
+2\. Sau khi mình dán output thô của AI kia vào, lưu nguyên văn vào hw05/ai/ (một file hoặc theo cấu trúc Prompt Log hiện tại), không chỉnh sửa. Ghi tên AI, phiên bản, ngày giờ như mình cung cấp.\
+\
+3\. Kiểm tra output đó và viết hw05/AI_Log_Analysis.md gồm:\
+\- Bảng misinterpretation: mỗi mục có phát biểu của AI, giá trị đúng tính từ JTL (nêu cách tính: cột, percentile, khoảng thời gian), lý do AI sai. Chỉ ghi những lỗi thật có trong output; nếu AI không sai ở chỗ nào thì đừng bịa.\
+\- Bảng đề xuất tối ưu: mỗi đề xuất phân loại feasible hoặc hallucinated, lý do dựa trên code thật của SUT (Express, SQLite, cart trong RAM, JWT, checkout...), kèm file và dòng tham chiếu trong backend/server.js nếu có. Đề xuất feasible nêu rõ có áp dụng được trong phạm vi bài không.\
+\- Phần ngưỡng đề xuất của AI so với ngưỡng thực đo ở T04/T05.\
+Mọi con số tính lại đều có lệnh hoặc script tái tạo được.\
+\
+4\. Dừng báo mình review. Chưa cập nhật AI files, chưa commit.
+```
+
+<a id="msg-b0abc4affb82b7607d05"></a>
+
+### Output
+
+#### Phản hồi 1 — 13:29:36 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ kiểm tra đúng hai file JTL gốc và yêu cầu Task 2, rồi đưa prompt cùng danh sách đính kèm để Vỹ copy sang chat riêng.
+```
+
+<a id="msg-039d9f5dd12ea5742dad"></a>
+
+#### Phản hồi 2 — 13:30:04 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+````text
+Vỹ copy nguyên khối dưới đây sang chat riêng và đính kèm hai JTL gốc. [Stress JTL](../results/23120410_Stress_20261119.jtl) · [Spike JTL](../results/23120410_Spike_20261119.jtl)
+
+```text
+Mình đang phân tích kết quả kiểm thử hiệu năng của một e-shop dùng Express và SQLite. Backend và JMeter chạy local trên cùng một máy. Hãy phân tích trực tiếp hai file JTL gốc đính kèm.
+
+File đính kèm
+- 23120410_Stress_20261119.jtl
+- 23120410_Spike_20261119.jtl
+
+1. Với từng kịch bản, lập bảng số request, RPS, p95 và tỷ lệ lỗi cho toàn lượt và theo từng label. Nêu các cột đã dùng, khoảng thời gian tính RPS, cách tính percentile và tiêu chí đếm lỗi.
+
+2. Phân tích diễn biến theo thời gian. Chỉ ra các đoạn thay đổi đáng kể về tải, throughput, độ trễ hoặc lỗi, kèm mốc thời gian và số liệu từ JTL. Nhận xét về ngưỡng chịu tải, điểm gãy và khả năng hồi phục nếu dữ liệu đủ để kết luận. Cho biết bằng chứng nào hỗ trợ từng nhận xét.
+
+3. Đề xuất các cách tối ưu backend. Với mỗi đề xuất, nêu vấn đề mà thay đổi đó có thể giải quyết, giả định cần kiểm tra và cách đo lại để xác minh tác động.
+
+4. Đề xuất ngưỡng hiệu năng cụ thể cho lần kiểm thử sau, gồm p95, tỷ lệ lỗi và throughput khi phù hợp. Nêu đơn vị, cửa sổ đánh giá và căn cứ chọn từng ngưỡng. Phân biệt giá trị đã quan sát được với ngưỡng bạn đề xuất.
+
+Nếu không đọc được file hoặc thiếu dữ liệu để tính một chỉ số, hãy ghi rõ phần nào chưa xác định được.
+```
+````
+
+<a id="msg-f8df97e881743fadcb3e"></a>
+
+## P-049
+
+- Timestamp: 13:33:47 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex (chat riêng)
+- Model: GPT - 6.2 Sol High
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Hai JTL đính kèm (23120410_Spike_20261119.jtl, 23120410_Stress_20261119.jtl). Đã ẩn đường dẫn máy và metadata giao diện.
+
+```text
+Mình đang phân tích kết quả kiểm thử hiệu năng của một e-shop dùng Express và SQLite. Backend và JMeter chạy local trên cùng một máy. Hãy phân tích trực tiếp hai file JTL gốc đính kèm.\
+\
+File đính kèm\
+\- 23120410_Stress_20261119.jtl\
+\- 23120410_Spike_20261119.jtl\
+\
+1\. Với từng kịch bản, lập bảng số request, RPS, p95 và tỷ lệ lỗi cho toàn lượt và theo từng label. Nêu các cột đã dùng, khoảng thời gian tính RPS, cách tính percentile và tiêu chí đếm lỗi.\
+\
+2\. Phân tích diễn biến theo thời gian. Chỉ ra các đoạn thay đổi đáng kể về tải, throughput, độ trễ hoặc lỗi, kèm mốc thời gian và số liệu từ JTL. Nhận xét về ngưỡng chịu tải, điểm gãy và khả năng hồi phục nếu dữ liệu đủ để kết luận. Cho biết bằng chứng nào hỗ trợ từng nhận xét.\
+\
+3\. Đề xuất các cách tối ưu backend. Với mỗi đề xuất, nêu vấn đề mà thay đổi đó có thể giải quyết, giả định cần kiểm tra và cách đo lại để xác minh tác động.\
+\
+4\. Đề xuất ngưỡng hiệu năng cụ thể cho lần kiểm thử sau, gồm p95, tỷ lệ lỗi và throughput khi phù hợp. Nêu đơn vị, cửa sổ đánh giá và căn cứ chọn từng ngưỡng. Phân biệt giá trị đã quan sát được với ngưỡng bạn đề xuất.\
+\
+Nếu không đọc được file hoặc thiếu dữ liệu để tính một chỉ số, hãy ghi rõ phần nào chưa xác định được.
+```
+
+<a id="msg-70df163b885831c3cdc7"></a>
+
+### Output
+
+#### Phản hồi 1 — 13:33:50 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex (chat riêng)
+- Model: GPT - 6.2 Sol High
+
+```text
+Mình sẽ đọc trực tiếp hai JTL, kiểm tra cấu trúc bản ghi và dùng skill `ci-log-triage` để đối chiếu từng nhận xét với số liệu ghi được.
+```
+
+<a id="msg-426993480eb534aaf712"></a>
+
+#### Phản hồi 2 — 13:34:48 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex (chat riêng)
+- Model: GPT - 6.2 Sol High
+
+```text
+Cả hai file đều đọc được và mọi sample đều ghi `success=true`. Mình sẽ xem các cửa sổ ngắn quanh lúc tăng tải, vì p95 toàn lượt có thể che khuất những đợt tăng độ trễ ở các mốc đó. Mình cũng sẽ dùng skill `visualize` để thể hiện diễn biến theo thời gian.
+```
+
+<a id="msg-51cb9cd4d2e164a0c3ad"></a>
+
+#### Phản hồi 3 — 13:39:13 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex (chat riêng)
+- Model: GPT - 6.2 Sol High
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+**Stress đạt 316,25 RPS ở 144 luồng trong cửa sổ 20 giây, với p95 12 ms. Spike đạt 313,40 RPS ở 144 luồng trong cửa sổ 10 giây, với p95 16 ms, rồi trở về mức nền khoảng 13 RPS.** Cả hai lượt ghi nhận 0 lỗi. Hai JTL cho thấy các đợt tăng độ trễ ngắn, nhưng chưa đủ để xác định công suất tối đa hay điểm gãy của backend.
+
+## 1. Kết quả từ hai JTL gốc
+
+| Label | Stress request | Stress RPS | Stress p95 (ms) | Stress lỗi | Spike request | Spike RPS | Spike p95 (ms) | Spike lỗi |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Toàn lượt** | **20.203** | **170,12** | **10** | **0,00%** | **7.755** | **52,06** | **17** | **0,00%** |
+| 01 Login | 4.092 | 34,46 | 9 | 0,00% | 1.609 | 10,80 | 19 | 0,00% |
+| 02 Search products | 4.071 | 34,28 | 9 | 0,00% | 1.588 | 10,66 | 11 | 0,00% |
+| 03 Product detail | 4.041 | 34,03 | 9 | 0,00% | 1.551 | 10,41 | 11 | 0,00% |
+| 04 Add to cart | 4.013 | 33,79 | 2 | 0,00% | 1.517 | 10,18 | 6 | 0,00% |
+| 05 Checkout | 3.986 | 33,56 | 14 | 0,00% | 1.490 | 10,00 | 30 | 0,00% |
+
+Mỗi dòng CSV sau header được tính là một request. Mình dùng `label` để nhóm, `elapsed` để đo thời gian phản hồi và quy ước `timeStamp` là thời điểm bắt đầu sample, tính theo epoch mili giây. Khoảng đo đi từ `min(timeStamp)` đến `max(timeStamp + elapsed)`. RPS của từng label dùng **cùng mẫu số với toàn lượt**, nên thể hiện phần throughput mà label đó đóng góp.
+
+- **Stress:** 118,759 giây, từ 01:55:42.043 đến 01:57:40.802 ngày 19/11/2026, UTC+7. [JTL Stress](../results/23120410_Stress_20261119.jtl)
+- **Spike:** 148,959 giây, từ 01:38:37.404 đến 01:41:06.363 cùng ngày, UTC+7. [JTL Spike](../results/23120410_Spike_20261119.jtl)
+
+P95 dùng phương pháp *nearest rank*. Sắp `elapsed` tăng dần và lấy mẫu ở vị trí `ceil(0,95 × N)`, đánh số từ 1. Tỷ lệ lỗi là số dòng `success=false` chia cho số dòng trong nhóm. Đối chiếu thêm `responseCode` và `failureMessage`, cả 27.958 dòng đều có HTTP 200 và `success=true`, với `failureMessage` trống. JTL chưa đủ để xác định các assertion đã bao phủ những điều kiện nghiệp vụ nào, chẳng hạn đơn hàng có được lưu đúng sau Checkout hay không.
+
+## 2. Diễn biến tải và khả năng hồi phục
+
+`t` là số giây kể từ sample đầu tiên của từng lượt. Mỗi cửa sổ `[a, b)` đếm request **hoàn tất** trong khoảng đó, theo `timeStamp + elapsed`. P95 và tỷ lệ lỗi dùng cùng tập request. Số luồng lấy từ `allThreads` ghi trên sample. Mọi cửa sổ dưới đây đều có 0 lỗi.
+
+visualize{"path":"C:/Users/DELL/.codex/visualizations/2026/11/19/01a1f282-e160-7f13-abca-780c48767d0a/jtl-stress-spike.html"}
+
+### Stress
+
+| Cửa sổ `t` (giây) | Luồng | Request | RPS | p95 (ms) |
+|---|---:|---:|---:|---:|
+| 5–25 | 24 | 1.063 | 53,15 | 8 |
+| 35–55 | 48 | 2.116 | 105,80 | 8 |
+| 65–85 | 96 | 4.217 | 210,85 | 10 |
+| 89–90 | 102–125 | 246 | 246,00 | 8 |
+| 90–91 | 126–144 | 284 | 284,00 | **99** |
+| 91–92 | 144 | 321 | 321,00 | 10 |
+| 95–115 | 144 | 6.325 | 316,25 | 12 |
+| 111–112 | 144 | 314 | 314,00 | **46** |
+
+Throughput tăng gần tỷ lệ với số luồng qua bốn bậc. Biến động lớn nhất xảy ra lúc chuyển lên 144 luồng, ở **01:57:12.043–01:57:13.043**. Cả 14 request có `elapsed ≥ 100 ms` của lượt đều bắt đầu trong khoảng `t=90,012–90,063 s`, cao nhất là một Checkout **159 ms**. Ngay giây kế tiếp, p95 về 10 ms trong khi throughput tăng lên 321 RPS ở 144 luồng. Lượt còn một đợt chậm ngắn ở `t=111–112 s`, với p95 46 ms và 314 RPS. Các mốc này cho thấy độ trễ hồi phục ngay cả khi tải vẫn cao. Lượt kết thúc ngay sau bậc cao nhất, nên chưa có pha tải thấp đủ dài để đánh giá hồi phục sau khi hạ tải. [Checkout 159 ms trong JTL Stress](../results/23120410_Stress_20261119.jtl:11163)
+
+### Spike
+
+| Cửa sổ `t` (giây) | Luồng | Request | RPS | p95 (ms) |
+|---|---:|---:|---:|---:|
+| 5–55 | 6 | 662 | 13,24 | 9 |
+| 59–60 | 6–136 | 92 | 92,00 | 3 |
+| 60–65 | 138–144 | 1.567 | 313,40 | **29** |
+| 65–75 | 144 | 3.134 | 313,40 | 16 |
+| 75–76 | 144 | 311 | 311,00 | **45** |
+| 80–85 | 6 | 66 | 13,20 | 7 |
+| 85–145 | 6 | 787 | 13,12 | 8 |
+
+Nhóm `Spike Burst`, nhận diện từ `threadName`, xuất hiện ở `t=59,372 s` (**01:39:36.776**) và có sample hoàn tất cuối cùng ở `t=79,001 s`. Trong 5 giây đầu tải cao, p95 toàn bộ là 29 ms, riêng Checkout là **46 ms**. Ở `t=75–76 s`, p95 tăng lại lên 45 ms dù throughput vẫn đạt 311 RPS, với Checkout chậm nhất **71 ms**. Sau burst, cửa sổ `80–85 s` đã trở về 6 luồng, 13,20 RPS và p95 7 ms. Mức nền được duy trì đến ít nhất `t=145 s`, hỗ trợ kết luận lượt này hồi phục sau khi giảm tải. [Checkout 71 ms](../results/23120410_Spike_20261119.jtl:5701) · [Sample cuối nhóm Burst](../results/23120410_Spike_20261119.jtl:6836)
+
+**Mức tải cao đã quan sát được là khoảng 313–316 RPS ở 144 luồng** trong các cửa sổ nêu trên. Ở bậc cuối của Stress, throughput vẫn tăng và p95 trở lại mức thấp sau đợt tăng ngắn. Dữ liệu chưa cho thấy throughput chững hoặc giảm kéo dài khi tăng tải. Vì Express và JMeter chạy chung máy, JTL cũng chưa xác định được phần giới hạn đến từ backend, SQLite hay máy phát tải. `allThreads` là số luồng JMeter ghi nhận, còn RPS ở đây là số request hoàn tất.
+
+## 3. Tối ưu backend và cách kiểm chứng
+
+| Thay đổi có điều kiện | Vấn đề và giả định cần kiểm tra | Đo lại để xác minh |
+|---|---|---|
+| **Rút ngắn transaction ghi của Checkout.** Thử WAL riêng nếu đo thấy đọc và ghi cản nhau. | Checkout có p95 cao nhất ở cả hai lượt. Kiểm tra xem phần chậm nằm ở chờ khóa, thời gian giữ transaction, `COMMIT` hay xử lý ngoài DB. | Đo riêng các đoạn đó và đếm `SQLITE_BUSY`. Chạy lại cùng dữ liệu và tải, so p95 Checkout ở cửa sổ 5 giây đầu Spike và throughput ở 144 luồng. Xác nhận mỗi Checkout thành công tạo đúng một đơn với dữ liệu nhất quán. |
+| **Tối ưu truy vấn Search products và Product detail theo kế hoạch thực thi.** | Hai label đọc cũng xuất hiện trong đợt chậm của Stress. Kiểm tra bằng `EXPLAIN QUERY PLAN` và thời gian SQL xem có quét bảng, truy vấn lặp hoặc đọc dư dữ liệu. | So thời gian SQL và p95 từng label với cùng từ khóa, kích thước DB và phân bố sản phẩm. Đo lại Checkout vì thêm index có thể tăng chi phí ghi. |
+| **Chuyển phần xử lý đồng bộ đã xác nhận là nặng ra khỏi event loop của Express.** | Nhiều label chậm cùng lúc ở giây 90 của Stress. Trong 14 sample từ 100 ms trở lên, `Connect` chỉ 0–1 ms và `Latency` bằng `elapsed`. Kiểm tra event-loop delay và CPU profile để xem xử lý đồng bộ trong Login hoặc middleware chung có góp phần hay không. | Ghi event-loop delay và CPU của cả Node lẫn JMeter theo cửa sổ 1 giây, rồi so p95 ở thời điểm lên 144 luồng khi chỉ đổi một yếu tố. Một lượt đối chứng chạy JMeter trên máy khác giúp kiểm tra ảnh hưởng tranh tài nguyên. |
+
+## 4. Ngưỡng đề xuất cho lần sau
+
+Các ngưỡng dưới đây là **mục tiêu hồi quy tạm thời** cho cùng cấu hình local, dữ liệu và hỗn hợp request.
+
+| Pha đánh giá | Ngưỡng đề xuất | Căn cứ quan sát |
+|---|---|---|
+| **Stress ổn định ở 144 luồng** | Giữ bậc ít nhất **30 giây**. Mỗi cửa sổ 5 giây trọn vẹn đạt **≥300 RPS**, **p95 chung ≤20 ms**, **p95 Checkout ≤25 ms**. | Bốn cửa sổ 5 giây trong `t=95–115 s` đạt 314,40–318,80 RPS, p95 chung 11–13 ms và Checkout 15–17 ms. |
+| **Stress khi chuyển lên 144 luồng** | **p95 chung ≤75 ms** trong mỗi cửa sổ 1 giây có ít nhất 100 request trong đoạn chuyển bậc. | Giây chuyển bậc đạt 99 ms. Mức 75 ms đặt mục tiêu giảm đợt tăng ngắn mà cửa sổ 5 giây dễ che khuất. |
+| **Spike ở tải cao** | Mỗi cửa sổ 5 giây trọn vẹn của pha tải cao đạt **≥300 RPS**, **p95 chung ≤35 ms**, **p95 Checkout ≤50 ms**. Thêm ngưỡng **p95 chung ≤50 ms** theo cửa sổ 1 giây có ít nhất 100 request. | Các cửa sổ 60–65, 65–70 và 70–75 giây đạt 313,00–313,80 RPS. Cửa sổ đầu có p95 chung 29 ms, Checkout 46 ms. P95 một giây cao nhất trong pha đạt 45 ms. |
+| **Hồi phục Spike ở 6 luồng** | Trong vòng **6 giây** sau sample burst cuối, có một cửa sổ 5 giây đạt **12–15 RPS**, **p95 ≤12 ms**, **0 lỗi**. Duy trì qua hai cửa sổ 5 giây liền sau. | Ba cửa sổ `80–95 s` đạt 13,00–13,60 RPS, p95 7–9 ms và 0 lỗi. Cửa sổ đầu kết thúc khoảng 6 giây sau burst. |
+| **Tỷ lệ lỗi ở pha tải cao** | **≤0,10%** trên toàn pha tải cao của mỗi lượt, với cùng tiêu chí `success=false`. | Hai lượt quan sát được 0 lỗi. Mức 0,10% là dung sai đề xuất, tương đương tối đa 1 lỗi trên 1.000 request. |
+
+Lần sau nên lặp mỗi profile ít nhất ba lượt với dữ liệu đầu vào tương đương. Để tìm điểm gãy, kéo dài bậc 144 luồng rồi tăng từng bậc, chẳng hạn lên 168 và 192, đồng thời ghi CPU, event-loop delay và thời gian chờ SQLite. Dấu hiệu cần tìm là throughput hoàn tất chững hoặc giảm qua nhiều cửa sổ dù tải tăng, kèm độ trễ hoặc lỗi tăng kéo dài.
+```
+
+<a id="msg-ea4f97466385157b86ff"></a>
+
+## P-050
+
+- Timestamp: 13:50:47 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối. [Bản phản hồi Vỹ dán nguyên văn](T06_External_AI_Raw.txt).
+
+```text
+\*\*Stress đạt 316,25 RPS ở 144 luồng trong cửa sổ 20 giây, với p95 12 ms. Spike đạt 313,40 RPS ở 144 luồng trong cửa sổ 10 giây, với p95 16 ms, rồi trở về mức nền khoảng 13 RPS.\*\* Cả hai lượt ghi nhận 0 lỗi. Hai JTL cho thấy các đợt tăng độ trễ ngắn, nhưng chưa đủ để xác định công suất tối đa hay điểm gãy của backend.\
+\
+\## 1. Kết quả từ hai JTL gốc\
+\
+\| Label | Stress request | Stress RPS | Stress p95 (ms) | Stress lỗi | Spike request | Spike RPS | Spike p95 (ms) | Spike lỗi |\
+\|---|---:|---:|---:|---:|---:|---:|---:|---:|\
+\| \*\*Toàn lượt\*\* | \*\*20.203\*\* | \*\*170,12\*\* | \*\*10\*\* | \*\*0,00%\*\* | \*\*7.755\*\* | \*\*52,06\*\* | \*\*17\*\* | \*\*0,00%\*\* |\
+\| 01 Login | 4.092 | 34,46 | 9 | 0,00% | 1.609 | 10,80 | 19 | 0,00% |\
+\| 02 Search products | 4.071 | 34,28 | 9 | 0,00% | 1.588 | 10,66 | 11 | 0,00% |\
+\| 03 Product detail | 4.041 | 34,03 | 9 | 0,00% | 1.551 | 10,41 | 11 | 0,00% |\
+\| 04 Add to cart | 4.013 | 33,79 | 2 | 0,00% | 1.517 | 10,18 | 6 | 0,00% |\
+\| 05 Checkout | 3.986 | 33,56 | 14 | 0,00% | 1.490 | 10,00 | 30 | 0,00% |\
+\
+Mỗi dòng CSV sau header được tính là một request. Mình dùng \`label\` để nhóm, \`elapsed\` để đo thời gian phản hồi và quy ước \`timeStamp\` là thời điểm bắt đầu sample, tính theo epoch mili giây. Khoảng đo đi từ \`min(timeStamp)\` đến \`max(timeStamp + elapsed)\`. RPS của từng label dùng \*\*cùng mẫu số với toàn lượt\*\*, nên thể hiện phần throughput mà label đó đóng góp.\
+\
+\- \*\*Stress:\*\* 118,759 giây, từ 01:55:42.043 đến 01:57:40.802 ngày 19/11/2026, UTC+7. [JTL Stress]\(../results/23120410_Stress_20261119.jtl)\
+\- \*\*Spike:\*\* 148,959 giây, từ 01:38:37.404 đến 01:41:06.363 cùng ngày, UTC+7. [JTL Spike]\(../results/23120410_Spike_20261119.jtl)\
+\
+P95 dùng phương pháp \*nearest rank\*. Sắp \`elapsed\` tăng dần và lấy mẫu ở vị trí \`ceil(0,95 × N)\`, đánh số từ 1. Tỷ lệ lỗi là số dòng \`success=false\` chia cho số dòng trong nhóm. Đối chiếu thêm \`responseCode\` và \`failureMessage\`, cả 27.958 dòng đều có HTTP 200 và \`success=true\`, với \`failureMessage\` trống. JTL chưa đủ để xác định các assertion đã bao phủ những điều kiện nghiệp vụ nào, chẳng hạn đơn hàng có được lưu đúng sau Checkout hay không.\
+\
+\## 2. Diễn biến tải và khả năng hồi phục\
+\
+\`t\` là số giây kể từ sample đầu tiên của từng lượt. Mỗi cửa sổ \`[a, b)\` đếm request \*\*hoàn tất\*\* trong khoảng đó, theo \`timeStamp + elapsed\`. P95 và tỷ lệ lỗi dùng cùng tập request. Số luồng lấy từ \`allThreads\` ghi trên sample. Mọi cửa sổ dưới đây đều có 0 lỗi.\
+\
+\### Stress\
+\
+\| Cửa sổ \`t\` (giây) | Luồng | Request | RPS | p95 (ms) |\
+\|---|---:|---:|---:|---:|\
+\| 5–25 | 24 | 1.063 | 53,15 | 8 |\
+\| 35–55 | 48 | 2.116 | 105,80 | 8 |\
+\| 65–85 | 96 | 4.217 | 210,85 | 10 |\
+\| 89–90 | 102–125 | 246 | 246,00 | 8 |\
+\| 90–91 | 126–144 | 284 | 284,00 | \*\*99\*\* |\
+\| 91–92 | 144 | 321 | 321,00 | 10 |\
+\| 95–115 | 144 | 6.325 | 316,25 | 12 |\
+\| 111–112 | 144 | 314 | 314,00 | \*\*46\*\* |\
+\
+Throughput tăng gần tỷ lệ với số luồng qua bốn bậc. Biến động lớn nhất xảy ra lúc chuyển lên 144 luồng, ở \*\*01:57:12.043–01:57:13.043\*\*. Cả 14 request có \`elapsed ≥ 100 ms\` của lượt đều bắt đầu trong khoảng \`t=90,012–90,063 s\`, cao nhất là một Checkout \*\*159 ms\*\*. Ngay giây kế tiếp, p95 về 10 ms trong khi throughput tăng lên 321 RPS ở 144 luồng. Lượt còn một đợt chậm ngắn ở \`t=111–112 s\`, với p95 46 ms và 314 RPS. Các mốc này cho thấy độ trễ hồi phục ngay cả khi tải vẫn cao. Lượt kết thúc ngay sau bậc cao nhất, nên chưa có pha tải thấp đủ dài để đánh giá hồi phục sau khi hạ tải. [Checkout 159 ms trong JTL Stress]\(../results/23120410_Stress_20261119.jtl:11163)\
+\
+\### Spike\
+\
+\| Cửa sổ \`t\` (giây) | Luồng | Request | RPS | p95 (ms) |\
+\|---|---:|---:|---:|---:|\
+\| 5–55 | 6 | 662 | 13,24 | 9 |\
+\| 59–60 | 6–136 | 92 | 92,00 | 3 |\
+\| 60–65 | 138–144 | 1.567 | 313,40 | \*\*29\*\* |\
+\| 65–75 | 144 | 3.134 | 313,40 | 16 |\
+\| 75–76 | 144 | 311 | 311,00 | \*\*45\*\* |\
+\| 80–85 | 6 | 66 | 13,20 | 7 |\
+\| 85–145 | 6 | 787 | 13,12 | 8 |\
+\
+Nhóm \`Spike Burst\`, nhận diện từ \`threadName\`, xuất hiện ở \`t=59,372 s\` (\*\*01:39:36.776\*\*) và có sample hoàn tất cuối cùng ở \`t=79,001 s\`. Trong 5 giây đầu tải cao, p95 toàn bộ là 29 ms, riêng Checkout là \*\*46 ms\*\*. Ở \`t=75–76 s\`, p95 tăng lại lên 45 ms dù throughput vẫn đạt 311 RPS, với Checkout chậm nhất \*\*71 ms\*\*. Sau burst, cửa sổ \`80–85 s\` đã trở về 6 luồng, 13,20 RPS và p95 7 ms. Mức nền được duy trì đến ít nhất \`t=145 s\`, hỗ trợ kết luận lượt này hồi phục sau khi giảm tải. [Checkout 71 ms]\(../results/23120410_Spike_20261119.jtl:5701) · [Sample cuối nhóm Burst]\(../results/23120410_Spike_20261119.jtl:6836)\
+\
+\*\*Mức tải cao đã quan sát được là khoảng 313–316 RPS ở 144 luồng\*\* trong các cửa sổ nêu trên. Ở bậc cuối của Stress, throughput vẫn tăng và p95 trở lại mức thấp sau đợt tăng ngắn. Dữ liệu chưa cho thấy throughput chững hoặc giảm kéo dài khi tăng tải. Vì Express và JMeter chạy chung máy, JTL cũng chưa xác định được phần giới hạn đến từ backend, SQLite hay máy phát tải. \`allThreads\` là số luồng JMeter ghi nhận, còn RPS ở đây là số request hoàn tất.\
+\
+\## 3. Tối ưu backend và cách kiểm chứng\
+\
+\| Thay đổi có điều kiện | Vấn đề và giả định cần kiểm tra | Đo lại để xác minh |\
+\|---|---|---|\
+\| \*\*Rút ngắn transaction ghi của Checkout.\*\* Thử WAL riêng nếu đo thấy đọc và ghi cản nhau. | Checkout có p95 cao nhất ở cả hai lượt. Kiểm tra xem phần chậm nằm ở chờ khóa, thời gian giữ transaction, \`COMMIT\` hay xử lý ngoài DB. | Đo riêng các đoạn đó và đếm \`SQLITE_BUSY\`. Chạy lại cùng dữ liệu và tải, so p95 Checkout ở cửa sổ 5 giây đầu Spike và throughput ở 144 luồng. Xác nhận mỗi Checkout thành công tạo đúng một đơn với dữ liệu nhất quán. |\
+\| \*\*Tối ưu truy vấn Search products và Product detail theo kế hoạch thực thi.\*\* | Hai label đọc cũng xuất hiện trong đợt chậm của Stress. Kiểm tra bằng \`EXPLAIN QUERY PLAN\` và thời gian SQL xem có quét bảng, truy vấn lặp hoặc đọc dư dữ liệu. | So thời gian SQL và p95 từng label với cùng từ khóa, kích thước DB và phân bố sản phẩm. Đo lại Checkout vì thêm index có thể tăng chi phí ghi. |\
+\| \*\*Chuyển phần xử lý đồng bộ đã xác nhận là nặng ra khỏi event loop của Express.\*\* | Nhiều label chậm cùng lúc ở giây 90 của Stress. Trong 14 sample từ 100 ms trở lên, \`Connect\` chỉ 0–1 ms và \`Latency\` bằng \`elapsed\`. Kiểm tra event-loop delay và CPU profile để xem xử lý đồng bộ trong Login hoặc middleware chung có góp phần hay không. | Ghi event-loop delay và CPU của cả Node lẫn JMeter theo cửa sổ 1 giây, rồi so p95 ở thời điểm lên 144 luồng khi chỉ đổi một yếu tố. Một lượt đối chứng chạy JMeter trên máy khác giúp kiểm tra ảnh hưởng tranh tài nguyên. |\
+\
+\## 4. Ngưỡng đề xuất cho lần sau\
+\
+Các ngưỡng dưới đây là \*\*mục tiêu hồi quy tạm thời\*\* cho cùng cấu hình local, dữ liệu và hỗn hợp request.\
+\
+\| Pha đánh giá | Ngưỡng đề xuất | Căn cứ quan sát |\
+\|---|---|---|\
+\| \*\*Stress ổn định ở 144 luồng\*\* | Giữ bậc ít nhất \*\*30 giây\*\*. Mỗi cửa sổ 5 giây trọn vẹn đạt \*\*≥300 RPS\*\*, \*\*p95 chung ≤20 ms\*\*, \*\*p95 Checkout ≤25 ms\*\*. | Bốn cửa sổ 5 giây trong \`t=95–115 s\` đạt 314,40–318,80 RPS, p95 chung 11–13 ms và Checkout 15–17 ms. |\
+\| \*\*Stress khi chuyển lên 144 luồng\*\* | \*\*p95 chung ≤75 ms\*\* trong mỗi cửa sổ 1 giây có ít nhất 100 request trong đoạn chuyển bậc. | Giây chuyển bậc đạt 99 ms. Mức 75 ms đặt mục tiêu giảm đợt tăng ngắn mà cửa sổ 5 giây dễ che khuất. |\
+\| \*\*Spike ở tải cao\*\* | Mỗi cửa sổ 5 giây trọn vẹn của pha tải cao đạt \*\*≥300 RPS\*\*, \*\*p95 chung ≤35 ms\*\*, \*\*p95 Checkout ≤50 ms\*\*. Thêm ngưỡng \*\*p95 chung ≤50 ms\*\* theo cửa sổ 1 giây có ít nhất 100 request. | Các cửa sổ 60–65, 65–70 và 70–75 giây đạt 313,00–313,80 RPS. Cửa sổ đầu có p95 chung 29 ms, Checkout 46 ms. P95 một giây cao nhất trong pha đạt 45 ms. |\
+\| \*\*Hồi phục Spike ở 6 luồng\*\* | Trong vòng \*\*6 giây\*\* sau sample burst cuối, có một cửa sổ 5 giây đạt \*\*12–15 RPS\*\*, \*\*p95 ≤12 ms\*\*, \*\*0 lỗi\*\*. Duy trì qua hai cửa sổ 5 giây liền sau. | Ba cửa sổ \`80–95 s\` đạt 13,00–13,60 RPS, p95 7–9 ms và 0 lỗi. Cửa sổ đầu kết thúc khoảng 6 giây sau burst. |\
+\| \*\*Tỷ lệ lỗi ở pha tải cao\*\* | \*\*≤0,10%\*\* trên toàn pha tải cao của mỗi lượt, với cùng tiêu chí \`success=false\`. | Hai lượt quan sát được 0 lỗi. Mức 0,10% là dung sai đề xuất, tương đương tối đa 1 lỗi trên 1.000 request. |\
+\
+Lần sau nên lặp mỗi profile ít nhất ba lượt với dữ liệu đầu vào tương đương. Để tìm điểm gãy, kéo dài bậc 144 luồng rồi tăng từng bậc, chẳng hạn lên 168 và 192, đồng thời ghi CPU, event-loop delay và thời gian chờ SQLite. Dấu hiệu cần tìm là throughput hoàn tất chững hoặc giảm qua nhiều cửa sổ dù tải tăng, kèm độ trễ hoặc lỗi tăng kéo dài.
+```
+
+<a id="msg-c2ed9c06b16e10fc6eeb"></a>
+
+### Output
+
+#### Phản hồi 1 — 13:50:58 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ lưu nguyên văn phản hồi Vỹ vừa dán, rồi tính lại số liệu từ hai JTL và đối chiếu các đề xuất với mã backend. Mình sẽ để trống metadata chưa được cung cấp.
+```
+
+<a id="msg-326fc414cf0988fa51bb"></a>
+
+## P-051
+
+- Timestamp: 13:51:29 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex (chat riêng)
+
+### Prompt
+
+```text
+khai báo: Vỹ cho mình tên công cụ AI, phiên bản hoặc model hiển thị, và ngày giờ phân tích kèm múi giờ để ghi nguồn nguyên văn. Nếu mục nào không hiện, Vỹ ghi “không rõ”.
+```
+
+<a id="msg-f6b72b5ee346e85351a5"></a>
+
+### Output
+
+#### Phản hồi 1 — 13:51:37 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex (chat riêng)
+
+```text
+Mình sẽ kiểm tra thông tin model hiển thị và mốc giờ của lượt phân tích để Vỹ có thể ghi nguyên văn.
+```
+
+<a id="msg-0add010753cedb3292b1"></a>
+
+#### Phản hồi 2 — 13:52:04 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex (chat riêng)
+
+```text
+Lịch sử chat ghi lượt phân tích từ 13:33:46 đến 13:39:13, giờ UTC+7. Mình sẽ dùng skill `computer-use` để xem Codex có hiển thị tên model hay phiên bản hay không.
+```
+
+<a id="msg-71643ddf0a23de0fcba6"></a>
+
+#### Phản hồi 3 — 13:52:30 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex (chat riêng)
+
+```text
+- **Công cụ AI** — OpenAI Codex (ứng dụng desktop).
+- **Phiên bản ứng dụng** — `26.1111.9664.0`, theo thông tin gói cài đặt Windows.
+- **Model hiển thị** — không rõ.
+- **Thời gian phân tích JTL** — 13:33:46–13:39:13 ngày 19/11/2026, múi giờ UTC+7 (Asia/Bangkok), theo lịch sử lượt chat.
+```
+
+<a id="msg-96563eb8a8a8cc8ecfa6"></a>
+
+## Phản hồi bổ sung cho P-050
+
+### Output
+
+#### Phản hồi 1 — 13:53:11 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Các số chính tính lại đều khớp theo công thức AI kia đã nêu. RPS theo label khác dashboard vì hai bên dùng mẫu số khác nhau. Mình sẽ ghi rõ điểm đó và kiểm riêng các giả định tối ưu trong mã backend.
+```
+
+<a id="msg-de9b67a815274eb6e091"></a>
+
+## P-052
+
+- Timestamp: 13:54:17 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Giữ câu hỏi và câu trả lời đã nhập. Đã ẩn ID nội bộ giao diện.
+
+```text
+Vỹ cho mình tên công cụ AI, phiên bản hoặc model hiển thị, và ngày giờ phân tích kèm múi giờ để ghi nguồn nguyên văn. Nếu mục nào không hiện, Vỹ ghi “không rõ”.
+- **Công cụ AI** — OpenAI Codex 
+- **Model hiển thị** — GPT - 6.2 Sol High
+- **Thời gian phân tích JTL** — 13:33:46–13:39:13 ngày 19/11/2026, múi giờ UTC+7 (Asia/Bangkok), theo lịch sử lượt chat.
+```
+
+<a id="msg-8a4ed051eb3ff2b0c13f"></a>
+
+### Output
+
+#### Phản hồi 1 — 13:56:10 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+T06 đã sẵn sàng để Vỹ review. Mình đã lưu nguyên văn output và ghi tên công cụ, model, thời gian phân tích theo thông tin Vỹ cung cấp. [Output AI](../ai/T06_External_AI_Raw.txt) · [Báo cáo T06](../AI_Log_Analysis.md) · [Script tái tính](../evidence/t06/recompute_jtl.py)
+
+- **JTL:** Chưa phát hiện lỗi diễn giải theo phương pháp AI công bố. RPS theo label dùng thời lượng toàn lượt, còn dashboard dùng thời lượng riêng của từng label.
+- **Tối ưu:** Đề xuất rút ngắn transaction Checkout giả định có khối transaction để sửa. Route hiện chỉ gọi một `INSERT` với transaction ngầm của SQLite. Thử WAL, kiểm tra kế hoạch truy vấn và profiling đều khả thi dưới dạng thử nghiệm có điều kiện.
+- **Ngưỡng:** Cửa sổ hồi phục Spike khoảng **6 giây** dùng p95 gộp. Mốc **35 giây** của T04 dùng p95 theo từng label trong cửa sổ 30 giây. Báo cáo cũng đối chiếu các mục tiêu tải ngắn của AI với mức soak T05 **21,26 req/s ở 32 VU**.
+
+Mình dừng để Vỹ review. Chưa cập nhật Prompt Log, Audit hay commit.
+```
+
+<a id="msg-0cf1a7e04eaab158d760"></a>
+
+## P-053
+
+- Timestamp: 14:01:35 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+T06 chưa duyệt, sửa AI_Log_Analysis.md:\
+1\. Bảng "Misinterpretation hunt" đang trống. Giữ câu trung thực rằng output không sai số liệu so với JTL, nhưng thêm các điểm diễn giải/giả định yếu thật, mỗi điểm có giá trị đúng và cách tính: (a) cửa sổ hồi phục Spike 6 s dùng p95 gộp, trong khi theo p95 từng label (T04) Search ở cửa sổ đầu là 4 ms vượt mốc 3,6 ms và T04 xác nhận hồi phục sau 35 s; (b) ngưỡng ≥300 RPS suy từ một lượt (316 RPS) và chỉ đúng với profile think-time 300–600 ms, dễ không tổng quát; (c) đề xuất 168/192 VU vượt trần RAM của máy dùng chung (RAM khả dụng thấp nhất ở 144 VU: lấy số từ CSV T03/T04); (d) RPS theo label dùng mẫu số toàn lượt (34,28) khác dashboard (34,47). Phân biệt rõ "số sai" và "diễn giải/giả định yếu", đừng gọi (d) là sai nếu AI đã công bố quy ước.\
+2\. Ghi đúng chat "AI ngoài" có truy cập những gì (mình sẽ báo bên dưới); nếu nó đọc được repo hoặc tài liệu T04 thì nói rõ, vì đó là lý do độ chính xác cao.\
+3\. Chờ mình, chưa cập nhật AI files, chưa commit.\
+\
+Thông tin mình cung cấp: [bạn điền: chat đó có truy cập repo hay chỉ nhận JTL? thấy file nào?]
+```
+
+<a id="msg-f8fa541a45602798c9c8"></a>
+
+### Output
+
+#### Phản hồi 1 — 14:02:10 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ sửa bảng để tách số liệu đúng khỏi các giả định cần giới hạn, tính lại RAM ở 144 VU từ CSV và kiểm tra lịch sử chat riêng để xác nhận nó đã đọc những file nào.
+```
+
+<a id="msg-3330f936a50b6a79f83a"></a>
+
+#### Phản hồi 2 — 14:05:49 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+Đã sửa [AI_Log_Analysis.md](../AI_Log_Analysis.md) và dừng để Vỹ review. Số liệu AI khớp JTL theo quy ước đã công bố. Bảng phản biện giờ có đủ bốn điểm:
+
+- **Hồi phục Spike:** Mốc khoảng 6 giây đạt theo p95 gộp. Search ở cửa sổ đầu là **4 ms**, vượt ngưỡng riêng **3,6 ms**. T04 xác nhận hồi phục theo từng label ở **35 giây**.
+- **Ngưỡng 300 req/s:** Là mục tiêu tạm thời cho profile **300–600 ms**. Thăm dò cùng 144 VU với think-time **1–2 giây** đạt **95,18 req/s**.
+- **168/192 VU:** Vượt trần thử nghiệm 144 VU. Min RAM trong các cửa sổ 144 VU là **1.805 MiB** ở T03, **3.767 MiB** ở Stress T04 và **3.540 MiB** ở Spike T04.
+- **RPS theo label:** **34,28** và **34,47 req/s** đều đúng theo mẫu số tương ứng. Báo cáo có công thức tính lại.
+
+Lịch sử chat riêng xác nhận Codex có thể đọc repo local. Trong lượt phân tích, hai JTL là các file dữ liệu SUT thực sự được đọc. Lịch sử không ghi nhận việc mở mã backend, dashboard hay tài liệu T04/T05. Chưa cập nhật hồ sơ AI hay commit.
+```
+
+<a id="msg-d47be1e8e9e39b1c4e84"></a>
+
+## P-054
+
+- Timestamp: 14:58:43 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+T06 mình duyệt. Làm bước chốt:\
+1\. Cập nhật AI files: PromptLog (các lượt T06, gồm lượt phân tích ở chat riêng nếu đã có trong lịch sử mình cung cấp), AI_Audit_Report (hàng T06: output AI nguyên văn, AI_Log_Analysis.md, script tái tính; Verdict, Lý do, Bản sinh viên sửa dẫn PromptLog; cập nhật mục 4), README, Report (tóm tắt Task 2: không có số sai, 4 điểm diễn giải yếu, 1 hallucinated và 3 feasible).\
+2\. Commit AI_Log_Analysis.md, ai/T06_External_AI_Raw\.txt, evidence/t06 cùng AI files, push, cập nhật GitCommitLog.txt theo quy ước và báo hash.
+```
+
+<a id="msg-064b2339bcfc487872d5"></a>
+
+### Output
+
+#### Phản hồi 1 — 14:58:52 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ dùng skill `course-ai-log` để ghi các lượt T06 và lượt phân tích trong chat riêng. Sau đó mình sẽ cập nhật Audit, README và Report, kiểm lại số liệu rồi commit và push.
+```
+
+<a id="msg-d1eefd3a9c2190aef0d9"></a>
+
+#### Phản hồi 2 — 15:01:27 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Prompt Log đã có lượt phân tích gốc và lượt xác nhận metadata của chat riêng. Audit có ba hàng T06. Report đã ghi bốn điểm cần lưu ý khi diễn giải, trong đó chênh lệch RPS theo label được ghi là khác quy ước hợp lệ.
+```
