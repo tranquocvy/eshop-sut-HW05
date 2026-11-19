@@ -1,0 +1,4 @@
+WARN: Inconclusive p95 comparison.
+- Need 3 independent runs, got 1.
+- Run 1: profile mismatch (smoke-load-2vu-30s-ramp5 vs load-6vu-150s-local-v1).
+Exit: 2

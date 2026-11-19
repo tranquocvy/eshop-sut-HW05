@@ -38,4 +38,8 @@ test(hw05): record endurance run
 2026-11-19T15:02:09+07:00
 docs(hw05): record ai log analysis
 
-Lịch sử đến T06, trước commit T07A. Xuất đầy đủ từ Git ở T08.
+465e75c0e5096d23b9aa036ec6b2872499f084ef
+2026-11-19T15:59:10+07:00
+docs(hw05): propose continuous performance testing
+
+Lịch sử đến T07A, trước commit T07B. Xuất đầy đủ từ Git ở T08.

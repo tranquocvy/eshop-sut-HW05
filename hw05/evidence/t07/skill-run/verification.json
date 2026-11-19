@@ -1,0 +1,87 @@
+{
+  "backend_base": "85af3ba875c88283615e22cb108f13e2fccaf0e9",
+  "host": "goyoonjung",
+  "threads": 2,
+  "ramp_s": 5,
+  "duration_s": 30,
+  "think_time_s": [
+    1,
+    2
+  ],
+  "required_credentials": 16,
+  "start_ram_mib": 5747,
+  "before_provision": {
+    "quick_check": "ok",
+    "users_by_role": {
+      "admin": 1,
+      "user": 1
+    },
+    "products": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "orders": 0,
+    "lockout_or_attempts": 0,
+    "fixture_users": 0
+  },
+  "provision_stdout": "Registered 16 synthetic users.",
+  "after_provision": {
+    "quick_check": "ok",
+    "users_by_role": {
+      "admin": 1,
+      "user": 17
+    },
+    "products": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "orders": 0,
+    "lockout_or_attempts": 0,
+    "fixture_users": 16
+  },
+  "run_started_at": "2026-11-19T16:08:01.798+07:00",
+  "run_exit_code": 0,
+  "run_finished_at": "2026-11-19T16:08:50.834+07:00",
+  "min_ram_mib_including_dashboard": 5393,
+  "ram_samples": 49,
+  "after_run": {
+    "quick_check": "ok",
+    "users_by_role": {
+      "admin": 1,
+      "user": 17
+    },
+    "products": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "orders": 6,
+    "lockout_or_attempts": 0,
+    "fixture_users": 16
+  },
+  "thread_group_log": "2026-11-19 16:08:17,822 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Load Users",
+  "t0_epoch_ms": 1795079297822,
+  "sample_counts": {
+    "01 Login": 8,
+    "02 Search products": 8,
+    "03 Product detail": 7,
+    "04 Add to cart": 6,
+    "05 Checkout": 6
+  },
+  "samples": 35,
+  "errors": 0,
+  "unique_login_ids": 8,
+  "checkout_sqlite_matches": 6,
+  "matched_sqlite_on": [
+    "order_id",
+    "user_id"
+  ]
+}

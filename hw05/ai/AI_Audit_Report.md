@@ -24,7 +24,8 @@ I use AI tools for the following tasks,
 - Tạo dashboard, thu CPU/RAM, tính lại số liệu JTL và đối chiếu đơn trong SQLite (T04–T05).
 - Phân tích hai JTL ở chat riêng, rồi tính lại chỉ số và kiểm đề xuất tối ưu theo mã SUT (T06).
 - Đề xuất luồng continuous performance testing, tính biên độ p95 từ các lượt local và vẽ sơ đồ để in A4 (T07A).
-- Soạn và sửa tài liệu kiểm thử, báo cáo và hồ sơ AI theo review (T00–T07A).
+- Đóng gói Agent Skill, viết script chạy và đọc JTL, kiểm chứng workflow bằng smoke local và soạn kịch bản quay demo (T07B).
+- Soạn và sửa tài liệu kiểm thử, báo cáo và hồ sơ AI theo review (T00–T07B).
 
 Công cụ, ngày giờ, prompt và phản hồi được ghi trong [Prompt Log](PromptLog.md).
 
@@ -57,15 +58,19 @@ Mỗi dòng dành cho một sản phẩm thực tế trong bộ nộp, chẳng h
 | T07A · OpenAI Codex · [P-055](PromptLog.md#p-055) | [Đề xuất Continuous Performance Testing](../Continuous_Perf_Testing.md) | INCOMPLETE | Nội dung thiết kế và số liệu được Vỹ duyệt. Bản trình review đặt cả mã tái tính trong khối HTML `<details>`, cần chuyển ra ngoài để tài liệu dùng khi xuất PDF. [Duyệt và yêu cầu sửa](PromptLog.md#p-056) | Vỹ yêu cầu tách mã và bỏ khối thu gọn. Codex thay khối bằng lệnh chạy, dẫn script riêng và ghi rõ dữ liệu T04 cần lấy từ bản lưu ngoài Git. [P-056](PromptLog.md#p-056) |
 | T07A · OpenAI Codex · [P-055](PromptLog.md#p-055) | [Sơ đồ luồng PNG](../Continuous_Perf_Testing_Flow.png) | VALID | Sơ đồ xuất từ Mermaid, có đủ nhánh lọc path, smoke, đo lặp, đối chiếu baseline, lưu artifact và cập nhật sau merge. Codex đã kiểm tra nhãn và đường nối trên một trang A4. [Kết quả kiểm tra](PromptLog.md#p-055) | Vỹ duyệt Task 3. Giữ ảnh đã kiểm tra và dùng ảnh trong tài liệu đề xuất. [P-056](PromptLog.md#p-056) |
 | T07A · OpenAI Codex · [P-056](PromptLog.md#p-056) | [Script tái tính biên độ p95](../evidence/t07/recompute_noise.py) | VALID | Bản script riêng chạy từ root repo và tái tạo biên độ theo label của hai lượt Load, ba lượt Stress và năm cửa sổ Endurance. p95 toàn lượt theo label được đối chiếu với dashboard của từng lượt T04. [P-055](PromptLog.md#p-055) · [P-056](PromptLog.md#p-056) | Vỹ yêu cầu tách mã từ Markdown. Codex tạo file Python, giữ cách tính đã duyệt và chạy lại với dữ liệu gốc. [P-056](PromptLog.md#p-056) |
+| T07B · OpenAI Codex · [P-057](PromptLog.md#p-057) | Thư mục Agent Skill gồm [SKILL.md](../skills/eshop-perf-testing/SKILL.md), [tham chiếu SUT](../skills/eshop-perf-testing/references/eshop.md) và [quy ước phân tích](../skills/eshop-perf-testing/references/analysis.md) | VALID | Skill hợp lệ về định dạng, hướng dẫn từ dựng SUT sạch đến báo cáo, nêu các bẫy đã gặp và đã được dùng theo đường dẫn tường minh cho smoke local. [Kết quả kiểm chứng](PromptLog.md#p-058) | Vỹ duyệt bản trình review và yêu cầu ghi thời điểm hình thành skill cùng các giới hạn trong Report. Codex bổ sung phần này trong báo cáo. [P-059](PromptLog.md#p-059) |
+| T07B · OpenAI Codex · [P-057](PromptLog.md#p-057) | Bộ script gồm [chạy JMeter](../skills/eshop-perf-testing/scripts/run_profile.ps1), [phân tích JTL](../skills/eshop-perf-testing/scripts/analyze_jtl.py) và [so baseline](../skills/eshop-perf-testing/scripts/compare_baseline.py) | VALID | Wrapper đã chạy smoke. Analyzer khớp dashboard smoke và bốn dashboard T04/T05. Comparator báo WARN với đầu vào smoke thiếu lượt và lệch profile, đồng thời đạt kiểm tra PASS/WARN/FAIL với JSON tổng hợp. [Bằng chứng](../evidence/t07/skill-run/Run.md) · [P-058](PromptLog.md#p-058) | Vỹ duyệt bộ script trong phạm vi đã kiểm và yêu cầu đưa vào bộ nộp. [P-059](PromptLog.md#p-059) |
+| T07B · OpenAI Codex · [P-057](PromptLog.md#p-057) · [P-058](PromptLog.md#p-058) | Lượt smoke local gồm [lệnh và kết quả](../evidence/t07/skill-run/Run.md), [JTL gốc](../evidence/t07/skill-run/run.jtl), [thống kê dashboard](../evidence/t07/skill-run/statistics.json) và [đối chiếu SQLite](../evidence/t07/skill-run/verification.json) | VALID | Lượt 2 VU trong 30 giây qua đủ năm endpoint, có 35 sample và 0 lỗi. Sáu checkout khớp SQLite theo mã đơn và người dùng. [P-058](PromptLog.md#p-058) | Vỹ đồng ý giải phóng RAM trước lượt chạy và duyệt bộ kết quả smoke. Codex chạy, lưu bằng chứng và đối chiếu các chỉ số. [P-058](PromptLog.md#p-058) · [P-059](PromptLog.md#p-059) |
+| T07B · OpenAI Codex · [P-057](PromptLog.md#p-057) | [Kịch bản quay demo](../skills/eshop-perf-testing/DEMO.md) | VALID | Kịch bản gồm lời gọi agent, các lệnh dựng SUT, chạy smoke và đọc kết quả, cùng đoạn giải thích điều kiện so baseline. Verdict áp dụng cho kịch bản đã duyệt. [P-058](PromptLog.md#p-058) · [P-059](PromptLog.md#p-059) | Vỹ duyệt kịch bản và yêu cầu để trống link video trong README để tự điền sau khi quay. [P-059](PromptLog.md#p-059) |
 
 ## 4. Tổng kết đánh giá
 
 | Verdict | Số artifact | Tỷ lệ |
 | --- | ---: | ---: |
-| VALID | 9 | 39,13% |
-| INCOMPLETE | 14 | 60,87% |
+| VALID | 13 | 48,15% |
+| INCOMPLETE | 14 | 51,85% |
 | INVALID | 0 | 0% |
-| **Tổng** | **23** | **100%** |
+| **Tổng** | **27** | **100%** |
 
 ## 5. Xác nhận
 

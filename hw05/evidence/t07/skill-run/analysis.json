@@ -1,0 +1,223 @@
+{
+  "profile": "smoke-load-2vu-30s-ramp5",
+  "origin_ms": 1795079297822,
+  "origin_kind": "thread-group",
+  "scopes": {
+    "full": {
+      "window_s": null,
+      "total": {
+        "samples": 35,
+        "duration_s": 26.582,
+        "rps": 1.3166804604619666,
+        "p95_ms": 13.799999999999919,
+        "error_pct": 0.0,
+        "errors": 0,
+        "failed_codes": {},
+        "threads": [
+          1,
+          2
+        ]
+      },
+      "by_label": {
+        "01 Login": {
+          "samples": 8,
+          "duration_s": 24.623,
+          "rps": 0.32489948422206877,
+          "p95_ms": 29,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        },
+        "02 Search products": {
+          "samples": 8,
+          "duration_s": 23.937,
+          "rps": 0.3342106362534987,
+          "p95_ms": 3,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        },
+        "03 Product detail": {
+          "samples": 7,
+          "duration_s": 23.608,
+          "rps": 0.2965096577431379,
+          "p95_ms": 5,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            1,
+            2
+          ]
+        },
+        "04 Add to cart": {
+          "samples": 6,
+          "duration_s": 16.536,
+          "rps": 0.36284470246734396,
+          "p95_ms": 7,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        },
+        "05 Checkout": {
+          "samples": 6,
+          "duration_s": 16.738,
+          "rps": 0.3584657665192974,
+          "p95_ms": 10,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        }
+      }
+    },
+    "ramp": {
+      "window_s": [
+        0.0,
+        5.0
+      ],
+      "total": {
+        "samples": 3,
+        "duration_s": 5.0,
+        "rps": 0.6,
+        "p95_ms": 29,
+        "error_pct": 0.0,
+        "errors": 0,
+        "failed_codes": {},
+        "threads": [
+          2,
+          2
+        ]
+      },
+      "by_label": {
+        "01 Login": {
+          "samples": 2,
+          "duration_s": 5.0,
+          "rps": 0.4,
+          "p95_ms": 29,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        },
+        "02 Search products": {
+          "samples": 1,
+          "duration_s": 5.0,
+          "rps": 0.2,
+          "p95_ms": 3,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        }
+      }
+    },
+    "steady": {
+      "window_s": [
+        5.0,
+        30.0
+      ],
+      "total": {
+        "samples": 32,
+        "duration_s": 25.0,
+        "rps": 1.28,
+        "p95_ms": 10.0,
+        "error_pct": 0.0,
+        "errors": 0,
+        "failed_codes": {},
+        "threads": [
+          1,
+          2
+        ]
+      },
+      "by_label": {
+        "01 Login": {
+          "samples": 6,
+          "duration_s": 25.0,
+          "rps": 0.24,
+          "p95_ms": 5,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        },
+        "02 Search products": {
+          "samples": 7,
+          "duration_s": 25.0,
+          "rps": 0.28,
+          "p95_ms": 3,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        },
+        "03 Product detail": {
+          "samples": 7,
+          "duration_s": 25.0,
+          "rps": 0.28,
+          "p95_ms": 5,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            1,
+            2
+          ]
+        },
+        "04 Add to cart": {
+          "samples": 6,
+          "duration_s": 25.0,
+          "rps": 0.24,
+          "p95_ms": 7,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        },
+        "05 Checkout": {
+          "samples": 6,
+          "duration_s": 25.0,
+          "rps": 0.24,
+          "p95_ms": 10,
+          "error_pct": 0.0,
+          "errors": 0,
+          "failed_codes": {},
+          "threads": [
+            2,
+            2
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "profile": "load-6vu-150s-local-v1",
+  "source": "T04 Load submitted statistics.json, one measured run only. Used to demonstrate incompatible profiles.",
+  "scopes": {
+    "full": {
+      "window_s": null,
+      "p95_ms": {
+        "04 Add to cart": 2.0,
+        "03 Product detail": 3.0,
+        "02 Search products": 3.0,
+        "05 Checkout": 10.0,
+        "01 Login": 4.0
+      },
+      "rps": 3.6970821386405803
+    }
+  }
+}

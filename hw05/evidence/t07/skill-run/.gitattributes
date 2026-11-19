@@ -1,0 +1,3 @@
+run.jtl -text whitespace=cr-at-eol
+console.log -text whitespace=cr-at-eol
+jmeter.log -text whitespace=cr-at-eol

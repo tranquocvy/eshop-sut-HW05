@@ -3320,3 +3320,122 @@ Mình sẽ tách script tái tính, chạy lại từ root repo rồi dùng skil
 ```text
 Script đã chạy từ root repo và cho lại đúng các biên độ p95 đã duyệt. Mình đã thay khối `<details>` bằng lệnh chạy và ghi rõ ba lượt T04 cần lấy từ thư mục lưu ngoài Git.
 ```
+
+Phạm vi: T07B — Agent Skill và smoke kiểm chứng
+
+<a id="msg-210e07f2a44045b853f8"></a>
+
+## P-057
+
+- Timestamp: 16:01:56 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Sang T07, bước B: Agent Skill cho workflow performance testing và phân tích log. Làm xong thì dừng để mình review, chưa cập nhật AI files, chưa commit.\
+\
+Tạo thư mục hw05/skills/eshop-perf-testing/ theo định dạng Agent Skill:\
+\- SKILL.md có frontmatter (name, description ghi rõ khi nào skill được dùng) và hướng dẫn từng bước cho agent: chuẩn bị môi trường (JMeter 5.6.3, Temurin 17, backend sạch, tài khoản đủ theo công thức T02, reset DB/khóa tài khoản), chạy JMeter CLI non-GUI cho một profile (Load, Stress, Spike hoặc Endurance), phân tích .jtl (RPS, p95 theo label, % lỗi, cửa sổ theo pha), so sánh với baseline và rule p95 của T07A, báo cáo. Nêu rõ các bẫy đã gặp (Java 25 làm Groovy hỏng và 0 mẫu HTTP dù exit code 0, hết credentials, lockout, tải và SUT chung máy, ngưỡng RAM).\
+\- references/ chứa tài liệu tham khảo ngắn rút từ chính bài (workflow 5 request, SUT facts, tiêu chí ổn định và ngưỡng, tolerance p95) để agent không bịa. Không chép lại cả tài liệu dài, chỉ phần cần.\
+\- scripts/ chứa script chạy được, tổng quát hóa từ recompute_jtl.py và recompute_noise.py: analyze_jtl.py (đọc .jtl, in bảng p95/RPS/lỗi theo label và theo cửa sổ), compare_baseline.py (so với baseline JSON theo rule max(4 ms, 25%)), và script PowerShell chạy một profile (tham số: plan, thư mục kết quả). Dùng thư viện chuẩn, đường dẫn truyền bằng tham số, không hardcode máy mình.\
+\
+Yêu cầu kiểm chứng: chạy thử skill thật trên nhóm endpoint đầy đủ của bài (5 request), ví dụ smoke 2 VU 30 giây, dùng đúng các script trong skill; lưu kết quả vào hw05/evidence/t07/skill-run/. Ghi lệnh chạy thật và output. Không tuyên bố đã chạy trên CI.\
+\
+Cuối cùng, soạn kịch bản demo ngắn (hw05/skills/eshop-perf-testing/DEMO.md) cho video ≥ nội dung cần thiết: các bước mình sẽ làm khi quay (mở agent, yêu cầu agent dùng skill, cho thấy agent đọc SKILL.md, chạy script, đọc kết quả), mỗi bước kèm lệnh cụ thể. Báo mình bằng link file; nêu những gì đã chạy thật và những gì chưa kiểm.
+```
+
+<a id="msg-7e4a41a00f860bd491df"></a>
+
+### Output
+
+#### Phản hồi 1 — 16:02:01 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ dùng skill `skill-creator` để đóng gói hướng dẫn và script, sau đó chạy smoke qua đủ năm endpoint trên bản backend sạch. Mình sẽ lưu lệnh và kết quả thật để Vỹ có thể dùng lại khi quay demo.
+```
+
+<a id="msg-5f4f8213d76e436684b8"></a>
+
+## P-058
+
+- Timestamp: 16:05:11 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Giữ câu hỏi hiển thị và câu trả lời đã nhập. Đã ẩn ID nội bộ giao diện.
+
+```text
+Máy Windows hiện chỉ còn khoảng 350 MiB RAM khả dụng. Vỹ có thể đóng bớt ứng dụng không dùng để còn ít nhất 1.536 MiB trước khi mình chạy smoke JMeter không? Mình tiếp tục hoàn thiện skill trong lúc chờ.
+Mình sẽ giải phóng RAM
+```
+
+<a id="msg-62414e712c8f698c214f"></a>
+
+### Output
+
+#### Phản hồi 1 — 16:07:01 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+RAM khả dụng đã lên khoảng 5.676 MiB. Mình bắt đầu smoke 2 VU trong 30 giây với 16 tài khoản giả, trên bản sao backend `85af3ba` và SQLite mới.
+```
+
+<a id="msg-67e5c7f0d08f7ff77e7a"></a>
+
+#### Phản hồi 2 — 16:09:16 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Smoke đã kết thúc với 35 sample, đủ năm label và 0 lỗi. Cả 6 checkout đều khớp `order_id` và `user_id` trong SQLite. Mình sẽ đối chiếu bảng phân tích với dashboard và kiểm tra script báo đúng trạng thái khi chỉ có một lượt smoke.
+```
+
+<a id="msg-02e5aa80c7733740a278"></a>
+
+#### Phản hồi 3 — 16:11:56 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+T07B đã hoàn thành và đang chờ Vỹ review. Skill gồm hướng dẫn chạy profile, hai tài liệu tham khảo và ba script để phát tải, phân tích JTL và so p95 với baseline. [Agent Skill](../skills/eshop-perf-testing/SKILL.md) · [Kịch bản demo có lệnh từng bước](../skills/eshop-perf-testing/DEMO.md)
+
+**Đã chạy thật** smoke Load 2 VU trong 30 giây trên backend local và SQLite sạch, qua đủ năm endpoint. Kết quả có **35 sample, 1,32 req/s, p95 gộp 13,80 ms và 0 lỗi**. Cả **6 checkout** khớp SQLite theo `order_id` và `user_id`. Bảng phân tích khớp dashboard theo từng label. [Lệnh chạy và kết quả](../evidence/t07/skill-run/Run.md) · [JTL gốc](../evidence/t07/skill-run/run.jtl)
+
+Comparator trả **WARN** vì chỉ có một lượt smoke và profile khác Load T04. Ba nhánh PASS, WARN và FAIL đã được kiểm riêng bằng dữ liệu tổng hợp. Analyzer cũng tái tính khớp bốn dashboard T04/T05 từ JTL lưu sẵn. Stress, Spike và Endurance chưa phát tải qua wrapper mới. Baseline năm lượt, CI runner và khả năng tự nhận diện skill ở chat mới chưa được kiểm. Video chưa quay.
+
+Mình dừng tại đây, chưa cập nhật hồ sơ AI và chưa commit.
+```
+
+<a id="msg-489c5a671cb0f5b48a1d"></a>
+
+## P-059
+
+- Timestamp: 16:16:23 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+T07B mình duyệt. Làm bước chốt:\
+1\. Cập nhật AI files: PromptLog (các lượt T07B), AI_Audit_Report (hàng T07B: skill folder, script, lượt chạy thật, DEMO.md; Verdict, Lý do, Bản sinh viên sửa dẫn PromptLog; cập nhật mục 4), README (đường dẫn skill; link video để trống chờ mình điền), Report (mục Agent Skill: nêu rõ skill được rút ra sau khi chạy xong, chưa dùng để tạo kết quả T04/T05, và các giới hạn chưa kiểm).\
+2\. Commit skill + evidence/t07/skill-run + AI files, push, cập nhật GitCommitLog.txt theo quy ước và báo hash.
+```
+
+<a id="msg-1aa693e103ff7ded995d"></a>
+
+### Output
+
+#### Phản hồi 1 — 16:16:29 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ dùng skill `course-ai-log` để trích các lượt T07B từ lịch sử chat, cập nhật Audit và ghi rõ trong Report rằng Agent Skill được xây sau các lượt đo T04/T05. Sau khi kiểm các liên kết và bằng chứng, mình sẽ commit và push.
+```

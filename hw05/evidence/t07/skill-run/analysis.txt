@@ -1,0 +1,28 @@
+Profile: smoke-load-2vu-30s-ramp5 | Origin: 1795079297822 ms (thread-group)
+
+full
+Label                          Samples       RPS     p95 ms     Error %    Errors
+ALL                                 35      1.32      13.80        0.00         0
+01 Login                             8      0.32      29.00        0.00         0
+02 Search products                   8      0.33       3.00        0.00         0
+03 Product detail                    7      0.30       5.00        0.00         0
+04 Add to cart                       6      0.36       7.00        0.00         0
+05 Checkout                          6      0.36      10.00        0.00         0
+Observed VU (allThreads): [1, 2]
+
+ramp [s]: (0.0, 5.0)
+Label                          Samples       RPS     p95 ms     Error %    Errors
+ALL                                  3      0.60      29.00        0.00         0
+01 Login                             2      0.40      29.00        0.00         0
+02 Search products                   1      0.20       3.00        0.00         0
+Observed VU (allThreads): [2, 2]
+
+steady [s]: (5.0, 30.0)
+Label                          Samples       RPS     p95 ms     Error %    Errors
+ALL                                 32      1.28      10.00        0.00         0
+01 Login                             6      0.24       5.00        0.00         0
+02 Search products                   7      0.28       3.00        0.00         0
+03 Product detail                    7      0.28       5.00        0.00         0
+04 Add to cart                       6      0.24       7.00        0.00         0
+05 Checkout                          6      0.24      10.00        0.00         0
+Observed VU (allThreads): [1, 2]

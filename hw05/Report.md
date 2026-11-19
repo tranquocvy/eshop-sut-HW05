@@ -82,6 +82,14 @@ Task 3 đề xuất lọc thay đổi từ commit hoặc PR theo đường dẫn
 
 Cờ regression lấy trung vị của ba p95 theo từng label. Dung sai đề xuất là giá trị lớn hơn giữa **4 ms và 25% p95 baseline**. Biên độ quan sát lớn nhất là **3,55 ms** giữa hai lượt Load, **1 ms** giữa ba lượt Stress toàn lượt, **3 ms** riêng bậc Stress 144 VU và **1 ms** giữa các cửa sổ Endurance. Baseline sẽ được đo trên runner mục tiêu và chỉ cập nhật sau khi xác nhận kết quả trên commit đã merge. Đề xuất chưa được kiểm chứng trên CI runner. [Thiết kế](Continuous_Perf_Testing.md) · [Sơ đồ A4](Continuous_Perf_Testing_Flow.png) · [Script tái tính biên độ p95](evidence/t07/recompute_noise.py)
 
+## 5. Agent Skill
+
+Agent Skill được rút ra sau khi hoàn tất các lượt đo chính, từ quy trình dựng backend sạch, provision tài khoản, chạy JMeter và đối chiếu JTL của T02–T06, cùng quy tắc regression ở T07A. T04 và T05 đã tạo kết quả bằng quy trình thực thi riêng trước khi skill này ra đời. Skill đóng gói hướng dẫn, tài liệu tham khảo và ba script để lặp lại các bước đó. [Agent Skill](skills/eshop-perf-testing/SKILL.md)
+
+T07B dùng đường dẫn skill tường minh để chạy smoke local **2 VU trong 30 giây** qua login, search, detail, cart và checkout. Lượt chạy ghi **35 sample, 1,32 req/s, p95 gộp 13,80 ms và 0 lỗi**, với **6 checkout** khớp SQLite theo mã đơn và người dùng. Analyzer tái tính khớp dashboard của smoke và bốn lượt đã lưu ở T04/T05. Comparator trả WARN khi đầu vào là một lượt smoke khác profile Load T04. Các nhánh PASS, WARN và FAIL cũng được kiểm bằng JSON tổng hợp. [Lệnh chạy và đối chiếu](evidence/t07/skill-run/Run.md)
+
+Phần phát tải qua wrapper mới giới hạn ở smoke Load. Stress, Spike và Endurance được kiểm ở bước đọc JTL lưu sẵn. Baseline năm lượt trên runner mục tiêu, chạy CI và tự nhận diện skill ở chat mới chưa được kiểm. Kịch bản quay đã chuẩn bị, video chờ sinh viên thực hiện. [Kịch bản quay](skills/eshop-perf-testing/DEMO.md)
+
 ## Phụ lục AI
 
 Các lượt trao đổi với OpenAI Codex được ghi trong [Prompt Log](ai/PromptLog.md). [AI Audit Report](ai/AI_Audit_Report.md) dùng để đánh giá các sản phẩm trong bộ nộp. Vỹ tự viết phần nhận xét trong [AI Critique](ai/AI_Critique.md).

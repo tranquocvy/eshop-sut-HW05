@@ -27,7 +27,7 @@ Load, Stress, Spike và Endurance dùng chung workflow JMeter trên REST API. Lo
 
 ## Tóm tắt kiểm thử
 
-| Mục | Trạng thái sau T07A |
+| Mục | Trạng thái sau T07B |
 | --- | --- |
 | Kịch bản thực thi | Load 6 VU, 548 request, 3,70 RPS. Stress 24 → 48 → 96 → 144 VU, 20.203 request, 170,12 RPS. Spike 6 → 144 → 6 VU, 7.755 request, 52,06 RPS. Endurance 32 VU trong pha giữ tải 15 phút. Các lượt đo chính đều có 0 lỗi. [Chi tiết T04](T04_Execution.md) · [Chi tiết T05](T05_Endurance.md) |
 | Nhóm endpoint được kiểm thử | Các lượt đo phủ auth-heavy, read-heavy và transactional qua đăng nhập, tìm kiếm, xem chi tiết, thêm giỏ và checkout. |
@@ -36,7 +36,8 @@ Load, Stress, Spike và Endurance dùng chung workflow JMeter trên REST API. Lo
 | Bug và performance issue | T01 ghi nhận sai lệch FR-02. T04 dùng credentials hợp lệ và không kiểm lại FR-02. Các lượt đo chính T04 và T05 không phát sinh lỗi để soạn nháp Issue mới. |
 | Phản biện phân tích AI | Số liệu khớp JTL theo quy ước đã công bố. T06 làm rõ bốn điểm khi diễn giải và đánh giá bốn đề xuất tối ưu, gồm 1 hallucinated và 3 feasible. [Đối chiếu T06](AI_Log_Analysis.md) |
 | Continuous Performance Testing | Đề xuất lọc path, chạy smoke và đo lặp Load trên PR, dành Stress và Endurance cho lịch đêm. Cờ regression so p95 từng label với dung sai `max(4 ms, 25% baseline)`, hiệu chỉnh từ số liệu local. Thiết kế chưa chạy trên CI. [Đề xuất T07A](Continuous_Perf_Testing.md) |
-| Video demo | Chưa có video HW05. |
+| Agent Skill | Quy trình chạy profile và phân tích JTL đã được kiểm bằng smoke local qua năm endpoint, có 35 sample và 0 lỗi. [Skill](skills/eshop-perf-testing/SKILL.md) · [Bằng chứng](evidence/t07/skill-run/Run.md) |
+| Link video demo | |
 
 ## Tài liệu và dữ liệu
 
@@ -52,4 +53,4 @@ Load, Stress, Spike và Endurance dùng chung workflow JMeter trên REST API. Lo
 - [Khai báo sử dụng AI](ai/AI_Disclosure.md) và [Bảng kiểm quyền riêng tư](ai/AI_Privacy_Checklist.md).
 - `plans/` lưu test plan và `data/` lưu CSV dùng để tham số hóa request.
 - `results/` lưu kết quả chạy và `evidence/` lưu bằng chứng tài nguyên, phần cứng và issue.
-- `skills/` lưu Agent Skill và tài liệu đi kèm.
+- [Agent Skill EShop](skills/eshop-perf-testing/SKILL.md) · [Kịch bản quay demo](skills/eshop-perf-testing/DEMO.md) · [Lệnh và kết quả smoke](evidence/t07/skill-run/Run.md).
