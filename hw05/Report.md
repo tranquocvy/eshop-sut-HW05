@@ -76,7 +76,11 @@ Phản biện làm rõ bốn điểm khi diễn giải:
 
 ## 4. Kết luận và Continuous Performance Testing
 
-Đề xuất ở Task 3 cần mô tả trigger từ commit SUT, điều kiện chạy performance test và cách phát hiện regression p95. Flowchart phải thể hiện các nhánh quyết định. Phần thảo luận xem xét chi phí chạy và cảnh báo giả.
+Kết quả local mô tả từng profile đã chạy. Stress chưa xác lập điểm bão hòa ở trần 144 VU. Endurance duy trì 21,26 req/s ở 32 VU trong 15 phút. Các mức này phụ thuộc cấu hình tải và tài nguyên của máy dùng chung.
+
+Task 3 đề xuất lọc thay đổi từ commit hoặc PR theo đường dẫn. Thay đổi backend, schema, seed, dependency server, plan/CSV và cấu hình đo kích hoạt smoke và phép đo phù hợp. PR chạy smoke rồi lặp Load ba lần, còn Stress và Endurance dành cho lịch đêm. Mỗi lượt khởi động SUT với SQLite sạch và tài khoản giả được đăng ký lại.
+
+Cờ regression lấy trung vị của ba p95 theo từng label. Dung sai đề xuất là giá trị lớn hơn giữa **4 ms và 25% p95 baseline**. Biên độ quan sát lớn nhất là **3,55 ms** giữa hai lượt Load, **1 ms** giữa ba lượt Stress toàn lượt, **3 ms** riêng bậc Stress 144 VU và **1 ms** giữa các cửa sổ Endurance. Baseline sẽ được đo trên runner mục tiêu và chỉ cập nhật sau khi xác nhận kết quả trên commit đã merge. Đề xuất chưa được kiểm chứng trên CI runner. [Thiết kế](Continuous_Perf_Testing.md) · [Sơ đồ A4](Continuous_Perf_Testing_Flow.png) · [Script tái tính biên độ p95](evidence/t07/recompute_noise.py)
 
 ## Phụ lục AI
 

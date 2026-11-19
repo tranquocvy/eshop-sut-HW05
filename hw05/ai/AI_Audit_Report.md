@@ -23,7 +23,8 @@ I use AI tools for the following tasks,
 - Chạy pilot, thăm dò và các lượt đo chính bằng JMeter CLI (T02–T05).
 - Tạo dashboard, thu CPU/RAM, tính lại số liệu JTL và đối chiếu đơn trong SQLite (T04–T05).
 - Phân tích hai JTL ở chat riêng, rồi tính lại chỉ số và kiểm đề xuất tối ưu theo mã SUT (T06).
-- Soạn và sửa tài liệu kiểm thử, báo cáo và hồ sơ AI theo review (T00–T06).
+- Đề xuất luồng continuous performance testing, tính biên độ p95 từ các lượt local và vẽ sơ đồ để in A4 (T07A).
+- Soạn và sửa tài liệu kiểm thử, báo cáo và hồ sơ AI theo review (T00–T07A).
 
 Công cụ, ngày giờ, prompt và phản hồi được ghi trong [Prompt Log](PromptLog.md).
 
@@ -53,15 +54,18 @@ Mỗi dòng dành cho một sản phẩm thực tế trong bộ nộp, chẳng h
 | T06 · OpenAI Codex (chat riêng) · [P-049](PromptLog.md#p-049) | [Output phân tích JTL nguyên văn](T06_External_AI_Raw.txt) | INCOMPLETE | Các số liệu khớp JTL theo quy ước đã công bố. Kết luận hồi phục và ngưỡng tải cần giới hạn theo phép đo. Đề xuất rút ngắn transaction Checkout giả định có khối transaction riêng trong ứng dụng. [P-049](PromptLog.md#p-049) · [P-053](PromptLog.md#p-053) | Vỹ gửi output để lưu nguyên văn và yêu cầu đối chiếu bốn điểm diễn giải. Codex ghi phần phản biện và phân loại đề xuất trong báo cáo T06. [P-050](PromptLog.md#p-050) · [P-053](PromptLog.md#p-053) · [P-054](PromptLog.md#p-054) |
 | T06 · OpenAI Codex · [P-050](PromptLog.md#p-050) · [P-052](PromptLog.md#p-052) | [Báo cáo đối chiếu T06](../AI_Log_Analysis.md) | INCOMPLETE | Bản đầu kết luận số liệu khớp nhưng bảng misinterpretation chưa nêu các giới hạn diễn giải. Phạm vi thực tế của chat riêng chưa được đối chiếu với lịch sử công cụ. [P-053](PromptLog.md#p-053) | Vỹ chỉ ra bốn điểm cần làm rõ. Codex bổ sung bảng, tái tính RAM ở 144 VU từ CSV và xác minh các file chat riêng đã đọc. Vỹ duyệt bản sửa. [P-053](PromptLog.md#p-053) · [P-054](PromptLog.md#p-054) |
 | T06 · OpenAI Codex · [P-048](PromptLog.md#p-048) · [P-050](PromptLog.md#p-050) | [Script tái tính JTL](../evidence/t06/recompute_jtl.py) | VALID | Script chạy lại được trên hai JTL gốc và kết quả khớp các phép đếm, RPS, p95 và cửa sổ đối chiếu đã kiểm. Vỹ duyệt T06 và đưa script vào bộ nộp. [P-052](PromptLog.md#p-052) · [P-054](PromptLog.md#p-054) | Vỹ giữ script tái tính. Codex bổ sung lệnh tính RAM từ CSV trong báo cáo theo yêu cầu review. [P-053](PromptLog.md#p-053) · [P-054](PromptLog.md#p-054) |
+| T07A · OpenAI Codex · [P-055](PromptLog.md#p-055) | [Đề xuất Continuous Performance Testing](../Continuous_Perf_Testing.md) | INCOMPLETE | Nội dung thiết kế và số liệu được Vỹ duyệt. Bản trình review đặt cả mã tái tính trong khối HTML `<details>`, cần chuyển ra ngoài để tài liệu dùng khi xuất PDF. [Duyệt và yêu cầu sửa](PromptLog.md#p-056) | Vỹ yêu cầu tách mã và bỏ khối thu gọn. Codex thay khối bằng lệnh chạy, dẫn script riêng và ghi rõ dữ liệu T04 cần lấy từ bản lưu ngoài Git. [P-056](PromptLog.md#p-056) |
+| T07A · OpenAI Codex · [P-055](PromptLog.md#p-055) | [Sơ đồ luồng PNG](../Continuous_Perf_Testing_Flow.png) | VALID | Sơ đồ xuất từ Mermaid, có đủ nhánh lọc path, smoke, đo lặp, đối chiếu baseline, lưu artifact và cập nhật sau merge. Codex đã kiểm tra nhãn và đường nối trên một trang A4. [Kết quả kiểm tra](PromptLog.md#p-055) | Vỹ duyệt Task 3. Giữ ảnh đã kiểm tra và dùng ảnh trong tài liệu đề xuất. [P-056](PromptLog.md#p-056) |
+| T07A · OpenAI Codex · [P-056](PromptLog.md#p-056) | [Script tái tính biên độ p95](../evidence/t07/recompute_noise.py) | VALID | Bản script riêng chạy từ root repo và tái tạo biên độ theo label của hai lượt Load, ba lượt Stress và năm cửa sổ Endurance. p95 toàn lượt theo label được đối chiếu với dashboard của từng lượt T04. [P-055](PromptLog.md#p-055) · [P-056](PromptLog.md#p-056) | Vỹ yêu cầu tách mã từ Markdown. Codex tạo file Python, giữ cách tính đã duyệt và chạy lại với dữ liệu gốc. [P-056](PromptLog.md#p-056) |
 
 ## 4. Tổng kết đánh giá
 
 | Verdict | Số artifact | Tỷ lệ |
 | --- | ---: | ---: |
-| VALID | 7 | 35% |
-| INCOMPLETE | 13 | 65% |
+| VALID | 9 | 39,13% |
+| INCOMPLETE | 14 | 60,87% |
 | INVALID | 0 | 0% |
-| **Tổng** | **20** | **100%** |
+| **Tổng** | **23** | **100%** |
 
 ## 5. Xác nhận
 

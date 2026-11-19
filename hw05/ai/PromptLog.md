@@ -3208,3 +3208,115 @@ Mình sẽ dùng skill `course-ai-log` để ghi các lượt T06 và lượt ph
 ```text
 Prompt Log đã có lượt phân tích gốc và lượt xác nhận metadata của chat riêng. Audit có ba hàng T06. Report đã ghi bốn điểm cần lưu ý khi diễn giải, trong đó chênh lệch RPS theo label được ghi là khác quy ước hợp lệ.
 ```
+
+Phạm vi: T07A — Đề xuất Continuous Performance Testing
+
+<a id="msg-294bab0985b1c45955ab"></a>
+
+## P-055
+
+- Timestamp: 15:49:16 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Sang T07, bước A: Task 3 – đề xuất continuous performance testing. Chỉ làm đề xuất, không triển khai CI thật. Làm xong thì dừng để mình review, chưa cập nhật AI files, chưa commit.\
+\
+Viết hw05/Continuous_Perf_Testing.md (cũng tóm tắt trong Report.md phần kết luận) gồm:\
+\
+1\. Mô hình theo dõi commit và quyết định có chạy perf test hay không. Căn cứ vào cấu trúc repo thật (backend/server.js, database.js, frontend...): liệt kê rõ đường dẫn nào thay đổi thì chạy perf test (ví dụ backend/\*\*, package.json, schema, plan/data CSV), đường dẫn nào bỏ qua (docs, README, test không liên quan). Nêu rõ trường hợp biên (đổi dependency, đổi cấu hình).\
+\
+2\. Cờ p95 regression: baseline lấy từ đâu và lưu ở đâu, so sánh p95 theo từng label (không chỉ p95 gộp), số lần lặp, so median hay trung bình, ngưỡng tolerance. Hiệu chỉnh ngưỡng bằng số liệu thật của mình: dùng độ lệch giữa các lượt Stress (3 lượt ở T04), các lượt Load, và các cửa sổ Endurance T05 để cho thấy mức nhiễu thật là bao nhiêu ms hoặc %, rồi đặt ngưỡng cao hơn nhiễu đó. Ghi rõ đây là ngưỡng đề xuất từ số liệu trên máy local, chưa kiểm trên CI runner.\
+\
+3\. Flow chart: viết bằng Mermaid trong .md, đồng thời xuất ảnh (PNG hoặc SVG) lưu trong hw05/ để chèn vào PDF; kiểm tra ảnh đọc được khi in A4. Chart gồm: commit/PR → lọc theo path → dựng SUT và dữ liệu sạch → chạy tải ngắn (smoke) → chạy lặp N lần → so sánh p95 từng label với baseline → quyết định pass/cảnh báo/fail → lưu artifact (.jtl, dashboard) → cập nhật baseline khi merge.\
+\
+4\. Bàn đánh đổi: chi phí và thời gian CI, runner chia sẻ gây báo động giả, JMeter và SUT chung máy, dữ liệu và lockout cần reset mỗi lượt (liên hệ kinh nghiệm T02–T05), và cách giảm (lặp nhiều lần, so median, cửa sổ tolerance, chạy theo lịch ban đêm cho test nặng, smoke trên PR còn Stress/Endurance chạy nightly). Nêu mặt hạn chế của chính đề xuất.\
+\
+5\. Có thể kèm một đoạn workflow YAML minh họa, nhưng ghi rõ là minh họa chưa chạy. Không tuyên bố đã chạy trên CI.\
+\
+Báo lại cho mình bằng link tới file; nêu những con số bạn tính (độ lệch giữa các lượt) và cách tính.
+```
+
+<a id="msg-01effcc39c16096455a0"></a>
+
+### Output
+
+#### Phản hồi 1 — 15:49:25 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ đọc cấu trúc repo và tính lại độ dao động p95 từ các lượt Load, Stress và Endurance trước khi đặt ngưỡng. Mình dùng skill `test-execution-reporting` để đối chiếu số liệu với bằng chứng đã lưu.
+```
+
+<a id="msg-78a30a7dbe7f549c2ca1"></a>
+
+#### Phản hồi 2 — 15:51:03 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Hai lượt Load lệch nhau 3,55 ms ở Checkout dù p95 gộp đều là 9 ms. Ba lượt Stress lệch tối đa 1 ms theo label trên toàn lượt và 3 ms ở bậc 144 VU. Mình sẽ dùng các mức dao động này để đặt dung sai, rồi dùng skill `pdf` để kiểm tra sơ đồ ở kích thước in A4.
+```
+
+<a id="msg-715f4e30d645c22e098d"></a>
+
+#### Phản hồi 3 — 15:55:28 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+> Nội dung đã được xử lý; không phải nguyên văn đầy đủ. Đã rút gọn đường dẫn tuyệt đối trên máy.
+
+```text
+Mình đã hoàn thành **T07 bước A**. Đề xuất nêu rõ thay đổi nào kích hoạt phép đo, cách tạo baseline trên runner và khi nào báo pass, cảnh báo hoặc fail. PR phù hợp chạy smoke rồi lặp Load ba lần. Stress và Endurance chạy theo lịch đêm. [Đề xuất và lệnh tái tính](../Continuous_Perf_Testing.md) · [Kết luận trong Report](../Report.md#4-kết-luận-và-continuous-performance-testing)
+
+| Dữ liệu đối chiếu | Biên độ p95 lớn nhất theo label |
+| --- | --- |
+| Hai lượt Load T04 | **3,55 ms** ở Checkout, từ 10 lên 13,55 ms, tương đương **30,15%** so với trung vị |
+| Ba lượt Stress T04, toàn lượt | **1 ms**. Search có biên độ tương đối cao nhất là **12,50%** |
+| Ba lượt Stress T04, riêng bậc 144 VU | **3 ms** ở Search và Product detail, tương ứng **27,27%** và **26,55%** |
+| Năm cửa sổ 3 phút của Endurance T05 | **1 ms**. Add to cart lệch 1 ms trên trung vị 1 ms, tương đương **100%** |
+
+Mình tính p95 riêng từng label từ cột `elapsed` trong JTL, lấy `max − min` giữa các lượt hoặc cửa sổ, rồi chia cho trung vị để ra tỷ lệ. Đề xuất báo **fail regression** khi trung vị của ba lượt vượt baseline cùng label quá `max(4 ms, 25% baseline)`. Sàn 4 ms cao hơn biên độ local lớn nhất 3,55 ms. Dung sai này chưa được kiểm chứng trên CI runner.
+
+Sơ đồ Mermaid đã xuất PNG và kiểm tra đọc rõ trên một trang PDF A4 dọc. Mình dừng chờ review. Thay đổi hiện nằm trong đề xuất, phần kết luận và ảnh sơ đồ. [PNG để chèn PDF](../Continuous_Perf_Testing_Flow.png)
+```
+
+<a id="msg-ad7d371c263bc51ef6ac"></a>
+
+## P-056
+
+- Timestamp: 15:56:17 19/11/2026 (UTC+07:00)
+- Công cụ: OpenAI Codex
+
+### Prompt
+
+```text
+Task 3 mình duyệt. Làm tiếp:\
+1\. Chuyển script tái tính nhiễu p95 ra hw05/evidence/t07/recompute_noise.py (chạy được từ root repo), trong Continuous_Perf_Testing.md chỉ giữ lệnh chạy và ghi rõ phần dữ liệu cần ../.runtime/T04. Bỏ khối \<details> để xuất PDF không bị lỗi.\
+2\. Cập nhật AI files: PromptLog, AI_Audit_Report (hàng T07A: tài liệu đề xuất, sơ đồ PNG, script; Verdict, Lý do, Bản sinh viên sửa dẫn PromptLog; cập nhật mục 4), README, Report.\
+3\. Commit và push T07A, cập nhật GitCommitLog.txt theo quy ước, báo hash. Sau đó dừng để mình giao bước B (Agent Skill).
+```
+
+<a id="msg-0dc7e920ce0425fa4890"></a>
+
+### Output
+
+#### Phản hồi 1 — 15:56:21 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Mình sẽ tách script tái tính, chạy lại từ root repo rồi dùng skill `course-ai-log` để ghi đúng các lượt T07A và cập nhật Audit trước khi commit, push.
+```
+
+<a id="msg-16b95af1dbbf7a2c4f72"></a>
+
+#### Phản hồi 2 — 15:57:28 19/11/2026 (UTC+07:00)
+
+- Công cụ: OpenAI Codex
+
+```text
+Script đã chạy từ root repo và cho lại đúng các biên độ p95 đã duyệt. Mình đã thay khối `<details>` bằng lệnh chạy và ghi rõ ba lượt T04 cần lấy từ thư mục lưu ngoài Git.
+```
